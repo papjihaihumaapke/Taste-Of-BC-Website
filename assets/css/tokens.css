@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Taste of BC — Design tokens
+   Corporate base (white / warm neutrals / ink) with Red as the accent.
+   Change brand values here; every page reads from these variables.
+   ========================================================================== */
+:root {
+  /* Brand */
+  --red: #BC0214;          /* Accent: buttons, links, highlights. 6.7:1 on white */
+  --red-deep: #A70510;     /* Hover / pressed */
+  --red-ink: #7A0410;      /* Red text on tinted backgrounds */
+  --red-tint: #FBEEEF;     /* Soft accent backgrounds */
+  --red-tint-2: #F6D5D9;
+
+  /* Neutrals */
+  --ink: #1A1A1A;          /* Primary text, dark sections */
+  --ink-2: #3D3A38;        /* Secondary text. 11.3:1 on white */
+  --ink-3: #6B6661;        /* Muted text. 5.7:1 on white (AA) */
+  --line: #E7E1DA;         /* Hairlines, borders */
+  --line-2: #D6CEC5;
+  --cream: #FFFFFF;        /* Page background (white, corporate) */
+  --sand: #FBEEEF;         /* Tinted section / card background */
+  --white: #FFFFFF;
+
+  /* Feedback */
+  --success: #1E7A46;
+  --success-tint: #E6F4EC;
+  --warning: #8A5A00;
+  --warning-tint: #FFF4D6;
+  --error: #BC0214;
+  --error-tint: #FBEAEC;
+
+  /* Type */
+  --font-display: "Merriweather", Georgia, "Times New Roman", serif;   /* Light serif headlines */
+  --font-brand: "Archivo Black", "Arial Black", system-ui, sans-serif; /* Brand moments only: coupons, numbers */
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --fs-display: clamp(2.75rem, 1.6rem + 4.6vw, 5.5rem);  /* 44 → 88 */
+  --fs-h1: clamp(2.25rem, 1.5rem + 3vw, 4rem);           /* 36 → 64 */
+  --fs-h2: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);      /* 28 → 44 */
+  --fs-h3: clamp(1.25rem, 1.1rem + .6vw, 1.5rem);        /* 20 → 24 */
+  --fs-h4: 1.125rem;                                     /* 18 */
+  --fs-lead: clamp(1.0625rem, 1rem + .3vw, 1.25rem);     /* 17 → 20 */
+  --fs-body: 1rem;                                       /* 16 */
+  --fs-sm: .875rem;                                      /* 14 */
+  --fs-xs: .75rem;                                       /* 12 */
+
+  /* Spacing — 8px grid */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 40px; --s-8: 48px; --s-9: 64px; --s-10: 80px;
+  --s-11: 96px; --s-12: 128px;
+  --section: clamp(64px, 5vw + 40px, 128px);
+
+  /* Shape */
+  --r-sm: 2px;
+  --r-md: 2px;
+  --r-lg: 0px;    /* Cards are square */
+  --r-xl: 0px;
+  --r-pill: 2px;   /* Buttons are rectangular */
+
+  /* Elevation */
+  --sh-1: none;
+  --sh-2: 0 6px 18px -6px rgba(26,26,26,.14), 0 2px 4px rgba(26,26,26,.05);
+  --sh-3: 0 24px 48px -16px rgba(26,26,26,.22);
+  --sh-red: 0 10px 24px -10px rgba(188,2,20,.55);
+
+  /* Layout */
+  --container: 1240px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --header-h: 64px;
+
+  /* Motion */
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --t-fast: 140ms;
+  --t: 240ms;
+}

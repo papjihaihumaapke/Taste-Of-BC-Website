@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank you — Order confirmed | Taste of BC</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#BC0214">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="thanks">
+<div id="site-header"></div>
+<main id="main">
+  <section class="page-hero">
+    <span class="waves-bg" data-wavesbg></span>
+    <div class="container">
+      <span class="eyebrow">Order confirmed</span>
+      <h1>Thank you — see you in December!</h1>
+      <p class="lead">A receipt and your pickup QR code are on the way to your inbox.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split" style="align-items:start">
+      <div class="card" style="padding:clamp(24px,3vw,40px)">
+        <div class="row" style="justify-content:space-between"><h3 class="mb-0">Order summary</h3><span class="badge success" data-icon="check">Paid</span></div>
+        <p class="small muted mt-4" id="meta"></p>
+        <table class="order-table mt-4"><thead><tr><th>Item</th><th>Qty</th><th>Amount</th></tr></thead><tbody id="rows"></tbody><tfoot><tr><td>Total</td><td></td><td id="tot"></td></tr></tfoot></table>
+      </div>
+      <div>
+        <span class="eyebrow">What’s next</span>
+        <h2>Picking up your order</h2>
+        <ul class="kbd-list mt-6">
+          <li data-icon="mail"><div><strong>Check your email</strong><span>Your receipt includes a QR code for pickup.</span></div></li>
+          <li data-icon="arch"><div><strong>Coupon sheets</strong><span>Show your QR at any Coupon Booth — North, East or West Gate.</span></div></li>
+          <li data-icon="store"><div><strong>Merch</strong><span>Collect from the Info Booth by the North Gate.</span></div></li>
+        </ul>
+        <div class="row mt-6"><a class="btn" href="restaurants.html">Plan what to eat</a><a class="btn btn-secondary" href="map.html">View the map</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+document.addEventListener("tobc:ready", () => {
+  const { money } = TOBC.ui;
+  let o = null; try { o = JSON.parse(sessionStorage.getItem("tobc-last-order")); } catch (e) {}
+  if (!o) o = { no: "TOBC-SAMPLE", date: new Date().toISOString(), items: [{ name: "Coupon sheet (20 × $1)", qty: 2, price: 20 }, { name: "Logo tee — Red", opt: "Size M", qty: 1, price: 30 }], total: 70 };
+  document.getElementById("meta").textContent = `Order ${o.no} · ${new Date(o.date).toLocaleDateString("en-CA", { dateStyle: "long" })}`;
+  document.getElementById("rows").innerHTML = o.items.map(i => `<tr><td>${i.name}${i.opt ? `<br><span class="small muted">${i.opt}</span>` : ""}</td><td>${i.qty}</td><td>${money(i.qty * i.price)}</td></tr>`).join("");
+  document.getElementById("tot").textContent = money(o.total);
+});
+</script>
+</body>
+</html>

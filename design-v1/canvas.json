@@ -1,0 +1,96 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-03T18:45:00Z"},
+  "title": "Taste of BC Website",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Components.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 6600, "title": "Components & Styles", "expand": "fill", "is_interactive": true},
+    "Header.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 84, "title": "Header component", "is_interactive": true},
+    "Footer.dc.html": {"x": 1520, "y": 204, "w": 1440, "h": 720, "title": "Footer component", "is_interactive": true},
+    "Wave.dc.html": {"x": 1520, "y": 1044, "w": 1440, "h": 24, "title": "Wave divider"},
+    "Icon.dc.html": {"x": 1520, "y": 1188, "w": 48, "h": 48, "title": "Icon"},
+
+    "Main.dc.html": {"x": 3200, "y": 0, "w": 1440, "h": 5900, "title": "Home — Desktop", "expand": "fill", "is_interactive": true},
+    "Main-Mobile.dc.html": {"x": 4720, "y": 0, "w": 390, "h": 9000, "title": "Home — Mobile", "is_interactive": true},
+
+    "Festival.dc.html": {"x": 5350, "y": 0, "w": 1440, "h": 3700, "title": "Festival Info — Desktop", "expand": "fill", "is_interactive": true},
+    "Festival-Mobile.dc.html": {"x": 6870, "y": 0, "w": 390, "h": 5800, "title": "Festival Info — Mobile", "is_interactive": true},
+
+    "Vendors.dc.html": {"x": 7500, "y": 0, "w": 1440, "h": 3100, "title": "Vendors — Desktop", "expand": "fill", "is_interactive": true},
+    "Vendors-Mobile.dc.html": {"x": 9020, "y": 0, "w": 390, "h": 6400, "title": "Vendors — Mobile", "is_interactive": true},
+
+    "Tickets.dc.html": {"x": 9650, "y": 0, "w": 1440, "h": 3700, "title": "Tickets — Desktop", "expand": "fill", "is_interactive": true},
+    "Tickets-Mobile.dc.html": {"x": 11170, "y": 0, "w": 390, "h": 7400, "title": "Tickets — Mobile", "is_interactive": true},
+
+    "Membership.dc.html": {"x": 11800, "y": 0, "w": 1440, "h": 3200, "title": "Membership — Desktop", "expand": "fill", "is_interactive": true},
+    "Membership-Mobile.dc.html": {"x": 13320, "y": 0, "w": 390, "h": 5800, "title": "Membership — Mobile", "is_interactive": true},
+
+    "Shop.dc.html": {"x": 13950, "y": 0, "w": 1440, "h": 3000, "title": "Shop — Desktop", "expand": "fill", "is_interactive": true},
+    "Shop-Mobile.dc.html": {"x": 15470, "y": 0, "w": 390, "h": 5000, "title": "Shop — Mobile", "is_interactive": true},
+
+    "Product.dc.html": {"x": 16100, "y": 0, "w": 1440, "h": 2700, "title": "Product — Desktop", "expand": "fill", "is_interactive": true},
+    "Product-Mobile.dc.html": {"x": 17620, "y": 0, "w": 390, "h": 4600, "title": "Product — Mobile", "is_interactive": true},
+
+    "GiftCard.dc.html": {"x": 18250, "y": 0, "w": 1440, "h": 2400, "title": "Gift Cards — Desktop", "expand": "fill", "is_interactive": true},
+    "GiftCard-Mobile.dc.html": {"x": 19770, "y": 0, "w": 390, "h": 4000, "title": "Gift Cards — Mobile", "is_interactive": true},
+
+    "GetInvolved.dc.html": {"x": 20400, "y": 0, "w": 1440, "h": 3200, "title": "Get Involved — Desktop", "expand": "fill", "is_interactive": true},
+    "GetInvolved-Mobile.dc.html": {"x": 21920, "y": 0, "w": 390, "h": 5400, "title": "Get Involved — Mobile", "is_interactive": true},
+
+    "About.dc.html": {"x": 22550, "y": 0, "w": 1440, "h": 3300, "title": "About — Desktop", "expand": "fill", "is_interactive": true},
+    "About-Mobile.dc.html": {"x": 24070, "y": 0, "w": 390, "h": 5400, "title": "About — Mobile", "is_interactive": true},
+
+    "Help.dc.html": {"x": 24700, "y": 0, "w": 1440, "h": 3300, "title": "FAQ & Contact — Desktop", "expand": "fill", "is_interactive": true},
+    "Help-Mobile.dc.html": {"x": 26220, "y": 0, "w": 390, "h": 5400, "title": "FAQ & Contact — Mobile", "is_interactive": true},
+
+    "Cart.dc.html": {"x": 26850, "y": 0, "w": 1440, "h": 900, "title": "Cart Drawer — Desktop", "is_interactive": true},
+    "Cart-Mobile.dc.html": {"x": 28370, "y": 0, "w": 390, "h": 844, "title": "Cart Drawer — Mobile", "is_interactive": true},
+
+    "Redirect.dc.html": {"x": 29000, "y": 0, "w": 1440, "h": 900, "title": "Stripe Redirect — Desktop", "is_interactive": true},
+    "Redirect-Mobile.dc.html": {"x": 30520, "y": 0, "w": 390, "h": 844, "title": "Stripe Redirect — Mobile", "is_interactive": true},
+
+    "ThankYou.dc.html": {"x": 31150, "y": 0, "w": 1440, "h": 2500, "title": "Thank You — Desktop", "expand": "fill", "is_interactive": true},
+    "ThankYou-Mobile.dc.html": {"x": 32670, "y": 0, "w": 390, "h": 3800, "title": "Thank You — Mobile", "is_interactive": true},
+
+    "Legal.dc.html": {"x": 33300, "y": 0, "w": 1440, "h": 3100, "title": "Legal Template — Desktop", "expand": "fill", "is_interactive": true},
+    "Legal-Mobile.dc.html": {"x": 34820, "y": 0, "w": 390, "h": 4800, "title": "Legal Template — Mobile", "is_interactive": true}
+  },
+  "order": [
+    "Components.dc.html", "Header.dc.html", "Footer.dc.html", "Wave.dc.html", "Icon.dc.html",
+    "Main.dc.html", "Main-Mobile.dc.html",
+    "Festival.dc.html", "Festival-Mobile.dc.html",
+    "Vendors.dc.html", "Vendors-Mobile.dc.html",
+    "Tickets.dc.html", "Tickets-Mobile.dc.html",
+    "Membership.dc.html", "Membership-Mobile.dc.html",
+    "Shop.dc.html", "Shop-Mobile.dc.html",
+    "Product.dc.html", "Product-Mobile.dc.html",
+    "GiftCard.dc.html", "GiftCard-Mobile.dc.html",
+    "GetInvolved.dc.html", "GetInvolved-Mobile.dc.html",
+    "About.dc.html", "About-Mobile.dc.html",
+    "Help.dc.html", "Help-Mobile.dc.html",
+    "Cart.dc.html", "Cart-Mobile.dc.html",
+    "Redirect.dc.html", "Redirect-Mobile.dc.html",
+    "ThankYou.dc.html", "ThankYou-Mobile.dc.html",
+    "Legal.dc.html", "Legal-Mobile.dc.html"
+  ],
+  "notes": {
+    "t_ds": {"x": 0, "y": -300, "text": "00 · Design system", "kind": "title1", "maxW": 2960},
+    "t_home": {"x": 3200, "y": -300, "text": "01 · Home", "kind": "title1", "maxW": 1910},
+    "t_fest": {"x": 5350, "y": -300, "text": "02 · Festival Info", "kind": "title1", "maxW": 1910},
+    "t_vend": {"x": 7500, "y": -300, "text": "03 · Vendors", "kind": "title1", "maxW": 1910},
+    "t_tix": {"x": 9650, "y": -300, "text": "04 · Tickets", "kind": "title1", "maxW": 1910},
+    "t_mem": {"x": 11800, "y": -300, "text": "05 · Membership", "kind": "title1", "maxW": 1910},
+    "t_shop": {"x": 13950, "y": -300, "text": "06 · Shop", "kind": "title1", "maxW": 1910},
+    "t_prod": {"x": 16100, "y": -300, "text": "06b · Product", "kind": "title1", "maxW": 1910},
+    "t_gift": {"x": 18250, "y": -300, "text": "06c · Gift Cards", "kind": "title1", "maxW": 1910},
+    "t_inv": {"x": 20400, "y": -300, "text": "07 · Get Involved", "kind": "title1", "maxW": 1910},
+    "t_about": {"x": 22550, "y": -300, "text": "08 · About", "kind": "title1", "maxW": 1910},
+    "t_help": {"x": 24700, "y": -300, "text": "08b · FAQ & Contact", "kind": "title1", "maxW": 1910},
+    "t_cart": {"x": 26850, "y": -300, "text": "09 · Cart Drawer", "kind": "title1", "maxW": 1910},
+    "t_redir": {"x": 29000, "y": -300, "text": "10 · Stripe Redirect", "kind": "title1", "maxW": 1910},
+    "t_thanks": {"x": 31150, "y": -300, "text": "11 · Thank You", "kind": "title1", "maxW": 1910},
+    "t_legal": {"x": 33300, "y": -300, "text": "12 · Privacy / Terms / Refunds", "kind": "title1", "maxW": 1910}
+  },
+  "designSystems": []
+}

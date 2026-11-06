@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food & Drink Coupons — Taste of BC 2026</title>
+<meta name="description" content="Entry is free. Buy a $20 Taste of BC coupon sheet with 20 tear-off $1 coupons to pay for food and drinks at every booth. Cashless event in Surrey, BC.">
+<meta name="theme-color" content="#BC0214">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="coupons">
+<div id="site-header"></div>
+<main id="main">
+
+<section class="page-hero">
+  <span class="waves-bg" data-wavesbg></span>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Coupons</span></nav>
+    <span class="eyebrow">Food & drink coupons</span>
+    <h1>Free to enter.<br><span class="accent">$1 coupons</span> to taste.</h1>
+    <p class="lead">Taste of BC is a cashless event. Every restaurant, dessert stand and drinks bar takes the same $1 festival coupon. One sheet = 20 coupons = $20.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split" style="align-items:start">
+    <div>
+      <div class="sheet-wrap"><div class="sheet" id="sheet"></div></div>
+      <div class="sheet-controls">
+        <button class="btn btn-secondary btn-sm" id="flipBtn" data-icon="flip">See the back</button>
+        <button class="btn btn-ghost btn-sm" id="resetBtn" data-icon="reset">Reset coupons</button>
+      </div>
+      <p class="center small muted mt-4" id="tearNote">Tip: tap a coupon to tear it off. <strong id="leftCount">20</strong> left on this sheet.</p>
+    </div>
+
+    <div class="buy-box" id="buy">
+      <span class="badge solid" data-icon="star">Skip the line</span>
+      <h2 class="mt-4" style="font-size:2rem">Buy coupon sheets</h2>
+      <p class="muted">Pre-buy online and collect your sheets at any Coupon Booth by showing your order QR code.</p>
+
+      <fieldset style="border:0;padding:0;margin:24px 0 0">
+        <legend class="label" style="font-weight:700;margin-bottom:12px">Choose a sheet type</legend>
+        <label class="option"><input type="radio" name="kind" value="sheet" checked>
+          <span class="o-body"><strong>Coupon sheet</strong><span>20 × $1 coupons · pick up at the festival</span></span><span class="o-price">$20</span></label>
+        <label class="option"><input type="radio" name="kind" value="egift">
+          <span class="o-body"><strong>Gift coupon sheet</strong><span>Emailed to someone special with a pickup code</span></span><span class="o-price">$20</span></label>
+      </fieldset>
+
+      <div class="field mt-6" id="giftField" hidden>
+        <label for="giftEmail">Recipient’s email</label>
+        <input class="input" id="giftEmail" type="email" placeholder="name@example.com">
+        <span class="hint">We’ll send the gift on your chosen date in checkout.</span>
+      </div>
+
+      <div class="row mt-6" style="justify-content:space-between">
+        <div><div class="label" style="font-weight:700">Number of sheets</div><div class="small muted"><span id="couponTotal">20</span> coupons total</div></div>
+        <div class="stepper" role="group" aria-label="Number of sheets">
+          <button type="button" data-step="-1" aria-label="Fewer sheets" data-icon="minus"></button>
+          <input id="qty" type="number" value="1" min="1" max="50" aria-label="Sheets">
+          <button type="button" data-step="1" aria-label="More sheets" data-icon="plus"></button>
+        </div>
+      </div>
+
+      <div class="total-line"><span>Total</span><span class="amt" id="total">$20.00</span></div>
+      <button class="btn btn-lg btn-block" id="addBtn" data-add="sheet" data-qty-from="#qty" data-open-after data-icon="cart">Add to cart</button>
+      <div class="secure" data-icon="lock">Secure checkout with Stripe · Card, Apple Pay, Google Pay</div>
+      <hr>
+      <div class="callout neutral"><span data-icon="info"></span><div><strong>Buying for a group?</strong><p>Average visitors use 1–2 sheets each. Sheets are shareable — tear off and hand them out.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section white" id="how">
+  <div class="container">
+    <div class="section-head center"><span class="eyebrow">How coupons work</span><h2>One currency for the whole festival.</h2></div>
+    <div class="grid grid-4">
+      <div class="card flat"><div class="icon-tile" data-icon="ticket"></div><h4>1 coupon = $1</h4><p class="muted mb-0">Each sheet has 20 perforated coupons. Tear off as many as the menu price shows.</p></div>
+      <div class="card flat"><div class="icon-tile" data-icon="banner"></div><h4>Prices on every banner</h4><p class="muted mb-0">Every booth displays its Taste of BC banner with the menu priced in coupons.</p></div>
+      <div class="card flat"><div class="icon-tile" data-icon="nocash"></div><h4>No cash on site</h4><p class="muted mb-0">Booths don’t handle money. Coupon Booths take debit, credit and tap only.</p></div>
+      <div class="card flat"><div class="icon-tile" data-icon="calendar"></div><h4>Good both days</h4><p class="muted mb-0">Coupons are valid Saturday and Sunday. Bring leftovers back for day two.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div>
+      <span class="eyebrow">Where to get them</span>
+      <h2>Online, or at any gate.</h2>
+      <ul class="kbd-list mt-6">
+        <li data-icon="lock"><div><strong>Online (recommended)</strong><span>Pay securely with Stripe. Show your order QR at any Coupon Booth to collect your sheets.</span></div></li>
+        <li data-icon="arch"><div><strong>Coupon Booths at every entrance</strong><span>North, East and West gates each have a Coupon Booth, open 11 AM – 8:30 PM.</span></div></li>
+        <li data-icon="card"><div><strong>Card & tap only</strong><span>Visa, Mastercard, Amex, Interac debit, Apple Pay and Google Pay.</span></div></li>
+      </ul>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="padding:24px 28px;border-bottom:1px solid var(--line)"><h3 class="mb-0">What can 20 coupons get you?</h3><p class="muted small mb-0">Sample prices from this year’s menus</p></div>
+      <ul class="r-menu" style="padding:8px 28px 20px;margin:0">
+        <li><span>Butter chicken bowl</span><span class="dots"></span><span class="pr">12 <small>coupons</small></span></li>
+        <li><span>Hot jalebi</span><span class="dots"></span><span class="pr">6 <small>coupons</small></span></li>
+        <li><span>Masala chai</span><span class="dots"></span><span class="pr">4 <small>coupons</small></span></li>
+        <li style="border-top:2px solid var(--ink);margin-top:6px;padding-top:14px"><strong>One happy dinner</strong><span class="dots"></span><span class="pr" style="color:var(--ink)">22 coupons</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container narrow">
+    <div class="section-head center"><span class="eyebrow">Coupon FAQ</span><h2>Good questions.</h2></div>
+    <div class="accordion">
+      <details open><summary>Do I need a ticket to get in?<span class="pm" data-icon="plus"></span></summary><div class="a-body"><p>No. Entry is free for everyone, both days. You only need coupons to buy food and drinks.</p></div></details>
+      <details><summary>Can I pay a booth with cash or card directly?<span class="pm" data-icon="plus"></span></summary><div class="a-body"><p>No — booths only accept Taste of BC coupons. Buy coupons online or at a Coupon Booth (card and tap only) and you’re set.</p></div></details>
+      <details><summary>What happens to coupons I don’t use?<span class="pm" data-icon="plus"></span></summary><div class="a-body"><p>Coupons are valid on both festival days. They have no cash value and can’t be exchanged for money after the event. See our <a href="legal.html#refunds">refund policy</a>.</p></div></details>
+      <details><summary>I lost my sheet. Can it be replaced?<span class="pm" data-icon="plus"></span></summary><div class="a-body"><p>Coupons work like cash, so lost or stolen coupons can’t be replaced. Keep your sheet in a pocket or the free festival booklet sleeve.</p></div></details>
+      <details><summary>Who are the logos on the back?<span class="pm" data-icon="plus"></span></summary><div class="a-body"><p>Our sponsors. Their support keeps entry free. <a href="sponsors.html">Want your brand on the back of every sheet?</a></p></div></details>
+    </div>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/components.js"></script>
+<script>
+document.addEventListener("tobc:ready", () => {
+  const sheetEl = document.getElementById("sheet");
+  TOBC.components.sheet(sheetEl, { interactive: true });
+  const left = document.getElementById("leftCount");
+  const update = () => left.textContent = sheetEl.querySelectorAll(".coupon:not(.torn)").length;
+  sheetEl.addEventListener("click", e => { const c = e.target.closest(".coupon"); if (c) { c.classList.add("torn"); update(); } });
+  document.getElementById("resetBtn").onclick = () => { sheetEl.querySelectorAll(".torn").forEach(c => c.classList.remove("torn")); update(); };
+  const flip = document.getElementById("flipBtn");
+  flip.onclick = () => {
+    const f = sheetEl.classList.toggle("flipped");
+    flip.lastChild.textContent = f ? "See the front" : "See the back";
+    sheetEl.querySelector(".front").setAttribute("aria-hidden", f); sheetEl.querySelector(".back").setAttribute("aria-hidden", !f);
+  };
+  const qty = document.getElementById("qty"), add = document.getElementById("addBtn");
+  const recalc = () => {
+    const q = Math.max(1, Math.min(50, +qty.value || 1));
+    document.getElementById("total").textContent = TOBC.ui.money(q * TOBC.event.sheetPrice);
+    document.getElementById("couponTotal").textContent = q * TOBC.event.couponsPerSheet;
+    qty.parentElement.querySelector('[data-step="-1"]').disabled = q <= 1;
+    qty.parentElement.querySelector('[data-step="1"]').disabled = q >= 50;
+  };
+  qty.addEventListener("input", recalc); recalc();
+  document.querySelectorAll('input[name=kind]').forEach(r => r.addEventListener("change", () => {
+    add.dataset.add = r.value; document.getElementById("giftField").hidden = r.value !== "egift";
+  }));
+});
+</script>
+</body>
+</html>

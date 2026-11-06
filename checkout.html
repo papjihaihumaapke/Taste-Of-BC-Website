@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redirecting to secure checkout — Taste of BC</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#BC0214">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="checkout">
+<div id="site-header"></div>
+<main id="main">
+  <section class="center-screen" style="background:var(--sand)">
+    <div class="redirect-card" id="box">
+      <div class="loader" aria-hidden="true"></div>
+      <span class="eyebrow">Secure checkout</span>
+      <h1 style="font-size:2rem">Redirecting to secure Stripe checkout…</h1>
+      <p class="muted">You’ll pay <strong id="amt"></strong> on Stripe’s secure page. Don’t close this window.</p>
+      <div class="progress"><span></span></div>
+      <p class="secure mt-6" data-icon="lock">256-bit encryption · Card, Apple Pay, Google Pay</p>
+      <a class="btn btn-ghost btn-sm mt-4" href="javascript:history.back()">Cancel and return</a>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+/*
+  PRODUCTION NOTE — Stripe integration
+  Replace the demo redirect below with a call to your server, e.g.
+    const res = await fetch("/api/create-checkout-session", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({ items: TOBC.cart.items() }) });
+    const { url } = await res.json(); location.href = url;   // Stripe-hosted Checkout
+  Set success_url to /thank-you.html?session_id={CHECKOUT_SESSION_ID} and cancel_url to /coupons.html.
+  Never trust prices from the browser: look them up on the server by product id.
+*/
+document.addEventListener("tobc:ready", () => {
+  const items = TOBC.cart.items();
+  if (!items.length) {
+    document.getElementById("box").innerHTML = `<span class="eyebrow">Checkout</span><h1 style="font-size:2rem">Your cart is empty</h1><p class="muted">Add a coupon sheet or some merch to continue.</p><a class="btn mt-4" href="coupons.html">Buy coupons</a>`;
+    return;
+  }
+  const sub = TOBC.cart.subtotal();
+  document.getElementById("amt").textContent = TOBC.ui.money(sub);
+  const order = { no: "TOBC-" + Math.random().toString(36).slice(2, 8).toUpperCase(), date: new Date().toISOString(), items: items.map(i => { const p = TOBC.products.find(x => x.id === i.id); return { name: p.name, opt: i.opt, qty: i.qty, price: p.price, id: p.id }; }), total: sub };
+  try { sessionStorage.setItem("tobc-last-order", JSON.stringify(order)); } catch (e) {}
+  window.__order = order;
+  setTimeout(() => { TOBC.cart.clear(); location.href = "thank-you.html"; }, 3200);
+});
+</script>
+</body>
+</html>

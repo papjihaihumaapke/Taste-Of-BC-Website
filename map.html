@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Festival Map — Taste of BC 2026</title>
+<meta name="description" content="Interactive site map for Taste of BC 2026 in Surrey, BC: entrance arches, coupon booths, restaurant booths, Main Stage, Beer & Wine Garden, washrooms and first aid.">
+<meta name="theme-color" content="#BC0214">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="map">
+<div id="site-header"></div>
+<main id="main">
+
+<section class="page-hero">
+  <span class="waves-bg" data-wavesbg></span>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Festival Map</span></nav>
+    <span class="eyebrow">Site layout</span>
+    <h1>Festival map.</h1>
+    <p class="lead">Three entrance arches, a Coupon Booth at every gate, and every restaurant by booth number. Tap a booth to see its menu.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:48px">
+  <div class="container map-layout">
+    <div class="map-frame" id="mapFrame"></div>
+    <aside class="map-panel">
+      <div id="boothPanel"><div class="card"><div class="icon-tile" data-icon="pin"></div><h3>Select a booth</h3><p class="muted mb-0">Tap any red booth on the map to see the restaurant and its menu.</p></div></div>
+      <div class="card">
+        <h4>Legend</h4>
+        <div class="legend">
+          <div class="legend-item"><i style="background:#BC0214;border-radius:13px;width:40px">GATE</i>Entrance arch (free entry)</div>
+          <div class="legend-item"><i style="background:#BC0214;border-radius:50%">C</i>Coupon Booth (card & tap)</div>
+          <div class="legend-item"><i style="background:#BC0214">A1</i>Restaurant booth</div>
+          <div class="legend-item"><i style="background:#7A0410">BG</i>Licensed booth (19+)</div>
+          <div class="legend-item"><i style="background:#1A1A1A;border-radius:50%">i</i>Info booth & lost and found</div>
+          <div class="legend-item"><i style="background:#1E7A46;border-radius:50%">+</i>First aid</div>
+          <div class="legend-item"><i style="background:#3D3A38;border-radius:50%">W</i>Washrooms (accessible)</div>
+          <div class="legend-item"><i style="background:#3D3A38;border-radius:50%">♿</i>Accessible drop-off</div>
+          <div class="legend-item"><i style="background:transparent;border:2px dotted #BC0214"></i>Sponsor banners (perimeter)</div>
+        </div>
+      </div>
+      <a class="btn btn-secondary btn-block" href="booklet.html" data-icon="download">Printable map in the booklet</a>
+    </aside>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Entrances</span><h2>Pick any arch. They’re all free.</h2></div>
+    <div class="grid grid-3">
+      <div class="card"><span class="badge solid">Main entrance</span><h3 class="mt-4">North Gate</h3><p class="muted">Closest to parking, rideshare and transit drop-off. Info Booth and Coupon Booth just inside.</p><ul class="ticks"><li data-icon="check">Coupon Booth</li><li data-icon="check">Info & lost and found</li></ul></div>
+      <div class="card"><span class="badge neutral">Side entrance</span><h3 class="mt-4">West Gate</h3><p class="muted">Accessible drop-off zone and the fastest route to the Kids Zone and Demo Kitchen.</p><ul class="ticks"><li data-icon="check">Coupon Booth</li><li data-icon="check">Accessible drop-off</li></ul></div>
+      <div class="card"><span class="badge neutral">Side entrance</span><h3 class="mt-4">East Gate</h3><p class="muted">Straight to the Beer & Wine Garden (19+, ID required) and Row D.</p><ul class="ticks"><li data-icon="check">Coupon Booth</li><li data-icon="check">Washrooms nearby</li></ul></div>
+    </div>
+    <p class="small muted mt-6">Layout shown is a planning draft and may change before the event. Final map is printed in the info booklet.</p>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/components.js"></script>
+<script>
+document.addEventListener("tobc:ready", () => {
+  const C = TOBC.components;
+  const frame = document.getElementById("mapFrame"), panel = document.getElementById("boothPanel");
+  frame.innerHTML = C.siteMap({ interactive: true });
+  function select(id) {
+    frame.querySelectorAll(".booth-g").forEach(g => g.classList.toggle("active", g.dataset.booth === id));
+    const r = TOBC.restaurants.find(x => x.booth === id);
+    panel.innerHTML = r ? C.restaurantCard(r, { full: true }) : `<div class="card"><h3>Booth ${id}</h3><p class="muted mb-0">Restaurant to be announced.</p></div>`;
+    const a = panel.querySelector(".r-foot a"); if (a) a.outerHTML = `<a href="restaurants.html">All menus ${TOBC.ui.icon("arrow")}</a>`;
+  }
+  frame.addEventListener("click", e => { const g = e.target.closest(".booth-g"); if (g) select(g.dataset.booth); });
+  frame.addEventListener("keydown", e => { const g = e.target.closest(".booth-g"); if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); select(g.dataset.booth); } });
+  const pre = new URLSearchParams(location.search).get("booth"); if (pre) select(pre);
+});
+</script>
+</body>
+</html>

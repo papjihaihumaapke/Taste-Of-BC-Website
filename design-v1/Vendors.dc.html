@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vendors — Taste of BC</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./tobc.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>body{margin:0;background:#FCF8F3}</style>
+</helmet>
+<div class="{{root}}">
+  <dc-import name="Header" mobile="{{mobile}}" active="Vendors" hint-size="100%,84px"></dc-import>
+  <main>
+    <section class="wrap phero">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="Main{{sfx}}.dc.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Vendors</span></nav>
+      <div class="split top">
+        <div class="stack" style="gap: 20px"><p class="eyebrow">[XX]+ vendors</p><h1 class="d1">Who's <span class="red">cooking.</span></h1></div>
+        <div class="stack" style="gap: 24px; padding-top: 12px">
+          <p class="lead">From Tofino oysters to Okanagan reds. Filter by what you love or what you can't eat, then map your route.</p>
+          <a class="link" href="GetInvolved{{sfx}}.dc.html">Want a booth? Apply to be a vendor</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <section aria-label="Search and filter vendors" style="position: sticky; top: {{stickyTop}}; z-index: 10; background: #FCF8F3; border-top: 1px solid rgba(26,26,26,.12); border-bottom: 1px solid rgba(26,26,26,.12)">
+      <div class="wrap stack" style="gap: 16px; padding-top: 20px; padding-bottom: 20px">
+        <div class="row m-col" style="gap: 12px; flex-wrap: nowrap">
+          <div class="field" style="flex: 1">
+            <label class="sr" for="v-search">Search vendors</label>
+            <div class="inp-ico"><span class="ico"><dc-import name="Icon" n="search" hint-size="20px,20px"></dc-import></span><input class="input" id="v-search" type="search" placeholder="Search vendors, dishes or regions" value="{{q}}" onInput="{{onQ}}"></div>
+          </div>
+          <div class="field" style="min-width: 220px">
+            <label class="sr" for="v-cat">Category</label>
+            <div class="sel"><select class="input" id="v-cat" value="{{cat}}" onChange="{{onCat}}"><option value="all">All categories</option><option value="Seafood">Seafood</option><option value="Street food">Street food</option><option value="Wine">Wine</option><option value="Beer &amp; cider">Beer &amp; cider</option><option value="Sweets">Sweets</option><option value="Plant-based">Plant-based</option></select><span class="chev"><dc-import name="Icon" n="chevd" hint-size="18px,18px"></dc-import></span></div>
+          </div>
+        </div>
+        <div class="row between" style="gap: 12px">
+          <div class="chips scroll" role="group" aria-label="Dietary filters">
+            <sc-for list="{{diets}}" as="d" hint-placeholder-count="6">
+              <button class="chip {{d.cls}}" type="button" aria-pressed="{{d.pressed}}" onClick="{{d.toggle}}"><sc-if value="{{d.on}}"><dc-import name="Icon" n="check" hint-size="16px,16px"></dc-import></sc-if>{{d.label}}</button>
+            </sc-for>
+          </div>
+          <sc-if value="{{hasFilters}}"><button class="btn btn-text btn-sm" type="button" onClick="{{clear}}">Clear all</button></sc-if>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec-s" aria-labelledby="res-h">
+      <div class="wrap">
+        <p class="small strong" id="res-h" role="status" style="margin-bottom: 24px">{{count}} vendors</p>
+        <sc-if value="{{any}}" hint-placeholder-val="{{ true }}">
+          <div class="g3">
+            <sc-for list="{{list}}" as="v" hint-placeholder-count="9">
+              <article class="card lift">
+                <div class="ph sq {{v.tone}}" style="height: 220px"><div class="ph-ico"><dc-import name="Icon" n="{{v.icon}}" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · {{v.photo}}</span><span class="badge white" style="position: absolute; top: 14px; left: 14px">Booth {{v.booth}}</span></div>
+                <div class="stack" style="gap: 12px; padding: 22px 24px 24px">
+                  <p class="tiny" style="font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #BC0214">{{v.region}} · {{v.cat}}</p>
+                  <h2 class="d4" style="font-size: 21px">{{v.name}}</h2>
+                  <p class="small">{{v.desc}}</p>
+                  <div class="row" style="gap: 6px"><sc-for list="{{v.tags}}" as="t"><span class="tag"><dc-import name="Icon" n="leaf" hint-size="12px,12px"></dc-import>{{t}}</span></sc-for></div>
+                  <div class="divider" style="margin: 6px 0"></div>
+                  <div class="row between"><p class="small">Tastes from <b style="color: #1A1A1A">1 token</b></p><a class="link" href="Vendors{{sfx}}.dc.html" style="font-size: 14px">View menu</a></div>
+                </div>
+              </article>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{none}}">
+          <div class="card card-p stack" style="gap: 16px; align-items: center; text-align: center; padding: 64px 24px">
+            <span class="strip-ico" style="background: #FCF8F3; width: 64px; height: 64px; font-size: 28px"><dc-import name="Icon" n="search" hint-size="28px,28px"></dc-import></span>
+            <h2 class="d4">No vendors match yet</h2>
+            <p class="body" style="max-width: 420px">Try removing a filter or searching for something broader, like "salmon" or "wine".</p>
+            <button class="btn btn-red" type="button" onClick="{{clear}}">Clear filters</button>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" mobile="{{mobile}}" hint-size="100%,720px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":3100}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { q: '', cat: 'all', on: {} }; }
+  renderVals() {
+    const mobile = !!this.props.mobile;
+    const V = [
+      ['Saltwater Shuck Shack', 'Tofino', 'Seafood', 'Fresh oysters', 'fish', '', ['Gluten-free', 'Dairy-free'], 'Oysters on the half shell with mignonette and hot sauce.', 'A4'],
+      ['Ridgeline Cider House', 'Okanagan', 'Beer & cider', 'Cider flight', 'wine', 'deep', ['Vegan', 'Gluten-free'], 'Dry, crisp ciders from heritage apples. 19+ only.', 'W2'],
+      ['Fraser Valley Fry Co.', 'Abbotsford', 'Street food', 'Hand-cut fries', 'store', 'tint', ['Vegetarian'], 'Farm potatoes, triple-cooked, with house dips.', 'B7'],
+      ['Kootenay Kitchen', 'Nelson', 'Plant-based', 'Grain bowls', 'leaf', 'red', ['Vegan', 'Nut-free', 'Gluten-free'], 'Seasonal bowls built on BC grains and greens.', 'C1'],
+      ['Harbour Smokehouse', 'Prince Rupert', 'Seafood', 'Candied salmon', 'fish', '', ['Dairy-free', 'Gluten-free'], 'Wild salmon smoked low and slow over alder.', 'A9'],
+      ['Sunpeak Estate Wines', 'Naramata', 'Wine', 'Vineyard rows', 'wine', 'deep', ['Vegan'], 'Small-lot reds and a seriously good rosé.', 'W5'],
+      ['Gastown Dumpling Bar', 'Vancouver', 'Street food', 'Steamed dumplings', 'store', 'tint', ['Dairy-free', 'Halal'], 'Hand-folded dumplings with chili crisp.', 'B3'],
+      ['Island Sweet Co.', 'Victoria', 'Sweets', 'Berry tarts', 'heart', 'red', ['Vegetarian', 'Nut-free'], 'Butter tarts, berry pies and Nanaimo bars.', 'D2'],
+      ['Coastline Brewing', 'North Shore', 'Beer & cider', 'Tap wall', 'wine', '', ['Vegan'], 'Hazy IPAs and crisp lagers on rotation.', 'W8']
+    ];
+    const DIET = ['Vegan', 'Vegetarian', 'Gluten-free', 'Dairy-free', 'Nut-free', 'Halal'];
+    const { q, cat, on } = this.state;
+    const active = DIET.filter((d) => on[d]);
+    const ql = q.trim().toLowerCase();
+    const list = V.map(([name, region, c, photo, icon, tone, tags, desc, booth]) => ({ name, region, cat: c, photo, icon, tone, tags, desc, booth }))
+      .filter((v) => (cat === 'all' || v.cat === cat) && active.every((d) => v.tags.includes(d)) && (!ql || (v.name + ' ' + v.region + ' ' + v.desc + ' ' + v.cat).toLowerCase().includes(ql)));
+    const diets = DIET.map((d) => ({ label: d, on: !!on[d], cls: on[d] ? 'on' : '', pressed: on[d] ? 'true' : 'false', toggle: () => this.setState({ on: { ...this.state.on, [d]: !this.state.on[d] } }) }));
+    return {
+      mobile, sfx: mobile ? '-Mobile' : '', root: mobile ? 'tobc m' : 'tobc', stickyTop: mobile ? '64px' : '84px',
+      q, cat, diets, list, count: list.length, any: list.length > 0, none: list.length === 0,
+      hasFilters: active.length > 0 || cat !== 'all' || !!ql,
+      onQ: (e) => this.setState({ q: e.target.value }),
+      onCat: (e) => this.setState({ cat: e.target.value }),
+      clear: () => this.setState({ q: '', cat: 'all', on: {} })
+    };
+  }
+}
+</script>
+</body>
+</html>

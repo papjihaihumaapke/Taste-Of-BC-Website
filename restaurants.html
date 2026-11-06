@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurants & Menus — Taste of BC 2026</title>
+<meta name="description" content="Browse participating restaurants, booths and full menus with coupon prices for Taste of BC 2026 in Surrey, BC. Filter by vegetarian, vegan, gluten-free and halal.">
+<meta name="theme-color" content="#BC0214">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="restaurants">
+<div id="site-header"></div>
+<main id="main">
+
+<section class="page-hero">
+  <span class="waves-bg" data-wavesbg></span>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Restaurants & Menus</span></nav>
+    <span class="eyebrow">2026 lineup</span>
+    <h1>Restaurants & menus.</h1>
+    <p class="lead">Every participating restaurant, its booth number and full menu — priced in $1 coupons, exactly as it appears on the booth banner.</p>
+    <div class="row mt-6"><span class="pill-note" data-icon="info">Lineup is being finalized. More restaurants announced soon.</span></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:48px">
+  <div class="container">
+    <div class="filters">
+      <div class="search">
+        <span data-icon="search"></span>
+        <label class="sr-only" for="q">Search restaurants or dishes</label>
+        <input class="input" id="q" type="search" placeholder="Search restaurants or dishes">
+      </div>
+      <div class="chips" role="group" aria-label="Category">
+        <button class="chip" aria-pressed="true" data-group="all">All</button>
+        <button class="chip" aria-pressed="false" data-group="food">Food</button>
+        <button class="chip" aria-pressed="false" data-group="sweets">Sweets</button>
+        <button class="chip" aria-pressed="false" data-group="drinks">Hot drinks</button>
+        <button class="chip" aria-pressed="false" data-group="licensed">Beer & Wine 19+</button>
+      </div>
+    </div>
+    <div class="row mb-6" role="group" aria-label="Dietary filters">
+      <span class="small" style="font-weight:700;margin-right:4px">Dietary:</span>
+      <button class="chip" aria-pressed="false" data-diet="V">Vegetarian</button>
+      <button class="chip" aria-pressed="false" data-diet="VG">Vegan</button>
+      <button class="chip" aria-pressed="false" data-diet="GF">Gluten-free</button>
+      <button class="chip" aria-pressed="false" data-diet="Halal">Halal</button>
+    </div>
+    <p class="result-count" id="count" aria-live="polite"></p>
+    <div class="grid grid-3" id="list"></div>
+    <div class="empty" id="empty" hidden><div class="icon-tile" style="margin:0 auto 14px" data-icon="search"></div><h3>No matches</h3><p>Try a different dish or clear your filters.</p><button class="btn btn-secondary btn-sm" id="clear">Clear filters</button></div>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="container split">
+    <div>
+      <span class="eyebrow">At the booth</span>
+      <h2>Same banner. Same coupon. Every booth.</h2>
+      <p class="lead">Each restaurant gets a matching Taste of BC banner with its name, booth number and full menu with prices. No guessing, no surprises.</p>
+      <div class="row mt-6"><span class="diet">V</span><span class="small">Vegetarian</span><span class="diet">VG</span><span class="small">Vegan</span><span class="diet">GF</span><span class="small">Gluten-free options</span><span class="diet">Halal</span><span class="small">Halal</span></div>
+      <p class="small muted mt-4">Dietary labels are supplied by each restaurant. Please ask at the booth about allergens.</p>
+    </div>
+    <div id="bannerDemo" style="max-width:420px;justify-self:center;width:100%"></div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="container"><div class="cta-band"><span class="bgwave" data-wavesbg></span>
+    <div><h2>Run a BC restaurant?</h2><p>Applications for the 2026 festival are open. We supply the booth banner, menu board and coupon redemption.</p></div>
+    <div class="actions"><a class="btn btn-light btn-lg" href="get-involved.html#restaurants">Apply as a vendor</a></div>
+  </div></div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/components.js"></script>
+<script>
+document.addEventListener("tobc:ready", () => {
+  const C = TOBC.components, list = document.getElementById("list");
+  let group = "all"; const diets = new Set();
+  const q = document.getElementById("q");
+  function draw() {
+    const term = q.value.trim().toLowerCase();
+    const rs = TOBC.restaurants.filter(r =>
+      (group === "all" || r.group === group) &&
+      [...diets].every(d => r.diet.includes(d)) &&
+      (!term || (r.name + " " + r.cuisine + " " + r.menu.map(m => m[0]).join(" ")).toLowerCase().includes(term)));
+    list.innerHTML = rs.map(r => C.restaurantCard(r, { full: true })).join("");
+    document.getElementById("empty").hidden = rs.length > 0;
+    document.getElementById("count").textContent = `Showing ${rs.length} of ${TOBC.restaurants.length} restaurants`;
+  }
+  document.querySelectorAll("[data-group]").forEach(b => b.onclick = () => {
+    group = b.dataset.group; document.querySelectorAll("[data-group]").forEach(x => x.setAttribute("aria-pressed", x === b)); draw(); });
+  document.querySelectorAll("[data-diet]").forEach(b => b.onclick = () => {
+    const d = b.dataset.diet; diets.has(d) ? diets.delete(d) : diets.add(d); b.setAttribute("aria-pressed", diets.has(d)); draw(); });
+  q.addEventListener("input", draw);
+  document.getElementById("clear").onclick = () => { q.value = ""; diets.clear(); group = "all";
+    document.querySelectorAll("[data-diet]").forEach(x => x.setAttribute("aria-pressed", "false"));
+    document.querySelectorAll("[data-group]").forEach(x => x.setAttribute("aria-pressed", x.dataset.group === "all")); draw(); };
+  draw();
+  document.getElementById("bannerDemo").innerHTML = C.restaurantCard(TOBC.restaurants[1], { full: true });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Taste of BC — Home</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./tobc.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>body{margin:0;background:#FCF8F3}</style>
+</helmet>
+<div class="{{root}}">
+  <dc-import name="Header" mobile="{{mobile}}" cart="{{ 3 }}" hint-size="100%,84px"></dc-import>
+
+  <main>
+    <!-- HERO -->
+    <section aria-labelledby="hero-h">
+      <div class="wrap hero-grid">
+        <div class="stack" style="gap: 28px">
+          <span class="badge cream" style="align-self: flex-start"><dc-import name="Icon" n="calendar" hint-size="14px,14px"></dc-import>[Dates] · [Venue]</span>
+          <h1 class="d1" id="hero-h">Taste the <span class="red">best of BC.</span></h1>
+          <p class="lead" style="max-width: 540px">Pacific seafood, Okanagan wine, craft beer and the makers behind it all. Three days, one big table. Come hungry.</p>
+          <div class="row m-col" style="gap: 12px">
+            <a class="btn btn-red btn-lg" href="Tickets{{sfx}}.dc.html">Buy Tickets<dc-import name="Icon" n="arrow" hint-size="20px,20px"></dc-import></a>
+            <a class="btn btn-outline btn-lg" href="Membership{{sfx}}.dc.html">Become a Member</a>
+          </div>
+          <div class="stack" style="gap: 12px; margin-top: 8px">
+            <p class="small strong">Gates open in</p>
+            <div class="cd" role="timer" aria-label="Countdown to festival opening">
+              <div class="cd-cell"><span class="cd-n">{{cd.d}}</span><span class="cd-l">Days</span></div>
+              <div class="cd-cell"><span class="cd-n">{{cd.h}}</span><span class="cd-l">Hours</span></div>
+              <div class="cd-cell"><span class="cd-n">{{cd.m}}</span><span class="cd-l">Mins</span></div>
+              <div class="cd-cell"><span class="cd-n">{{cd.s}}</span><span class="cd-l">Secs</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="mosaic">
+          <div class="ph tall"><div class="ph-ico"><dc-import name="Icon" n="fish" hint-size="44px,44px"></dc-import></div><span class="ph-cap"><dc-import name="Icon" n="image" hint-size="14px,14px"></dc-import>Photo · Spot prawns on ice</span></div>
+          <div class="ph deep"><div class="ph-ico"><dc-import name="Icon" n="wine" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · Okanagan rosé pour</span></div>
+          <div class="ph tint"><div class="ph-ico"><dc-import name="Icon" n="mountain" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · Crowd, mountains behind</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO STRIP -->
+    <section class="bg-red on-red" aria-label="Festival at a glance">
+      <div class="wrap strip">
+        <div class="strip-item"><span class="strip-ico"><dc-import name="Icon" n="calendar" hint-size="22px,22px"></dc-import></span><div><p class="tiny" style="text-transform: uppercase; letter-spacing: .12em; font-weight: 700">When</p><p style="font-weight: 700; font-size: 17px">[Dates]</p></div></div>
+        <div class="strip-item"><span class="strip-ico"><dc-import name="Icon" n="pin" hint-size="22px,22px"></dc-import></span><div><p class="tiny" style="text-transform: uppercase; letter-spacing: .12em; font-weight: 700">Where</p><p style="font-weight: 700; font-size: 17px">[Venue], BC</p></div></div>
+        <div class="strip-item"><span class="strip-ico"><dc-import name="Icon" n="store" hint-size="22px,22px"></dc-import></span><div><p class="tiny" style="text-transform: uppercase; letter-spacing: .12em; font-weight: 700">Who</p><p style="font-weight: 700; font-size: 17px">[XX]+ local makers</p></div></div>
+        <div class="strip-item"><span class="strip-ico"><dc-import name="Icon" n="ticket" hint-size="22px,22px"></dc-import></span><div><p class="tiny" style="text-transform: uppercase; letter-spacing: .12em; font-weight: 700">Tickets</p><p style="font-weight: 700; font-size: 17px">From $XX</p></div></div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="sec" aria-labelledby="how-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="stack" style="gap: 14px"><p class="eyebrow">How it works</p><h2 class="d2" id="how-h">Three steps to<br>a full belly.</h2></div>
+          <a class="link" href="Festival{{sfx}}.dc.html">Plan your visit</a>
+        </div>
+        <ol class="g3" style="list-style: none; margin: 0; padding: 0">
+          <li class="card card-p stack" style="gap: 16px"><span class="step-n">01</span><h3 class="d4">Pick your pass</h3><p class="body">Day, weekend or VIP. Members get early access and better prices.</p></li>
+          <li class="card card-p stack" style="gap: 16px"><span class="step-n">02</span><h3 class="d4">Grab taste tokens</h3><p class="body">Load up a taste bundle and swap tokens for bites and pours at any booth.</p></li>
+          <li class="card card-p stack" style="gap: 16px"><span class="step-n">03</span><h3 class="d4">Eat, sip, repeat</h3><p class="body">Wander the stalls, catch a chef demo and find your new favourite maker.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="wrap"><dc-import name="Wave" tone="red" hint-size="100%,24px"></dc-import></div>
+
+    <!-- VENDOR CAROUSEL -->
+    <section class="sec" aria-labelledby="vend-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="stack" style="gap: 14px"><p class="eyebrow">This year's lineup</p><h2 class="d2" id="vend-h">Meet the makers.</h2></div>
+          <div class="row" style="gap: 12px">
+            <button class="ibtn line" type="button" aria-label="Previous vendors" style="width: 52px; height: 52px"><dc-import name="Icon" n="arrowl" hint-size="22px,22px"></dc-import></button>
+            <button class="ibtn line" type="button" aria-label="Next vendors" style="width: 52px; height: 52px"><dc-import name="Icon" n="arrow" hint-size="22px,22px"></dc-import></button>
+            <a class="btn btn-outline" href="Vendors{{sfx}}.dc.html">All vendors</a>
+          </div>
+        </div>
+        <div class="rail" role="list" aria-label="Featured vendors">
+          <sc-for list="{{vendors}}" as="v" hint-placeholder-count="6">
+            <a class="card lift card-link" role="listitem" href="Vendors{{sfx}}.dc.html">
+              <div class="ph sq {{v.tone}}" style="height: 240px"><div class="ph-ico"><dc-import name="Icon" n="{{v.icon}}" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · {{v.photo}}</span></div>
+              <div class="stack" style="gap: 10px; padding: 20px 22px 24px">
+                <p class="tiny" style="font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #BC0214">{{v.region}}</p>
+                <h3 class="d4" style="font-size: 20px">{{v.name}}</h3>
+                <div class="row" style="gap: 6px"><sc-for list="{{v.tags}}" as="t"><span class="tag">{{t}}</span></sc-for></div>
+              </div>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKETS PREVIEW -->
+    <section class="sec bg-white" aria-labelledby="tix-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="stack" style="gap: 14px"><p class="eyebrow">Tickets</p><h2 class="d2" id="tix-h">Pick your pass.</h2></div>
+          <a class="link" href="Tickets{{sfx}}.dc.html">Compare all tickets</a>
+        </div>
+        <div class="g3" style="align-items: stretch">
+          <sc-for list="{{tix}}" as="t" hint-placeholder-count="3">
+            <div class="card card-p tcard {{t.cls}}" style="background: #FCF8F3">
+              <sc-if value="{{t.pop}}"><span class="badge pop-badge"><dc-import name="Icon" n="star" hint-size="12px,12px"></dc-import>Most popular</span></sc-if>
+              <div class="stack" style="gap: 8px"><h3 class="d4">{{t.name}}</h3><p class="small">{{t.desc}}</p></div>
+              <div class="row" style="gap: 8px; align-items: baseline"><p class="price">$XX</p><p class="small">{{t.unit}}</p></div>
+              <ul class="list-check" style="flex: 1">
+                <sc-for list="{{t.perks}}" as="p"><li><span class="ck"><dc-import name="Icon" n="check" hint-size="14px,14px"></dc-import></span>{{p}}</li></sc-for>
+              </ul>
+              <a class="btn btn-block {{t.btn}}" href="Tickets{{sfx}}.dc.html">Choose {{t.short}}</a>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP BAND -->
+    <section class="bg-red on-red" aria-labelledby="mem-h" style="overflow: hidden">
+      <div class="wrap sec split">
+        <div class="stack" style="gap: 24px">
+          <p class="eyebrow">Membership</p>
+          <h2 class="d2" id="mem-h">Join the Taste Club.</h2>
+          <p class="lead" style="max-width: 520px">Presale access, member pricing and year-round tasting nights. From $XX a month, cancel anytime.</p>
+          <ul class="list-check">
+            <li><span class="ck"><dc-import name="Icon" n="check" hint-size="14px,14px"></dc-import></span>48-hour ticket presale</li>
+            <li><span class="ck"><dc-import name="Icon" n="check" hint-size="14px,14px"></dc-import></span>XX% off passes, bundles and merch</li>
+            <li><span class="ck"><dc-import name="Icon" n="check" hint-size="14px,14px"></dc-import></span>Members-only lounge at the festival</li>
+          </ul>
+          <div class="row m-col" style="gap: 12px; margin-top: 8px">
+            <a class="btn btn-white btn-lg" href="Membership{{sfx}}.dc.html">Become a Member</a>
+            <a class="btn btn-outline-w btn-lg" href="Membership{{sfx}}.dc.html">Compare plans</a>
+          </div>
+        </div>
+        <div style="padding: 24px">
+          <div class="member-card" role="img" aria-label="Taste Club membership card">
+            <div class="row between" style="align-items: flex-start"><span class="logo-slot"><b>Taste of BC</b><span>Logo · white on red</span></span><span class="badge white">Member</span></div>
+            <div style="position: absolute; left: 0; right: 0; top: 46%"><dc-import name="Wave" tone="white" h="{{ 36 }}" hint-size="100%,36px"></dc-import></div>
+            <div class="row between" style="align-items: flex-end">
+              <div><p class="tiny" style="text-transform: uppercase; letter-spacing: .14em; font-weight: 700">Taste Club · Foodie</p><p class="d4" style="margin-top: 6px">[Member Name]</p></div>
+              <p class="tiny" style="font-weight: 700">Since 2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="sec" aria-labelledby="gal-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="stack" style="gap: 14px"><p class="eyebrow">Last year</p><h2 class="d2" id="gal-h">#TasteOfBC</h2></div>
+          <a class="btn btn-outline" href="https://instagram.com"><dc-import name="Icon" n="instagram" hint-size="20px,20px"></dc-import>Follow along</a>
+        </div>
+        <div class="gal">
+          <div class="ph big"><div class="ph-ico"><dc-import name="Icon" n="users" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · Main tent at golden hour</span></div>
+          <div class="ph deep"><div class="ph-ico"><dc-import name="Icon" n="fish" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · Oyster shucking</span></div>
+          <div class="ph tint"><div class="ph-ico"><dc-import name="Icon" n="wine" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · Wine garden</span></div>
+          <div class="ph tint"><div class="ph-ico"><dc-import name="Icon" n="heart" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · Chef demo</span></div>
+          <div class="ph red"><div class="ph-ico"><dc-import name="Icon" n="mountain" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · Sea to Sky view</span></div>
+          <div class="ph wide"><div class="ph-ico"><dc-import name="Icon" n="store" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · Market stalls</span></div>
+          <div class="ph deep wide"><div class="ph-ico"><dc-import name="Icon" n="users" hint-size="44px,44px"></dc-import></div><span class="ph-cap">Photo · Friends sharing plates</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap"><dc-import name="Wave" tone="red" hint-size="100%,24px"></dc-import></div>
+
+    <!-- SPONSORS -->
+    <section class="sec-s" aria-labelledby="spon-h">
+      <div class="wrap stack" style="gap: 32px">
+        <div class="row between m-col" style="gap: 16px">
+          <h2 class="eyebrow" id="spon-h">Made possible by our partners</h2>
+          <a class="link" href="GetInvolved{{sfx}}.dc.html">Become a sponsor</a>
+        </div>
+        <div class="g5" style="grid-template-columns: repeat({{sponCols}}, minmax(0, 1fr))">
+          <div class="spon">[Sponsor logo]</div><div class="spon">[Sponsor logo]</div><div class="spon">[Sponsor logo]</div><div class="spon">[Sponsor logo]</div><div class="spon">[Sponsor logo]</div><div class="spon">[Sponsor logo]</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dc-import name="Footer" mobile="{{mobile}}" hint-size="100%,720px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"countdownTo":{"editor":"text","default":"2027-07-16T11:00:00-07:00"},"$preview":{"width":1440,"height":5900}}'>
+class Component extends DCLogic {
+  componentDidMount() { this.t = setInterval(() => this.forceUpdate(), 1000); }
+  componentWillUnmount() { clearInterval(this.t); }
+  renderVals() {
+    const mobile = !!this.props.mobile;
+    const target = Date.parse(this.props.countdownTo ?? '2027-07-16T11:00:00-07:00') || 0;
+    let ms = Math.max(0, target - Date.now());
+    const pad = (n) => String(n).padStart(2, '0');
+    const d = Math.floor(ms / 864e5); ms -= d * 864e5;
+    const h = Math.floor(ms / 36e5); ms -= h * 36e5;
+    const m = Math.floor(ms / 6e4); ms -= m * 6e4;
+    const s = Math.floor(ms / 1e3);
+    const vendors = [
+      { name: 'Saltwater Shuck Shack', region: 'Tofino · Seafood', photo: 'Fresh oysters', icon: 'fish', tone: '', tags: ['Gluten-free', 'Seafood'] },
+      { name: 'Ridgeline Cider House', region: 'Okanagan · Cider', photo: 'Cider flight', icon: 'wine', tone: 'deep', tags: ['Vegan', '19+'] },
+      { name: 'Fraser Valley Fry Co.', region: 'Abbotsford · Street food', photo: 'Hand-cut fries', icon: 'store', tone: 'tint', tags: ['Vegetarian'] },
+      { name: 'Kootenay Kitchen', region: 'Nelson · Plant-based', photo: 'Grain bowls', icon: 'leaf', tone: 'red', tags: ['Vegan', 'Nut-free'] },
+      { name: 'Harbour Smokehouse', region: 'Prince Rupert · Smoked fish', photo: 'Candied salmon', icon: 'fish', tone: '', tags: ['Dairy-free'] },
+      { name: 'Sunpeak Estate Wines', region: 'Naramata · Wine', photo: 'Vineyard rows', icon: 'wine', tone: 'deep', tags: ['19+'] }
+    ];
+    const tix = [
+      { name: 'Taste Bundle', short: 'bundle', desc: 'Tokens for bites and pours. Pairs with any pass.', unit: 'from', perks: ['10, 20 or 40 tastes', 'Use at any booth', 'Never expires during festival'], pop: false, cls: '', btn: 'btn-outline' },
+      { name: 'Weekend Pass', short: 'weekend', desc: 'All three days, in and out as you like.', unit: '/ person', perks: ['Entry Fri to Sun', '10 tastes included', 'Chef demo seating'], pop: true, cls: 'pop', btn: 'btn-red' },
+      { name: 'VIP Pass', short: 'VIP', desc: 'The full experience, with room to breathe.', unit: '/ person', perks: ['Weekend entry + VIP lounge', '30 tastes included', 'Fast-track entry'], pop: false, cls: '', btn: 'btn-outline' }
+    ];
+    return {
+      mobile, sfx: mobile ? '-Mobile' : '', root: mobile ? 'tobc m' : 'tobc',
+      cd: { d: d, h: pad(h), m: pad(m), s: pad(s) },
+      vendors, tix, sponCols: mobile ? 2 : 6
+    };
+  }
+}
+</script>
+</body>
+</html>

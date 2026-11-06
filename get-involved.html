@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Involved — Vendors & Volunteers | Taste of BC 2026</title>
+<meta name="description" content="Apply as a restaurant vendor or volunteer at Taste of BC 2026 in Surrey, BC. We provide booth banners, menu boards and coupon redemption.">
+<meta name="theme-color" content="#BC0214">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="involved">
+<div id="site-header"></div>
+<main id="main">
+
+<section class="c-hero" style="height:clamp(380px,40vw,480px)">
+  <div class="slides"><div class="slide on"><img src="assets/img/badges.jpg" alt="Taste of BC staff lanyards and badges" style="object-position:70% 45%"></div></div>
+  <div class="panel">
+    <span class="eyebrow">Get involved</span>
+    <h1>Restaurants, volunteers and partners make the festival.</h1>
+    <a class="link-line light" href="#restaurants">Apply below</a>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="container trio">
+    <div class="t"><span data-icon="store"></span><h3>Bring your kitchen to thousands of hungry visitors</h3><a class="link-arrow" href="#restaurants">Vendor applications</a></div>
+    <div class="t"><span data-icon="heart"></span><h3>Volunteer a shift and join the red-lanyard crew</h3><a class="link-arrow" href="#volunteer">Volunteer</a></div>
+    <div class="t"><span data-icon="megaphone"></span><h3>Sponsor an arch, the coupon sheet or the booklet</h3><a class="link-arrow" href="sponsors.html">Sponsorship</a></div>
+  </div>
+</section>
+
+<section class="band" id="restaurants">
+  <div class="container">
+    <div>
+      <span class="eyebrow">For restaurants & drink makers</span>
+      <h2>We handle the setup. You bring the flavour.</h2>
+      <p>Every vendor gets the same professional look and a simple, cashless way to sell.</p>
+    </div>
+    <div class="icon-links">
+      <a data-icon="store">Booth space on the field</a>
+      <a data-icon="banner">Taste of BC banner with your name</a>
+      <a data-icon="utensils">Menu board with coupon prices</a>
+      <a data-icon="ticket">Coupon redemption, paid out after</a>
+      <a data-icon="book">Listing & menu in the booklet</a>
+      <a data-icon="map">Booth on the festival map</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split" style="align-items:start">
+    <div>
+      <span class="eyebrow">Vendor application</span>
+      <h2>Apply for a booth.</h2>
+      <p class="lead">Tell us about your restaurant and the menu you’d like to serve. Our team reviews every application and replies within five business days.</p>
+      <ul class="kbd-list mt-6">
+        <li data-icon="check"><div><strong>How payment works</strong><span>Visitors pay you in $1 coupons. Hand in your coupons at close each day; we pay out their value after the festival.</span></div></li>
+        <li data-icon="check"><div><strong>Menu pricing</strong><span>Prices are set in whole coupons. We’ll help you price your menu.</span></div></li>
+        <li data-icon="check"><div><strong>Permits</strong><span>Vendors need a valid food permit for temporary events.</span></div></li>
+      </ul>
+    </div>
+    <div class="card" style="padding:clamp(24px,3vw,40px);background:var(--sand);border:0">
+      <form class="form" data-validate data-success="vendorOk">
+        <div class="form-row">
+          <div class="field"><label for="v-biz">Business name <span class="req">*</span></label><input class="input" id="v-biz" required><span class="error-msg">Please enter your business name.</span></div>
+          <div class="field"><label for="v-name">Contact name <span class="req">*</span></label><input class="input" id="v-name" required autocomplete="name"><span class="error-msg">Please enter a contact name.</span></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="v-email">Email <span class="req">*</span></label><input class="input" id="v-email" type="email" required autocomplete="email"><span class="error-msg">Enter a valid email address.</span></div>
+          <div class="field"><label for="v-phone">Phone <span class="req">*</span></label><input class="input" id="v-phone" type="tel" required autocomplete="tel"><span class="error-msg">Please enter a phone number.</span></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="v-type">Vendor type <span class="req">*</span></label><select class="select" id="v-type" required><option value="">Select…</option><option>Restaurant / food</option><option>Desserts / sweets</option><option>Coffee / hot drinks</option><option>Licensed (beer, wine, cider)</option></select><span class="error-msg">Choose a vendor type.</span></div>
+          <div class="field"><label for="v-city">City</label><input class="input" id="v-city" placeholder="e.g. Surrey"></div>
+        </div>
+        <div class="field"><span class="label">Dietary options you’ll offer</span>
+          <div class="check-grid"><label class="check"><input type="checkbox">Vegetarian</label><label class="check"><input type="checkbox">Vegan</label><label class="check"><input type="checkbox">Gluten-free</label><label class="check"><input type="checkbox">Halal</label></div></div>
+        <div class="field"><label for="v-menu">Proposed menu <span class="req">*</span></label><textarea class="textarea" id="v-menu" required placeholder="3–5 dishes with your suggested coupon price"></textarea><span class="error-msg">Please share your proposed menu.</span></div>
+        <div class="field"><label class="check"><input type="checkbox" required id="v-agree">I confirm we hold (or will obtain) the required food permits.</label><span class="error-msg">Please confirm before submitting.</span></div>
+        <button class="btn btn-lg" type="submit">Submit application</button>
+      </form>
+      <div class="form-success" id="vendorOk"><div class="icon-tile" data-icon="check"></div><h3>Application received.</h3><p class="muted">Thanks! We’ll be in touch within five business days.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="volunteer">
+  <div class="container split" style="align-items:start">
+    <div>
+      <span class="eyebrow">Volunteers</span>
+      <h2>Join the red-lanyard crew.</h2>
+      <p class="lead">Welcome guests at the arches, help at Coupon Booths, keep the dining tent tidy and point people the right way.</p>
+      <ul class="ticks"><li data-icon="check">Festival tee and lanyard</li><li data-icon="check">Meal coupons for every shift</li><li data-icon="check">Volunteer-hours letter on request</li><li data-icon="check">Ages 16+ (under 19 with guardian consent)</li></ul>
+    </div>
+    <div class="card" style="padding:clamp(24px,3vw,40px)">
+      <form class="form" data-validate data-success="volOk">
+        <div class="form-row">
+          <div class="field"><label for="vo-name">Full name <span class="req">*</span></label><input class="input" id="vo-name" required autocomplete="name"><span class="error-msg">Please enter your name.</span></div>
+          <div class="field"><label for="vo-email">Email <span class="req">*</span></label><input class="input" id="vo-email" type="email" required autocomplete="email"><span class="error-msg">Enter a valid email address.</span></div>
+        </div>
+        <div class="field"><span class="label">Availability</span>
+          <div class="check-grid"><label class="check"><input type="checkbox">Sat morning</label><label class="check"><input type="checkbox">Sat evening</label><label class="check"><input type="checkbox">Sun morning</label><label class="check"><input type="checkbox">Sun evening</label></div></div>
+        <div class="field"><label for="vo-role">Preferred role</label><select class="select" id="vo-role"><option>No preference</option><option>Gate welcome</option><option>Coupon Booth</option><option>Info Booth</option><option>Dining tent</option><option>Setup / teardown</option></select></div>
+        <button class="btn btn-lg" type="submit">Sign up to volunteer</button>
+      </form>
+      <div class="form-success" id="volOk"><div class="icon-tile" data-icon="check"></div><h3>You’re on the crew list.</h3><p class="muted">We’ll email shift options in November.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

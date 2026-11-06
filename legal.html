@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy, Terms & Refunds — Taste of BC</title>
+<meta name="description" content="Taste of BC privacy policy, terms of use and coupon refund policy.">
+<meta name="theme-color" content="#BC0214">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="legal">
+<div id="site-header"></div>
+<main id="main">
+<section class="page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Legal</span></nav>
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy, terms & refunds</h1>
+    <p class="lead">Template content — to be reviewed by legal counsel before launch. Last updated: [Date].</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container legal-layout">
+    <nav class="legal-nav" aria-label="Legal sections"><a href="#privacy" class="active">Privacy policy</a><a href="#terms">Terms of use</a><a href="#refunds">Refund policy</a></nav>
+    <div class="prose">
+      <h2 id="privacy" style="margin-top:0">Privacy policy</h2>
+      <p>Taste of BC (“we”, “us”) respects your privacy. This policy explains what personal information we collect, why, and how we protect it, in line with British Columbia’s Personal Information Protection Act (PIPA).</p>
+      <h3>Information we collect</h3>
+      <ul><li>Contact details you provide (name, email, phone) via forms or purchases.</li><li>Order details for coupon sheets and merchandise.</li><li>Basic, anonymised website analytics.</li></ul>
+      <h3>Payments</h3>
+      <p>Payments are processed by Stripe. We never see or store your full card number. See Stripe’s privacy policy for details.</p>
+      <h3>How we use information</h3>
+      <ul><li>To fulfil orders and send receipts and pickup codes.</li><li>To respond to enquiries and applications.</li><li>To send newsletters, only if you subscribe. You can unsubscribe at any time.</li></ul>
+      <h3>Contact</h3>
+      <p>Privacy questions: <a href="mailto:privacy@tasteofbc.ca">privacy@tasteofbc.ca</a>.</p>
+
+      <h2 id="terms">Terms of use</h2>
+      <p>By using this website or attending the festival, you agree to these terms.</p>
+      <ul><li>Entry is free and subject to capacity and site rules.</li><li>The Beer & Wine Garden is restricted to guests 19+ with valid government ID.</li><li>Lineup, schedule and layout may change without notice.</li><li>Photography and filming may take place on site for promotional use.</li></ul>
+
+      <h2 id="refunds">Refund policy</h2>
+      <h3>Coupon sheets</h3>
+      <ul><li>Unused coupon sheets bought online may be refunded up to [X] days before the festival.</li><li>Coupons are valid on both festival days and have no cash value.</li><li>Torn, lost or stolen coupons cannot be replaced or refunded.</li><li>If the festival is cancelled, all online coupon orders are refunded in full.</li></ul>
+      <h3>Merchandise</h3>
+      <p>Unworn merchandise in original condition may be exchanged at the Info Booth during the festival, or returned within [X] days by contacting <a href="mailto:hello@tasteofbc.ca">hello@tasteofbc.ca</a>.</p>
+    </div>
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+document.addEventListener("tobc:ready", () => {
+  const links = document.querySelectorAll(".legal-nav a");
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(l => l.classList.toggle("active", l.hash === "#" + e.target.id)); }), { rootMargin: "-30% 0px -60% 0px" });
+  ["privacy", "terms", "refunds"].forEach(id => io.observe(document.getElementById(id)));
+});
+</script>
+</body>
+</html>

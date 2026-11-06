@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Festival Info — Taste of BC</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./tobc.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>body{margin:0;background:#FCF8F3}</style>
+</helmet>
+<div class="{{root}}">
+  <dc-import name="Header" mobile="{{mobile}}" active="Festival" hint-size="100%,84px"></dc-import>
+  <main>
+    <section class="wrap phero">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="Main{{sfx}}.dc.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Festival</span></nav>
+      <div class="split top">
+        <div class="stack" style="gap: 20px">
+          <p class="eyebrow">Festival info</p>
+          <h1 class="d1">Plan your <span class="red">visit.</span></h1>
+        </div>
+        <div class="stack" style="gap: 24px; padding-top: 12px">
+          <p class="lead">Everything you need for a great day out: when to come, how to get here and what's on each day.</p>
+          <div class="row m-col" style="gap: 12px">
+            <a class="btn btn-red" href="Tickets{{sfx}}.dc.html">Buy Tickets</a>
+            <a class="btn btn-outline" href="#schedule">See the schedule</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap"><dc-import name="Wave" tone="red" hint-size="100%,24px"></dc-import></div>
+
+    <!-- KEY FACTS -->
+    <section class="sec-s" aria-label="Key details">
+      <div class="wrap g4">
+        <div class="card card-p stack" style="gap: 14px"><span class="strip-ico" style="background: #BC0214; color: #FFFFFF"><dc-import name="Icon" n="calendar" hint-size="22px,22px"></dc-import></span><h2 class="d4" style="font-size: 20px">Dates</h2><p class="body">[Dates]<br>Friday to Sunday</p></div>
+        <div class="card card-p stack" style="gap: 14px"><span class="strip-ico" style="background: #BC0214; color: #FFFFFF"><dc-import name="Icon" n="clock" hint-size="22px,22px"></dc-import></span><h2 class="d4" style="font-size: 20px">Hours</h2><p class="body">Fri 4pm to 10pm<br>Sat &amp; Sun 11am to 9pm</p></div>
+        <div class="card card-p stack" style="gap: 14px"><span class="strip-ico" style="background: #BC0214; color: #FFFFFF"><dc-import name="Icon" n="pin" hint-size="22px,22px"></dc-import></span><h2 class="d4" style="font-size: 20px">Venue</h2><p class="body">[Venue]<br>[Street address], BC</p></div>
+        <div class="card card-p stack" style="gap: 14px"><span class="strip-ico" style="background: #BC0214; color: #FFFFFF"><dc-import name="Icon" n="users" hint-size="22px,22px"></dc-import></span><h2 class="d4" style="font-size: 20px">Ages</h2><p class="body">All ages welcome.<br>19+ with ID for tastings.</p></div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="sec-s" aria-labelledby="map-h">
+      <div class="wrap split wide">
+        <div class="map" role="img" aria-label="Map showing the festival venue">
+          <svg viewBox="0 0 800 460" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%" aria-hidden="true">
+            <rect width="800" height="460" fill="#FCF8F3"></rect>
+            <path d="M0 330 C120 300 200 360 320 340 S520 280 640 310 S760 360 800 350 L800 460 L0 460 Z" fill="rgba(188,2,20,.08)"></path>
+            <path d="M0 120 L800 160 M0 250 L800 220 M180 0 L220 460 M470 0 L430 460 M640 0 L700 460" stroke="#FFFFFF" stroke-width="14" fill="none"></path>
+            <path d="M0 120 L800 160 M0 250 L800 220 M180 0 L220 460 M470 0 L430 460 M640 0 L700 460" stroke="rgba(26,26,26,.12)" stroke-width="1" fill="none"></path>
+            <rect x="250" y="168" width="160" height="70" rx="10" fill="rgba(26,26,26,.06)"></rect>
+            <rect x="490" y="60" width="120" height="80" rx="10" fill="rgba(26,26,26,.06)"></rect>
+            <rect x="60" y="150" width="100" height="70" rx="10" fill="rgba(26,26,26,.06)"></rect>
+          </svg>
+          <div style="position: absolute; left: 44%; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 8px">
+            <span class="badge" style="height: 34px; padding: 0 14px; font-size: 13px">[Venue]</span>
+            <span style="width: 52px; height: 52px; border-radius: 50%; background: #BC0214; color: #FFFFFF; display: grid; place-items: center; font-size: 26px; box-shadow: 0 0 0 10px rgba(188,2,20,.18)"><dc-import name="Icon" n="pin" hint-size="26px,26px"></dc-import></span>
+          </div>
+          <span class="ph-cap" style="left: 16px; bottom: 16px">Map embed · replace with live map</span>
+        </div>
+        <div class="stack" style="gap: 24px">
+          <p class="eyebrow">Getting here</p>
+          <h2 class="d3" id="map-h">Easy by transit, bike or car.</h2>
+          <ul class="stack" style="gap: 18px">
+            <li class="row" style="gap: 14px; align-items: flex-start; flex-wrap: nowrap"><span class="strip-ico" style="width: 40px; height: 40px; font-size: 18px; background: #FFFFFF; border: 1px solid rgba(26,26,26,.1)"><dc-import name="Icon" n="bus" hint-size="18px,18px"></dc-import></span><div><p class="strong">Transit</p><p class="small">[Nearest station], a 5 minute walk.</p></div></li>
+            <li class="row" style="gap: 14px; align-items: flex-start; flex-wrap: nowrap"><span class="strip-ico" style="width: 40px; height: 40px; font-size: 18px; background: #FFFFFF; border: 1px solid rgba(26,26,26,.1)"><dc-import name="Icon" n="heart" hint-size="18px,18px"></dc-import></span><div><p class="strong">Bike valet</p><p class="small">Free, staffed bike parking at the main gate.</p></div></li>
+            <li class="row" style="gap: 14px; align-items: flex-start; flex-wrap: nowrap"><span class="strip-ico" style="width: 40px; height: 40px; font-size: 18px; background: #FFFFFF; border: 1px solid rgba(26,26,26,.1)"><dc-import name="Icon" n="info" hint-size="18px,18px"></dc-import></span><div><p class="strong">Accessibility</p><p class="small">Step-free entry, accessible washrooms and quiet zone.</p></div></li>
+          </ul>
+          <div class="row m-col" style="gap: 12px">
+            <a class="btn btn-red" href="https://maps.google.com">Get directions<dc-import name="Icon" n="external" hint-size="18px,18px"></dc-import></a>
+            <a class="btn btn-outline" href="Help{{sfx}}.dc.html">Visitor FAQ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section class="sec bg-white" id="schedule" aria-labelledby="sch-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="stack" style="gap: 14px"><p class="eyebrow">Schedule</p><h2 class="d2" id="sch-h">What's on.</h2></div>
+          <div class="tabs" role="tablist" aria-label="Festival days">
+            <sc-for list="{{days}}" as="d" hint-placeholder-count="3">
+              <button class="tab {{d.cls}}" type="button" role="tab" aria-selected="{{d.sel}}" aria-controls="sched-panel" onClick="{{d.pick}}">{{d.label}}<small>{{d.date}}</small></button>
+            </sc-for>
+          </div>
+        </div>
+        <div class="sched" id="sched-panel" role="tabpanel" aria-label="{{dayLabel}} schedule">
+          <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+            <div class="sched-row">
+              <span class="sched-time">{{r.time}}</span>
+              <div class="stack" style="gap: 4px"><h3 style="margin: 0; font-size: 19px; font-weight: 700">{{r.title}}</h3><p class="small">{{r.desc}}</p></div>
+              <p class="small row" style="gap: 8px; flex-wrap: nowrap"><dc-import name="Icon" n="pin" hint-size="16px,16px"></dc-import>{{r.where}}</p>
+              <span class="badge {{r.badge}}" style="justify-self: start">{{r.kind}}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div class="row" style="margin-top: 32px; gap: 12px">
+          <a class="btn btn-outline" href="#schedule"><dc-import name="Icon" n="download" hint-size="18px,18px"></dc-import>Download full schedule (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOOD TO KNOW -->
+    <section class="sec" aria-labelledby="know-h">
+      <div class="wrap split top">
+        <div class="stack" style="gap: 16px"><p class="eyebrow">Good to know</p><h2 class="d2" id="know-h">Before you go.</h2></div>
+        <ul class="list-check" style="gap: 18px">
+          <li><span class="ck"><dc-import name="Icon" n="check" hint-size="14px,14px"></dc-import></span><span><b>Cashless site.</b> Tap to pay at every booth.</span></li>
+          <li><span class="ck"><dc-import name="Icon" n="check" hint-size="14px,14px"></dc-import></span><span><b>Bring a refillable bottle.</b> Free water stations throughout.</span></li>
+          <li><span class="ck"><dc-import name="Icon" n="check" hint-size="14px,14px"></dc-import></span><span><b>Bring ID.</b> Needed for all alcohol tastings, no exceptions.</span></li>
+          <li><span class="ck"><dc-import name="Icon" n="check" hint-size="14px,14px"></dc-import></span><span><b>Dogs.</b> Service animals only, please.</span></li>
+          <li><span class="ck"><dc-import name="Icon" n="check" hint-size="14px,14px"></dc-import></span><span><b>Rain or shine.</b> Covered tents across the site.</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" mobile="{{mobile}}" hint-size="100%,720px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":3700}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { day: 1 }; }
+  renderVals() {
+    const mobile = !!this.props.mobile;
+    const D = [
+      { label: 'Friday', date: '[Date]', rows: [
+        ['4:00 PM', 'Gates open', 'Grab a pass, find the bar, settle in.', 'Main Gate', 'General', 'cream'],
+        ['5:00 PM', 'Oyster shucking showdown', 'Coastal shuckers race for the crown.', 'Seaside Stage', 'Competition', ''],
+        ['6:30 PM', 'Okanagan wine walk', 'A guided tasting through six wineries.', 'Wine Garden', '19+', 'ink'],
+        ['8:00 PM', 'Live music: [Artist]', 'Local band, golden hour, cold drinks.', 'Main Stage', 'Music', 'cream'],
+        ['10:00 PM', 'Last call', 'See you tomorrow.', 'All areas', 'General', 'cream']
+      ]},
+      { label: 'Saturday', date: '[Date]', rows: [
+        ['11:00 AM', 'Gates open + family brunch', 'Kid-friendly bites and pancakes.', 'Main Gate', 'Family', 'cream'],
+        ['12:30 PM', 'Chef demo: Spot prawns 3 ways', 'Live cooking with [Chef Name].', 'Demo Kitchen', 'Demo', ''],
+        ['2:00 PM', 'BC craft beer hall', 'Twenty taps from across the province.', 'Beer Hall', '19+', 'ink'],
+        ['4:00 PM', 'Indigenous food talk', 'Stories and flavours with [Speaker].', 'Long Table', 'Talk', 'cream'],
+        ['6:00 PM', 'Salmon BBQ on cedar', 'Slow-cooked over open flame.', 'Fire Pit', 'Demo', ''],
+        ['8:30 PM', 'Headliner: [Artist]', 'The big one. Bring your dancing shoes.', 'Main Stage', 'Music', 'cream']
+      ]},
+      { label: 'Sunday', date: '[Date]', rows: [
+        ['11:00 AM', 'Gates open', 'A slower, sunny Sunday.', 'Main Gate', 'General', 'cream'],
+        ['12:00 PM', 'Farmers market', 'Take home produce from Fraser Valley farms.', 'Market Lane', 'Market', 'cream'],
+        ['1:30 PM', 'Chef demo: Plant-based BC', 'Big flavour, no meat with [Chef Name].', 'Demo Kitchen', 'Demo', ''],
+        ['3:00 PM', 'Spirits masterclass', 'Small-batch gin and whisky.', 'Tasting Room', '19+', 'ink'],
+        ['6:00 PM', 'Closing toast', 'Thank you, BC. Until next year.', 'Main Stage', 'General', 'cream']
+      ]}
+    ];
+    const day = this.state.day;
+    const days = D.map((d, i) => ({ label: d.label, date: d.date, cls: i === day ? 'on' : '', sel: i === day ? 'true' : 'false', pick: () => this.setState({ day: i }) }));
+    const rows = D[day].rows.map(([time, title, desc, where, kind, badge]) => ({ time, title, desc, where, kind, badge }));
+    return { mobile, sfx: mobile ? '-Mobile' : '', root: mobile ? 'tobc m' : 'tobc', days, rows, dayLabel: D[day].label };
+  }
+}
+</script>
+</body>
+</html>

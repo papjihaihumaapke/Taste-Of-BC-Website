@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Festival Info Booklet — Taste of BC 2026</title>
+<meta name="description" content="Preview the official Taste of BC 2026 info booklet: participating restaurants and menus, site map, schedule, sponsors and advertisements.">
+<meta name="theme-color" content="#BC0214">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .dir { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .dir li { border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+  .dir .h { display: flex; justify-content: space-between; gap: 8px; font-weight: 800; font-size: 13.5px; }
+  .dir .h span { color: var(--red); white-space: nowrap; }
+  .dir .m { font-size: 12px; color: var(--ink-3); line-height: 1.5; }
+  .ads { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1.2fr 1fr 1fr; gap: 10px; flex: 1; }
+  .ads .ad-slot:first-child { grid-column: span 2; background: var(--red-tint); color: var(--red-ink); border-color: var(--red-tint-2); }
+  .mini-sched { display: grid; gap: 0; font-size: 12.5px; }
+  .mini-sched div { display: grid; grid-template-columns: 70px 1fr; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--line); }
+  .mini-sched b { color: var(--red); }
+</style>
+</head>
+<body data-page="booklet">
+<div id="site-header"></div>
+<main id="main">
+
+<section class="page-hero">
+  <span class="waves-bg" data-wavesbg></span>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Info Booklet</span></nav>
+    <span class="eyebrow">Official festival guide</span>
+    <h1>The info booklet.</h1>
+    <p class="lead">Free at every gate. Every participating restaurant and menu, the site map, the stage schedule and the partners who keep entry free.</p>
+    <div class="row mt-6">
+      <button class="btn" disabled data-icon="download">PDF available Dec 1</button>
+      <a class="btn btn-secondary" href="#advertise">Advertise in the booklet</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="booklet-stage" id="stage" aria-live="polite"></div>
+    <div class="booklet-nav">
+      <button class="round-btn" id="prev" aria-label="Previous spread" data-icon="arrowL"></button>
+      <span class="pg" id="pg"></span>
+      <button class="round-btn" id="next" aria-label="Next spread" data-icon="arrow"></button>
+    </div>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="container">
+    <div class="section-head center"><span class="eyebrow">What’s inside</span><h2>Everything you need on one walk around the field.</h2></div>
+    <div class="grid grid-4">
+      <div class="card flat"><div class="icon-tile" data-icon="store"></div><h4>Participating restaurants</h4><p class="muted mb-0">Every vendor with booth number and cuisine.</p></div>
+      <div class="card flat"><div class="icon-tile" data-icon="utensils"></div><h4>Full menus</h4><p class="muted mb-0">Every dish, priced in $1 coupons, with dietary labels.</p></div>
+      <div class="card flat"><div class="icon-tile" data-icon="map"></div><h4>Site layout map</h4><p class="muted mb-0">Gates, Coupon Booths, stage, washrooms and first aid.</p></div>
+      <div class="card flat"><div class="icon-tile" data-icon="megaphone"></div><h4>Partners & ads</h4><p class="muted mb-0">The sponsors and local businesses behind the festival.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="advertise">
+  <div class="container split">
+    <div>
+      <span class="eyebrow">Advertise</span>
+      <h2>Put your brand in every visitor’s hands.</h2>
+      <p class="lead">The booklet is handed out at every gate and kept all day for the map and menus. Ad space is limited.</p>
+      <a class="btn mt-4" href="sponsors.html#inquire">Request the media kit</a>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <table class="order-table" style="margin:0">
+        <thead><tr><th style="padding-left:24px">Placement</th><th style="padding-right:24px">Rate</th></tr></thead>
+        <tbody>
+          <tr><td style="padding-left:24px">Back cover</td><td style="padding-right:24px">$XX</td></tr>
+          <tr><td style="padding-left:24px">Inside front cover</td><td style="padding-right:24px">$XX</td></tr>
+          <tr><td style="padding-left:24px">Full page</td><td style="padding-right:24px">$XX</td></tr>
+          <tr><td style="padding-left:24px">Half page</td><td style="padding-right:24px">$XX</td></tr>
+          <tr><td style="padding-left:24px">Quarter page</td><td style="padding-right:24px">$XX</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/components.js"></script>
+<script>
+document.addEventListener("tobc:ready", () => {
+  const E = TOBC.event, R = TOBC.restaurants, C = TOBC.components;
+  const dir = rs => `<ul class="dir">${rs.map(r => `<li><div class="h">${r.name}<span>${r.booth}</span></div><div class="m">${r.menu.map(m => `${m[0]} · ${m[1]}`).join(" &nbsp;/&nbsp; ")}</div></li>`).join("")}</ul>`;
+  const spreads = [
+    [`<div class="bpage cover"><span class="tagline" style="color:#fff">Official festival guide · ${E.year}</span><img src="assets/img/logo-white.png" alt="Taste of BC" style="width:80%;margin:auto"><div><h3>${E.datesShort}</h3><p class="mb-0" style="opacity:.85">${E.city} · Free entry</p></div></div>`,
+     `<div class="bpage"><div class="ad-slot full"><div>Inside front cover<b>Presenting Partner</b>Full-page advertisement</div></div><span class="pno">2</span></div>`],
+    [`<div class="bpage"><h4 class="bh">Welcome</h4><p class="small">Welcome to Taste of BC — a free-entry celebration of the restaurants, makers and flavours of British Columbia.</p><h4 class="bh mt-4" style="font-size:1.1rem">How coupons work</h4><ul class="kbd-list small"><li>${TOBC.ui.icon("check")}<span>Entry is free at every arch.</span></li><li>${TOBC.ui.icon("check")}<span>Buy a sheet of 20 × $1 coupons ($20) at any Coupon Booth.</span></li><li>${TOBC.ui.icon("check")}<span>Menus are priced in coupons. No cash at booths.</span></li></ul><span class="pno">3</span></div>`,
+     `<div class="bpage"><h4 class="bh">Contents</h4><ol class="toc"><li><span>Welcome & coupons</span><span></span><span>3</span></li><li><span>Site map</span><span></span><span>5</span></li><li><span>Restaurants & menus</span><span></span><span>6</span></li><li><span>Our partners</span><span></span><span>8</span></li><li><span>Stage schedule</span><span></span><span>9</span></li><li><span>Thank you</span><span></span><span>10</span></li></ol><div class="ad-slot mt-6" style="height:120px">Half-page ad</div><span class="pno">4</span></div>`],
+    [`<div class="bpage"><h4 class="bh">Site map</h4><div style="flex:1;display:grid;place-items:center">${C.siteMap()}</div><span class="pno">5</span></div>`,
+     `<div class="bpage"><h4 class="bh">Restaurants & menus</h4>${dir(R.slice(0, 7))}<span class="pno">6</span></div>`],
+    [`<div class="bpage"><h4 class="bh">Restaurants & menus (cont.)</h4>${dir(R.slice(7, 14))}<span class="pno">7</span></div>`,
+     `<div class="bpage"><h4 class="bh">Our partners</h4><div class="ads"><div class="ad-slot">Half page · Gate partner</div><div class="ad-slot">Quarter page</div><div class="ad-slot">Quarter page</div><div class="ad-slot">Quarter page</div><div class="ad-slot">Quarter page</div></div><span class="pno">8</span></div>`],
+    [`<div class="bpage"><h4 class="bh">Stage schedule</h4><p class="small" style="font-weight:800">Saturday</p><div class="mini-sched">${TOBC.schedule.Saturday.slice(0, 6).map(s => `<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join("")}</div><p class="small mt-4" style="font-weight:800">Sunday</p><div class="mini-sched">${TOBC.schedule.Sunday.slice(1, 6).map(s => `<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join("")}</div><span class="pno">9</span></div>`,
+     `<div class="bpage cover" style="justify-content:center;text-align:center;gap:20px"><h3>Thank you</h3><p style="opacity:.9">to our partners, restaurants and volunteers.</p><div class="ad-slot" style="background:#fff;border:0;color:var(--red);height:120px">Back cover · Presenting partner</div><img src="assets/img/logo-white.png" alt="" style="width:46%;margin:0 auto"></div>`]
+  ];
+  let i = 0; const stage = document.getElementById("stage");
+  function show() {
+    stage.innerHTML = spreads[i].join("");
+    document.getElementById("pg").textContent = `Spread ${i + 1} of ${spreads.length}`;
+    document.getElementById("prev").disabled = i === 0; document.getElementById("next").disabled = i === spreads.length - 1;
+  }
+  document.getElementById("prev").onclick = () => { if (i > 0) { i--; show(); } };
+  document.getElementById("next").onclick = () => { if (i < spreads.length - 1) { i++; show(); } };
+  addEventListener("keydown", e => { if (e.key === "ArrowRight") document.getElementById("next").click(); if (e.key === "ArrowLeft") document.getElementById("prev").click(); });
+  show();
+});
+</script>
+</body>
+</html>

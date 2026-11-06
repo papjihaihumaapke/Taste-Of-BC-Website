@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site header</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./tobc.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<header class="hdr {{rootCls}}" style="font-family: Inter, system-ui, sans-serif">
+  <div class="wrap hdr-in">
+    <a class="logo-slot" href="Main{{sfx}}.dc.html" aria-label="Taste of BC home"><b>Taste of BC</b><span>Logo · white on red</span></a>
+    <sc-if value="{{desk}}" hint-placeholder-val="{{ true }}">
+      <nav class="nav" aria-label="Main">
+        <sc-for list="{{nav}}" as="it" hint-placeholder-count="7">
+          <a href="{{it.href}}" class="{{it.cls}}" aria-current="{{it.cur}}">{{it.label}}</a>
+        </sc-for>
+      </nav>
+    </sc-if>
+    <sc-if value="{{mobile}}"><div style="flex: 1"></div></sc-if>
+    <a class="ibtn" href="Cart{{sfx}}.dc.html" aria-label="Cart, {{cart}} items"><dc-import name="Icon" n="cart" hint-size="22px,22px"></dc-import><span class="cart-dot" aria-hidden="true">{{cart}}</span></a>
+    <sc-if value="{{desk}}" hint-placeholder-val="{{ true }}">
+      <a class="btn btn-white btn-sm" href="Tickets{{sfx}}.dc.html" style="height: 44px; padding: 0 22px">Buy Tickets</a>
+    </sc-if>
+    <sc-if value="{{mobile}}">
+      <button class="ibtn" type="button" aria-label="{{menuLabel}}" aria-expanded="{{openStr}}" aria-controls="mobile-menu" onClick="{{toggle}}">
+        <sc-if value="{{open}}"><dc-import name="Icon" n="close" hint-size="22px,22px"></dc-import></sc-if>
+        <sc-if value="{{closed}}"><dc-import name="Icon" n="menu" hint-size="22px,22px"></dc-import></sc-if>
+      </button>
+    </sc-if>
+  </div>
+  <sc-if value="{{open}}">
+    <nav class="mnav" id="mobile-menu" aria-label="Main">
+      <sc-for list="{{nav}}" as="it" hint-placeholder-count="7">
+        <a class="mlink {{it.cls}}" href="{{it.href}}" aria-current="{{it.cur}}">{{it.label}}<dc-import name="Icon" n="arrow" hint-size="22px,22px"></dc-import></a>
+      </sc-for>
+      <div class="stack" style="gap: 12px; margin-top: 24px">
+        <a class="btn btn-white btn-block btn-lg" href="Tickets{{sfx}}.dc.html">Buy Tickets</a>
+        <a class="btn btn-outline-w btn-block btn-lg" href="Membership{{sfx}}.dc.html">Become a Member</a>
+      </div>
+    </nav>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"active":{"editor":"enum","default":"","options":["","Festival","Vendors","Tickets","Membership","Shop","Get Involved","About"]},"cart":{"editor":"int","default":3,"min":0,"max":99},"menuOpen":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":84}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { open: !!props.menuOpen }; }
+  renderVals() {
+    const mobile = !!this.props.mobile;
+    const sfx = mobile ? '-Mobile' : '';
+    const active = this.props.active ?? '';
+    const items = [['Festival','Festival'],['Vendors','Vendors'],['Tickets','Tickets'],['Membership','Membership'],['Shop','Shop'],['Get Involved','GetInvolved'],['About','About']];
+    const nav = items.map(([label, file]) => ({ label, href: file + sfx + '.dc.html', cur: label === active ? 'page' : undefined, cls: label === active ? 'cur' : '' }));
+    const open = mobile && this.state.open;
+    return {
+      mobile, desk: !mobile, sfx, nav, open, closed: !open,
+      openStr: open ? 'true' : 'false',
+      menuLabel: open ? 'Close menu' : 'Open menu',
+      rootCls: mobile ? 'm' : '',
+      cart: this.props.cart ?? 3,
+      toggle: () => this.setState({ open: !this.state.open })
+    };
+  }
+}
+</script>
+</body>
+</html>

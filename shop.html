@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop — Taste of BC Merch & Gift Coupons</title>
+<meta name="description" content="Official Taste of BC merchandise — totes, mugs and tees — plus coupon sheets and e-gift coupon sheets. Secure checkout with Stripe.">
+<meta name="theme-color" content="#BC0214">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .pd { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: clamp(32px,5vw,72px); align-items: start; }
+  .pd .media { aspect-ratio: 1/1; border-radius: var(--r-xl); }
+  .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px; }
+  .thumbs button { padding: 0; border: 2px solid transparent; border-radius: var(--r-md); overflow: hidden; aspect-ratio: 1/1; background: var(--sand); }
+  .thumbs button[aria-pressed="true"] { border-color: var(--red); }
+  .thumbs img { width: 100%; height: 100%; object-fit: cover; }
+  .sizes { display: flex; gap: 8px; flex-wrap: wrap; }
+  .sizes label { position: relative; }
+  .sizes input { position: absolute; opacity: 0; }
+  .sizes span { display: grid; place-items: center; min-width: 52px; height: 44px; padding: 0 12px; border: 1.5px solid var(--line-2); border-radius: var(--r-md); font-weight: 700; cursor: pointer; background: #fff; }
+  .sizes input:checked + span { border-color: var(--ink); background: var(--ink); color: #fff; }
+  .sizes input:focus-visible + span { outline: 3px solid var(--red); outline-offset: 2px; }
+  .gift-card { aspect-ratio: 1.6/1; border-radius: var(--r-lg); background: var(--red); color: #fff; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; box-shadow: var(--sh-3); }
+  .gift-card img { width: 46%; }
+  .gift-card .amt { font-family: var(--font-display); font-size: 2.25rem; line-height: 1; }
+  @media (max-width: 900px) { .pd { grid-template-columns: minmax(0,1fr); } }
+</style>
+</head>
+<body data-page="shop">
+<div id="site-header"></div>
+<main id="main">
+
+<section class="page-hero">
+  <span class="waves-bg" data-wavesbg></span>
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Shop</span></nav>
+    <span class="eyebrow">Official shop</span>
+    <h1>Take a taste home.</h1>
+    <p class="lead">Festival totes, mugs and tees, plus coupon sheets and e-gifts. Merch ordered online is picked up at the Info Booth by the North Gate.</p>
+  </div>
+</section>
+
+<!-- Product detail (featured) -->
+<section class="section">
+  <div class="container pd">
+    <div>
+      <div class="media"><img id="pdImg" src="assets/img/p-tee-red.jpg" alt="Taste of BC logo tee in red"></div>
+      <div class="thumbs" role="group" aria-label="Choose colour">
+        <button aria-pressed="true" data-pid="tee-r" data-img="assets/img/p-tee-red.jpg"><img src="assets/img/p-tee-red.jpg" alt="Red tee"></button>
+        <button aria-pressed="false" data-pid="tee-w" data-img="assets/img/p-tee-white.jpg"><img src="assets/img/p-tee-white.jpg" alt="White tee"></button>
+      </div>
+    </div>
+    <div>
+      <span class="badge solid">Bestseller</span>
+      <h2 class="mt-4" id="pdName">Logo tee — Red</h2>
+      <div class="price-row"><span class="price">$30</span><span class="muted">CAD</span></div>
+      <p class="lead">Soft, heavyweight cotton with the full Taste of BC logo. Unisex fit.</p>
+      <div class="field mt-6"><span class="label">Colour</span>
+        <div class="swatches"><button class="swatch on" style="background:#BC0214" aria-label="Red" data-sw="0"></button><button class="swatch" style="background:#fff" aria-label="White" data-sw="1"></button></div></div>
+      <div class="field mt-6"><span class="label">Size</span>
+        <div class="sizes" role="radiogroup" aria-label="Size">
+          <label><input type="radio" name="size" value="S"><span>S</span></label><label><input type="radio" name="size" value="M" checked><span>M</span></label>
+          <label><input type="radio" name="size" value="L"><span>L</span></label><label><input type="radio" name="size" value="XL"><span>XL</span></label><label><input type="radio" name="size" value="XXL"><span>XXL</span></label>
+        </div></div>
+      <input type="hidden" id="sizeVal" value="Size M">
+      <div class="row mt-6">
+        <div class="stepper" role="group" aria-label="Quantity"><button type="button" data-step="-1" aria-label="Decrease" data-icon="minus"></button><input id="pdQty" type="number" value="1" min="1" max="20" aria-label="Quantity"><button type="button" data-step="1" aria-label="Increase" data-icon="plus"></button></div>
+        <button class="btn btn-lg" style="flex:1" id="pdAdd" data-add="tee-r" data-qty-from="#pdQty" data-opt-from="#sizeVal" data-icon="cart">Add to cart</button>
+      </div>
+      <ul class="kbd-list mt-6 small">
+        <li data-icon="store"><div><strong>Pick up at the festival</strong><span>Collect from the Info Booth, North Gate</span></div></li>
+        <li data-icon="lock"><div><strong>Secure checkout</strong><span>Payments processed by Stripe</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="container">
+    <div class="section-head split"><div><span class="eyebrow">All products</span><h2>Merch & coupons.</h2></div>
+      <div class="chips row" role="group" aria-label="Filter products">
+        <button class="chip" aria-pressed="true" data-kind="all">All</button><button class="chip" aria-pressed="false" data-kind="merch">Merch</button><button class="chip" aria-pressed="false" data-kind="coupon">Coupons & gifts</button>
+      </div></div>
+    <div class="grid grid-4" id="grid"></div>
+  </div>
+</section>
+
+<section class="section" id="gift">
+  <div class="container split">
+    <div class="gift-card"><img src="assets/img/logo-white.png" alt="Taste of BC"><div><div class="tagline" style="opacity:.85">Gift coupon sheet</div><div class="amt">20 × $1</div></div></div>
+    <div>
+      <span class="eyebrow">Gifts</span>
+      <h2>Give the gift of tasting.</h2>
+      <p class="lead">Send a coupon sheet by email. Your recipient shows their code at any Coupon Booth to collect 20 × $1 coupons.</p>
+      <div class="row mt-6"><a class="btn" href="coupons.html#buy">Send an e-gift sheet</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+document.addEventListener("tobc:ready", () => {
+  const { icon, money } = TOBC.ui;
+  const grid = document.getElementById("grid");
+  const card = p => `<article class="p-card" data-kind="${p.kind === "merch" ? "merch" : "coupon"}">
+    <div class="media">${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : `<div style="width:100%;height:100%;display:grid;place-items:center;background:${p.kind === "gift" ? "var(--ink)" : "var(--red)"}"><div class="mini-coupon" style="transform:scale(1.4)"><div><b>$1</b><small>× 20</small></div></div></div>`}
+      ${p.kind !== "merch" ? '<span class="badge dark">No shipping</span>' : ""}</div>
+    <div class="p-body"><h3>${p.name}</h3><span class="small muted">${p.note}</span><span class="p-price">${money(p.price)}</span>
+      <div class="p-actions"><button class="btn btn-sm btn-block" data-add="${p.id}">${icon("cart")}Add to cart</button></div></div></article>`;
+  grid.innerHTML = TOBC.products.map(card).join("");
+  document.querySelectorAll("[data-kind]").forEach(b => b.tagName === "BUTTON" && (b.onclick = () => {
+    document.querySelectorAll("button[data-kind]").forEach(x => x.setAttribute("aria-pressed", x === b));
+    grid.querySelectorAll(".p-card").forEach(c => c.hidden = b.dataset.kind !== "all" && c.dataset.kind !== b.dataset.kind);
+  }));
+  // Product detail colour + size
+  const thumbs = document.querySelectorAll(".thumbs button"), sw = document.querySelectorAll("[data-sw]");
+  function pick(i) {
+    const t = thumbs[i]; thumbs.forEach((x, j) => x.setAttribute("aria-pressed", j === i)); sw.forEach((x, j) => x.classList.toggle("on", j === i));
+    document.getElementById("pdImg").src = t.dataset.img;
+    const p = TOBC.products.find(x => x.id === t.dataset.pid);
+    document.getElementById("pdName").textContent = p.name; document.getElementById("pdAdd").dataset.add = p.id;
+  }
+  thumbs.forEach((t, i) => t.onclick = () => pick(i)); sw.forEach((s, i) => s.onclick = () => pick(i));
+  document.querySelectorAll("input[name=size]").forEach(r => r.onchange = () => document.getElementById("sizeVal").value = "Size " + r.value);
+});
+</script>
+</body>
+</html>

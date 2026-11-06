@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site footer</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./tobc.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<footer class="ftr on-red {{rootCls}}" style="font-family: Inter, system-ui, sans-serif">
+  <div class="wrap" style="padding-top: 88px; padding-bottom: 40px; display: flex; flex-direction: column; gap: 56px">
+    <div class="ftr-top">
+      <div class="stack" style="gap: 16px">
+        <p class="eyebrow">Newsletter</p>
+        <h2 class="d2">Get the first taste.</h2>
+        <p class="body" style="max-width: 460px">Lineup drops, presale codes and member offers. No spam, just good food news.</p>
+      </div>
+      <div class="stack" style="gap: 12px">
+        <sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+          <form class="stack" style="gap: 10px" onSubmit="{{submit}}">
+            <label class="label" for="ftr-email">Email address</label>
+            <div class="row m-col" style="gap: 12px; flex-wrap: nowrap">
+              <input class="input" id="ftr-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" style="flex: 1; border-color: #FFFFFF">
+              <button class="btn btn-white" type="submit">Subscribe</button>
+            </div>
+            <p class="tiny">By subscribing you agree to our <a href="Legal{{sfx}}.dc.html" style="text-decoration: underline">Privacy Policy</a>. Unsubscribe anytime.</p>
+          </form>
+        </sc-if>
+        <sc-if value="{{sent}}">
+          <div role="status" style="background: #FFFFFF; color: #1A1A1A; border-radius: 16px; padding: 20px 24px; display: flex; gap: 14px; align-items: center">
+            <span style="width: 40px; height: 40px; border-radius: 50%; background: #BC0214; color: #FFFFFF; display: grid; place-items: center; font-size: 20px; flex: none"><dc-import name="Icon" n="check" hint-size="20px,20px"></dc-import></span>
+            <div><p style="font-weight: 700">You're on the list!</p><p class="small">Check your inbox to confirm your email.</p></div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <dc-import name="Wave" tone="white" hint-size="100%,24px"></dc-import>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 48px" class="ftr-main">
+      <div class="stack" style="gap: 20px">
+        <a class="logo-slot" href="Main{{sfx}}.dc.html" aria-label="Taste of BC home"><b>Taste of BC</b><span>Logo · white on red</span></a>
+        <p class="small" style="max-width: 260px">A celebration of the food, drink and people of British Columbia.</p>
+        <div class="row" style="gap: 4px">
+          <a class="ibtn" href="https://instagram.com" aria-label="Instagram"><dc-import name="Icon" n="instagram" hint-size="22px,22px"></dc-import></a>
+          <a class="ibtn" href="https://facebook.com" aria-label="Facebook"><dc-import name="Icon" n="facebook" hint-size="22px,22px"></dc-import></a>
+          <a class="ibtn" href="https://tiktok.com" aria-label="TikTok"><dc-import name="Icon" n="tiktok" hint-size="22px,22px"></dc-import></a>
+          <a class="ibtn" href="https://youtube.com" aria-label="YouTube"><dc-import name="Icon" n="youtube" hint-size="22px,22px"></dc-import></a>
+        </div>
+      </div>
+      <div class="ftr-grid">
+        <div><h3 class="ftr-h">Festival</h3><ul class="ftr-list"><li><a href="Festival{{sfx}}.dc.html">Festival info</a></li><li><a href="Festival{{sfx}}.dc.html#schedule">Schedule</a></li><li><a href="Vendors{{sfx}}.dc.html">Vendors</a></li><li><a href="Tickets{{sfx}}.dc.html">Tickets</a></li></ul></div>
+        <div><h3 class="ftr-h">Shop</h3><ul class="ftr-list"><li><a href="Shop{{sfx}}.dc.html">Merch</a></li><li><a href="GiftCard{{sfx}}.dc.html">Gift cards</a></li><li><a href="Membership{{sfx}}.dc.html">Membership</a></li><li><a href="Membership{{sfx}}.dc.html#manage">Manage membership</a></li></ul></div>
+        <div><h3 class="ftr-h">Get involved</h3><ul class="ftr-list"><li><a href="GetInvolved{{sfx}}.dc.html">Become a vendor</a></li><li><a href="GetInvolved{{sfx}}.dc.html">Sponsor</a></li><li><a href="GetInvolved{{sfx}}.dc.html">Volunteer</a></li><li><a href="About{{sfx}}.dc.html">About us</a></li></ul></div>
+        <div><h3 class="ftr-h">Help</h3><ul class="ftr-list"><li><a href="Help{{sfx}}.dc.html">FAQ</a></li><li><a href="Help{{sfx}}.dc.html#contact">Contact</a></li><li><a href="Legal{{sfx}}.dc.html">Refund policy</a></li><li><a href="Legal{{sfx}}.dc.html">Accessibility</a></li></ul></div>
+      </div>
+    </div>
+
+    <div style="height: 1px; background: rgba(255,255,255,.3)"></div>
+
+    <div class="ftr-bot">
+      <span class="stripe-note"><dc-import name="Icon" n="lock" hint-size="16px,16px"></dc-import>Payments secured by Stripe</span>
+      <div class="row" style="gap: 20px; font-size: 14px">
+        <span>© 2026 Taste of BC</span>
+        <a href="Legal{{sfx}}.dc.html">Privacy</a>
+        <a href="Legal{{sfx}}.dc.html">Terms</a>
+        <a href="Legal{{sfx}}.dc.html">Refunds</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":720}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { sent: false }; }
+  renderVals() {
+    const mobile = !!this.props.mobile;
+    return {
+      sfx: mobile ? '-Mobile' : '',
+      rootCls: mobile ? 'm' : '',
+      sent: this.state.sent, notSent: !this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taste of BC 2026 — Free-Entry Winter Food Festival in Surrey, BC</title>
+<meta name="description" content="Taste of BC is a free-entry food and drink festival in Surrey, BC this December 2026. Food and drinks are paid with $1 festival coupons.">
+<meta property="og:title" content="Taste of BC 2026 — Surrey, BC">
+<meta property="og:description" content="Free entry. 20 × $1 coupon sheets. All of BC on one field this December.">
+<meta property="og:image" content="assets/img/logo-red.png">
+<meta name="theme-color" content="#BC0214">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="home">
+<div id="site-header"></div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="c-hero">
+  <div class="slides"><div class="slide on"><img src="assets/img/merch-tote-mug.jpg" alt="Taste of BC tote bags and mugs" fetchpriority="high"></div></div>
+</section>
+
+<!-- KEY FACTS -->
+<section class="section tight">
+  <div class="container">
+    <div class="facts-row">
+      <div data-icon="calendar"><div><strong data-ev="datesShort"></strong><span data-ev="hours"></span></div></div>
+      <div data-icon="pin"><div><strong data-ev="city"></strong><span data-ev="venue"></span></div></div>
+      <div data-icon="arch"><div><strong>Free entry</strong><span>Through any arch</span></div></div>
+      <div data-icon="nocash"><div><strong>Cashless</strong><span>$1 coupons only</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section alt">
+  <div class="container">
+    <div>
+      <span class="eyebrow">How it works</span>
+      <h2>One coupon sheet. Every booth.</h2>
+      <ol class="mini-steps">
+        <li><div><strong>Walk in free</strong><span>No tickets at any entrance arch.</span></div></li>
+        <li><div><strong>Get a coupon sheet</strong><span>20 × $1 coupons for $20 — online or at the gates.</span></div></li>
+        <li><div><strong>Tear off & taste</strong><span>Menus are priced in coupons. No cash at booths.</span></div></li>
+      </ol>
+      <a class="btn" href="coupons.html">Buy coupons online</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANTS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head split" style="margin-bottom:32px"><div><span class="eyebrow">Restaurants & menus</span><h2>Who’s cooking in 2026.</h2></div><a class="link-arrow" href="restaurants.html">See all menus</a></div>
+    <div class="grid grid-3" id="featured"></div>
+  </div>
+</section>
+
+<!-- PLAN YOUR VISIT (dark band) -->
+<section class="band">
+  <div class="container">
+    <div>
+      <span class="eyebrow">Plan your visit</span>
+      <h2>Everything you need for the day.</h2>
+      <p>Three entrance arches, Coupon Booths at every gate and a heated dining tent.</p>
+    </div>
+    <nav class="icon-links" aria-label="Festival information">
+      <a href="map.html" data-icon="map">Festival map & gates</a>
+      <a href="booklet.html" data-icon="book">Info booklet</a>
+      <a href="visit.html#schedule" data-icon="music">Stage schedule</a>
+      <a href="visit.html" data-icon="train">Getting there</a>
+      <a href="visit.html#accessibility" data-icon="access">Accessibility</a>
+      <a href="about.html#faq" data-icon="info">FAQ</a>
+    </nav>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head split" style="margin-bottom:32px"><div><span class="eyebrow">Our partners</span><h2>Free entry, made possible by our sponsors.</h2></div><a class="link-arrow" href="sponsors.html">Become a sponsor</a></div>
+    <div class="logo-wall"><div class="logo-slot">Presenting</div><div class="logo-slot">Gate partner</div><div class="logo-slot">Stage partner</div><div class="logo-slot">Sponsor</div><div class="logo-slot">Sponsor</div><div class="logo-slot">Sponsor</div></div>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/components.js"></script>
+<script>
+document.addEventListener("tobc:ready", () => {
+  const C = TOBC.components;
+  document.getElementById("featured").innerHTML = [1, 2, 4].map(i => C.restaurantCard(TOBC.restaurants[i])).join("");
+});
+</script>
+</body>
+</html>
