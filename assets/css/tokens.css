@@ -14,9 +14,9 @@
   /* Neutrals */
   --ink: #1A1A1A;          /* Primary text, dark sections */
   --ink-2: #3D3A38;        /* Secondary text. 11.3:1 on white */
-  --ink-3: #6B6661;        /* Muted text. 5.7:1 on white (AA) */
-  --line: #E7E1DA;         /* Hairlines, borders */
-  --line-2: #D6CEC5;
+  --ink-3: #5E5953;        /* Muted text. 6.9:1 on white, 6.1:1 on tint (AA) */
+  --line: #DDD5CC;         /* Hairlines, borders */
+  --line-2: #8A847E;   /* Form control borders, 3.7:1 (WCAG 1.4.11) */
   --cream: #FFFFFF;        /* Page background (white, corporate) */
   --sand: #FBEEEF;         /* Tinted section / card background */
   --white: #FFFFFF;

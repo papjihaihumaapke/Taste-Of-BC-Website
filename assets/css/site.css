@@ -899,3 +899,17 @@ h4 { font-weight: 600; }
 /* Subtle card shadows */
 .card, .r-card, .p-card { box-shadow: 0 1px 2px rgba(26,26,26,.04), 0 4px 14px -4px rgba(26,26,26,.08); }
 .r-card:hover, .p-card:hover { box-shadow: 0 2px 4px rgba(26,26,26,.05), 0 10px 24px -8px rgba(26,26,26,.14); }
+
+/* WCAG AA contrast fixes */
+.input::placeholder, .textarea::placeholder, .newsletter input::placeholder { color: #6E6862; } /* 5.3:1 */
+.logo-slot { color: var(--ink-3); }
+.coupons, .coupon, .sponsor-slot, .ad-slot, .empty { border-color: #D6CEC5; } /* decorative dashes stay light */
+.toc li span:nth-child(2) { border-bottom-color: #D6CEC5; }
+.c-hero .panel .eyebrow, .band .eyebrow, .photo-band .frost .eyebrow { opacity: 1; }
+.c-hero .panel p, .band p { font-weight: 400; color: #fff; }
+.r-banner .cat, .r-banner p { opacity: 1; }
+/* Focus ring must be visible on red backgrounds */
+.c-hero .panel :focus-visible, .band :focus-visible, .cta-band :focus-visible, .r-banner :focus-visible { outline-color: #fff; }
+/* Readable weights for body-size text (thin 300 kept for large headlines only) */
+.lead, .ticker a, .news-card p, .icon-links a, .facts-row span { font-weight: 400; }
+.step .n { color: var(--red); }
