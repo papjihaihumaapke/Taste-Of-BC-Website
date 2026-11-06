@@ -23,7 +23,12 @@
 
 <!-- HERO -->
 <section class="c-hero">
-  <div class="slides"><div class="slide on"><img src="assets/img/merch-tote-mug.jpg" alt="Taste of BC tote bags and mugs" fetchpriority="high"></div></div>
+  <div class="slides">
+    <div class="slide on"><img src="assets/img/merch-tote-mug.jpg" alt="Taste of BC tote bags and mugs" fetchpriority="high"><p class="cap"><b>Two days. One field.</b>Dozens of BC restaurants, dessert stands and drinks bars.</p></div>
+    <div class="slide"><img src="assets/img/merch-tees.jpg" alt="Taste of BC festival t-shirts" loading="lazy"><p class="cap"><b>Wear the taste.</b>Festival tees, totes and mugs in the shop.</p></div>
+    <div class="slide"><img src="assets/img/badges.jpg" alt="Taste of BC volunteer and vendor badges" loading="lazy"><p class="cap"><b>Join the crew.</b>Apply as a vendor or volunteer for December 2026.</p></div>
+  </div>
+  <div class="hero-dots" role="tablist" aria-label="Hero slides"><button aria-label="Slide 1" aria-current="true"></button><button aria-label="Slide 2"></button><button aria-label="Slide 3"></button></div>
   <div class="panel">
     <span class="eyebrow">Free entry · <span data-ev="datesShort"></span> · <span data-ev="city"></span></span>
     <h1>All of BC’s best food on one field this December.</h1>
@@ -102,6 +107,15 @@
 <script src="assets/js/site.js"></script>
 <script src="assets/js/components.js"></script>
 <script>
+// Hero slideshow: changes every 5 seconds
+(() => {
+  const slides = document.querySelectorAll(".c-hero .slide"), dots = document.querySelectorAll(".hero-dots button");
+  let i = 0, timer;
+  const show = n => { slides[i].classList.remove("on"); dots[i].removeAttribute("aria-current"); i = n % slides.length; slides[i].classList.add("on"); dots[i].setAttribute("aria-current", "true"); };
+  const start = () => { clearInterval(timer); if (!matchMedia("(prefers-reduced-motion: reduce)").matches) timer = setInterval(() => show(i + 1), 5000); };
+  dots.forEach((d, n) => d.addEventListener("click", () => { show(n); start(); }));
+  start();
+})();
 document.addEventListener("tobc:ready", () => {
   const C = TOBC.components;
   document.getElementById("featured").innerHTML = [1, 2, 4].map(i => C.restaurantCard(TOBC.restaurants[i])).join("");

@@ -913,3 +913,14 @@ h4 { font-weight: 600; }
 /* Readable weights for body-size text (thin 300 kept for large headlines only) */
 .lead, .ticker a, .news-card p, .icon-links a, .facts-row span { font-weight: 400; }
 .step .n { color: var(--red); }
+
+/* Hero slideshow: dark overlay, captions, dots */
+.c-hero .slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.35)); }
+.c-hero .slide .cap { position: absolute; right: clamp(16px, 6vw, 96px); bottom: clamp(28px, 5vw, 64px); z-index: 1; max-width: 340px; margin: 0; color: #fff; font-size: 15px; line-height: 1.5; text-align: right; }
+.c-hero .slide .cap b { display: block; font-family: var(--font-display); font-weight: 300; font-size: clamp(1.4rem, 1rem + 1vw, 2rem); line-height: 1.2; margin-bottom: 6px; }
+.hero-dots { position: absolute; right: clamp(16px, 6vw, 96px); top: 28px; z-index: 3; display: flex; gap: 10px; }
+.hero-dots button { width: 28px; height: 4px; padding: 0; border: 0; background: rgba(255,255,255,.5); cursor: pointer; }
+.hero-dots button[aria-current="true"] { background: #fff; }
+.hero-dots button:focus-visible { outline-color: #fff; }
+@media (max-width: 1000px) { .c-hero .slide .cap { display: none; } }
+@media (max-width: 700px) { .hero-dots { top: 16px; right: 16px; } }
