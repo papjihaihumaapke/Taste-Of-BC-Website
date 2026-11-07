@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { event as E, heroSlides, highlights, restaurants } from "../data.js";
+import { event as E, gallery, heroSlides, highlights, restaurants } from "../data.js";
 import { Countdown, Icon } from "../lib/ui.jsx";
-import { RestaurantCard } from "../components/Festival.jsx";
+import { Gallery, RestaurantCard } from "../components/Festival.jsx";
 
 function Hero() {
   const [i, setI] = useState(0);
@@ -69,6 +69,16 @@ export default function Home() {
       </section>
 
       <section className="section">
+        <div className="container">
+          <div className="section-head split" style={{ marginBottom: 32 }}>
+            <div><span className="eyebrow">The festival</span><h2>Taste it. Hear it. Share it.</h2></div>
+            <Link className="link-arrow" to="/entertainment">See the schedule</Link>
+          </div>
+          <Gallery items={gallery} />
+        </div>
+      </section>
+
+      <section className="section alt">
         <div className="container">
           <div className="section-head split" style={{ marginBottom: 32 }}>
             <div><span className="eyebrow">Food & drink</span><h2>A taste of what’s cooking.</h2></div>

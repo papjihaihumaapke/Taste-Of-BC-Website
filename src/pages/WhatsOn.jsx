@@ -21,12 +21,14 @@ export default function WhatsOn() {
       <section className="section alt">
         <div className="container split">
           <div>
+            <img className="split-img mb-6" src="/assets/img/stock/grilled-salmon.jpg" alt="Grilled salmon with vegetables" loading="lazy" />
             <span className="eyebrow">Eat</span>
             <h2>Local restaurants in tasting-size portions.</h2>
             <p className="lead">Try a little of everything. Every booth serves a short menu priced in $1 coupons, so you can graze from BBQ to dumplings to dessert.</p>
             <Link className="btn mt-4" to="/food-and-drink">Browse food & drink</Link>
           </div>
           <div>
+            <img className="split-img mb-6" src="/assets/img/stock/wine-cheese.jpg" alt="Red wine with cheese and charcuterie" loading="lazy" />
             <span className="eyebrow">Sip</span>
             <h2>BC wines, craft beer and cider.</h2>
             <p className="lead">The 19+ BC Wine Garden pours from wineries, breweries and cideries across the province, with guided tastings each day.</p>
@@ -61,6 +63,8 @@ export default function WhatsOn() {
             <p className="lead">Taste of BC is a not-for-profit community event. Free entry keeps it open to every family, and the festival gives local restaurants, artists and performers a big stage.</p>
             <Link className="link-arrow" to="/about">Our story</Link>
           </div>
+          <div>
+          <img className="split-img mb-6" src="/assets/img/stock/crowd-lawn.jpg" alt="Festival crowd relaxing on a sunny lawn" loading="lazy" />
           <div className="card">
             <h3>Good to know</h3>
             <ul className="ticks" style={{ margin: 0 }}>
@@ -70,6 +74,7 @@ export default function WhatsOn() {
               <li><Icon name="check" />Shaded seating and water stations</li>
               <li><Icon name="check" />Accessible site and washrooms</li>
             </ul>
+          </div>
           </div>
         </div>
       </section>

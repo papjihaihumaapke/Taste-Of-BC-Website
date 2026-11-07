@@ -25,9 +25,22 @@ export const event = {
 
 /* Hero slideshow — swap in real festival photos (put files in public/assets/img/) */
 export const heroSlides = [
-  { img: "/assets/img/merch-tote-mug.jpg", alt: "Taste of BC festival merchandise", title: "Taste local.", text: "Dozens of BC restaurants, food trucks and dessert makers in one place." },
-  { img: "/assets/img/merch-tees.jpg", alt: "Taste of BC festival t-shirts", title: "Sip BC wines.", text: "Wineries, craft brewers and cideries from across the province in the 19+ garden." },
-  { img: "/assets/img/badges.jpg", alt: "Taste of BC festival badges", title: "Four days of live entertainment.", text: "Live bands, dance troupes, chef demos and local artists — all free to watch." }
+  { img: "/assets/img/stock/skewers.jpg", alt: "Skewers sizzling on a grill", title: "Taste local.", text: "Dozens of BC restaurants, food trucks and dessert makers in one place." },
+  { img: "/assets/img/stock/wine-tasting.jpg", alt: "Wine glasses lined up at a tasting bar", title: "Sip BC wines.", text: "Wineries, craft brewers and cideries from across the province in the 19+ garden." },
+  { img: "/assets/img/stock/concert.jpg", alt: "Crowd enjoying a live concert", title: "Four days of live entertainment.", text: "Live bands, dance troupes, chef demos and local artists, all free to watch." },
+  { img: "/assets/img/stock/crowd-lawn.jpg", alt: "Festival crowd relaxing on a sunny lawn", title: "Bring the whole community.", text: "Free entry for every family, all four days." }
+];
+
+/* Photo gallery — stock images (CC0, see public/assets/img/stock/CREDITS.md). Swap for real festival photos later. */
+export const gallery = [
+  { img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends at an outdoor music festival", label: "Live music" },
+  { img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon with vegetables", label: "BC seafood" },
+  { img: "/assets/img/stock/wine-cheese.jpg", alt: "Red wine with cheese and charcuterie", label: "Wine & cheese" },
+  { img: "/assets/img/stock/donut.jpg", alt: "Hands holding a sugared donut", label: "Sweet treats" },
+  { img: "/assets/img/stock/picnic-pizza.jpg", alt: "Pizza and dumplings on the grass", label: "Picnic on the field" },
+  { img: "/assets/img/stock/beer-pour.jpg", alt: "Craft beer being poured from a tap", label: "Craft beer" },
+  { img: "/assets/img/stock/stage-lights.jpg", alt: "Band on an illuminated stage at night", label: "Evening headliners" },
+  { img: "/assets/img/stock/grilled-chicken.jpg", alt: "Chicken on a hot grill", label: "Off the grill" }
 ];
 
 /* What's on — festival highlights */

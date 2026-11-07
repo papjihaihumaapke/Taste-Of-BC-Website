@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { schedule } from "../data.js";
 import { DatesNote, Icon, PageHero } from "../lib/ui.jsx";
-import { ScheduleList, Tabs } from "../components/Festival.jsx";
+import { Gallery, ScheduleList, Tabs } from "../components/Festival.jsx";
 
 const STAGES = [
   { icon: "music", title: "Main Stage", text: "Evening headliners, local bands and the opening and closing celebrations." },
@@ -25,6 +25,18 @@ export default function Entertainment() {
           {STAGES.map((s) => (
             <div className="card" key={s.title}><div className="icon-tile"><Icon name={s.icon} /></div><h3>{s.title}</h3><p className="muted mb-0">{s.text}</p></div>
           ))}
+        </div>
+      </section>
+
+      <section className="section tight" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <Gallery items={[
+            { img: "/assets/img/stock/concert.jpg", alt: "Crowd at a live concert", label: "Main Stage nights" },
+            { img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends at an outdoor music festival", label: "Afternoon sets" },
+            { img: "/assets/img/stock/wine-tasting.jpg", alt: "Wine glasses at a tasting bar", label: "Guided wine tastings" },
+            { img: "/assets/img/stock/stage-lights.jpg", alt: "Band on an illuminated stage", label: "Local bands" },
+            { img: "/assets/img/stock/skewers.jpg", alt: "Skewers on a grill", label: "Chef demos" }
+          ]} />
         </div>
       </section>
 

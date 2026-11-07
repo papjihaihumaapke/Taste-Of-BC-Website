@@ -169,3 +169,12 @@ export function Tabs({ label, tabs }) {
     </>
   );
 }
+
+/* Photo mosaic */
+export const Gallery = ({ items }) => (
+  <div className="gallery">
+    {items.map((g) => (
+      <figure key={g.img}><img src={g.img} alt={g.alt} loading="lazy" /><figcaption>{g.label}</figcaption></figure>
+    ))}
+  </div>
+);
