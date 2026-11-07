@@ -948,3 +948,35 @@ h4 { font-weight: 600; }
   .coupon-preview { max-width: 300px; }
 }
 @media (max-width: 560px) { .facts-list { grid-template-columns: minmax(0,1fr); } }
+
+/* ---------- Shop: product detail ---------- */
+.pd { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(32px,5vw,72px); align-items: start; }
+.pd .media { aspect-ratio: 1/1; max-width: 560px; }
+.thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px; max-width: 560px; }
+.thumbs button { padding: 0; border: 2px solid transparent; overflow: hidden; aspect-ratio: 1/1; background: var(--sand); cursor: pointer; }
+.thumbs button[aria-pressed="true"] { border-color: var(--red); }
+.thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sizes { display: flex; gap: 8px; flex-wrap: wrap; }
+.sizes label { position: relative; }
+.sizes input { position: absolute; opacity: 0; }
+.sizes span { display: grid; place-items: center; min-width: 52px; height: 44px; padding: 0 12px; border: 1.5px solid var(--line-2); font-weight: 700; cursor: pointer; background: #fff; }
+.sizes input:checked + span { border-color: var(--ink); background: var(--ink); color: #fff; }
+.sizes input:focus-visible + span { outline: 3px solid var(--red); outline-offset: 2px; }
+.swatch { cursor: pointer; }
+.gift-card { aspect-ratio: 1.6/1; background: var(--red); color: #fff; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+.gift-card img { width: 46%; }
+.gift-card .amt { font-size: 2.25rem; line-height: 1; }
+@media (max-width: 900px) { .pd { grid-template-columns: minmax(0,1fr); } .pd .media, .thumbs { max-width: none; } }
+
+/* ---------- Booklet pages ---------- */
+.dir { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.dir li { border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.dir .h { display: flex; justify-content: space-between; gap: 8px; font-weight: 800; font-size: 13.5px; }
+.dir .h span { color: var(--red); white-space: nowrap; }
+.dir .m { font-size: 12px; color: var(--ink-3); line-height: 1.5; }
+.ads { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1.2fr 1fr 1fr; gap: 10px; flex: 1; }
+.ads .ad-slot:first-child { grid-column: span 2; background: var(--red-tint); color: var(--red-ink); border-color: var(--red-tint-2); }
+.mini-sched { display: grid; gap: 0; font-size: 12.5px; }
+.mini-sched div { display: grid; grid-template-columns: 70px 1fr; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.mini-sched b { color: var(--red); }
+.pd .kbd-list { margin-top: 28px; }
