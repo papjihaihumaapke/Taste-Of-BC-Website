@@ -9,15 +9,13 @@ const FAQ = [
   ["How do coupons work?", <>A coupon sheet costs $20 and has 20 tear-off $1 coupons. Every menu is priced in coupons. <Link to="/coupons">Learn more</Link>.</>],
   ["Can I bring cash?", <>Taste of BC is cashless. Coupon Booths accept debit, credit, Apple Pay and Google Pay. You can also buy coupons online before you arrive.</>],
   ["Are there vegetarian, vegan, gluten-free or halal options?", <>Yes. Use the dietary filters on <Link to="/food-and-drink">Food & Drink</Link>. Labels are supplied by vendors, so please ask at the booth about allergens.</>],
-  ["Is the festival family-friendly?", <>Absolutely. There’s a Family Zone, kid-sized portions and shaded seating. The BC Wine Garden is 19+ with ID.</>],
-  ["What if it rains?", <>The festival goes ahead in most weather. In the rare case of a weather closure we’ll post updates here and on social media.</>],
-  ["How can I perform?", <>Apply on the <Link to="/entertainers">Entertainers</Link> page. Booked acts can sign in there too.</>]
+  ["Is the festival family-friendly?", <>Absolutely. There’s a Family Zone, kid-sized portions and shaded seating. The BC Wine Garden is 19+ with ID.</>]
 ];
 
 export default function About() {
   return (
     <>
-      <PageHero crumb="About" eyebrow="About Taste of BC" title="A not-for-profit celebration of BC’s food community."
+      <PageHero img="/assets/img/stock/festival-crowd.jpg" crumb="About" eyebrow="About Taste of BC" title="A not-for-profit celebration of BC’s food community."
         lead="Taste of BC brings local restaurants, BC wineries, performers and artists together for four days in Surrey, with free entry so everyone can come and taste." />
 
       <section className="section" style={{ paddingTop: 0 }}>

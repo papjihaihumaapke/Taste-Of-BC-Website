@@ -15,7 +15,7 @@ const STAGES = [
 export default function Entertainment() {
   return (
     <>
-      <PageHero crumb="Entertainment" eyebrow="Music · dance · comedy · art" title="Entertainment all four days."
+      <PageHero img="/assets/img/stock/concert.jpg" crumb="Entertainment" eyebrow="Music · dance · comedy · art" title="Entertainment all four days."
         lead="Two stages, live art, chef demos and family fun from gates open until close. All performances are free to watch.">
         <div className="row mt-6"><Link className="btn" to="/entertainers">Perform at Taste of BC</Link><DatesNote /></div>
       </PageHero>
@@ -50,12 +50,6 @@ export default function Entertainment() {
         </div>
       </section>
 
-      <section className="section tight">
-        <div className="container"><div className="cta-band">
-          <div><h2>Musician, dancer, comedian or artist?</h2><p>We’re booking local talent for all four days. Apply to perform, or sign in to manage your booking.</p></div>
-          <div className="actions"><Link className="btn btn-light btn-lg" to="/entertainers">Apply or sign in</Link></div>
-        </div></div>
-      </section>
     </>
   );
 }

@@ -5,7 +5,7 @@ import { DatesNote, Icon, PageHero } from "../lib/ui.jsx";
 export default function WhatsOn() {
   return (
     <>
-      <PageHero crumb="What’s On" eyebrow={`${E.days} days · ${E.datesShort}`} title="Four days of BC flavour and fun."
+      <PageHero img="/assets/img/stock/festival-crowd.jpg" crumb="What’s On" eyebrow={`${E.days} days · ${E.datesShort}`} title="Four days of BC flavour and fun."
         lead="Taste of BC brings local restaurants, BC wineries, musicians and artists together on one field. Entry is free. Bring friends, bring family, bring an appetite.">
         <div className="row mt-6"><DatesNote /></div>
       </PageHero>
@@ -55,29 +55,6 @@ export default function WhatsOn() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container split">
-          <div>
-            <span className="eyebrow">Community</span>
-            <h2>Not-for-profit, and for everyone.</h2>
-            <p className="lead">Taste of BC is a not-for-profit community event. Free entry keeps it open to every family, and the festival gives local restaurants, artists and performers a big stage.</p>
-            <Link className="link-arrow" to="/about">Our story</Link>
-          </div>
-          <div>
-          <img className="split-img mb-6" src="/assets/img/stock/crowd-lawn.jpg" alt="Festival crowd relaxing on a sunny lawn" loading="lazy" />
-          <div className="card">
-            <h3>Good to know</h3>
-            <ul className="ticks" style={{ margin: 0 }}>
-              <li><Icon name="check" />Free entry, all ages, all four days</li>
-              <li><Icon name="check" />Cashless — food and drinks use $1 coupons</li>
-              <li><Icon name="check" />BC Wine Garden is 19+ with ID</li>
-              <li><Icon name="check" />Shaded seating and water stations</li>
-              <li><Icon name="check" />Accessible site and washrooms</li>
-            </ul>
-          </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

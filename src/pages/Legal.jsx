@@ -13,7 +13,7 @@ export function Legal() {
   }, []);
   return (
     <>
-      <PageHero crumb="Legal" eyebrow="Legal" title="Privacy, terms & refunds" lead="Template content — to be reviewed by legal counsel before launch. Last updated: [Date]." />
+      <PageHero img="/assets/img/stock/crowd-lawn.jpg" crumb="Legal" eyebrow="Legal" title="Privacy, terms & refunds" lead="Template content — to be reviewed by legal counsel before launch. Last updated: [Date]." />
       <section className="section">
         <div className="container legal-layout">
           <nav className="legal-nav" aria-label="Legal sections">
@@ -49,7 +49,7 @@ export function Legal() {
 
 export function NotFound() {
   return (
-    <PageHero eyebrow="404" title="This page wandered off to the food booths." lead="The page you’re looking for doesn’t exist or has moved.">
+    <PageHero img="/assets/img/stock/skewers.jpg" eyebrow="404" title="This page wandered off to the food booths." lead="The page you’re looking for doesn’t exist or has moved.">
       <div className="row mt-6"><Link className="btn" to="/">Back to home</Link><Link className="btn btn-secondary" to="/whats-on">See what’s on</Link></div>
     </PageHero>
   );

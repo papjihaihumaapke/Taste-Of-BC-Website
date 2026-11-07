@@ -20,19 +20,11 @@ const TIERS = [
 export default function Sponsors() {
   return (
     <>
-      <PageHero crumb="Sponsors" eyebrow="Partner with us" title="Put your brand at the heart of BC’s biggest food festival."
+      <PageHero img="/assets/img/stock/stage-lights.jpg" crumb="Sponsors" eyebrow="Partner with us" title="Put your brand at the heart of BC’s biggest food festival."
         lead="Four days, free entry and a big, diverse crowd from across the Lower Mainland. As a not-for-profit event, sponsorship is what keeps the gates free.">
         <div className="row mt-6"><a className="btn btn-lg" href="#inquire">Request the sponsor deck</a><a className="btn btn-lg btn-secondary" href="#packages">See packages</a></div>
       </PageHero>
 
-      <section className="section tight white">
-        <div className="container"><div className="stats">
-          <div className="stat"><div className="n">{E.days}</div><div className="l">Festival days</div></div>
-          <div className="stat"><div className="n">2</div><div className="l">Live stages</div></div>
-          <div className="stat"><div className="n">3</div><div className="l">Branded entrance arches</div></div>
-          <div className="stat"><div className="n">$0</div><div className="l">Entry, made possible by partners</div></div>
-        </div></div>
-      </section>
 
       <section className="section" id="advertise">
         <div className="container">

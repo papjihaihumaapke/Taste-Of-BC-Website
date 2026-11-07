@@ -30,7 +30,7 @@ export default function Booklet() {
   }, []);
   return (
     <>
-      <PageHero crumb="Info Booklet" eyebrow="Official festival guide" title="The info booklet."
+      <PageHero img="/assets/img/stock/wine-cheese.jpg" crumb="Info Booklet" eyebrow="Official festival guide" title="The info booklet."
         lead="Free at every gate. Every food and drink booth with its menu, the site map, the entertainment schedule and the partners who keep entry free.">
         <div className="row mt-6"><button className="btn" disabled><Icon name="download" />PDF available in August</button><a className="btn btn-secondary" href="#advertise">Advertise in the booklet</a></div>
       </PageHero>

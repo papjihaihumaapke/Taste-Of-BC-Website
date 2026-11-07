@@ -20,7 +20,7 @@ export default function FoodDrink() {
 
   return (
     <>
-      <PageHero crumb="Food & Drink" eyebrow="Local restaurants & BC wines" title="Food & drink."
+      <PageHero img="/assets/img/stock/grilled-salmon.jpg" crumb="Food & Drink" eyebrow="Local restaurants & BC wines" title="Food & drink."
         lead="Tasting-size dishes from local restaurants, plus BC wine, craft beer and cider. Every menu is priced in $1 coupons, exactly as it appears on the booth banner.">
         <div className="row mt-6"><span className="pill-note"><Icon name="info" />Sample menus shown. Participating restaurants will be announced soon.</span></div>
       </PageHero>

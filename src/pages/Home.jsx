@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { event as E, gallery, heroSlides, highlights, restaurants } from "../data.js";
+import { event as E, gallery, heroSlides, highlights } from "../data.js";
 import { Countdown, Icon } from "../lib/ui.jsx";
-import { Gallery, RestaurantCard } from "../components/Festival.jsx";
+import { Gallery } from "../components/Festival.jsx";
 
 function Hero() {
   const [i, setI] = useState(0);
@@ -78,15 +78,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section alt">
-        <div className="container">
-          <div className="section-head split" style={{ marginBottom: 32 }}>
-            <div><span className="eyebrow">Food & drink</span><h2>A taste of what’s cooking.</h2></div>
-            <Link className="link-arrow" to="/food-and-drink">See all menus</Link>
-          </div>
-          <div className="grid grid-3">{[1, 4, 15].map((n) => <RestaurantCard key={n} r={restaurants[n]} />)}</div>
-        </div>
-      </section>
 
       <section className="band">
         <div className="container">

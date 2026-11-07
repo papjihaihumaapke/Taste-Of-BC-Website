@@ -22,7 +22,7 @@ export default function MapPage() {
   const r = restaurants.find((x) => x.booth === booth);
   return (
     <>
-      <PageHero crumb="Festival Map" eyebrow="Site layout" title="Festival map."
+      <PageHero img="/assets/img/stock/crowd-lawn.jpg" crumb="Festival Map" eyebrow="Site layout" title="Festival map."
         lead="Three entrance arches, a Coupon Booth at every gate, two stages, the BC Wine Garden and every food booth by number. Tap a booth to see its menu." />
 
       <section className="section" style={{ paddingTop: 48 }}>
@@ -42,17 +42,6 @@ export default function MapPage() {
         </div>
       </section>
 
-      <section className="section white">
-        <div className="container">
-          <div className="section-head"><span className="eyebrow">Entrances</span><h2>Pick any arch. They’re all free.</h2></div>
-          <div className="grid grid-3">
-            <div className="card"><span className="badge solid">Main entrance</span><h3 className="mt-4">North Gate</h3><p className="muted">Closest to parking, rideshare and transit drop-off. Info Booth and Coupon Booth just inside.</p></div>
-            <div className="card"><span className="badge neutral">Side entrance</span><h3 className="mt-4">West Gate</h3><p className="muted">Accessible drop-off and the fastest route to the Community Stage and Family Zone.</p></div>
-            <div className="card"><span className="badge neutral">Side entrance</span><h3 className="mt-4">East Gate</h3><p className="muted">Straight to the BC Wine Garden (19+, ID required) and the Artisan Market.</p></div>
-          </div>
-          <p className="small muted mt-6">Layout shown is a planning draft and may change before the event. The final map is printed in the info booklet.</p>
-        </div>
-      </section>
     </>
   );
 }

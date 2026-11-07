@@ -66,7 +66,7 @@ export default function Entertainers() {
   const [tab, setTab] = useState("apply");
   return (
     <>
-      <PageHero crumb="Entertainers" eyebrow="Calling all local talent" title="Perform at Taste of BC."
+      <PageHero img="/assets/img/stock/stage-lights.jpg" crumb="Entertainers" eyebrow="Calling all local talent" title="Perform at Taste of BC."
         lead="We’re booking BC musicians, dancers, comedians, DJs and artists for four days on two stages and around the field. Apply to perform, or sign in to manage your booking." />
 
       <section className="section">

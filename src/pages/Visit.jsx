@@ -5,7 +5,7 @@ import { DatesNote, Icon, PageHero } from "../lib/ui.jsx";
 export default function Visit() {
   return (
     <>
-      <PageHero crumb="Plan Your Visit" eyebrow="Plan your visit" title="Everything you need before you go."
+      <PageHero img="/assets/img/stock/crowd-lawn.jpg" crumb="Plan Your Visit" eyebrow="Plan your visit" title="Everything you need before you go."
         lead="Dates, getting to Surrey, accessibility and a few tips for a great summer day at the festival.">
         <div className="row mt-6"><DatesNote /></div>
       </PageHero>
@@ -51,18 +51,6 @@ export default function Visit() {
         </div>
       </section>
 
-      <section className="section alt">
-        <div className="container grid grid-2">
-          <div className="card"><div className="icon-tile"><Icon name="sparkle" /></div><h3>Dress for August</h3><p className="muted">It’s an outdoor summer festival. Bring sunscreen, a hat and a refillable water bottle. Free water stations and shaded seating are on site.</p></div>
-          <div className="card"><div className="icon-tile"><Icon name="info" /></div><h3>Good to know</h3>
-            <ul className="ticks" style={{ margin: 0 }}>
-              <li><Icon name="check" />BC Wine Garden is 19+, so bring government ID</li>
-              <li><Icon name="check" />No outside alcohol</li>
-              <li><Icon name="check" />Smoke- and vape-free site</li>
-              <li><Icon name="check" />Lost and found at the Info Booth</li>
-            </ul></div>
-        </div>
-      </section>
     </>
   );
 }

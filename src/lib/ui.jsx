@@ -53,10 +53,10 @@ export function Countdown() {
   );
 }
 
-export function PageHero({ crumb, eyebrow, title, lead, children }) {
+export function PageHero({ crumb, eyebrow, title, lead, children, img = "/assets/img/stock/crowd-lawn.jpg", imgPos = "center" }) {
   return (
-    <section className="page-hero">
-      <WavesBg />
+    <section className="page-hero banner">
+      <img className="banner-img" src={img} alt="" style={{ objectPosition: imgPos }} />
       <div className="container">
         {crumb && <nav className="crumbs" aria-label="Breadcrumb"><Link to="/">Home</Link><span>/</span><span>{crumb}</span></nav>}
         {eyebrow && <span className="eyebrow">{eyebrow}</span>}

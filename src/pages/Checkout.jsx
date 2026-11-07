@@ -53,7 +53,7 @@ export function ThankYou() {
   if (!o) o = { no: "TOBC-SAMPLE", date: new Date().toISOString(), items: [{ name: "Coupon sheet (20 × $1)", qty: 2, price: 20 }, { name: "Logo tee — Red", opt: "Size M", qty: 1, price: 30 }], total: 70 };
   return (
     <>
-      <PageHero eyebrow="Order confirmed" title="Thank you — see you in August!" lead="A receipt and your pickup QR code are on the way to your inbox." />
+      <PageHero img="/assets/img/stock/picnic-pizza.jpg" eyebrow="Order confirmed" title="Thank you — see you in August!" lead="A receipt and your pickup QR code are on the way to your inbox." />
       <section className="section">
         <div className="container split" style={{ alignItems: "start" }}>
           <div className="card" style={{ padding: "clamp(24px,3vw,40px)" }}>

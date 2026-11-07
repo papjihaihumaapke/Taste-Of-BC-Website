@@ -18,7 +18,7 @@ export default function Shop() {
 
   return (
     <>
-      <PageHero crumb="Shop" eyebrow="Official shop" title="Take a taste home."
+      <PageHero img="/assets/img/stock/../merch-tote-mug.jpg" crumb="Shop" eyebrow="Official shop" title="Take a taste home."
         lead="Festival totes, mugs and tees, plus coupon sheets and e-gifts. Merch ordered online is picked up at the Info Booth by the North Gate." />
 
       <section className="section">
@@ -83,17 +83,6 @@ export default function Shop() {
         </div>
       </section>
 
-      <section className="section" id="gift">
-        <div className="container split">
-          <div className="gift-card"><img src="/assets/img/logo-white.png" alt="Taste of BC" /><div><div className="tagline" style={{ opacity: 0.85 }}>Gift coupon sheet</div><div className="amt">20 × $1</div></div></div>
-          <div>
-            <span className="eyebrow">Gifts</span>
-            <h2>Give the gift of tasting.</h2>
-            <p className="lead">Send a coupon sheet by email. Your recipient shows their code at any Coupon Booth to collect 20 × $1 coupons.</p>
-            <div className="row mt-6"><Link className="btn" to="/coupons">Send an e-gift sheet</Link></div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

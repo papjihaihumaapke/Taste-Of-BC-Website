@@ -5,7 +5,7 @@ import { Checks, Field, ValidatedForm } from "../lib/forms.jsx";
 export default function GetInvolved() {
   return (
     <>
-      <PageHero crumb="Get Involved" eyebrow="Get involved" title="It takes a community to throw a festival."
+      <PageHero img="/assets/img/stock/festival-crowd.jpg" crumb="Get Involved" eyebrow="Get involved" title="It takes a community to throw a festival."
         lead="Taste of BC is a not-for-profit event run with local restaurants, performers, volunteers and partners. There’s a place for you." />
 
       <section className="section tight">
@@ -16,25 +16,8 @@ export default function GetInvolved() {
         </div>
       </section>
 
-      <section className="band" id="vendors">
-        <div className="container">
-          <div>
-            <span className="eyebrow">For restaurants & drink makers</span>
-            <h2>We handle the setup. You bring the flavour.</h2>
-            <p>Every vendor gets the same professional look and a simple, cashless way to sell.</p>
-          </div>
-          <ul className="icon-links" style={{ listStyle: "none", padding: 0, margin: 0 }}>
-            <li><span className="a"><Icon name="store" />Booth space on the field</span></li>
-            <li><span className="a"><Icon name="banner" />Taste of BC banner with your name</span></li>
-            <li><span className="a"><Icon name="utensils" />Menu board with coupon prices</span></li>
-            <li><span className="a"><Icon name="ticket" />Coupon redemption, paid out after</span></li>
-            <li><span className="a"><Icon name="book" />Listing & menu in the booklet</span></li>
-            <li><span className="a"><Icon name="map" />Booth on the festival map</span></li>
-          </ul>
-        </div>
-      </section>
 
-      <section className="section">
+      <section className="section" id="vendors">
         <div className="container split" style={{ alignItems: "start" }}>
           <div>
             <span className="eyebrow">Vendor application</span>
