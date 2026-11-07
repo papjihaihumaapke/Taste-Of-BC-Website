@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { event as E, products } from "../data.js";
-import { Icon, money } from "../lib/ui.jsx";
+import { Icon, QtyInput, money } from "../lib/ui.jsx";
 import { useStore, product } from "../lib/store.jsx";
 
 const NAV = [
@@ -119,12 +119,15 @@ function Footer() {
 function CartDrawer() {
   const { items, setQty, remove, subtotal, cartOpen, setCartOpen } = useStore();
   const [promo, setPromo] = useState({ v: "", msg: "" });
+  const closeRef = useRef(null);
   useEffect(() => {
     if (!cartOpen) return;
+    const prev = document.activeElement;
+    setTimeout(() => closeRef.current?.focus(), 60);
     document.body.style.overflow = "hidden";
     const k = (e) => e.key === "Escape" && setCartOpen(false);
     addEventListener("keydown", k);
-    return () => { document.body.style.overflow = ""; removeEventListener("keydown", k); };
+    return () => { document.body.style.overflow = ""; removeEventListener("keydown", k); prev?.focus?.(); };
   }, [cartOpen, setCartOpen]);
   const coupons = items.filter((i) => i.id === "sheet" || i.id === "egift").reduce((s, i) => s + i.qty * 20, 0);
   const applyPromo = (e) => {
@@ -135,7 +138,7 @@ function CartDrawer() {
     <div className={"drawer" + (cartOpen ? " open" : "")} aria-hidden={!cartOpen}>
       <div className="scrim" onClick={() => setCartOpen(false)} />
       <aside className="panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-        <div className="drawer-head"><h2 id="cartTitle">Your cart</h2><button className="icon-btn" aria-label="Close cart" onClick={() => setCartOpen(false)}><Icon name="x" /></button></div>
+        <div className="drawer-head"><h2 id="cartTitle">Your cart</h2><button className="icon-btn" aria-label="Close cart" ref={closeRef} onClick={() => setCartOpen(false)}><Icon name="x" /></button></div>
         <div className="drawer-body">
           {!items.length ? (
             <div className="drawer-empty"><div className="icon-tile"><Icon name="cart" /></div><h3>Your cart is empty</h3><p className="muted">Entry is free. Grab a coupon sheet to start tasting.</p><Link className="btn" to="/coupons" onClick={() => setCartOpen(false)}>Buy coupons</Link></div>
@@ -147,7 +150,7 @@ function CartDrawer() {
                 <div><h4>{p.name}</h4><div className="sub">{i.opt ? i.opt + " · " : ""}{money(p.price)} each</div>
                   <div className="stepper sm" role="group" aria-label={"Quantity for " + p.name}>
                     <button type="button" aria-label="Decrease" onClick={() => setQty(i.key, i.qty - 1)}><Icon name="minus" /></button>
-                    <input type="number" value={i.qty} min="1" max="99" aria-label="Quantity" onChange={(e) => setQty(i.key, Math.max(0, parseInt(e.target.value) || 0))} />
+                    <QtyInput value={i.qty} onChange={(v) => setQty(i.key, v)} />
                     <button type="button" aria-label="Increase" onClick={() => setQty(i.key, i.qty + 1)}><Icon name="plus" /></button>
                   </div></div>
                 <div><div className="lp">{money(p.price * i.qty)}</div><button className="rm" onClick={() => remove(i.key)}>Remove</button></div>
@@ -184,10 +187,41 @@ function ScrollManager() {
   return null;
 }
 
+/* Subtle fade-up of content blocks as they scroll into view */
+const REVEAL = [
+  "main .section-head", "main .split > *", "main .grid > *", "main .trio > *", "main .gallery figure",
+  "main .steps-3 > li", "main .facts-row > *", "main .facts-list > li", "main .logo-wall > *",
+  "main .band .container > *", "main .cta-band", "main .accordion", "main .stats > *", "main .map-layout > *", "main .pd > *"
+].join(",");
+function useReveal(pathname) {
+  useEffect(() => {
+    if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const els = [...document.querySelectorAll(REVEAL)].filter((el) => !el.closest(".reveal") && el.getBoundingClientRect().top > innerHeight * 0.9);
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target; el.classList.add("in"); io.unobserve(el);
+      setTimeout(() => { el.classList.remove("reveal", "in"); el.style.transitionDelay = ""; }, 1200); // hand back to normal hover transitions
+    }), { rootMargin: "0px 0px -8% 0px" });
+    els.forEach((el) => {
+      const sibs = el.parentElement ? [...el.parentElement.children] : [];
+      el.style.transitionDelay = Math.min(sibs.indexOf(el), 5) * 70 + "ms"; // stagger items in a row
+      el.classList.add("reveal"); io.observe(el);
+    });
+    return () => { io.disconnect(); els.forEach((el) => { el.classList.remove("reveal", "in"); el.style.transitionDelay = ""; }); };
+  }, [pathname]);
+}
+
+function RevealOnScroll() {
+  const { pathname } = useLocation();
+  useReveal(pathname);
+  return null;
+}
+
 export default function Layout() {
   return (
     <>
       <ScrollManager />
+      <RevealOnScroll />
       <Header />
       <main id="main"><Outlet /></main>
       <Footer />

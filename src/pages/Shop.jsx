@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { products } from "../data.js";
-import { Icon, PageHero, money } from "../lib/ui.jsx";
+import { Icon, PageHero, QtyInput, money } from "../lib/ui.jsx";
 import { useStore } from "../lib/store.jsx";
 
 const COLOURS = [["tee-r", "Red", "#BC0214"], ["tee-w", "White", "#fff"]];
@@ -46,7 +46,7 @@ export default function Shop() {
             <div className="row mt-6">
               <div className="stepper" role="group" aria-label="Quantity">
                 <button type="button" aria-label="Decrease" disabled={qty <= 1} onClick={() => setQty(qty - 1)}><Icon name="minus" /></button>
-                <input type="number" value={qty} min="1" max="20" aria-label="Quantity" onChange={(e) => setQty(Math.max(1, Math.min(20, parseInt(e.target.value) || 1)))} />
+                <QtyInput value={qty} max={20} onChange={setQty} />
                 <button type="button" aria-label="Increase" disabled={qty >= 20} onClick={() => setQty(qty + 1)}><Icon name="plus" /></button>
               </div>
               <button className="btn btn-lg" style={{ flex: 1 }} onClick={() => add(tee.id, qty, "Size " + size)}><Icon name="cart" />Add to cart</button>

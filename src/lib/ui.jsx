@@ -71,3 +71,18 @@ export function PageHero({ crumb, eyebrow, title, lead, children, img = "/assets
 export const DatesNote = () => E.datesConfirmed ? null : (
   <span className="pill-note"><Icon name="info" />Dates are tentative and will be confirmed soon.</span>
 );
+
+/* Number input that can be cleared while typing; commits only valid values, restores on blur */
+export function QtyInput({ value, onChange, min = 1, max = 99, label = "Quantity" }) {
+  const [draft, setDraft] = useState(String(value));
+  useEffect(() => setDraft(String(value)), [value]);
+  return (
+    <input type="number" inputMode="numeric" value={draft} min={min} max={max} aria-label={label}
+      onChange={(e) => {
+        setDraft(e.target.value);
+        const v = parseInt(e.target.value, 10);
+        if (v >= min) onChange(Math.min(max, v));
+      }}
+      onBlur={() => setDraft(String(value))} />
+  );
+}

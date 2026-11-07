@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { event as E } from "../data.js";
-import { Icon, PageHero, money } from "../lib/ui.jsx";
+import { Icon, PageHero, QtyInput, money } from "../lib/ui.jsx";
 import { useStore } from "../lib/store.jsx";
 import { CouponSheet } from "../components/Festival.jsx";
 
@@ -61,7 +61,7 @@ export default function Coupons() {
               <div><div className="label" style={{ fontWeight: 700 }}>How many sheets?</div><div className="small muted">{q * E.couponsPerSheet} coupons in total</div></div>
               <div className="stepper" role="group" aria-label="Number of sheets">
                 <button type="button" aria-label="Fewer sheets" disabled={q <= 1} onClick={() => setQty(q - 1)}><Icon name="minus" /></button>
-                <input type="number" value={qty} min="1" max="50" aria-label="Sheets" onChange={(e) => setQty(parseInt(e.target.value) || "")} />
+                <QtyInput value={q} max={50} label="Sheets" onChange={setQty} />
                 <button type="button" aria-label="More sheets" disabled={q >= 50} onClick={() => setQty(q + 1)}><Icon name="plus" /></button>
               </div>
             </div>
