@@ -72,6 +72,22 @@ export function PageHero({ crumb, eyebrow, title, lead, children, img = "/assets
   );
 }
 
+/* Placeholder for unconfirmed details. Search the code for "TBC" to find every one.
+   <Tbc /> renders "[TBC]"; <Tbc>Venue</Tbc> renders "[Venue TBC]". */
+export const Tbc = ({ children }) => <span className="tbc-tag" title="To be confirmed">[{children ? <>{children} TBC</> : "TBC"}]</span>;
+/* Shows a value from data.js, or a [TBC] tag when it is still null */
+export const OrTbc = ({ value, label }) => (value ? <>{value}</> : <Tbc>{label}</Tbc>);
+
+/* Sets a unique <title> and meta description per page */
+export function useMeta(title, description) {
+  useEffect(() => {
+    document.title = title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content", description);
+  }, [title, description]);
+}
+
 export const DatesNote = () => E.datesConfirmed ? null : (
   <span className="pill-note"><Icon name="info" />Dates are tentative and will be confirmed soon.</span>
 );

@@ -52,7 +52,7 @@ export default function Booklet() {
             <span className="eyebrow">Advertise</span>
             <h2>Put your brand in every visitor’s hands.</h2>
             <p className="lead">The booklet is handed out at every gate and kept all day for the map, menus and schedule. Ad space is limited.</p>
-            <Link className="btn mt-4" to="/sponsors#inquire">Request the media kit</Link>
+            <Link className="btn mt-4" to="/sponsorship#inquire">Request the media kit</Link>
           </div>
           <div className="card" style={{ padding: 0, overflow: "hidden" }}>
             <table className="order-table" style={{ margin: 0 }}>

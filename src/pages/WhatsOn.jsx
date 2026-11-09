@@ -25,7 +25,7 @@ export default function WhatsOn() {
             <span className="eyebrow">Eat</span>
             <h2>Local restaurants in tasting-size portions.</h2>
             <p className="lead">Try a little of everything. Every booth serves a short menu priced in $1 coupons, so you can graze from BBQ to dumplings to dessert.</p>
-            <Link className="btn mt-4" to="/food-and-drink">Browse food & drink</Link>
+            <Link className="btn mt-4" to="/menu">Browse the menu</Link>
           </div>
           <div>
             <img className="split-img mb-6" src="/assets/img/stock/wine-cheese.jpg" alt="Red wine with cheese and charcuterie" loading="lazy" />
@@ -50,7 +50,7 @@ export default function WhatsOn() {
             <Link to="/entertainment"><Icon name="flag" />Chef demos</Link>
             <Link to="/entertainment"><Icon name="sparkle" />Live art & artisan market</Link>
             <Link to="/entertainment"><Icon name="heart" />Family Zone</Link>
-            <Link to="/entertainers"><Icon name="star" />Perform with us</Link>
+            <Link to="/perform"><Icon name="star" />Perform with us</Link>
           </nav>
         </div>
       </section>

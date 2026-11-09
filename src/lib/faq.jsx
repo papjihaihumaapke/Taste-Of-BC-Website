@@ -1,17 +1,22 @@
 import { Link } from "react-router-dom";
 import { event as E } from "../data.js";
+import { Tbc } from "./ui.jsx";
 
-/* FAQ — shared by Home and About.
-   `todo: true` marks an answer the client still needs to confirm (shows a small "To confirm" tag). */
+/* FAQ — used by /faq (all) and the home page (first `home` items).
+   Answers marked <Tbc /> still need the client to confirm them. */
 export const FAQ = [
-  { q: "When is the festival?", a: <>{E.datesLong} (tentative, to be confirmed), {E.hours}, in {E.city}.</> },
-  { q: "Is entry really free?", a: <>Yes. Entry is free on all four days at every entrance arch. You only pay for food and drinks, using festival coupons.</> },
-  { q: "How do coupons work?", a: <>A coupon sheet costs ${E.sheetPrice} and has {E.couponsPerSheet} tear-off $1 coupons. Every menu is priced in coupons. <Link to="/coupons">Learn more</Link>.</> },
-  { q: "Can I bring cash?", a: <>Taste of BC is cashless. Coupon Booths accept debit, credit, Apple Pay and Google Pay. You can also buy coupons online before you arrive.</> },
-  { q: "Are there vegetarian, vegan, gluten-free or halal options?", a: <>Yes. Use the dietary filters on <Link to="/food-and-drink">Food & Drink</Link>. Labels are supplied by vendors, so please ask at the booth about allergens.</> },
-  { q: "Is the festival family-friendly?", a: <>Absolutely. There’s a Family Zone, kid-sized portions and shaded seating. The BC Wine Garden is 19+ with ID.</> },
-  { q: "Where do I park?", a: <>On-site and nearby parking. Lots fill up on weekend evenings, so carpool if you can. Transit and rideshare details are on <Link to="/visit">Plan Your Visit</Link>.</>, todo: true },
-  { q: "Can I bring my dog?", a: <>Pets are not permitted on site. Service animals are welcome.</> },
-  { q: "How old do I need to be for the BC Wine Garden?", a: <>The BC Wine Garden is 19+. ID is checked at the entrance to the garden.</> },
-  { q: "Can I get a refund on coupons?", a: <>Unused coupon sheets bought online may be refunded up to [X] days before the festival. Torn, lost or stolen coupons can’t be replaced. See the <Link to="/legal#refunds">refund policy</Link>.</>, todo: true }
+  { q: "Is admission free?", a: <>Yes, general admission is free for all ages, subject to capacity.</> },
+  { q: "How do coupons work?", a: <>Each coupon is $1. Sample-size dishes range from {E.couponRange} coupons <Tbc />. Hand your coupons to any vendor booth to pay. <Link to="/coupons">More about coupons</Link>.</> },
+  { q: "Where can I buy coupons?", a: <>Online in advance on our <Link to="/coupons">Coupons page</Link>, or onsite at the festival <Tbc />.</> },
+  { q: "What payment methods are accepted?", a: <>Debit and credit are accepted for coupons. Cash <Tbc />.</> },
+  { q: "What are the hours?", a: <>{E.hours}, {E.datesLong}. Dates are tentative.</> },
+  { q: "Are pets allowed?", a: <>Yes, pets are welcome on a leash.</> },
+  { q: "Is there alcohol?", a: <>Yes, in the BC Wine Garden for guests 19+ with valid ID.</> },
+  { q: "What happens if it rains?", a: <>The festival runs rain or shine <Tbc />.</> },
+  { q: "Can I bring outside food or drinks?", a: <><Tbc>Policy</Tbc></> },
+  { q: "Is the site accessible?", a: <>Yes. See our <Link to="/accessibility">Accessibility page</Link> for entrances, washrooms, seating and how to request accommodations.</> },
+  { q: "How do I become a vendor, volunteer or performer?", a: <>Find everything you need on the <Link to="/vendors">Vendor Opportunities</Link>, <Link to="/volunteer">Volunteer</Link> and <Link to="/perform">Perform</Link> pages.</> },
+  { q: "Are there vegetarian, vegan, gluten-free or halal options?", a: <>Yes. Menus show dietary tags (V, VG, GF, Halal, Contains Nuts) once they’re announced on the <Link to="/menu">Menu</Link>. Labels are supplied by vendors, so please ask at the booth about allergens.</> },
+  { q: "Is the festival family-friendly?", a: <>Absolutely. There’s a Family Zone and shaded seating. The BC Wine Garden is 19+ with ID.</> },
+  { q: "Can I get a refund on coupons?", a: <>Unused coupons bought online may be refunded up to <Tbc /> days before the festival. See the <Link to="/legal#refunds">refund policy</Link>.</> }
 ];

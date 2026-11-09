@@ -73,7 +73,7 @@ export function ThankYou() {
               <li><Icon name="arch" /><div><strong>Coupon sheets</strong><span>Show your QR at any Coupon Booth — North, East or West Gate.</span></div></li>
               <li><Icon name="store" /><div><strong>Merch</strong><span>Collect from the Info Booth by the North Gate.</span></div></li>
             </ul>
-            <div className="row mt-6"><Link className="btn" to="/food-and-drink">Plan what to eat</Link><Link className="btn btn-secondary" to="/entertainment">See the schedule</Link></div>
+            <div className="row mt-6"><Link className="btn" to="/menu">Plan what to eat</Link><Link className="btn btn-secondary" to="/entertainment">See the schedule</Link></div>
           </div>
         </div>
       </section>

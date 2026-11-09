@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { event as E, gallery, heroSlides, highlights } from "../data.js";
-import { Countdown, Icon } from "../lib/ui.jsx";
+import { event as E, gallery, heroSlides, highlights, menuCategories } from "../data.js";
+import { Countdown, Icon, Tbc } from "../lib/ui.jsx";
 import { Gallery } from "../components/Festival.jsx";
 import { FAQ } from "../lib/faq.jsx";
+import { FaqList } from "./Faq.jsx";
+import { InvolveTiles } from "./GetInvolved.jsx";
 
 const SLIDE_MS = 6000;
 
@@ -71,33 +73,38 @@ const PARTNERS = [
   { tier: "Sponsor" }, { tier: "Sponsor" }, { tier: "Sponsor" }, { tier: "Sponsor" }
 ];
 
-const INVOLVE = [
-  { k: "Vendors", title: "Food & Drink Vendors", text: "Bring your kitchen, winery or brewery.", to: "/get-involved#vendors", img: "/assets/img/stock/grilled-chicken.jpg", alt: "Chicken cooking on a hot grill", cta: "Apply for a booth" },
-  { k: "Volunteers", title: "Volunteer", text: "Volunteer a shift and join the crew.", to: "/get-involved#volunteer", img: "/assets/img/stock/crowd-lawn.jpg", alt: "Festival crowd on a sunny lawn", cta: "Join the crew" },
-  { k: "Entertainers", title: "Perform", text: "Perform on our stages or show your art.", to: "/entertainers", img: "/assets/img/stock/stage-lights.jpg", alt: "Band on an illuminated stage at night", cta: "Apply to perform" }
-];
-
 export default function Home() {
   return (
     <>
       <Hero />
 
-      {/* 4. Key info strip */}
+      {/* Key info strip */}
       <section className="info" aria-label="Festival key facts">
         <div className="container">
           <div className="info-grid">
-            <div><Icon name="calendar" /><div><strong>{E.datesShort}</strong><span>{E.days} days · {E.hours}</span></div></div>
-            <div><Icon name="pin" /><div><strong>{E.city}</strong><span>Venue to be announced</span></div></div>
-            <div><Icon name="arch" /><div><strong>Free entry</strong><span>All ages, every day</span></div></div>
+            <div><Icon name="calendar" /><div><strong>{E.datesShort}</strong><span>Thu–Sun · {E.hours}</span></div></div>
+            <div><Icon name="pin" /><div><strong>{E.city}</strong><span>{E.venue || <>Venue <Tbc /></>}</span></div></div>
+            <div><Icon name="arch" /><div><strong>Free admission</strong><span>All ages, subject to capacity</span></div></div>
             <div><Icon name="heart" /><div><strong>Not-for-profit</strong><span>A community event</span></div></div>
           </div>
           {!E.datesConfirmed && <p className="note"><Icon name="info" />Dates are tentative and will be confirmed soon.</p>}
         </div>
       </section>
 
+      {/* Intro statement */}
+      <section className="intro" aria-labelledby="intro-title">
+        <div className="container">
+          <span className="eyebrow" id="intro-title">About the festival</span>
+          <div>
+            <p className="statement">Taste of BC is the province’s most appetizing festival. Sample <em>BC’s best food, drinks, music and local makers</em>, all in one place.</p>
+            <p className="more">Restaurants and beverage producers serve sample-size dishes from cuisines around the world, alongside live local musicians, artisans, entrepreneurs and interactive activities.</p>
+          </div>
+        </div>
+      </section>
+
       <Marquee />
 
-      {/* 6. What's On */}
+      {/* What's On */}
       <section className="section">
         <div className="container">
           <div className="section-head split">
@@ -122,7 +129,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. Festival gallery */}
+      {/* How it works */}
+      <section className="section alt">
+        <div className="container">
+          <div className="section-head split">
+            <div>
+              <span className="eyebrow">How it works</span>
+              <h2>Skip the line, eat more.</h2>
+              <p className="lead">Admission is free. Food and drinks are paid with $1 festival coupons.</p>
+            </div>
+            <Link className="link-arrow" to="/coupons">How coupons work</Link>
+          </div>
+          <ol className="steps-row">
+            <li><span className="n" aria-hidden="true">01</span><h3>Walk in free</h3><p>General admission is free for all ages on all {E.days} days, subject to capacity.</p></li>
+            <li><span className="n" aria-hidden="true">02</span><h3>Grab $1 coupons online or onsite</h3><p>Buy ahead online to skip the line, or pick some up at the festival <Tbc />.</p></li>
+            <li><span className="n" aria-hidden="true">03</span><h3>Trade {E.couponRange} coupons per dish</h3><p>Every vendor booth lists its sample-size dishes in coupons <Tbc />. Tear off what you need and hand them over.</p></li>
+          </ol>
+          <div className="coupon-cta">
+            <Link className="btn btn-lg" to="/coupons"><Icon name="ticket" />Buy Food Coupons</Link>
+            <span className="stripe-line"><Icon name="lock" />Payments secured by Stripe</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Menu teaser */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head split">
+            <div><span className="eyebrow">The menu</span><h2>Menus are coming soon.</h2></div>
+            <Link className="link-arrow" to="/menu">Browse the menu</Link>
+          </div>
+          <div className="feature-grid three-up">
+            {menuCategories.map((c) => (
+              <Link className="f-card" to={`/menu/${c.slug}`} key={c.slug}>
+                <div className="ph"><img src={c.img} alt={c.alt} loading="lazy" decoding="async" width="960" height="640" /></div>
+                <div className="body"><h3>{c.title}</h3><p>{c.text}</p><span className="more">View menu<Icon name="arrow" /></span></div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Festival gallery */}
       <section className="section alt">
         <div className="container">
           <div className="section-head split">
@@ -133,27 +181,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. How coupons work */}
+      {/* Artisan Market */}
       <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Coupons</span>
-            <h2>Skip the line, eat more.</h2>
-            <p className="lead">Entry is free. Food and drinks are paid with $1 coupons: {E.couponsPerSheet} on a sheet for ${E.sheetPrice}.</p>
+        <div className="container split-photo">
+          <div>
+            <span className="eyebrow">Marketplace</span>
+            <h2>Shop the Artisan Market.</h2>
+            <p className="lead">A curated market of local, food-related products, from specialty cookware to spices, sauces and handmade goods.</p>
+            <div className="row"><Link className="btn btn-secondary" to="/vendors">Become an artisan vendor</Link></div>
           </div>
-          <ol className="steps-row">
-            <li><span className="n" aria-hidden="true">01</span><h3>Buy $1 coupons online</h3><p>Grab a sheet of {E.couponsPerSheet} before you arrive and pick it up at any Coupon Booth.</p></li>
-            <li><span className="n" aria-hidden="true">02</span><h3>Walk in free</h3><p>No ticket or registration. Entry is free on all {E.days} days at every entrance arch.</p></li>
-            <li><span className="n" aria-hidden="true">03</span><h3>Trade coupons for food and drinks</h3><p>Every booth lists its prices in coupons. Tear off what you need and hand them over.</p></li>
-          </ol>
-          <div className="coupon-cta">
-            <Link className="btn btn-lg" to="/coupons"><Icon name="ticket" />Buy Coupons</Link>
-            <span className="stripe-line"><Icon name="lock" />Payments secured by Stripe</span>
-          </div>
+          <img src="/assets/img/stock/wine-cheese.jpg" alt="Red wine with cheese and charcuterie on a table" loading="lazy" decoding="async" width="1024" height="683" />
         </div>
       </section>
 
-      {/* 9. Countdown (charcoal) */}
+      {/* Countdown (charcoal) */}
       <section className="band" aria-labelledby="cd-title">
         <div className="container">
           <div>
@@ -166,14 +207,14 @@ export default function Home() {
             <Link to="/entertainment"><Icon name="music" />Entertainment schedule</Link>
             <Link to="/coupons"><Icon name="ticket" />How coupons work</Link>
             <Link to="/map"><Icon name="map" />Festival map</Link>
-            <Link to="/visit"><Icon name="train" />Getting there</Link>
-            <Link to="/entertainers"><Icon name="star" />Perform at the festival</Link>
-            <Link to="/about#faq"><Icon name="info" />FAQ</Link>
+            <Link to="/getting-there"><Icon name="train" />Getting there</Link>
+            <Link to="/perform"><Icon name="star" />Perform at the festival</Link>
+            <Link to="/faq"><Icon name="info" />FAQ</Link>
           </nav>
         </div>
       </section>
 
-      {/* 10. Plan your visit */}
+      {/* Plan your visit */}
       <section className="section alt">
         <div className="container">
           <div className="section-head split">
@@ -181,34 +222,34 @@ export default function Home() {
             <Link className="link-arrow" to="/visit">Visitor guide</Link>
           </div>
           <div className="visit-grid">
-            <Link className="v-card" to="/visit">
+            <Link className="v-card" to="/getting-there">
               <div className="icon-tile"><Icon name="train" /></div>
               <h3>Getting There</h3>
-              <p>SkyTrain and buses, on-site and nearby parking, and a rideshare drop-off at the North Gate.</p>
-              <span className="more">Transit & parking</span>
+              <p>SkyTrain and transit, biking and walking, parking and rideshare drop-off.</p>
+              <span className="more">Directions</span>
             </Link>
-            <Link className="v-card" to="/visit#accessibility">
+            <Link className="v-card" to="/accessibility">
               <div className="icon-tile"><Icon name="access" /></div>
               <h3>Accessibility</h3>
-              <p>Step-free main walkways, accessible washrooms, reserved seating and a quiet space.</p>
+              <p>Accessible entrances, washrooms, seating, service animals and a quiet area.</p>
               <span className="more">Access information</span>
             </Link>
             <Link className="v-card" to="/map">
               <div className="icon-tile"><Icon name="map" /></div>
               <h3>Festival Map</h3>
-              <p>Find every gate, booth, stage, Coupon Booth and washroom on the field.</p>
+              <p>Find restaurants, food trucks, stages, the Wine Garden, first aid and washrooms.</p>
               <span className="more">Open the map</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 11. Sponsors */}
+      {/* Sponsors */}
       <section className="section">
         <div className="container">
           <div className="section-head split">
             <div><span className="eyebrow">Our partners</span><h2>Free entry, made possible by our sponsors.</h2></div>
-            <Link className="link-arrow" to="/sponsors#packages">Sponsorship packages</Link>
+            <Link className="link-arrow" to="/sponsorship#packages">Sponsorship packages</Link>
           </div>
           <div className="partner-grid">
             {PARTNERS.map((p, n) => (
@@ -220,49 +261,45 @@ export default function Home() {
           </div>
           <div className="partner-cta">
             <p>Four days, free entry and a big, diverse crowd from across the Lower Mainland. As a not-for-profit event, sponsorship is what keeps the gates free.</p>
-            <Link className="btn btn-secondary" to="/sponsors">Become a Sponsor</Link>
+            <Link className="btn btn-secondary" to="/sponsorship">Become a Sponsor</Link>
           </div>
         </div>
       </section>
 
-      {/* 12. Get involved */}
+      {/* Get involved */}
       <section className="section alt">
         <div className="container">
           <div className="section-head split">
             <div><span className="eyebrow">Get involved</span><h2>It takes a community to throw a festival.</h2></div>
             <Link className="link-arrow" to="/get-involved">All the ways to join</Link>
           </div>
-          <div className="involve-grid">
-            {INVOLVE.map((t) => (
-              <Link className="i-tile" to={t.to} key={t.title}>
-                <img src={t.img} alt={t.alt} loading="lazy" decoding="async" width="960" height="640" />
-                <span className="k">{t.k}</span>
-                <h3>{t.title}</h3>
-                <p>{t.text}</p>
-                <span className="go"><i><Icon name="arrow" /></i>{t.cta}</span>
-              </Link>
-            ))}
+          <InvolveTiles />
+        </div>
+      </section>
+
+      {/* Good to know */}
+      <section className="info" aria-label="Good to know" style={{ borderBottom: 0, paddingBottom: 0 }}>
+        <div className="container">
+          <span className="eyebrow">Good to know</span>
+          <div className="info-grid mt-4">
+            <div><Icon name="arch" /><div><strong>Free admission</strong><span>All ages, subject to capacity</span></div></div>
+            <div><Icon name="heart" /><div><strong>Leashed pets welcome</strong><span>Keep pets on a leash</span></div></div>
+            <div><Icon name="card" /><div><strong>Tap to pay <Tbc /></strong><span>For coupons onsite</span></div></div>
+            <div><Icon name="wine" /><div><strong>All ages</strong><span>19+ in the BC Wine Garden</span></div></div>
           </div>
         </div>
       </section>
 
-      {/* 13. FAQ */}
+      {/* FAQ */}
       <section className="section" id="faq">
         <div className="container faq-layout">
           <div className="section-head">
             <span className="eyebrow">FAQ</span>
             <h2>Frequently asked questions</h2>
             <p>General questions, media requests or accessibility needs — we’re happy to help.</p>
-            <Link className="btn btn-secondary" to="/about#contact">Contact us</Link>
+            <div className="row"><Link className="btn btn-secondary" to="/faq">All FAQs</Link><Link className="btn btn-secondary" to="/contact">Contact us</Link></div>
           </div>
-          <div className="accordion">
-            {FAQ.map(({ q, a, todo }, n) => (
-              <details key={q} open={n === 0}>
-                <summary><span>{q}{todo && <span className="todo">To confirm</span>}</span><span className="pm"><Icon name="plus" /></span></summary>
-                <div className="a-body"><p>{a}</p></div>
-              </details>
-            ))}
-          </div>
+          <FaqList items={FAQ.slice(0, 7)} />
         </div>
       </section>
     </>

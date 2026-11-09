@@ -13,15 +13,44 @@ export const event = {
   datesLong: "Thursday to Sunday, August 19–22, 2027",
   days: 4,
   hours: "11 AM – 10 PM daily",
-  venue: "[Venue name]",
+  // TBC: fill these in when confirmed. `null` renders a subtle [TBC] tag on the site.
+  venue: null,            // TBC: venue name
+  address: null,          // TBC: venue street address, Surrey, BC
+  mapQuery: "Surrey, BC", // TBC: switch to the venue address so the embedded map points at the site
   city: "Surrey, BC",
-  address: "[Street address], Surrey, BC",
   email: "hello@tasteofbc.ca",
-  phone: "(604) 000-0000",
+  phone: null,            // TBC: phone number
+  office: null,           // TBC: office address
+  admission: "Free, all ages, subject to capacity",
+  pets: "Welcome on a leash",
   couponValue: 1,
+  couponRange: "2 to 8",  // TBC: coupons per sample-size dish
   couponsPerSheet: 20,
   sheetPrice: 20
 };
+
+/* Social links — TBC: paste the real profile URLs. Empty string = placeholder link. */
+export const socials = [
+  { id: "instagram", label: "Instagram", url: "" },
+  { id: "facebook", label: "Facebook", url: "" },
+  { id: "tiktok", label: "TikTok", url: "" },
+  { id: "youtube", label: "YouTube", url: "" }
+];
+
+/* Menu — vendor lineup by category. Leave `vendors` empty to show the "Menus announced soon" state.
+   Vendor shape (add real vendors only once confirmed):
+   { name: "Vendor name", logo: "/assets/img/vendors/logo.png", dishes: [{ name: "Dish name", coupons: 4, diet: ["V", "GF"] }] }
+   Diet codes: V, VG, GF, Halal, Nuts */
+export const menuAnnounce = null; // TBC: month menus are announced, e.g. "June 2027"
+export const menuCategories = [
+  { slug: "restaurants", title: "Restaurants", text: "Sample-size dishes from local restaurants, from street food to fine dining.",
+    img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon with vegetables", vendors: [] },
+  { slug: "food-trucks", title: "Food Trucks", text: "BC food trucks serving festival favourites straight off the grill.",
+    img: "/assets/img/stock/skewers.jpg", alt: "Skewers sizzling on a grill", vendors: [] },
+  { slug: "drinks", title: "Breweries, Wineries & Distilleries", text: "BC craft beer, wine, cider and spirits in the 19+ BC Wine Garden.",
+    img: "/assets/img/stock/beer-pour.jpg", alt: "Craft beer being poured from a tap", vendors: [] }
+];
+export const DIET_LABELS = { V: "Vegetarian", VG: "Vegan", GF: "Gluten-free", Halal: "Halal", Nuts: "Contains nuts" };
 
 /* Hero slideshow — swap in real festival photos (put files in public/assets/img/) */
 export const heroSlides = [
@@ -45,7 +74,7 @@ export const gallery = [
 
 /* What's on — festival highlights */
 export const highlights = [
-  { icon: "utensils", title: "Local Restaurants", text: "Signature dishes in tasting-size portions, from street food to fine dining.", to: "/food-and-drink",
+  { icon: "utensils", title: "Local Restaurants", text: "Signature dishes in tasting-size portions, from street food to fine dining.", to: "/menu/restaurants",
     img: "/assets/img/stock/picnic-pizza.jpg", alt: "Pizza and dumplings shared on the grass" },
   { icon: "wine", title: "BC Wine Garden", tag: "19+", text: "Pours from Okanagan, Fraser Valley and Island wineries, plus craft beer and cider. 19+.", to: "/whats-on",
     img: "/assets/img/stock/wine-cheese.jpg", alt: "Red wine with cheese and charcuterie" },

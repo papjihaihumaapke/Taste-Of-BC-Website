@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { schedule } from "../data.js";
-import { DatesNote, Icon, PageHero } from "../lib/ui.jsx";
+import { DatesNote, Icon, PageHero, Tbc } from "../lib/ui.jsx";
 import { Gallery, ScheduleList, Tabs } from "../components/Festival.jsx";
 
 const STAGES = [
@@ -17,7 +17,7 @@ export default function Entertainment() {
     <>
       <PageHero img="/assets/img/stock/concert.jpg" crumb="Entertainment" eyebrow="Music · dance · comedy · art" title="Entertainment all four days."
         lead="Two stages, live art, chef demos and family fun from gates open until close. All performances are free to watch.">
-        <div className="row mt-6"><Link className="btn" to="/entertainers">Perform at Taste of BC</Link><DatesNote /></div>
+        <div className="row mt-6"><Link className="btn" to="/perform">Perform at Taste of BC</Link><DatesNote /></div>
       </PageHero>
 
       <section className="section">
@@ -46,10 +46,24 @@ export default function Entertainment() {
             <span className="eyebrow">Schedule</span><h2>What’s on, when.</h2>
             <p className="lead mb-0">Sample programme. Performers are announced in the months before the festival, and the final schedule is printed in the info booklet.</p>
           </div>
+          <div className="callout neutral mb-6"><Icon name="megaphone" /><div><strong>Lineup announced soon</strong>
+            <p>Acts, stages and times below are placeholders <Tbc />. Join the newsletter to hear the lineup first.</p></div></div>
           <Tabs label="Festival day" tabs={Object.entries(schedule).map(([day, rows]) => ({ id: day.toLowerCase(), label: day, content: <ScheduleList rows={rows} /> }))} />
         </div>
       </section>
 
+      {/* Optional: Taste of Comedy — TBC whether this runs */}
+      <section className="section alt" id="comedy">
+        <div className="container split-photo">
+          <div>
+            <span className="eyebrow">Taste of Comedy <Tbc /></span>
+            <h2>A night of local stand-up.</h2>
+            <p className="lead">An evening comedy show featuring BC comedians. Date, time, stage and lineup <Tbc />.</p>
+            <Link className="btn btn-secondary" to="/perform">Apply to perform</Link>
+          </div>
+          <img src="/assets/img/stock/stage-lights.jpg" alt="Performers on an illuminated stage at night" loading="lazy" decoding="async" width="1024" height="680" />
+        </div>
+      </section>
     </>
   );
 }

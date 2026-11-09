@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { PageHero } from "../lib/ui.jsx";
+import { PageHero, Tbc } from "../lib/ui.jsx";
 
-const SECTIONS = [["privacy", "Privacy policy"], ["terms", "Terms of use"], ["refunds", "Refund policy"]];
+const SECTIONS = [["privacy", "Privacy policy"], ["terms", "Terms of use"], ["refunds", "Refund policy"], ["vendor-terms", "Vendor terms"]];
 
 export function Legal() {
   const [active, setActive] = useState("privacy");
@@ -13,7 +13,7 @@ export function Legal() {
   }, []);
   return (
     <>
-      <PageHero img="/assets/img/stock/crowd-lawn.jpg" crumb="Legal" eyebrow="Legal" title="Privacy, terms & refunds" lead="Template content — to be reviewed by legal counsel before launch. Last updated: [Date]." />
+      <PageHero img="/assets/img/stock/crowd-lawn.jpg" crumb="Legal" eyebrow="Legal" title="Privacy, terms & policies" lead="Template content — to be reviewed by legal counsel before launch. Last updated: [Date]." />
       <section className="section">
         <div className="container legal-layout">
           <nav className="legal-nav" aria-label="Legal sections">
@@ -40,6 +40,12 @@ export function Legal() {
             <ul><li>Unused coupon sheets bought online may be refunded up to [X] days before the festival.</li><li>Coupons are valid on all four festival days and have no cash value.</li><li>Torn, lost or stolen coupons cannot be replaced or refunded.</li><li>If the festival is cancelled, all online coupon orders are refunded in full.</li></ul>
             <h3>Merchandise</h3>
             <p>Unworn merchandise in original condition may be exchanged at the Info Booth during the festival, or returned within [X] days by contacting <a href="mailto:hello@tasteofbc.ca">hello@tasteofbc.ca</a>.</p>
+
+            {/* TBC: full vendor terms & conditions to be supplied by the festival team / legal counsel */}
+            <h2 id="vendor-terms">Vendor terms & conditions <Tbc /></h2>
+            <p>The full vendor terms will be published here before applications close. They will cover:</p>
+            <ul><li>Booth fees, payment schedule and cancellations <Tbc /></li><li>Coupon redemption and payout after the festival</li><li>Food safety, permits and special event liquor licensing</li><li>Power, equipment and booth setup requirements <Tbc /></li><li>Insurance requirements <Tbc /></li></ul>
+            <p>Questions? Contact the vendor team via <Link to="/vendors#questions">Vendor Opportunities</Link>.</p>
           </div>
         </div>
       </section>

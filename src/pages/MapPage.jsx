@@ -1,47 +1,50 @@
-import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { restaurants } from "../data.js";
-import { Icon, PageHero } from "../lib/ui.jsx";
-import { RestaurantCard, SiteMap } from "../components/Festival.jsx";
+import { Link } from "react-router-dom";
+import { Icon, PageHero, Tbc } from "../lib/ui.jsx";
 
+/* Legend colours reuse the brand palette. TBC: replace the placeholder with the final site map image. */
 const LEGEND = [
-  [{ background: "#C8102E", borderRadius: 13, width: 40 }, "GATE", "Entrance arch (free entry)"],
-  [{ background: "#C8102E", borderRadius: "50%" }, "C", "Coupon Booth (card & tap)"],
-  [{ background: "#C8102E" }, "A1", "Food & drink booth"],
-  [{ background: "#7A0410" }, "BG", "Licensed booth (19+)"],
-  [{ background: "#1A1A1A", borderRadius: "50%" }, "i", "Info booth & lost and found"],
-  [{ background: "#1E7A46", borderRadius: "50%" }, "+", "First aid"],
-  [{ background: "#3D3A38", borderRadius: "50%" }, "W", "Washrooms (accessible)"],
-  [{ background: "#3D3A38", borderRadius: "50%" }, "♿", "Accessible drop-off"],
-  [{ background: "transparent", border: "2px dotted #C8102E" }, "", "Sponsor banners (perimeter)"]
+  ["#C8102E", "utensils", "Restaurants"],
+  ["#C8102E", "store", "Food Trucks"],
+  ["#7A0A1C", "wine", "BC Wine Garden (19+)"],
+  ["#141414", "music", "Main Stage"],
+  ["#3A3633", "sparkle", "Artisan Market"],
+  ["#3A3633", "heart", "Family Zone"],
+  ["#3A3633", "flag", "Chef Demo Kitchen"],
+  ["#1E7A46", "plus", "First Aid"],
+  ["#5F5A55", "access", "Washrooms"],
+  ["#141414", "info", "Info Booth"]
 ];
 
 export default function MapPage() {
-  const [params] = useSearchParams();
-  const [booth, setBooth] = useState(params.get("booth"));
-  const r = restaurants.find((x) => x.booth === booth);
   return (
     <>
-      <PageHero img="/assets/img/stock/crowd-lawn.jpg" crumb="Festival Map" eyebrow="Site layout" title="Festival map."
-        lead="Three entrance arches, a Coupon Booth at every gate, two stages, the BC Wine Garden and every food booth by number. Tap a booth to see its menu." />
+      <PageHero img="/assets/img/stock/crowd-lawn.jpg" crumb="Festival Map" eyebrow="Plan your visit" title="Festival map."
+        lead="Find restaurants, food trucks, the stages, the BC Wine Garden, the Artisan Market and every facility on site." />
 
-      <section className="section" style={{ paddingTop: 48 }}>
+      <section className="section">
         <div className="container map-layout">
-          <div className="map-frame"><SiteMap interactive active={booth} onSelect={setBooth} /></div>
+          <div className="map-placeholder">
+            <div>
+              <Icon name="map" />
+              <h3>Site map coming soon <Tbc /></h3>
+              <p className="mb-0">The full festival layout will be posted once the venue is confirmed.</p>
+            </div>
+          </div>
           <aside className="map-panel">
-            {r ? <RestaurantCard r={r} full footLink={<Link to="/food-and-drink">All menus <Icon name="arrow" /></Link>} />
-              : booth ? <div className="card"><h3>Booth {booth}</h3><p className="muted mb-0">Vendor to be announced.</p></div>
-              : <div className="card"><div className="icon-tile"><Icon name="pin" /></div><h3>Select a booth</h3><p className="muted mb-0">Tap any red booth on the map to see its menu.</p></div>}
             <div className="card">
               <h4>Legend</h4>
               <div className="legend">
-                {LEGEND.map(([st, ch, l]) => <div className="legend-item" key={l}><i style={st}>{ch}</i>{l}</div>)}
+                {LEGEND.map(([bg, icon, l]) => <div className="legend-item" key={l}><i style={{ background: bg }}><Icon name={icon} /></i>{l}</div>)}
               </div>
+            </div>
+            <div className="card">
+              <h4>Getting around</h4>
+              <p className="muted">Directions, parking and accessibility details for the festival site.</p>
+              <div className="row"><Link className="link-arrow" to="/getting-there">Getting there</Link><Link className="link-arrow" to="/accessibility">Accessibility</Link></div>
             </div>
           </aside>
         </div>
       </section>
-
     </>
   );
 }

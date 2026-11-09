@@ -1,19 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { event as E, products } from "../data.js";
-import { Icon, QtyInput, money } from "../lib/ui.jsx";
+import { Icon, QtyInput, money, useMeta } from "../lib/ui.jsx";
+import { SocialLinks } from "../pages/Contact.jsx";
 import { useStore, product } from "../lib/store.jsx";
 
 const NAV = [
   ["/whats-on", "What’s On"],
-  ["/food-and-drink", "Food & Drink"],
+  ["/menu", "Food & Drink"],
   ["/entertainment", "Entertainment"],
   ["/coupons", "Coupons"],
   ["/visit", "Plan Your Visit"],
   ["/get-involved", "Get Involved"],
-  ["/sponsors", "Sponsors"]
+  ["/sponsorship", "Sponsors"]
 ];
-const MORE = [["/entertainers", "Entertainers — apply or sign in"], ["/map", "Festival Map"], ["/shop", "Shop"], ["/about", "About, FAQ & Contact"]];
+const MORE = [["/getting-there", "Getting There"], ["/map", "Festival Map"], ["/faq", "FAQ"], ["/shop", "Shop"], ["/about", "About"], ["/media", "Media"], ["/contact", "Contact"]];
 
 function Header() {
   const { count, setCartOpen } = useStore();
@@ -37,7 +38,7 @@ function Header() {
       <header className={"site-header" + (scrolled ? " scrolled" : "")}><div className="container">
         <Link className="brand" to="/" aria-label="Taste of BC home"><img src="/assets/img/logo-red.png" alt="Taste of BC" width="90" height="46" /></Link>
         <nav className="nav" aria-label="Main">
-          {NAV.map(([to, l]) => <NavLink key={to} to={to} aria-current={loc.pathname === to ? "page" : undefined}>{l}</NavLink>)}
+          {NAV.map(([to, l]) => <NavLink key={to} to={to} aria-current={loc.pathname === to || loc.pathname.startsWith(to + "/") ? "page" : undefined}>{l}</NavLink>)}
         </nav>
         <div className="header-actions">
           <button className="icon-btn" aria-label={`Open cart${count ? ` (${count} items)` : ""}`} onClick={() => setCartOpen(true)}>
@@ -95,21 +96,19 @@ function Footer() {
           <div className="footer-brand">
             <img src="/assets/img/logo-white.png" alt="Taste of BC" width="150" height="77" loading="lazy" />
             <p>A not-for-profit community festival of food, beverage and entertainment. Local restaurants, BC wines and local artists. {E.datesShort} in {E.city}.</p>
-            <div className="socials">
-              {["instagram", "facebook", "tiktok", "youtube"].map((s) => <a key={s} href="#" aria-label={s[0].toUpperCase() + s.slice(1)}><Icon name={s} /></a>)}
-            </div>
+            <SocialLinks />
           </div>
           <nav aria-label="Festival"><h4>Festival</h4><ul>
-            <li><Link to="/whats-on">What’s on</Link></li><li><Link to="/food-and-drink">Food & drink</Link></li>
+            <li><Link to="/whats-on">What’s on</Link></li><li><Link to="/menu">Menu</Link></li>
             <li><Link to="/entertainment">Entertainment & schedule</Link></li><li><Link to="/coupons">Food coupons</Link></li><li><Link to="/booklet">Info booklet</Link></li></ul></nav>
           <nav aria-label="Visit"><h4>Visit</h4><ul>
-            <li><Link to="/visit">Getting there</Link></li><li><Link to="/map">Festival map</Link></li>
-            <li><Link to="/visit#accessibility">Accessibility</Link></li><li><Link to="/about#faq">FAQ</Link></li><li><Link to="/shop">Shop merch</Link></li></ul></nav>
+            <li><Link to="/getting-there">Getting there</Link></li><li><Link to="/map">Festival map</Link></li>
+            <li><Link to="/accessibility">Accessibility</Link></li><li><Link to="/faq">FAQ</Link></li><li><Link to="/shop">Shop merch</Link></li></ul></nav>
           <nav aria-label="Join us"><h4>Join us</h4><ul>
-            <li><Link to="/entertainers">Entertainers</Link></li><li><Link to="/get-involved#vendors">Food & drink vendors</Link></li>
-            <li><Link to="/get-involved#volunteer">Volunteer</Link></li><li><Link to="/sponsors">Sponsorship</Link></li></ul></nav>
+            <li><Link to="/vendors">Become a vendor</Link></li><li><Link to="/volunteer">Volunteer</Link></li>
+            <li><Link to="/perform">Perform</Link></li><li><Link to="/sponsorship">Sponsorship</Link></li><li><Link to="/legal#vendor-terms">Vendor terms</Link></li></ul></nav>
           <nav aria-label="About"><h4>About</h4><ul>
-            <li><Link to="/about">Our story</Link></li><li><Link to="/about#contact">Contact</Link></li>
+            <li><Link to="/about">Our story</Link></li><li><Link to="/contact">Contact</Link></li><li><Link to="/media">Media</Link></li>
             <li><a href={"mailto:" + E.email}>{E.email}</a></li></ul></nav>
         </div>
         <div className="footer-bottom"><div className="container">
@@ -183,6 +182,43 @@ function CartDrawer() {
   );
 }
 
+/* Unique <title> + meta description per page */
+const SITE = "Taste of BC 2027";
+const META = {
+  "/": [`${SITE} — BC’s Biggest Food, Beverage & Entertainment Festival`, `Free-admission food, beverage and entertainment festival in ${E.city}, ${E.datesShort}. Sample-size dishes for $1 coupons, BC wines, live music and local makers.`],
+  "/whats-on": [`What’s On | ${SITE}`, "Local restaurants, the BC Wine Garden, live entertainment, local artists, chef demos and a Family Zone — four days, free admission."],
+  "/menu": [`Menu | ${SITE}`, "Restaurants, food trucks and BC breweries, wineries and distilleries serving sample-size dishes for $1 coupons. Menus coming soon."],
+  "/menu/restaurants": [`Restaurants Menu | ${SITE}`, "Sample-size dishes from local BC restaurants, paid with $1 festival coupons."],
+  "/menu/food-trucks": [`Food Trucks Menu | ${SITE}`, "BC food trucks serving festival favourites, paid with $1 festival coupons."],
+  "/menu/drinks": [`Breweries, Wineries & Distilleries | ${SITE}`, "BC craft beer, wine, cider and spirits in the 19+ BC Wine Garden."],
+  "/entertainment": [`Entertainment & Schedule | ${SITE}`, "Live music, dance, comedy, chef demos and family fun across four days. Lineup announced soon."],
+  "/coupons": [`Food & Drink Coupons | ${SITE}`, `How $1 festival coupons work, where to buy them and coupon bundles. Dishes range from ${E.couponRange} coupons.`],
+  "/visit": [`Plan Your Visit | ${SITE}`, `Dates, hours, admission and tips for Taste of BC in ${E.city}, ${E.datesShort}.`],
+  "/getting-there": [`Getting There | ${SITE}`, `Directions to Taste of BC in ${E.city}: transit, bike, walking, parking and rideshare drop-off.`],
+  "/accessibility": [`Accessibility | ${SITE}`, "Accessible entrances, washrooms, seating, service animals, quiet area and accommodation requests."],
+  "/map": [`Festival Map | ${SITE}`, "Find restaurants, food trucks, the BC Wine Garden, stages, Artisan Market, first aid and washrooms."],
+  "/get-involved": [`Get Involved | ${SITE}`, "Become a vendor, volunteer, perform or sponsor Taste of BC."],
+  "/vendors": [`Vendor Opportunities | ${SITE}`, "Apply as a restaurant, food truck, liquor or artisan vendor at Taste of BC. Vendor forms and terms."],
+  "/perform": [`Perform at Taste of BC | ${SITE}`, "BC musicians, dancers, comedians and artists: apply to perform at Taste of BC."],
+  "/volunteer": [`Volunteer | ${SITE}`, "Volunteer registration is open. Join the crew that makes Taste of BC happen."],
+  "/sponsorship": [`Sponsorship Opportunities | ${SITE}`, "BC’s best outdoor food & beverage festival. Build a customized sponsorship package with Taste of BC."],
+  "/media": [`Media | ${SITE}`, "Download Taste of BC logos and festival photos, and find press contacts."],
+  "/faq": [`FAQ | ${SITE}`, "Answers about free admission, $1 coupons, payment, pets, alcohol, hours, weather and accessibility."],
+  "/contact": [`Contact | ${SITE}`, "Contact Taste of BC: email, phone, office address, socials and a general contact form."],
+  "/about": [`About | ${SITE}`, "Taste of BC is a not-for-profit, free-admission festival celebrating BC’s food community."],
+  "/entertainers": [`Entertainer Portal | ${SITE}`, "Apply to perform or sign in to manage your Taste of BC booking."],
+  "/shop": [`Shop | ${SITE}`, "Taste of BC coupon sheets, gift coupons and festival merchandise."],
+  "/booklet": [`Info Booklet | ${SITE}`, "The Taste of BC info booklet: schedule, map and partners."],
+  "/legal": [`Privacy, Terms & Policies | ${SITE}`, "Taste of BC privacy policy, terms of use, refund policy and vendor terms."],
+  "/checkout": [`Checkout | ${SITE}`, "Secure checkout for Taste of BC coupons and merchandise."]
+};
+function MetaManager() {
+  const { pathname } = useLocation();
+  const [t, d] = META[pathname.replace(/\/$/, "") || "/"] || META["/"];
+  useMeta(t, d);
+  return null;
+}
+
 /* Scroll to top on page change, or to #hash target */
 function ScrollManager() {
   const { pathname, hash } = useLocation();
@@ -229,6 +265,7 @@ export default function Layout() {
   return (
     <>
       <ScrollManager />
+      <MetaManager />
       <RevealOnScroll />
       <Header />
       <main id="main"><Outlet /></main>

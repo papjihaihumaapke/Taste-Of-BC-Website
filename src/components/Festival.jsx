@@ -32,7 +32,7 @@ export function CouponSheet({ interactive = false, torn = new Set(), onTear, fli
           <div className="sponsor-slot med">Gate partner</div><div className="sponsor-slot med">Stage partner</div>
           {Array.from({ length: 8 }, (_, i) => <div className="sponsor-slot" key={i}>Sponsor logo</div>)}
         </div>
-        <div className="sheet-foot"><span>Advertise here: tasteofbc.ca/sponsors</span><span>{E.email}</span></div>
+        <div className="sheet-foot"><span>Advertise here: tasteofbc.ca/sponsorship</span><span>{E.email}</span></div>
       </div>
     </div>
   );

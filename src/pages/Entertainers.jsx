@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { event as E } from "../data.js";
-import { Icon, PageHero } from "../lib/ui.jsx";
+import { Icon, PageHero, Tbc } from "../lib/ui.jsx";
 import { Checks, Field, ValidatedForm } from "../lib/forms.jsx";
 
 function ApplyForm() {
@@ -76,9 +76,9 @@ export default function Entertainers() {
             <h2>A big, friendly crowd for local talent.</h2>
             <ul className="kbd-list mt-6">
               <li><Icon name="music" /><div><strong>Professional stages</strong><span>Main Stage and Community Stage with sound, lighting and crew.</span></div></li>
-              <li><Icon name="users" /><div><strong>Thousands of visitors</strong><span>Free entry brings families, foodies and music fans from across BC.</span></div></li>
+              <li><Icon name="users" /><div><strong>Free-admission crowds</strong><span>Free entry brings families, foodies and music fans from across BC.</span></div></li>
               <li><Icon name="megaphone" /><div><strong>Promotion</strong><span>Your act on the schedule, in the info booklet and on our socials.</span></div></li>
-              <li><Icon name="ticket" /><div><strong>Performer perks</strong><span>Food coupons, parking and a green room for every booked act.</span></div></li>
+              <li><Icon name="ticket" /><div><strong>Performer perks</strong><span>Details shared when booking <Tbc />.</span></div></li>
             </ul>
             <p className="small muted mt-6">Taste of BC is a not-for-profit event. Performance fees vary by slot and are confirmed when booking.</p>
           </div>
