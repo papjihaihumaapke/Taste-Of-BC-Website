@@ -4,7 +4,7 @@ import { products } from "../data.js";
 import { Icon, PageHero, QtyInput, money } from "../lib/ui.jsx";
 import { useStore } from "../lib/store.jsx";
 
-const COLOURS = [["tee-r", "Red", "#BC0214"], ["tee-w", "White", "#fff"]];
+const COLOURS = [["tee-r", "Red", "#C8102E"], ["tee-w", "White", "#fff"]];
 const SIZES = ["S", "M", "L", "XL", "XXL"];
 
 export default function Shop() {

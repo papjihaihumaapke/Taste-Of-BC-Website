@@ -1,18 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Taste of BC 2027 — BC’s Biggest Food, Beverage & Entertainment Festival</title>
 <meta name="description" content="Taste of BC is a four-day, not-for-profit food, beverage and entertainment festival in Surrey, BC. Local restaurants, BC wines, live music and local artists. Free entry.">
-<meta property="og:title" content="Taste of BC 2027 — Surrey, BC">
+<link rel="canonical" href="https://tasteofbc.ca/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taste of BC">
+<meta property="og:locale" content="en_CA">
+<meta property="og:url" content="https://tasteofbc.ca/">
+<meta property="og:title" content="Taste of BC 2027 — Aug 19–22 · Surrey, BC · Free Entry">
 <meta property="og:description" content="Four days of local restaurants, BC wines, live entertainment and local artists. Free entry.">
-<meta property="og:image" content="/assets/img/merch-tote-mug.jpg">
-<meta name="theme-color" content="#BC0214">
-<link rel="icon" href="/assets/img/favicon.png">
+<meta property="og:image" content="https://tasteofbc.ca/assets/img/stock/skewers.jpg">
+<meta property="og:image:alt" content="Skewers sizzling on a grill">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Taste of BC 2027 — Aug 19–22 · Surrey, BC · Free Entry">
+<meta name="twitter:description" content="Four days of local restaurants, BC wines, live entertainment and local artists. Free entry.">
+<meta name="twitter:image" content="https://tasteofbc.ca/assets/img/stock/skewers.jpg">
+<meta name="theme-color" content="#C8102E">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/img/stock/skewers.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Event structured data. Keep dates/venue in sync with src/data.js (dates are tentative). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Festival",
+  "name": "Taste of BC 2027",
+  "description": "A four-day, not-for-profit food, beverage and entertainment festival in Surrey, BC: local restaurants, BC wines, live music and local artists. Free entry.",
+  "startDate": "2027-08-19T11:00:00-07:00",
+  "endDate": "2027-08-22T22:00:00-07:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "isAccessibleForFree": true,
+  "image": ["https://tasteofbc.ca/assets/img/stock/skewers.jpg", "https://tasteofbc.ca/assets/img/stock/concert.jpg"],
+  "url": "https://tasteofbc.ca/",
+  "location": {
+    "@type": "Place",
+    "name": "Surrey, BC (venue to be announced)",
+    "address": { "@type": "PostalAddress", "addressLocality": "Surrey", "addressRegion": "BC", "addressCountry": "CA" }
+  },
+  "offers": {
+    "@type": "Offer",
+    "name": "Free entry",
+    "price": "0",
+    "priceCurrency": "CAD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://tasteofbc.ca/"
+  },
+  "organizer": { "@type": "Organization", "name": "Taste of BC", "url": "https://tasteofbc.ca/", "email": "hello@tasteofbc.ca" }
+}
+</script>
 </head>
 <body>
 <div id="root"></div>

@@ -30,17 +30,20 @@ function Header() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
+      <div className="announce" role="note"><div className="container">
+        <span className="dot" aria-hidden="true" />
+        <span>{E.datesShort} · {E.city} · Free Entry{!E.datesConfirmed && <span className="tbc"> · Dates to be confirmed</span>}</span>
+      </div></div>
       <header className={"site-header" + (scrolled ? " scrolled" : "")}><div className="container">
-        <Link className="brand" to="/" aria-label="Taste of BC home"><img src="/assets/img/logo-red.png" alt="Taste of BC" width="78" height="40" /></Link>
+        <Link className="brand" to="/" aria-label="Taste of BC home"><img src="/assets/img/logo-red.png" alt="Taste of BC" width="90" height="46" /></Link>
         <nav className="nav" aria-label="Main">
           {NAV.map(([to, l]) => <NavLink key={to} to={to} aria-current={loc.pathname === to ? "page" : undefined}>{l}</NavLink>)}
         </nav>
         <div className="header-actions">
-          <span className="lang">FREE ENTRY · {E.datesShort.toUpperCase()}</span>
-          <button className="icon-btn ring" aria-label="Open cart" onClick={() => setCartOpen(true)}>
+          <button className="icon-btn" aria-label={`Open cart${count ? ` (${count} items)` : ""}`} onClick={() => setCartOpen(true)}>
             <Icon name="cart" /><span className="cart-count" data-n={count}>{count}</span>
           </button>
-          <Link className="btn btn-sm" to="/coupons"><Icon name="ticket" />Buy coupons</Link>
+          <Link className="btn btn-sm" to="/coupons"><Icon name="ticket" />Buy Coupons</Link>
           <button className="icon-btn menu-toggle" aria-label="Open menu" aria-expanded={menu} aria-controls="mobileNav" onClick={() => setMenu(true)}><Icon name="menu" /></button>
         </div>
       </div></header>
@@ -82,37 +85,40 @@ function Newsletter() {
 
 function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="footer-cta"><div className="container">
-        <div><h3>Be first to hear the lineup.</h3><p>Restaurants, performers and BC wineries as they’re announced. One email a month, max.</p></div>
+    <>
+      <section className="newsletter-band" aria-labelledby="nl-title"><div className="container">
+        <div><h2 id="nl-title">Be first to hear the lineup.</h2><p>Restaurants, performers and BC wineries as they’re announced. One email a month, max.</p></div>
         <Newsletter />
-      </div></div>
-      <div className="container footer-main">
-        <div className="footer-brand">
-          <img src="/assets/img/logo-red.png" alt="Taste of BC" width="190" height="97" />
-          <p>A not-for-profit community festival of food, beverage and entertainment. Local restaurants, BC wines and local artists. {E.datesShort} in {E.city}.</p>
-          <div className="socials">
-            {["instagram", "facebook", "tiktok", "youtube"].map((s) => <a key={s} href="#" aria-label={s[0].toUpperCase() + s.slice(1)}><Icon name={s} /></a>)}
+      </div></section>
+      <footer className="site-footer">
+        <div className="container footer-main">
+          <div className="footer-brand">
+            <img src="/assets/img/logo-white.png" alt="Taste of BC" width="150" height="77" loading="lazy" />
+            <p>A not-for-profit community festival of food, beverage and entertainment. Local restaurants, BC wines and local artists. {E.datesShort} in {E.city}.</p>
+            <div className="socials">
+              {["instagram", "facebook", "tiktok", "youtube"].map((s) => <a key={s} href="#" aria-label={s[0].toUpperCase() + s.slice(1)}><Icon name={s} /></a>)}
+            </div>
           </div>
+          <nav aria-label="Festival"><h4>Festival</h4><ul>
+            <li><Link to="/whats-on">What’s on</Link></li><li><Link to="/food-and-drink">Food & drink</Link></li>
+            <li><Link to="/entertainment">Entertainment & schedule</Link></li><li><Link to="/coupons">Food coupons</Link></li><li><Link to="/booklet">Info booklet</Link></li></ul></nav>
+          <nav aria-label="Visit"><h4>Visit</h4><ul>
+            <li><Link to="/visit">Getting there</Link></li><li><Link to="/map">Festival map</Link></li>
+            <li><Link to="/visit#accessibility">Accessibility</Link></li><li><Link to="/about#faq">FAQ</Link></li><li><Link to="/shop">Shop merch</Link></li></ul></nav>
+          <nav aria-label="Join us"><h4>Join us</h4><ul>
+            <li><Link to="/entertainers">Entertainers</Link></li><li><Link to="/get-involved#vendors">Food & drink vendors</Link></li>
+            <li><Link to="/get-involved#volunteer">Volunteer</Link></li><li><Link to="/sponsors">Sponsorship</Link></li></ul></nav>
+          <nav aria-label="About"><h4>About</h4><ul>
+            <li><Link to="/about">Our story</Link></li><li><Link to="/about#contact">Contact</Link></li>
+            <li><a href={"mailto:" + E.email}>{E.email}</a></li></ul></nav>
         </div>
-        <div><h4>Festival</h4><ul>
-          <li><Link to="/whats-on">What’s on</Link></li><li><Link to="/food-and-drink">Food & drink</Link></li>
-          <li><Link to="/entertainment">Entertainment & schedule</Link></li><li><Link to="/coupons">Food coupons</Link></li><li><Link to="/booklet">Info booklet</Link></li></ul></div>
-        <div><h4>Visit</h4><ul>
-          <li><Link to="/visit">Getting there</Link></li><li><Link to="/map">Festival map</Link></li>
-          <li><Link to="/visit#accessibility">Accessibility</Link></li><li><Link to="/about#faq">FAQ</Link></li><li><Link to="/shop">Shop merch</Link></li></ul></div>
-        <div><h4>Join us</h4><ul>
-          <li><Link to="/entertainers">Entertainers</Link></li><li><Link to="/get-involved#vendors">Food & drink vendors</Link></li>
-          <li><Link to="/get-involved#volunteer">Volunteer</Link></li><li><Link to="/sponsors">Sponsorship</Link></li></ul></div>
-        <div><h4>About</h4><ul>
-          <li><Link to="/about">Our story</Link></li><li><Link to="/about#contact">Contact</Link></li>
-          <li><a href={"mailto:" + E.email}>{E.email}</a></li></ul></div>
-      </div>
-      <div className="footer-bottom"><div className="container">
-        <span>© {E.year} Taste of BC · A not-for-profit community event · <Link to="/legal#privacy">Privacy</Link> · <Link to="/legal#terms">Terms</Link> · <Link to="/legal#refunds">Refunds</Link></span>
-        <span className="stripe-note"><Icon name="lock" />Payments secured by Stripe</span>
-      </div></div>
-    </footer>
+        <div className="footer-bottom"><div className="container">
+          <span>© {E.year} Taste of BC · A not-for-profit community event</span>
+          <span className="legal-links"><Link to="/legal#privacy">Privacy</Link>·<Link to="/legal#terms">Terms</Link>·<Link to="/legal#refunds">Refunds</Link></span>
+          <span className="stripe-note"><Icon name="lock" />Payments secured by Stripe</span>
+        </div></div>
+      </footer>
+    </>
   );
 }
 
@@ -190,8 +196,10 @@ function ScrollManager() {
 /* Subtle fade-up of content blocks as they scroll into view */
 const REVEAL = [
   "main .section-head", "main .split > *", "main .grid > *", "main .trio > *", "main .gallery figure",
-  "main .steps-3 > li", "main .facts-row > *", "main .facts-list > li", "main .logo-wall > *",
-  "main .band .container > *", "main .cta-band", "main .accordion", "main .stats > *", "main .map-layout > *", "main .pd > *"
+  "main .steps-3 > li", "main .steps-row > li", "main .facts-list > li", "main .logo-wall > *",
+  "main .band .container > *", "main .cta-band", "main .accordion", "main .stats > *", "main .map-layout > *", "main .pd > *",
+  "main .feature-grid > *", "main .visit-grid > *", "main .partner-grid > *", "main .involve-grid > *", "main .info-grid > *",
+  "main .coupon-cta", "main .partner-cta"
 ].join(",");
 function useReveal(pathname) {
   useEffect(() => {
@@ -204,7 +212,7 @@ function useReveal(pathname) {
     }), { rootMargin: "0px 0px -8% 0px" });
     els.forEach((el) => {
       const sibs = el.parentElement ? [...el.parentElement.children] : [];
-      el.style.transitionDelay = Math.min(sibs.indexOf(el), 5) * 70 + "ms"; // stagger items in a row
+      el.style.transitionDelay = Math.min(sibs.indexOf(el), 7) * 80 + "ms"; // stagger items in a row
       el.classList.add("reveal"); io.observe(el);
     });
     return () => { io.disconnect(); els.forEach((el) => { el.classList.remove("reveal", "in"); el.style.transitionDelay = ""; }); };

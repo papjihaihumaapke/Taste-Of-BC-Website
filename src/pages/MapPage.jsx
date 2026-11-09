@@ -5,15 +5,15 @@ import { Icon, PageHero } from "../lib/ui.jsx";
 import { RestaurantCard, SiteMap } from "../components/Festival.jsx";
 
 const LEGEND = [
-  [{ background: "#BC0214", borderRadius: 13, width: 40 }, "GATE", "Entrance arch (free entry)"],
-  [{ background: "#BC0214", borderRadius: "50%" }, "C", "Coupon Booth (card & tap)"],
-  [{ background: "#BC0214" }, "A1", "Food & drink booth"],
+  [{ background: "#C8102E", borderRadius: 13, width: 40 }, "GATE", "Entrance arch (free entry)"],
+  [{ background: "#C8102E", borderRadius: "50%" }, "C", "Coupon Booth (card & tap)"],
+  [{ background: "#C8102E" }, "A1", "Food & drink booth"],
   [{ background: "#7A0410" }, "BG", "Licensed booth (19+)"],
   [{ background: "#1A1A1A", borderRadius: "50%" }, "i", "Info booth & lost and found"],
   [{ background: "#1E7A46", borderRadius: "50%" }, "+", "First aid"],
   [{ background: "#3D3A38", borderRadius: "50%" }, "W", "Washrooms (accessible)"],
   [{ background: "#3D3A38", borderRadius: "50%" }, "♿", "Accessible drop-off"],
-  [{ background: "transparent", border: "2px dotted #BC0214" }, "", "Sponsor banners (perimeter)"]
+  [{ background: "transparent", border: "2px dotted #C8102E" }, "", "Sponsor banners (perimeter)"]
 ];
 
 export default function MapPage() {

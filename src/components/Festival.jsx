@@ -77,8 +77,8 @@ const BOOTHS = {
 };
 const Gate = ({ x, y, label, rot = 0 }) => (
   <g transform={`translate(${x} ${y}) rotate(${rot})`}>
-    <rect x="-46" y="-13" width="92" height="26" rx="13" fill="#BC0214" />
-    <path d="M-30 13V0c0-10 13-17 30-17s30 7 30 17v13" fill="none" stroke="#BC0214" strokeWidth="5" />
+    <rect x="-46" y="-13" width="92" height="26" rx="13" fill="#C8102E" />
+    <path d="M-30 13V0c0-10 13-17 30-17s30 7 30 17v13" fill="none" stroke="#C8102E" strokeWidth="5" />
     <text x="0" y="5" textAnchor="middle" fontSize="11.5" fontWeight="800" fill="#fff" letterSpacing=".04em">{label}</text>
   </g>
 );
@@ -101,15 +101,15 @@ export function SiteMap({ interactive = false, active, onSelect }) {
       <rect width="1000" height="620" fill="#F4EDE4" rx="16" />
       <text x="500" y="30" textAnchor="middle" fontSize="12" fontWeight="800" fill="#5E5953" letterSpacing=".14em">PARKING · RIDESHARE · TRANSIT ↑</text>
       <rect x="60" y="70" width="880" height="490" rx="28" fill="#FCF8F3" stroke="#D6CEC5" strokeWidth="2" />
-      <rect x="48" y="58" width="904" height="514" rx="36" fill="none" stroke="#BC0214" strokeWidth="3" strokeDasharray="2 9" strokeLinecap="round" />
-      <text x="500" y="595" textAnchor="middle" fontSize="11" fontWeight="700" fill="#BC0214" letterSpacing=".12em">· · · SPONSOR BANNERS AROUND THE FIELD PERIMETER · · ·</text>
+      <rect x="48" y="58" width="904" height="514" rx="36" fill="none" stroke="#C8102E" strokeWidth="3" strokeDasharray="2 9" strokeLinecap="round" />
+      <text x="500" y="595" textAnchor="middle" fontSize="11" fontWeight="700" fill="#C8102E" letterSpacing=".12em">· · · SPONSOR BANNERS AROUND THE FIELD PERIMETER · · ·</text>
       <path d="M500 84V560M74 315H926" stroke="#EDE5DA" strokeWidth="34" strokeLinecap="round" />
       <Zone x={420} y={196} w={160} h={96} title="Shaded Dining" sub="Seating · water station" />
       <Zone x={400} y={440} w={200} h={90} title="MAIN STAGE" sub="Live music · headliners" fill="#1A1A1A" stroke="#1A1A1A" tc="#fff" />
       <Zone x={110} y={350} w={170} h={70} title="Community Stage" sub="Dance · comedy · demos" />
       <Zone x={110} y={448} w={190} h={86} title="Family Zone" sub="Games · face painting" />
       <Zone x={760} y={196} w={150} h={96} title="Artisan Market" sub="Local artists" />
-      <g><rect x="630" y="345" width="250" height="185" rx="14" fill="#FBEAEC" stroke="#BC0214" strokeWidth="2" strokeDasharray="7 5" />
+      <g><rect x="630" y="345" width="250" height="185" rx="14" fill="#FBEAEC" stroke="#C8102E" strokeWidth="2" strokeDasharray="7 5" />
         <text x="755" y="370" textAnchor="middle" fontSize="13" fontWeight="800" fill="#7A0410">BC Wine Garden · 19+</text>
         <text x="755" y="470" textAnchor="middle" fontSize="10.5" fontWeight="600" fill="#7A0410">Licensed seating · ID checked at entry</text></g>
       <RowLabel x={268} y={116} t="ROW A" /><RowLabel x={742} y={116} t="ROW B" /><RowLabel x={268} y={300} t="ROW C" /><RowLabel x={689} y={300} t="ROW D" />
@@ -118,15 +118,15 @@ export function SiteMap({ interactive = false, active, onSelect }) {
         return (
           <g key={id} className={"booth-g" + (active === id ? " active" : "")}
             {...(interactive ? { tabIndex: 0, role: "button", "aria-label": `Booth ${id}${r ? ": " + r.name : ""}`, onClick: () => onSelect?.(id), onKeyDown: key(id) } : {})}>
-            <rect className="booth-r" x={x} y={y} width="64" height="44" rx="8" fill={id.startsWith("BG") ? "#7A0410" : "#BC0214"} />
+            <rect className="booth-r" x={x} y={y} width="64" height="44" rx="8" fill={id.startsWith("BG") ? "#7A0410" : "#C8102E"} />
             <text x={x + 32} y={y + 27} textAnchor="middle" fontSize="13" fontWeight="800" fill="#fff" pointerEvents="none">{id}</text>
           </g>
         );
       })}
       <Poi x={560} y={110} ch="i" fill="#1A1A1A" lbl="Info" />
-      <Poi x={440} y={110} ch="C" fill="#BC0214" lbl="Coupons" />
-      <Poi x={110} y={290} ch="C" fill="#BC0214" />
-      <Poi x={890} y={290} ch="C" fill="#BC0214" />
+      <Poi x={440} y={110} ch="C" fill="#C8102E" lbl="Coupons" />
+      <Poi x={110} y={290} ch="C" fill="#C8102E" />
+      <Poi x={890} y={290} ch="C" fill="#C8102E" />
       <Poi x={620} y={470} ch="+" fill="#1E7A46" lbl="First aid" />
       <Poi x={345} y={395} ch="W" fill="#3D3A38" lbl="Washrooms" />
       <Poi x={600} y={290} ch="W" fill="#3D3A38" lbl="Washrooms" />
@@ -134,7 +134,7 @@ export function SiteMap({ interactive = false, active, onSelect }) {
       <Gate x={500} y={70} label="NORTH GATE" />
       <Gate x={60} y={315} label="WEST GATE" rot={-90} />
       <Gate x={940} y={315} label="EAST GATE" rot={90} />
-      <text x="500" y="46" textAnchor="middle" fontSize="10.5" fontWeight="800" fill="#BC0214">MAIN ENTRANCE</text>
+      <text x="500" y="46" textAnchor="middle" fontSize="10.5" fontWeight="800" fill="#C8102E">MAIN ENTRANCE</text>
     </svg>
   );
 }

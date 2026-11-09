@@ -26,31 +26,37 @@ export const event = {
 /* Hero slideshow — swap in real festival photos (put files in public/assets/img/) */
 export const heroSlides = [
   { img: "/assets/img/stock/skewers.jpg", alt: "Skewers sizzling on a grill", title: "Taste local.", text: "Dozens of BC restaurants, food trucks and dessert makers in one place." },
+  { img: "/assets/img/stock/crowd-lawn.jpg", alt: "Festival crowd relaxing on a sunny lawn", title: "Bring the whole community.", text: "Free entry for every family, all four days." },
   { img: "/assets/img/stock/wine-tasting.jpg", alt: "Wine glasses lined up at a tasting bar", title: "Sip BC wines.", text: "Wineries, craft brewers and cideries from across the province in the 19+ garden." },
-  { img: "/assets/img/stock/concert.jpg", alt: "Crowd enjoying a live concert", title: "Four days of live entertainment.", text: "Live bands, dance troupes, chef demos and local artists, all free to watch." },
-  { img: "/assets/img/stock/crowd-lawn.jpg", alt: "Festival crowd relaxing on a sunny lawn", title: "Bring the whole community.", text: "Free entry for every family, all four days." }
+  { img: "/assets/img/stock/concert.jpg", alt: "Crowd enjoying a live concert", title: "Four days of live entertainment.", text: "Live bands, dance troupes, chef demos and local artists, all free to watch." }
 ];
 
 /* Photo gallery — stock images (CC0, see public/assets/img/stock/CREDITS.md). Swap for real festival photos later. */
 export const gallery = [
-  { img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends at an outdoor music festival", label: "Live music" },
-  { img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon with vegetables", label: "BC seafood" },
-  { img: "/assets/img/stock/wine-cheese.jpg", alt: "Red wine with cheese and charcuterie", label: "Wine & cheese" },
-  { img: "/assets/img/stock/donut.jpg", alt: "Hands holding a sugared donut", label: "Sweet treats" },
-  { img: "/assets/img/stock/picnic-pizza.jpg", alt: "Pizza and dumplings on the grass", label: "Picnic on the field" },
-  { img: "/assets/img/stock/beer-pour.jpg", alt: "Craft beer being poured from a tap", label: "Craft beer" },
-  { img: "/assets/img/stock/stage-lights.jpg", alt: "Band on an illuminated stage at night", label: "Evening headliners" },
-  { img: "/assets/img/stock/grilled-chicken.jpg", alt: "Chicken on a hot grill", label: "Off the grill" }
+  { img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends at an outdoor music festival", label: "Live Music" },
+  { img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon with vegetables", label: "BC Seafood" },
+  { img: "/assets/img/stock/wine-cheese.jpg", alt: "Red wine with cheese and charcuterie", label: "Wine & Cheese" },
+  { img: "/assets/img/stock/donut.jpg", alt: "Hands holding a sugared donut", label: "Sweet Treats" },
+  { img: "/assets/img/stock/picnic-pizza.jpg", alt: "Pizza and dumplings on the grass", label: "Picnic on the Field" },
+  { img: "/assets/img/stock/beer-pour.jpg", alt: "Craft beer being poured from a tap", label: "Craft Beer" },
+  { img: "/assets/img/stock/stage-lights.jpg", alt: "Band on an illuminated stage at night", label: "Evening Headliners" },
+  { img: "/assets/img/stock/grilled-chicken.jpg", alt: "Chicken on a hot grill", label: "Off the Grill" }
 ];
 
 /* What's on — festival highlights */
 export const highlights = [
-  { icon: "utensils", title: "Local restaurants", text: "Signature dishes in tasting-size portions, from street food to fine dining." },
-  { icon: "wine", title: "BC Wine Garden", text: "Pours from Okanagan, Fraser Valley and Island wineries, plus craft beer and cider. 19+." },
-  { icon: "music", title: "Live entertainment", text: "Two stages of music, dance and comedy from noon until close, all four days." },
-  { icon: "sparkle", title: "Local artists", text: "An artisan market with BC painters, makers and live art around the field." },
-  { icon: "flag", title: "Chef demos", text: "Cooking demos and tastings with local chefs in the Demo Kitchen." },
-  { icon: "heart", title: "Family zone", text: "Face painting, games and kid-sized portions. Everyone is welcome." }
+  { icon: "utensils", title: "Local Restaurants", text: "Signature dishes in tasting-size portions, from street food to fine dining.", to: "/food-and-drink",
+    img: "/assets/img/stock/picnic-pizza.jpg", alt: "Pizza and dumplings shared on the grass" },
+  { icon: "wine", title: "BC Wine Garden", tag: "19+", text: "Pours from Okanagan, Fraser Valley and Island wineries, plus craft beer and cider. 19+.", to: "/whats-on",
+    img: "/assets/img/stock/wine-cheese.jpg", alt: "Red wine with cheese and charcuterie" },
+  { icon: "music", title: "Live Entertainment", text: "Two stages of music, dance and comedy from noon until close, all four days.", to: "/entertainment",
+    img: "/assets/img/stock/concert.jpg", alt: "Crowd enjoying a live concert" },
+  { icon: "sparkle", title: "Local Artists", text: "An artisan market with BC painters, makers and live art around the field.", to: "/entertainment",
+    img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends enjoying an outdoor festival" },
+  { icon: "flag", title: "Chef Demos", text: "Cooking demos and tastings with local chefs in the Demo Kitchen.", to: "/entertainment",
+    img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon with vegetables" },
+  { icon: "heart", title: "Family Zone", text: "Face painting, games and kid-sized portions. Everyone is welcome.", to: "/whats-on",
+    img: "/assets/img/stock/crowd-lawn.jpg", alt: "Families relaxing on a sunny festival lawn" }
 ];
 
 /* Food & drink lineup — generic placeholders until vendors are confirmed.

@@ -1,16 +1,8 @@
-import { Link } from "react-router-dom";
 import { event as E } from "../data.js";
 import { Icon, PageHero } from "../lib/ui.jsx";
 import { Field, ValidatedForm } from "../lib/forms.jsx";
+import { FAQ } from "../lib/faq.jsx";
 
-const FAQ = [
-  ["When is the festival?", <>{E.datesLong} (tentative, to be confirmed), {E.hours}, in {E.city}.</>],
-  ["Is entry really free?", <>Yes. Entry is free on all four days at every entrance arch. You only pay for food and drinks, using festival coupons.</>],
-  ["How do coupons work?", <>A coupon sheet costs $20 and has 20 tear-off $1 coupons. Every menu is priced in coupons. <Link to="/coupons">Learn more</Link>.</>],
-  ["Can I bring cash?", <>Taste of BC is cashless. Coupon Booths accept debit, credit, Apple Pay and Google Pay. You can also buy coupons online before you arrive.</>],
-  ["Are there vegetarian, vegan, gluten-free or halal options?", <>Yes. Use the dietary filters on <Link to="/food-and-drink">Food & Drink</Link>. Labels are supplied by vendors, so please ask at the booth about allergens.</>],
-  ["Is the festival family-friendly?", <>Absolutely. There’s a Family Zone, kid-sized portions and shaded seating. The BC Wine Garden is 19+ with ID.</>]
-];
 
 export default function About() {
   return (
@@ -31,8 +23,8 @@ export default function About() {
           <span className="eyebrow">FAQ</span>
           <h2>Frequently asked questions</h2>
           <div className="accordion mt-6">
-            {FAQ.map(([q, a], n) => (
-              <details key={q} open={n === 0}><summary>{q}<span className="pm"><Icon name="plus" /></span></summary><div className="a-body"><p>{a}</p></div></details>
+            {FAQ.map(({ q, a, todo }, n) => (
+              <details key={q} open={n === 0}><summary><span>{q}{todo && <span className="todo">To confirm</span>}</span><span className="pm"><Icon name="plus" /></span></summary><div className="a-body"><p>{a}</p></div></details>
             ))}
           </div>
         </div>

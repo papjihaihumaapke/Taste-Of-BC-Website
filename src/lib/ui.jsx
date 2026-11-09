@@ -45,9 +45,13 @@ export function Countdown() {
   const d = Math.max(0, target - now);
   const parts = [Math.floor(d / 864e5), Math.floor(d / 36e5) % 24, Math.floor(d / 6e4) % 60, Math.floor(d / 1e3) % 60];
   return (
-    <div className="countdown">
+    <div className="countdown" role="timer" aria-label={`${parts[0]} days, ${parts[1]} hours and ${parts[2]} minutes until the gates open`}>
       {["Days", "Hours", "Mins", "Secs"].map((l, i) => (
-        <div className="unit" key={l}><span className="num">{String(parts[i]).padStart(2, "0")}</span><span className="lbl">{l}</span></div>
+        <div className="unit" key={l}>
+          {/* key on the value re-mounts the number so it fades in on each change */}
+          <span className="num tick" key={parts[i]} aria-hidden="true">{String(parts[i]).padStart(2, "0")}</span>
+          <span className="lbl" aria-hidden="true">{l}</span>
+        </div>
       ))}
     </div>
   );
