@@ -185,7 +185,7 @@ function CartDrawer() {
 /* Unique <title> + meta description per page */
 const SITE = "Taste of BC 2027";
 const META = {
-  "/": [`${SITE} — BC’s Biggest Food, Beverage & Entertainment Festival`, `Free-admission food, beverage and entertainment festival in ${E.city}, ${E.datesShort}. Sample-size dishes for $1 coupons, BC wines, live music and local makers.`],
+  "/": [`${SITE} — BC’s Biggest Food, Beverage & Entertainment Festival`, `Free-admission food, beverage and entertainment festival in ${E.city}, ${E.datesShort}. Sample-size dishes for $1 coupons, BC wines, live music and local artists.`],
   "/whats-on": [`What’s On | ${SITE}`, "Local restaurants, the BC Wine Garden, live entertainment, local artists, chef demos and a Family Zone — four days, free admission."],
   "/menu": [`Menu | ${SITE}`, "Restaurants, food trucks and BC breweries, wineries and distilleries serving sample-size dishes for $1 coupons. Menus coming soon."],
   "/menu/restaurants": [`Restaurants Menu | ${SITE}`, "Sample-size dishes from local BC restaurants, paid with $1 festival coupons."],
@@ -196,9 +196,9 @@ const META = {
   "/visit": [`Plan Your Visit | ${SITE}`, `Dates, hours, admission and tips for Taste of BC in ${E.city}, ${E.datesShort}.`],
   "/getting-there": [`Getting There | ${SITE}`, `Directions to Taste of BC in ${E.city}: transit, bike, walking, parking and rideshare drop-off.`],
   "/accessibility": [`Accessibility | ${SITE}`, "Accessible entrances, washrooms, seating, service animals, quiet area and accommodation requests."],
-  "/map": [`Festival Map | ${SITE}`, "Find restaurants, food trucks, the BC Wine Garden, stages, Artisan Market, first aid and washrooms."],
+  "/map": [`Festival Map | ${SITE}`, "Find restaurants, food trucks, the BC Wine Garden, stages, live art, first aid and washrooms."],
   "/get-involved": [`Get Involved | ${SITE}`, "Become a vendor, volunteer, perform or sponsor Taste of BC."],
-  "/vendors": [`Vendor Opportunities | ${SITE}`, "Apply as a restaurant, food truck, liquor or artisan vendor at Taste of BC. Vendor forms and terms."],
+  "/vendors": [`Vendor Opportunities | ${SITE}`, "Apply as a restaurant, food truck or liquor vendor at Taste of BC. Vendor forms and terms."],
   "/perform": [`Perform at Taste of BC | ${SITE}`, "BC musicians, dancers, comedians and artists: apply to perform at Taste of BC."],
   "/volunteer": [`Volunteer | ${SITE}`, "Volunteer registration is open. Join the crew that makes Taste of BC happen."],
   "/sponsorship": [`Sponsorship Opportunities | ${SITE}`, "BC’s best outdoor food & beverage festival. Build a customized sponsorship package with Taste of BC."],

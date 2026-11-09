@@ -47,7 +47,7 @@ export default function WhatsOn() {
             <Link to="/entertainment"><Icon name="music" />Main Stage headliners</Link>
             <Link to="/entertainment"><Icon name="users" />Community Stage</Link>
             <Link to="/entertainment"><Icon name="flag" />Chef demos</Link>
-            <Link to="/entertainment"><Icon name="sparkle" />Live art & artisan market</Link>
+            <Link to="/entertainment"><Icon name="sparkle" />Live art</Link>
             <Link to="/entertainment"><Icon name="heart" />Family Zone</Link>
             <Link to="/perform"><Icon name="star" />Perform with us</Link>
           </nav>

@@ -7,7 +7,7 @@ const LEGEND = [
   ["#C8102E", "store", "Food Trucks"],
   ["#7A0A1C", "wine", "BC Wine Garden (19+)"],
   ["#141414", "music", "Main Stage"],
-  ["#3A3633", "sparkle", "Artisan Market"],
+  ["#3A3633", "sparkle", "Live Art Zone"],
   ["#3A3633", "heart", "Family Zone"],
   ["#3A3633", "flag", "Chef Demo Kitchen"],
   ["#1E7A46", "plus", "First Aid"],
@@ -19,7 +19,7 @@ export default function MapPage() {
   return (
     <>
       <PageHero img="/assets/img/stock/crowd-lawn.jpg" crumb="Festival Map" eyebrow="Plan your visit" title="Festival map."
-        lead="Find restaurants, food trucks, the stages, the BC Wine Garden, the Artisan Market and every facility on site." />
+        lead="Find restaurants, food trucks, the stages, the BC Wine Garden and every facility on site." />
 
       <section className="section">
         <div className="container map-layout">

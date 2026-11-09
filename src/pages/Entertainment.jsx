@@ -9,7 +9,7 @@ const STAGES = [
   { to: "#schedule", title: "Community Stage", text: "Cultural dance, comedy, acoustic sets and youth talent all afternoon.", img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends watching an afternoon set", more: "See the schedule" },
   { to: "/menu/drinks", title: "BC Wine Garden", tag: "19+", text: "Guided tastings and food-and-wine pairings with local winemakers. 19+.", img: "/assets/img/stock/wine-tasting.jpg", alt: "Wine glasses lined up at a tasting bar", more: "Wine & drinks" },
   { to: "#schedule", title: "Demo Kitchen", text: "Local chefs cooking live, with samples for the front rows.", img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon plated by a chef", more: "See the schedule" },
-  { to: "/vendors#apply-artisan", title: "Artisan Market", text: "BC makers and food-related products around the field.", img: "/assets/img/stock/wine-cheese.jpg", alt: "Wine, cheese and charcuterie on a table", more: "Become an artisan vendor" },
+  { to: "#schedule", title: "Live Art Zone", text: "Local BC painters and artists creating work live on the field.", img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends enjoying an outdoor festival", more: "See the schedule" },
   { to: "#schedule", title: "Family Zone", text: "Face painting, games and kids’ cooking classes.", img: "/assets/img/stock/crowd-lawn.jpg", alt: "Families relaxing on a festival lawn", more: "See the schedule" }
 ];
 

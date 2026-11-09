@@ -80,7 +80,7 @@ export const highlights = [
     img: "/assets/img/stock/wine-cheese.jpg", alt: "Red wine with cheese and charcuterie" },
   { icon: "music", title: "Live Entertainment", text: "Two stages of music, dance and comedy from noon until close, all four days.", to: "/entertainment",
     img: "/assets/img/stock/concert.jpg", alt: "Crowd enjoying a live concert" },
-  { icon: "sparkle", title: "Local Artists", text: "An artisan market with BC painters, makers and live art around the field.", to: "/entertainment",
+  { icon: "sparkle", title: "Local Artists", text: "BC painters and artists creating live art around the field.", to: "/entertainment",
     img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends enjoying an outdoor festival" },
   { icon: "flag", title: "Chef Demos", text: "Cooking demos and tastings with local chefs in the Demo Kitchen.", to: "/entertainment",
     img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon with vegetables" },
@@ -152,7 +152,7 @@ export const schedule = {
     ["11:00 AM", "Gates open", "Free entry at every arch", "All gates"],
     ["1:00 PM", "BC wine tasting", "Guided tasting with local winemakers", "Wine Garden"],
     ["3:00 PM", "Cultural dance showcase", "Bhangra, folk and more", "Community Stage"],
-    ["5:00 PM", "Live art", "Local painters at work in the Artisan Market", "Artisan Market"],
+    ["5:00 PM", "Live art", "Local painters at work on the field", "Live Art Zone"],
     ["8:00 PM", "Friday night party", "Live band, act to be announced", "Main Stage"],
     ["10:00 PM", "Gates close", "", "All gates"]
   ],

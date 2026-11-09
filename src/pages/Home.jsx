@@ -117,7 +117,7 @@ export default function Home() {
           <span className="eyebrow" id="intro-title">About the festival</span>
           <div>
             <p className="statement">Taste of BC is the province’s most appetizing festival. Sample <em>BC’s best food, drinks, music and local makers</em>, all in one place.</p>
-            <p className="more">Restaurants and beverage producers serve sample-size dishes from cuisines around the world, alongside live local musicians, artisans, entrepreneurs and interactive activities.</p>
+            <p className="more">Restaurants and beverage producers serve sample-size dishes from cuisines around the world, alongside live local musicians, artists and interactive activities.</p>
           </div>
         </div>
       </section>
@@ -204,18 +204,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Artisan Market */}
-      <section className="section">
-        <div className="container split-photo">
-          <div>
-            <span className="eyebrow">Marketplace</span>
-            <h2>Shop the Artisan Market.</h2>
-            <p className="lead">A curated market of local, food-related products, from specialty cookware to spices, sauces and handmade goods.</p>
-            <div className="row"><Link className="btn btn-secondary" to="/vendors">Become an artisan vendor</Link></div>
-          </div>
-          <img src="/assets/img/stock/wine-cheese.jpg" alt="Red wine with cheese and charcuterie on a table" loading="lazy" decoding="async" width="1024" height="683" />
-        </div>
-      </section>
 
       {/* Countdown (charcoal) */}
       <section className="band" aria-labelledby="cd-title">

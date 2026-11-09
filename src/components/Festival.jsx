@@ -97,7 +97,7 @@ export function SiteMap({ interactive = false, active, onSelect }) {
   const byBooth = Object.fromEntries(restaurants.map((r) => [r.booth, r]));
   const key = (id) => (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelect?.(id); } };
   return (
-    <svg className="map-svg" viewBox="0 0 1000 620" role="img" aria-label="Festival site map showing entrance arches, coupon booths, food booths, two stages, BC Wine Garden, artisan market, family zone and facilities">
+    <svg className="map-svg" viewBox="0 0 1000 620" role="img" aria-label="Festival site map showing entrance arches, coupon booths, food booths, two stages, BC Wine Garden, live art zone, family zone and facilities">
       <rect width="1000" height="620" fill="#F4EDE4" rx="16" />
       <text x="500" y="30" textAnchor="middle" fontSize="12" fontWeight="800" fill="#5E5953" letterSpacing=".14em">PARKING · RIDESHARE · TRANSIT ↑</text>
       <rect x="60" y="70" width="880" height="490" rx="28" fill="#FCF8F3" stroke="#D6CEC5" strokeWidth="2" />
@@ -108,7 +108,7 @@ export function SiteMap({ interactive = false, active, onSelect }) {
       <Zone x={400} y={440} w={200} h={90} title="MAIN STAGE" sub="Live music · headliners" fill="#1A1A1A" stroke="#1A1A1A" tc="#fff" />
       <Zone x={110} y={350} w={170} h={70} title="Community Stage" sub="Dance · comedy · demos" />
       <Zone x={110} y={448} w={190} h={86} title="Family Zone" sub="Games · face painting" />
-      <Zone x={760} y={196} w={150} h={96} title="Artisan Market" sub="Local artists" />
+      <Zone x={760} y={196} w={150} h={96} title="Live Art Zone" sub="Local artists" />
       <g><rect x="630" y="345" width="250" height="185" rx="14" fill="#FBEAEC" stroke="#C8102E" strokeWidth="2" strokeDasharray="7 5" />
         <text x="755" y="370" textAnchor="middle" fontSize="13" fontWeight="800" fill="#7A0410">BC Wine Garden · 19+</text>
         <text x="755" y="470" textAnchor="middle" fontSize="10.5" fontWeight="600" fill="#7A0410">Licensed seating · ID checked at entry</text></g>

@@ -3,11 +3,11 @@ import { event as E } from "../data.js";
 import { Icon, PageHero, Tbc } from "../lib/ui.jsx";
 import { Field, ValidatedForm } from "../lib/forms.jsx";
 import { Tabs } from "../components/Festival.jsx";
-import { ArtisanVendorForm, BeverageVendorForm, EntertainerForm, FoodVendorForm } from "../components/ApplicationForms.jsx";
+import { BeverageVendorForm, EntertainerForm, FoodVendorForm } from "../components/ApplicationForms.jsx";
 import { PROMO_BENEFITS, RESTAURANT_GOAL } from "../components/Promo.jsx";
 
 export const INVOLVE = [
-  { k: "Vendors", title: "Become a Vendor", text: "Bring your kitchen, food truck, winery, brewery or artisan goods.", to: "/vendors", img: "/assets/img/stock/grilled-chicken.jpg", alt: "Chicken cooking on a hot grill", cta: "Vendor opportunities" },
+  { k: "Vendors", title: "Become a Vendor", text: "Bring your kitchen, food truck, winery, brewery or distillery.", to: "/vendors", img: "/assets/img/stock/grilled-chicken.jpg", alt: "Chicken cooking on a hot grill", cta: "Vendor opportunities" },
   { k: "Volunteers", title: "Volunteer", text: "Volunteer a shift and join the crew.", to: "/volunteer", img: "/assets/img/stock/crowd-lawn.jpg", alt: "Festival crowd on a sunny lawn", cta: "Volunteer registration" },
   { k: "Entertainers", title: "Perform at Taste of BC", text: "Perform on our stages or show your art.", to: "/perform", img: "/assets/img/stock/stage-lights.jpg", alt: "Band on an illuminated stage at night", cta: "Apply to perform" },
   { k: "Partners", title: "Sponsor", text: "Keep the gates free and put your brand at the heart of the festival.", to: "/sponsorship", img: "/assets/img/stock/concert.jpg", alt: "Crowd enjoying a live concert", cta: "Sponsorship opportunities" }
@@ -55,7 +55,7 @@ export default function GetInvolved() {
 /* ---------- /vendors ---------- */
 /* TBC: replace "#" with links to the real documents (PDF or online forms) */
 const RESOURCES = [
-  ["store", "Vendor Applications", "Restaurants & food trucks, wine/beer/spirits, artisan & retail", "#apply"],
+  ["store", "Vendor Applications", "Restaurants & food trucks, wine/beer/spirits", "#apply"],
   ["utensils", "Vendor Menu Form", "Submit your sample-size menu and coupon prices", "#"],
   ["flag", "Power Requirements Form", "Tell us what power your booth needs", "#"],
   ["shield", "Vendor Terms & Conditions", "Read before you apply", "/legal#vendor-terms"]
@@ -85,20 +85,13 @@ export function Vendors() {
       </section>
 
       <section className="section">
-        <div className="container grid grid-2">
+        <div className="container narrow">
           <div className="info-card">
             <div className="icon-tile"><Icon name="utensils" /></div>
             <h3>Restaurants, Food Trucks & Liquor Vendors</h3>
             <p>Serve sample-size dishes and drinks priced in $1 coupons ({E.couponRange} coupons per dish <Tbc />). Apply using the vendor application form below.</p>
             <span className="spacer" />
             <div className="row"><a className="btn" href="#apply">Food vendor application</a><a className="btn btn-secondary" href="#apply-beverage">Wine, beer & spirits</a></div>
-          </div>
-          <div className="info-card">
-            <div className="icon-tile"><Icon name="store" /></div>
-            <h3>Artisan & Retail Vendors</h3>
-            <p>We curate a small Artisan Market of complementary food-related products (not for eating onsite). The {E.days}-day booth fee is $<Tbc />.</p>
-            <span className="spacer" />
-            <a className="btn btn-secondary" href="#apply-artisan">Artisan application</a>
           </div>
         </div>
       </section>
@@ -130,11 +123,10 @@ export function Vendors() {
             </ul>
           </div>
           <div className="card" style={{ padding: "clamp(24px,3vw,40px)", background: "var(--cream)", border: 0 }}>
-            <span id="apply-beverage" /><span id="apply-artisan" />
-            <Tabs key={hash} label="Vendor application type" initial={hash === "#apply-beverage" ? 1 : hash === "#apply-artisan" ? 2 : 0} tabs={[
+            <span id="apply-beverage" />
+            <Tabs key={hash} label="Vendor application type" initial={hash === "#apply-beverage" ? 1 : 0} tabs={[
               { id: "food", label: "Restaurants & food trucks", content: <div className="mt-6"><FoodVendorForm /></div> },
-              { id: "beverage", label: "Wine, beer & spirits", content: <div className="mt-6"><BeverageVendorForm /></div> },
-              { id: "artisan", label: "Artisan & retail", content: <div className="mt-6"><ArtisanVendorForm /></div> }
+              { id: "beverage", label: "Wine, beer & spirits", content: <div className="mt-6"><BeverageVendorForm /></div> }
             ]} />
           </div>
         </div>
@@ -145,7 +137,7 @@ export function Vendors() {
           <div>
             <span className="eyebrow">Vendor questions?</span>
             <h2>Ask the vendor team.</h2>
-            <p className="lead">Booth sizes, power, permits or the Artisan Market: send us a note and we’ll get back to you.</p>
+            <p className="lead">Booth sizes, power or permits: send us a note and we’ll get back to you.</p>
           </div>
           <div className="card" style={{ padding: "clamp(24px,3vw,40px)" }}><QuickContactForm id="vq" name="vendor-questions" /></div>
         </div>

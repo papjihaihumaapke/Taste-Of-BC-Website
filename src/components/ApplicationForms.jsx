@@ -98,29 +98,6 @@ export function BeverageVendorForm() {
   );
 }
 
-/* ---------- Artisan & retail ---------- */
-export function ArtisanVendorForm() {
-  return (
-    <ValidatedForm name="artisan-vendor-application" submitLabel="Submit application" success={sent("Artisan Market")}>
-      <ContactFields p="av" orgLabel="Business name" />
-      <div className="form-row">
-        <Field id="av-cat" label="Product category" required error="Choose a category.">
-          <select className="select" id="av-cat" name="product_category" required defaultValue="">
-            <option value="">Select…</option><option>Cookware & kitchen tools</option><option>Spices & seasonings</option><option>Sauces, preserves & condiments</option>
-            <option>Packaged foods (take-home)</option><option>Tableware & ceramics</option><option>Handmade goods</option><option>Other</option>
-          </select>
-        </Field>
-        <Field id="av-city" label="City"><input className="input" id="av-city" name="city" placeholder="e.g. Surrey" /></Field>
-      </div>
-      <Field id="av-desc" label="Tell us about your products" required error="Please describe your products." hint="Products must be food-related and not for eating onsite.">
-        <textarea className="textarea" id="av-desc" name="products" required />
-      </Field>
-      <Checks label="Days you can attend" name="days_available" options={DAYS} />
-      <Confirm name="booth_fee_acknowledged">I understand there is a {E.days}-day booth fee for the Artisan Market, and I’ve read the <Link to="/legal#vendor-terms">Vendor Terms & Conditions</Link>.</Confirm>
-    </ValidatedForm>
-  );
-}
-
 /* ---------- Entertainers: dancers, singers, musicians and more ---------- */
 const ACTS = {
   "Music": ["Solo singer / vocalist", "Singer-songwriter", "Band", "Choir / vocal group", "Instrumental musician", "Traditional / cultural music", "DJ", "Rapper / hip-hop artist"],
