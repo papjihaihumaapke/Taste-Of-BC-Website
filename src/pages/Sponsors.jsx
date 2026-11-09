@@ -67,13 +67,13 @@ export default function Sponsors() {
             </ul>
           </div>
           <div className="card" style={{ padding: "clamp(24px,3vw,40px)" }}>
-            <ValidatedForm submitLabel="Send enquiry" success={{ title: "Thanks — enquiry received.", text: "Our partnerships team will be in touch within two business days." }}>
+            <ValidatedForm name="sponsorship-enquiry" submitLabel="Send enquiry" success={{ title: "Thanks — enquiry received.", text: "Our partnerships team will be in touch within two business days." }}>
               <div className="form-row">
-                <Field id="s-name" label="Name" required error="Please enter your name."><input className="input" id="s-name" required autoComplete="name" /></Field>
-                <Field id="s-co" label="Company" required error="Please enter your company."><input className="input" id="s-co" required autoComplete="organization" /></Field>
+                <Field id="s-name" label="Name" required error="Please enter your name."><input className="input" id="s-name" name="name" required autoComplete="name" /></Field>
+                <Field id="s-co" label="Company" required error="Please enter your company."><input className="input" id="s-co" name="company" required autoComplete="organization" /></Field>
               </div>
-              <Field id="s-email" label="Email" required error="Enter a valid email address."><input className="input" id="s-email" type="email" required autoComplete="email" /></Field>
-              <Field id="s-msg" label="Message" required error="Please write a message."><textarea className="textarea" id="s-msg" required placeholder="Your goals, audience and timing…" /></Field>
+              <Field id="s-email" label="Email" required error="Enter a valid email address."><input className="input" id="s-email" name="email" type="email" required autoComplete="email" /></Field>
+              <Field id="s-msg" label="Message" required error="Please write a message."><textarea className="textarea" id="s-msg" name="message" required placeholder="Your goals, audience and timing…" /></Field>
             </ValidatedForm>
           </div>
         </div>

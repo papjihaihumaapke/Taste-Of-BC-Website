@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 import { schedule } from "../data.js";
 import { DatesNote, Icon, PageHero, Tbc } from "../lib/ui.jsx";
 import { Gallery, ScheduleList, Tabs } from "../components/Festival.jsx";
+import { PhotoCards } from "./Home.jsx";
 
 const STAGES = [
-  { icon: "music", title: "Main Stage", text: "Evening headliners, local bands and the opening and closing celebrations." },
-  { icon: "users", title: "Community Stage", text: "Cultural dance, comedy, acoustic sets and youth talent all afternoon." },
-  { icon: "wine", title: "BC Wine Garden", text: "Guided tastings and food-and-wine pairings with local winemakers. 19+." },
-  { icon: "flag", title: "Demo Kitchen", text: "Local chefs cooking live, with samples for the front rows." },
-  { icon: "sparkle", title: "Artisan Market", text: "BC painters, makers and live art around the field." },
-  { icon: "heart", title: "Family Zone", text: "Face painting, games and kids’ cooking classes." }
+  { to: "#schedule", title: "Main Stage", text: "Evening headliners, local bands and the opening and closing celebrations.", img: "/assets/img/stock/stage-lights.jpg", alt: "Band on an illuminated stage at night", more: "See the schedule" },
+  { to: "#schedule", title: "Community Stage", text: "Cultural dance, comedy, acoustic sets and youth talent all afternoon.", img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends watching an afternoon set", more: "See the schedule" },
+  { to: "/menu/drinks", title: "BC Wine Garden", tag: "19+", text: "Guided tastings and food-and-wine pairings with local winemakers. 19+.", img: "/assets/img/stock/wine-tasting.jpg", alt: "Wine glasses lined up at a tasting bar", more: "Wine & drinks" },
+  { to: "#schedule", title: "Demo Kitchen", text: "Local chefs cooking live, with samples for the front rows.", img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon plated by a chef", more: "See the schedule" },
+  { to: "/vendors#apply-artisan", title: "Artisan Market", text: "BC makers and food-related products around the field.", img: "/assets/img/stock/wine-cheese.jpg", alt: "Wine, cheese and charcuterie on a table", more: "Become an artisan vendor" },
+  { to: "#schedule", title: "Family Zone", text: "Face painting, games and kids’ cooking classes.", img: "/assets/img/stock/crowd-lawn.jpg", alt: "Families relaxing on a festival lawn", more: "See the schedule" }
 ];
 
 export default function Entertainment() {
@@ -21,11 +22,7 @@ export default function Entertainment() {
       </PageHero>
 
       <section className="section">
-        <div className="container grid grid-3">
-          {STAGES.map((s) => (
-            <div className="card" key={s.title}><div className="icon-tile"><Icon name={s.icon} /></div><h3>{s.title}</h3><p className="muted mb-0">{s.text}</p></div>
-          ))}
-        </div>
+        <div className="container"><PhotoCards items={STAGES} /></div>
       </section>
 
       <section className="section tight" style={{ paddingTop: 0 }}>

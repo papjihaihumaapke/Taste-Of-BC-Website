@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { event as E, highlights } from "../data.js";
 import { DatesNote, Icon, PageHero } from "../lib/ui.jsx";
+import { PhotoCards } from "./Home.jsx";
 
 export default function WhatsOn() {
   return (
@@ -11,10 +12,8 @@ export default function WhatsOn() {
       </PageHero>
 
       <section className="section">
-        <div className="container grid grid-3">
-          {highlights.map((h) => (
-            <div className="card" key={h.title}><div className="icon-tile"><Icon name={h.icon} /></div><h3>{h.title}</h3><p className="muted mb-0">{h.text}</p></div>
-          ))}
+        <div className="container">
+          <PhotoCards items={highlights} />
         </div>
       </section>
 

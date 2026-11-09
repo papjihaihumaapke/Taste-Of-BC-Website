@@ -6,6 +6,7 @@ import { Gallery } from "../components/Festival.jsx";
 import { FAQ } from "../lib/faq.jsx";
 import { FaqList } from "./Faq.jsx";
 import { InvolveTiles } from "./GetInvolved.jsx";
+import { RestaurantPromo } from "../components/Promo.jsx";
 
 const SLIDE_MS = 6000;
 
@@ -35,6 +36,7 @@ function Hero() {
             <Link className="btn btn-lg" to="/coupons"><Icon name="ticket" />Buy Food Coupons</Link>
             <Link className="btn btn-lg btn-outline-light" to="/whats-on">See What’s On</Link>
           </div>
+          <p className="hero-join">Restaurant, winery or beverage maker? <Link to="/vendors">Join the festival →</Link></p>
         </div>
         <div className="hero-meta">
           <p className="hero-caption mb-0" aria-live="polite">{heroSlides[i].title}</p>
@@ -65,6 +67,24 @@ function Marquee() {
     </div>
   );
 }
+
+export const VISIT_CARDS = [
+  { to: "/getting-there", title: "Getting There", text: "SkyTrain and transit, biking and walking, parking and rideshare drop-off.", more: "Directions", img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends arriving at an outdoor festival" },
+  { to: "/accessibility", title: "Accessibility", text: "Accessible entrances, washrooms, seating, service animals and a quiet area.", more: "Access information", img: "/assets/img/stock/crowd-lawn.jpg", alt: "Families relaxing on a sunny festival lawn" },
+  { to: "/map", title: "Festival Map", text: "Find restaurants, food trucks, stages, the Wine Garden, first aid and washrooms.", more: "Open the map", img: "/assets/img/stock/picnic-pizza.jpg", alt: "Food shared on the grass at a festival" }
+];
+
+/* Photo-topped link cards (same style as What's On) */
+export const PhotoCards = ({ items, cols = "three-up" }) => (
+  <div className={"feature-grid " + cols}>
+    {items.map((c) => (
+      <Link className="f-card" to={c.to} key={c.title}>
+        <div className="ph"><img src={c.img} alt={c.alt} loading="lazy" decoding="async" width="960" height="640" />{c.tag && <span className="tag">{c.tag}</span>}</div>
+        <div className="body"><h3>{c.title}</h3><p>{c.text}</p><span className="more">{c.more || "Learn more"}<Icon name="arrow" /></span></div>
+      </Link>
+    ))}
+  </div>
+);
 
 const PARTNERS = [
   { tier: "Presenting Partner", lead: true },
@@ -103,6 +123,9 @@ export default function Home() {
       </section>
 
       <Marquee />
+
+      {/* Restaurant & maker recruitment */}
+      <RestaurantPromo />
 
       {/* What's On */}
       <section className="section">
@@ -221,26 +244,7 @@ export default function Home() {
             <div><span className="eyebrow">Plan your visit</span><h2>Everything you need before you go.</h2></div>
             <Link className="link-arrow" to="/visit">Visitor guide</Link>
           </div>
-          <div className="visit-grid">
-            <Link className="v-card" to="/getting-there">
-              <div className="icon-tile"><Icon name="train" /></div>
-              <h3>Getting There</h3>
-              <p>SkyTrain and transit, biking and walking, parking and rideshare drop-off.</p>
-              <span className="more">Directions</span>
-            </Link>
-            <Link className="v-card" to="/accessibility">
-              <div className="icon-tile"><Icon name="access" /></div>
-              <h3>Accessibility</h3>
-              <p>Accessible entrances, washrooms, seating, service animals and a quiet area.</p>
-              <span className="more">Access information</span>
-            </Link>
-            <Link className="v-card" to="/map">
-              <div className="icon-tile"><Icon name="map" /></div>
-              <h3>Festival Map</h3>
-              <p>Find restaurants, food trucks, stages, the Wine Garden, first aid and washrooms.</p>
-              <span className="more">Open the map</span>
-            </Link>
-          </div>
+          <PhotoCards items={VISIT_CARDS} />
         </div>
       </section>
 

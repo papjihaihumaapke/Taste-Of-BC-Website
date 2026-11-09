@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { event as E } from "../data.js";
 import { DatesNote, Icon, OrTbc, PageHero, Tbc } from "../lib/ui.jsx";
+import { PhotoCards, VISIT_CARDS } from "./Home.jsx";
 
 /* ---------- /visit — Plan Your Visit hub ---------- */
 export default function Visit() {
@@ -23,14 +24,7 @@ export default function Visit() {
       <section className="section alt">
         <div className="container">
           <div className="section-head"><span className="eyebrow">Plan ahead</span><h2>Before you go.</h2></div>
-          <div className="visit-grid">
-            <Link className="v-card" to="/getting-there"><div className="icon-tile"><Icon name="train" /></div><h3>Getting There</h3>
-              <p>Transit, biking and walking routes, parking and rideshare drop-off.</p><span className="more">Directions</span></Link>
-            <Link className="v-card" to="/accessibility"><div className="icon-tile"><Icon name="access" /></div><h3>Accessibility</h3>
-              <p>Accessible entrances, washrooms, seating, service animals and a quiet area.</p><span className="more">Access information</span></Link>
-            <Link className="v-card" to="/map"><div className="icon-tile"><Icon name="map" /></div><h3>Festival Map</h3>
-              <p>Find restaurants, food trucks, stages, the Wine Garden, first aid and washrooms.</p><span className="more">Open the map</span></Link>
-          </div>
+          <PhotoCards items={VISIT_CARDS} />
         </div>
       </section>
 

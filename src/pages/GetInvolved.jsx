@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { event as E } from "../data.js";
 import { Icon, PageHero, Tbc } from "../lib/ui.jsx";
-import { Checks, Field, ValidatedForm } from "../lib/forms.jsx";
+import { Field, ValidatedForm } from "../lib/forms.jsx";
+import { Tabs } from "../components/Festival.jsx";
+import { ArtisanVendorForm, BeverageVendorForm, EntertainerForm, FoodVendorForm } from "../components/ApplicationForms.jsx";
+import { PROMO_BENEFITS, RESTAURANT_GOAL } from "../components/Promo.jsx";
 
 export const INVOLVE = [
   { k: "Vendors", title: "Become a Vendor", text: "Bring your kitchen, food truck, winery, brewery or artisan goods.", to: "/vendors", img: "/assets/img/stock/grilled-chicken.jpg", alt: "Chicken cooking on a hot grill", cta: "Vendor opportunities" },
@@ -23,15 +26,15 @@ export const InvolveTiles = () => (
 );
 
 /* Simple "Name, Email, Message" contact form used on several pages */
-export function QuickContactForm({ id, submitLabel = "Send message", extra, success }) {
+export function QuickContactForm({ id, name, submitLabel = "Send message", extra, success }) {
   return (
-    <ValidatedForm submitLabel={submitLabel} success={success || { title: "Message sent.", text: "Thanks! We reply within two business days." }}>
+    <ValidatedForm name={name} submitLabel={submitLabel} success={success || { title: "Message sent.", text: "Thanks! We reply within two business days." }}>
       <div className="form-row">
-        <Field id={id + "-name"} label="Name" required error="Please enter your name."><input className="input" id={id + "-name"} required autoComplete="name" /></Field>
-        <Field id={id + "-email"} label="Email" required error="Enter a valid email address."><input className="input" id={id + "-email"} type="email" required autoComplete="email" /></Field>
+        <Field id={id + "-name"} label="Name" required error="Please enter your name."><input className="input" id={id + "-name"} name="name" required autoComplete="name" /></Field>
+        <Field id={id + "-email"} label="Email" required error="Enter a valid email address."><input className="input" id={id + "-email"} name="email" type="email" required autoComplete="email" /></Field>
       </div>
       {extra}
-      <Field id={id + "-msg"} label="Message" required error="Please write a message."><textarea className="textarea" id={id + "-msg"} required /></Field>
+      <Field id={id + "-msg"} label="Message" required error="Please write a message."><textarea className="textarea" id={id + "-msg"} name="message" required /></Field>
     </ValidatedForm>
   );
 }
@@ -52,17 +55,34 @@ export default function GetInvolved() {
 /* ---------- /vendors ---------- */
 /* TBC: replace "#" with links to the real documents (PDF or online forms) */
 const RESOURCES = [
-  ["store", "Vendor Application", "Restaurants, food trucks and liquor vendors", "#apply"],
+  ["store", "Vendor Applications", "Restaurants & food trucks, wine/beer/spirits, artisan & retail", "#apply"],
   ["utensils", "Vendor Menu Form", "Submit your sample-size menu and coupon prices", "#"],
   ["flag", "Power Requirements Form", "Tell us what power your booth needs", "#"],
   ["shield", "Vendor Terms & Conditions", "Read before you apply", "/legal#vendor-terms"]
 ];
 
 export function Vendors() {
+  const { hash } = useLocation();
   return (
     <>
-      <PageHero img="/assets/img/stock/grilled-chicken.jpg" crumb="Vendor Opportunities" eyebrow="Get involved" title="Vendor opportunities."
-        lead="Interested in becoming a vendor? Review the options below." />
+      <PageHero img="/assets/img/stock/grilled-chicken.jpg" crumb="Vendor Opportunities" eyebrow={`Vendor opportunities · ${RESTAURANT_GOAL} restaurants wanted`} title="Show off your best food."
+        lead="Taste of BC is a promotion for BC’s restaurants, wineries, brewers, distillers and beverage makers. Interested in becoming a vendor? Review the options below.">
+        <div className="row mt-6"><a className="btn btn-light btn-lg" href="#apply">Apply as a restaurant</a><a className="btn btn-outline-light btn-lg" href="#apply-beverage">Wineries & beverage makers</a></div>
+      </PageHero>
+
+      <section className="section alt">
+        <div className="container">
+          <div className="section-head split">
+            <div><span className="eyebrow">Why join</span><h2>We’re inviting {RESTAURANT_GOAL} BC restaurants.</h2></div>
+            <a className="link-arrow" href="#apply">Apply now</a>
+          </div>
+          <div className="grid grid-4">
+            {PROMO_BENEFITS.map(([icon, t, d]) => (
+              <div className="info-card" key={t}><div className="icon-tile"><Icon name={icon} /></div><h3>{t}</h3><p>{d}</p></div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container grid grid-2">
@@ -71,14 +91,14 @@ export function Vendors() {
             <h3>Restaurants, Food Trucks & Liquor Vendors</h3>
             <p>Serve sample-size dishes and drinks priced in $1 coupons ({E.couponRange} coupons per dish <Tbc />). Apply using the vendor application form below.</p>
             <span className="spacer" />
-            <a className="btn" href="#apply">Apply now</a>
+            <div className="row"><a className="btn" href="#apply">Food vendor application</a><a className="btn btn-secondary" href="#apply-beverage">Wine, beer & spirits</a></div>
           </div>
           <div className="info-card">
             <div className="icon-tile"><Icon name="store" /></div>
             <h3>Artisan & Retail Vendors</h3>
             <p>We curate a small Artisan Market of complementary food-related products (not for eating onsite). The {E.days}-day booth fee is $<Tbc />.</p>
             <span className="spacer" />
-            <a className="btn btn-secondary" href="#questions">Ask about the Artisan Market</a>
+            <a className="btn btn-secondary" href="#apply-artisan">Artisan application</a>
           </div>
         </div>
       </section>
@@ -102,33 +122,20 @@ export function Vendors() {
           <div>
             <span className="eyebrow">Vendor application</span>
             <h2>Apply for a booth.</h2>
-            <p className="lead">Tell us about your business and the menu you’d like to serve. We review every application and reply within five business days.</p>
+            <p className="lead">Choose the form that fits your business. We review every application and reply by email.</p>
             <ul className="kbd-list mt-6">
               <li><Icon name="check" /><div><strong>How payment works</strong><span>Visitors pay you in $1 coupons. Hand in your coupons at close each day and we pay out their value after the festival.</span></div></li>
               <li><Icon name="check" /><div><strong>Menu pricing</strong><span>Prices are set in whole coupons, {E.couponRange} per sample-size dish <Tbc />.</span></div></li>
-              <li><Icon name="check" /><div><strong>Permits</strong><span>Vendors need a valid temporary food permit. Licensed vendors need a special event liquor permit.</span></div></li>
+              <li><Icon name="check" /><div><strong>Permits</strong><span>Food vendors need a valid temporary food permit. Licensed vendors need a special event liquor permit.</span></div></li>
             </ul>
           </div>
           <div className="card" style={{ padding: "clamp(24px,3vw,40px)", background: "var(--cream)", border: 0 }}>
-            <ValidatedForm submitLabel="Submit application" success={{ title: "Application received.", text: "Thanks! We’ll be in touch within five business days." }}>
-              <div className="form-row">
-                <Field id="v-biz" label="Business name" required error="Please enter your business name."><input className="input" id="v-biz" required /></Field>
-                <Field id="v-name" label="Contact name" required error="Please enter a contact name."><input className="input" id="v-name" required autoComplete="name" /></Field>
-              </div>
-              <div className="form-row">
-                <Field id="v-email" label="Email" required error="Enter a valid email address."><input className="input" id="v-email" type="email" required autoComplete="email" /></Field>
-                <Field id="v-phone" label="Phone" required error="Please enter a phone number."><input className="input" id="v-phone" type="tel" required autoComplete="tel" /></Field>
-              </div>
-              <div className="form-row">
-                <Field id="v-type" label="Vendor type" required error="Choose a vendor type.">
-                  <select className="select" id="v-type" required defaultValue=""><option value="">Select…</option><option>Restaurant</option><option>Food truck</option><option>Desserts / sweets</option><option>Non-alcoholic drinks</option><option>BC winery</option><option>Brewery / cidery</option><option>Distillery</option><option>Artisan / retail</option></select>
-                </Field>
-                <Field id="v-city" label="City"><input className="input" id="v-city" placeholder="e.g. Surrey" /></Field>
-              </div>
-              <Checks label="Dietary options you’ll offer" options={["Vegetarian", "Vegan", "Gluten-free", "Halal"]} />
-              <Field id="v-menu" label="Proposed menu" required error="Please share your proposed menu."><textarea className="textarea" id="v-menu" required placeholder="3–5 sample-size items with your suggested coupon price" /></Field>
-              <Field error="Please confirm before submitting."><label className="check"><input type="checkbox" required /><span>I’ve read the <Link to="/legal#vendor-terms">Vendor Terms & Conditions</Link> and hold (or will obtain) the required permits.</span></label></Field>
-            </ValidatedForm>
+            <span id="apply-beverage" /><span id="apply-artisan" />
+            <Tabs key={hash} label="Vendor application type" initial={hash === "#apply-beverage" ? 1 : hash === "#apply-artisan" ? 2 : 0} tabs={[
+              { id: "food", label: "Restaurants & food trucks", content: <div className="mt-6"><FoodVendorForm /></div> },
+              { id: "beverage", label: "Wine, beer & spirits", content: <div className="mt-6"><BeverageVendorForm /></div> },
+              { id: "artisan", label: "Artisan & retail", content: <div className="mt-6"><ArtisanVendorForm /></div> }
+            ]} />
           </div>
         </div>
       </section>
@@ -140,7 +147,7 @@ export function Vendors() {
             <h2>Ask the vendor team.</h2>
             <p className="lead">Booth sizes, power, permits or the Artisan Market: send us a note and we’ll get back to you.</p>
           </div>
-          <div className="card" style={{ padding: "clamp(24px,3vw,40px)" }}><QuickContactForm id="vq" /></div>
+          <div className="card" style={{ padding: "clamp(24px,3vw,40px)" }}><QuickContactForm id="vq" name="vendor-questions" /></div>
         </div>
       </section>
     </>
@@ -170,24 +177,7 @@ export function Perform() {
 
           <div className="card" style={{ padding: "clamp(24px,3vw,40px)" }}>
             <h3 className="mb-6">Entertainment application</h3>
-            <ValidatedForm submitLabel="Submit application"
-              success={{ title: "Application received.", text: "Thanks! Our entertainment team reviews every application and will be in touch by email." }}>
-              <div className="form-row">
-                <Field id="p-name" label="Your name" required error="Please enter your name."><input className="input" id="p-name" required autoComplete="name" /></Field>
-                <Field id="p-act" label="Act name" required error="Please enter your act name."><input className="input" id="p-act" required /></Field>
-              </div>
-              <Field id="p-genre" label="Genre" required error="Please tell us your genre.">
-                <input className="input" id="p-genre" required placeholder="e.g. Indie rock, bhangra, stand-up comedy" />
-              </Field>
-              <Field id="p-links" label="Links to your music or videos" required error="Please add at least one link." hint="YouTube, Instagram, Spotify, SoundCloud or website. One per line.">
-                <textarea className="textarea" id="p-links" required style={{ minHeight: 90 }} placeholder="https://" />
-              </Field>
-              <div className="form-row">
-                <Field id="p-email" label="Email" required error="Enter a valid email address."><input className="input" id="p-email" type="email" required autoComplete="email" /></Field>
-                <Field id="p-phone" label="Phone"><input className="input" id="p-phone" type="tel" autoComplete="tel" /></Field>
-              </div>
-              <Field id="p-msg" label="Message"><textarea className="textarea" id="p-msg" placeholder="Set length, number of performers, availability, technical needs…" /></Field>
-            </ValidatedForm>
+            <EntertainerForm />
           </div>
         </div>
       </section>

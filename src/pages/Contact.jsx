@@ -27,15 +27,15 @@ export default function Contact() {
             <SocialLinks className="socials light" />
           </div>
           <div className="card" style={{ padding: "clamp(24px,3vw,40px)", background: "var(--cream)", border: 0 }}>
-            <ValidatedForm submitLabel="Send message" success={{ title: "Message sent.", text: "We reply within two business days." }}>
+            <ValidatedForm name="contact" submitLabel="Send message" success={{ title: "Message sent.", text: "We reply within two business days." }}>
               <div className="form-row">
-                <Field id="c-name" label="Name" required error="Please enter your name."><input className="input" id="c-name" required autoComplete="name" /></Field>
-                <Field id="c-email" label="Email" required error="Enter a valid email address."><input className="input" id="c-email" type="email" required autoComplete="email" /></Field>
+                <Field id="c-name" label="Name" required error="Please enter your name."><input className="input" id="c-name" name="name" required autoComplete="name" /></Field>
+                <Field id="c-email" label="Email" required error="Enter a valid email address."><input className="input" id="c-email" name="email" type="email" required autoComplete="email" /></Field>
               </div>
               <Field id="c-topic" label="Topic">
-                <select className="select" id="c-topic"><option>General question</option><option>Coupons & orders</option><option>Accessibility</option><option>Media</option><option>Vendors</option><option>Entertainers</option><option>Volunteering</option><option>Sponsorship</option></select>
+                <select className="select" id="c-topic" name="topic"><option>General question</option><option>Coupons & orders</option><option>Accessibility</option><option>Media</option><option>Vendors</option><option>Entertainers</option><option>Volunteering</option><option>Sponsorship</option></select>
               </Field>
-              <Field id="c-msg" label="Message" required error="Please write a message."><textarea className="textarea" id="c-msg" required /></Field>
+              <Field id="c-msg" label="Message" required error="Please write a message."><textarea className="textarea" id="c-msg" name="message" required /></Field>
             </ValidatedForm>
           </div>
         </div>

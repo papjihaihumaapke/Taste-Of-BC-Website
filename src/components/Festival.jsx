@@ -149,8 +149,8 @@ export const ScheduleList = ({ rows }) => (
 );
 
 /* Accessible tabs */
-export function Tabs({ label, tabs }) {
-  const [i, setI] = useState(0);
+export function Tabs({ label, tabs, initial = 0 }) {
+  const [i, setI] = useState(initial);
   const keys = (e) => {
     if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
     e.preventDefault(); const n = (i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length; setI(n);
