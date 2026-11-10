@@ -15,6 +15,7 @@ import MapPage from "./pages/MapPage.jsx";
 import Visit, { Accessibility, GettingThere } from "./pages/Visit.jsx";
 import GetInvolved, { Perform, Vendors, Volunteer } from "./pages/GetInvolved.jsx";
 import Sponsors from "./pages/Sponsors.jsx";
+import { BeverageKit, Donate, PartnersHub, RestaurantKit } from "./pages/Partners.jsx";
 import Shop from "./pages/Shop.jsx";
 import Booklet from "./pages/Booklet.jsx";
 import About from "./pages/About.jsx";
@@ -49,6 +50,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="volunteer" element={<Volunteer />} />
             <Route path="sponsorship" element={<Sponsors />} />
             <Route path="sponsors" element={<Navigate to="/sponsorship" replace />} />
+            <Route path="partners" element={<PartnersHub />} />
+            <Route path="media-kit" element={<Navigate to="/partners" replace />} />
+            <Route path="partners/restaurants" element={<RestaurantKit />} />
+            <Route path="partners/beverage" element={<BeverageKit />} />
+            <Route path="donate" element={<Donate />} />
             <Route path="shop" element={<Shop />} />
             <Route path="booklet" element={<Booklet />} />
             <Route path="about" element={<About />} />

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PageHero, Tbc } from "../lib/ui.jsx";
+import { event as E } from "../data.js";
 
 const SECTIONS = [["privacy", "Privacy policy"], ["terms", "Terms of use"], ["refunds", "Refund policy"], ["vendor-terms", "Vendor terms"]];
 
@@ -29,7 +30,7 @@ export function Legal() {
             <h3>How we use information</h3>
             <ul><li>To fulfil orders and send receipts and pickup codes.</li><li>To respond to enquiries and vendor, entertainer and volunteer applications.</li><li>To send newsletters, only if you subscribe. You can unsubscribe at any time.</li></ul>
             <h3>Contact</h3>
-            <p>Privacy questions: <a href="mailto:privacy@tasteofbc.ca">privacy@tasteofbc.ca</a>.</p>
+            <p>Privacy questions: <a href={"mailto:" + E.email}>{E.email}</a>.</p>
 
             <h2 id="terms">Terms of use</h2>
             <p>By using this website or attending the festival, you agree to these terms.</p>
@@ -39,7 +40,7 @@ export function Legal() {
             <h3>Coupon sheets</h3>
             <ul><li>Unused coupon sheets bought online may be refunded up to [X] days before the festival.</li><li>Coupons are valid on all four festival days and have no cash value.</li><li>Torn, lost or stolen coupons cannot be replaced or refunded.</li><li>If the festival is cancelled, all online coupon orders are refunded in full.</li></ul>
             <h3>Merchandise</h3>
-            <p>Unworn merchandise in original condition may be exchanged at the Info Booth during the festival, or returned within [X] days by contacting <a href="mailto:hello@tasteofbc.ca">hello@tasteofbc.ca</a>.</p>
+            <p>Unworn merchandise in original condition may be exchanged at the Info Booth during the festival, or returned within [X] days by contacting <a href={"mailto:" + E.email}>{E.email}</a>.</p>
 
             {/* TBC: full vendor terms & conditions to be supplied by the festival team / legal counsel */}
             <h2 id="vendor-terms">Vendor terms & conditions <Tbc /></h2>

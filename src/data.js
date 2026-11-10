@@ -18,7 +18,7 @@ export const event = {
   address: null,          // TBC: venue street address, Surrey, BC
   mapQuery: "Surrey, BC", // TBC: switch to the venue address so the embedded map points at the site
   city: "Surrey, BC",
-  email: "hello@tasteofbc.ca",
+  email: "jassie@tasteofbc.ca", // main contact; switch to info@ / partners@ aliases once they exist
   phone: null,            // TBC: phone number
   office: null,           // TBC: office address
   admission: "Free, all ages, subject to capacity",

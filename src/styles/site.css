@@ -1153,3 +1153,11 @@ p, li { text-wrap: pretty; }
 .trio .t { background: var(--cream); border-left: 0; border-right: 0; border-bottom: 0; }
 .card .icon-tile { background: var(--red-tint); }
 @media (min-width: 961px) { .promo-grid { align-items: start; } .promo-photos { aspect-ratio: 4 / 5; position: sticky; top: calc(var(--header-h) + 32px); } }
+
+/* Print / "Save as PDF" for the partner media kit pages */
+@media print {
+  .announce, .site-header, .mobile-nav, .newsletter-band, .site-footer, .drawer, .toast, .page-hero .row, form, .skip-link { display: none !important; }
+  .page-hero { min-height: 0; padding: 24px 0; }
+  .section { padding: 24px 0; break-inside: avoid-page; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}

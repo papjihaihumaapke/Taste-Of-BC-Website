@@ -25,6 +25,56 @@ function ContactFields({ p, orgLabel, orgName = "business_name" }) {
   );
 }
 
+/* Section label inside long forms */
+const Group = ({ children }) => <p className="eyebrow mt-6 mb-0">{children}</p>;
+
+/* Business details + promotion profile. Builds the partner database record and feeds
+   the website listing, social features and booklet. */
+function ProfileFields({ p, kind }) {
+  const food = kind === "food";
+  return (
+    <>
+      <Group>Business details</Group>
+      <Field id={p + "-addr"} label={food ? "Restaurant address" : "Winery, brewery or tasting-room address"} hint="Street address and city.">
+        <input className="input" id={p + "-addr"} name="address" autoComplete="street-address" />
+      </Field>
+      <div className="form-row">
+        <Field id={p + "-years"} label="Years in business">
+          <select className="select" id={p + "-years"} name="years_in_business" defaultValue=""><option value="">Select…</option><option>Opening soon</option><option>Under 1 year</option><option>1–3 years</option><option>4–10 years</option><option>10+ years</option></select>
+        </Field>
+        <Field id={p + "-locs"} label="Number of locations"><input className="input" id={p + "-locs"} name="locations" type="number" min="0" placeholder="e.g. 1" /></Field>
+      </div>
+      <div className="form-row">
+        <Field id={p + "-ig"} label="Instagram"><input className="input" id={p + "-ig"} name="instagram" placeholder="@yourhandle" /></Field>
+        <Field id={p + "-fb"} label="Facebook or TikTok"><input className="input" id={p + "-fb"} name="other_social" placeholder="Page name or link" /></Field>
+      </div>
+
+      <Group>Your promotion profile</Group>
+      <Field id={p + "-about"} label={food ? "About your restaurant" : "About your label"} required error="Please add a short description."
+        hint="2–4 sentences. We use this for your website listing and social features.">
+        <textarea className="textarea" id={p + "-about"} name="about" required style={{ minHeight: 100 }} />
+      </Field>
+      <Field id={p + "-hero"} label={food ? "Signature dish to feature" : "Flagship product to feature"} hint="The one item you want visitors to remember.">
+        <input className="input" id={p + "-hero"} name={food ? "signature_dish" : "flagship_product"} />
+      </Field>
+      <Field id={p + "-assets"} label="Logo and photos" hint="Paste a Google Drive, Dropbox or website link to your logo and 3–5 high-res photos.">
+        <input className="input" id={p + "-assets"} name="logo_photos_link" placeholder="https://" />
+      </Field>
+      <Field id={p + "-offer"} label="Offer for festival visitors (optional)" hint={food ? "e.g. 10% off your next visit, a loyalty card or a QR code." : "e.g. tasting-room discount, club sign-up or a QR code."}>
+        <input className="input" id={p + "-offer"} name="visitor_offer" />
+      </Field>
+      <Checks label="We’d like to take part in" name="promo_interests" options={food
+        ? ["Chef demo", "Culinary competition", "People’s Choice awards", "Vendor spotlight", "Restaurant collaboration dish", "Sponsorship or booklet ad"]
+        : ["People’s Choice awards", "Vendor spotlight", "Pairing with a restaurant", "Sponsorship or booklet ad"]} />
+      <Field id={p + "-staff"} label="Staff on site per shift"><input className="input" id={p + "-staff"} name="staff_on_site" type="number" min="1" placeholder="e.g. 4" /></Field>
+    </>
+  );
+}
+
+const PromoConsent = () => (
+  <Field><label className="check"><input type="checkbox" name="promo_consent" value="Yes" /><span>Taste of BC may use our name, logo, photos and description to promote the festival.</span></label></Field>
+);
+
 const Confirm = ({ name, children }) => (
   <Field error="Please confirm before submitting."><label className="check"><input type="checkbox" name={name} value="Yes" required /><span>{children}</span></label></Field>
 );
@@ -44,6 +94,8 @@ export function FoodVendorForm() {
         <Field id="fv-cuisine" label="Cuisine" required error="Please tell us your cuisine."><input className="input" id="fv-cuisine" name="cuisine" required placeholder="e.g. Punjabi, Korean, BBQ" /></Field>
       </div>
       <Field id="fv-city" label="City"><input className="input" id="fv-city" name="city" placeholder="e.g. Surrey" /></Field>
+      <ProfileFields p="fv" kind="food" />
+      <Group>Festival menu & booth</Group>
       <Field id="fv-menu" label="Proposed sample-size menu" required error="Please share your proposed menu."
         hint={`3–5 items with your suggested price in $1 coupons (dishes range from ${E.couponRange} coupons).`}>
         <textarea className="textarea" id="fv-menu" name="menu" required placeholder="Dish name – coupons" />
@@ -59,6 +111,7 @@ export function FoodVendorForm() {
         </Field>
       </div>
       <Field id="fv-notes" label="Anything else we should know?"><textarea className="textarea" id="fv-notes" name="notes" style={{ minHeight: 90 }} /></Field>
+      <PromoConsent />
       <Confirm name="permits_and_terms">I’ve read the <Link to="/legal#vendor-terms">Vendor Terms & Conditions</Link> and hold (or will obtain) a valid temporary food permit.</Confirm>
     </ValidatedForm>
   );
@@ -83,6 +136,8 @@ export function BeverageVendorForm() {
           </select>
         </Field>
       </div>
+      <ProfileFields p="bv" kind="beverage" />
+      <Group>Festival pours</Group>
       <Field id="bv-products" label="Products you’d like to pour" required error="Please list the products you’d pour."
         hint="Name, style and suggested price in $1 coupons per pour or flight.">
         <textarea className="textarea" id="bv-products" name="products" required />
@@ -93,6 +148,7 @@ export function BeverageVendorForm() {
       <Checks label="Days you can attend" name="days_available" options={DAYS} />
       <Checks label="Also interested in" name="interests" options={["Hosting a guided tasting", "Food & drink pairing session", "Sponsoring the BC Wine Garden"]} />
       <Field id="bv-notes" label="Anything else we should know?"><textarea className="textarea" id="bv-notes" name="notes" style={{ minHeight: 90 }} /></Field>
+      <PromoConsent />
       <Confirm name="serving_it_right">Our pouring staff hold valid Serving It Right certification, and I’ve read the <Link to="/legal#vendor-terms">Vendor Terms & Conditions</Link>.</Confirm>
     </ValidatedForm>
   );

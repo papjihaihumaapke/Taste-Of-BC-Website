@@ -19,7 +19,7 @@ export default function Contact() {
           <div>
             <ul className="contact-list">
               <li><Icon name="mail" /><div><strong>Email</strong><a href={"mailto:" + E.email}>{E.email}</a></div></li>
-              <li><Icon name="megaphone" /><div><strong>Partnerships</strong><a href="mailto:partners@tasteofbc.ca">partners@tasteofbc.ca</a></div></li>
+              <li><Icon name="megaphone" /><div><strong>Partnerships</strong><a href={"mailto:" + E.email}>{E.email}</a></div></li>
               <li><Icon name="phone" /><div><strong>Phone</strong><OrTbc value={E.phone} label="Phone" /></div></li>
               <li><Icon name="pin" /><div><strong>Office</strong><OrTbc value={E.office} label="Office address" /></div></li>
             </ul>

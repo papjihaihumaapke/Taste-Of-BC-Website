@@ -46,7 +46,8 @@ export default function GetInvolved() {
       <PageHero img="/assets/img/stock/festival-crowd.jpg" crumb="Get Involved" eyebrow="Get involved" title="It takes a community to throw a festival."
         lead="Taste of BC is a not-for-profit event run with local restaurants, performers, volunteers and partners. There’s a place for you." />
       <section className="section">
-        <div className="container"><InvolveTiles /></div>
+        <div className="container"><InvolveTiles />
+          <p className="small muted mt-6 mb-0">Want the full picture? Read the <Link to="/partners">partner media kit</Link>, or <Link to="/donate">support the festival with a donation</Link>.</p></div>
       </section>
     </>
   );
@@ -115,9 +116,9 @@ export function Vendors() {
           <div>
             <span className="eyebrow">Vendor application</span>
             <h2>Apply for a booth.</h2>
-            <p className="lead">Choose the form that fits your business. We review every application and reply by email.</p>
+            <p className="lead">Choose the form that fits your business. We review every application and reply by email. New to the festival? Read the <Link to="/partners/restaurants">restaurant</Link> or <Link to="/partners/beverage">beverage</Link> media kit first.</p>
             <ul className="kbd-list mt-6">
-              <li><Icon name="check" /><div><strong>How payment works</strong><span>Visitors pay you in $1 coupons. Hand in your coupons at close each day and we pay out their value after the festival.</span></div></li>
+              <li><Icon name="check" /><div><strong>How payment works</strong><span>Visitors pay you in $1 coupons. Hand in your coupons at close each day and we settle them with you after the festival, at the rate in your vendor agreement <Tbc />.</span></div></li>
               <li><Icon name="check" /><div><strong>Menu pricing</strong><span>Prices are set in whole coupons, {E.couponRange} per sample-size dish <Tbc />.</span></div></li>
               <li><Icon name="check" /><div><strong>Permits</strong><span>Food vendors need a valid temporary food permit. Licensed vendors need a special event liquor permit.</span></div></li>
             </ul>

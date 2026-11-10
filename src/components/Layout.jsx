@@ -14,7 +14,7 @@ const NAV = [
   ["/get-involved", "Get Involved"],
   ["/sponsorship", "Sponsors"]
 ];
-const MORE = [["/getting-there", "Getting There"], ["/map", "Festival Map"], ["/faq", "FAQ"], ["/shop", "Shop"], ["/about", "About"], ["/media", "Media"], ["/contact", "Contact"]];
+const MORE = [["/partners", "Partner Media Kit"], ["/donate", "Donate"], ["/getting-there", "Getting There"], ["/map", "Festival Map"], ["/faq", "FAQ"], ["/shop", "Shop"], ["/about", "About"], ["/media", "Media"], ["/contact", "Contact"]];
 
 function Header() {
   const { count, setCartOpen } = useStore();
@@ -106,7 +106,7 @@ function Footer() {
             <li><Link to="/accessibility">Accessibility</Link></li><li><Link to="/faq">FAQ</Link></li><li><Link to="/shop">Shop merch</Link></li></ul></nav>
           <nav aria-label="Join us"><h4>Join us</h4><ul>
             <li><Link to="/vendors">Become a vendor</Link></li><li><Link to="/volunteer">Volunteer</Link></li>
-            <li><Link to="/perform">Perform</Link></li><li><Link to="/sponsorship">Sponsorship</Link></li><li><Link to="/legal#vendor-terms">Vendor terms</Link></li></ul></nav>
+            <li><Link to="/perform">Perform</Link></li><li><Link to="/sponsorship">Sponsorship</Link></li><li><Link to="/partners">Partner media kit</Link></li><li><Link to="/donate">Donate</Link></li><li><Link to="/legal#vendor-terms">Vendor terms</Link></li></ul></nav>
           <nav aria-label="About"><h4>About</h4><ul>
             <li><Link to="/about">Our story</Link></li><li><Link to="/contact">Contact</Link></li><li><Link to="/media">Media</Link></li>
             <li><a href={"mailto:" + E.email}>{E.email}</a></li></ul></nav>
@@ -202,6 +202,10 @@ const META = {
   "/perform": [`Perform at Taste of BC | ${SITE}`, "BC musicians, dancers, comedians and artists: apply to perform at Taste of BC."],
   "/volunteer": [`Volunteer | ${SITE}`, "Volunteer registration is open. Join the crew that makes Taste of BC happen."],
   "/sponsorship": [`Sponsorship Opportunities | ${SITE}`, "BC’s best outdoor food & beverage festival. Build a customized sponsorship package with Taste of BC."],
+  "/partners": [`Partner Media Kit | ${SITE}`, "Media kit for restaurants, beverage producers, sponsors and donors: audience, festival zones, promotion and how to partner with Taste of BC."],
+  "/partners/restaurants": [`Restaurant Media Kit | ${SITE}`, "Why BC restaurants and food trucks should join Taste of BC: a big free-entry audience, promotion, chef stage time and simple coupon payments."],
+  "/partners/beverage": [`Beverage Media Kit | ${SITE}`, "Media kit for BC wineries, breweries, cideries, distilleries and non-alcoholic beverage makers: pour in the 19+ BC Wine Garden."],
+  "/donate": [`Donate & Support | ${SITE}`, "Support Taste of BC, a not-for-profit, free-entry community festival. Donate, give in kind, donate a prize or fund a festival item."],
   "/media": [`Media | ${SITE}`, "Download Taste of BC logos and festival photos, and find press contacts."],
   "/faq": [`FAQ | ${SITE}`, "Answers about free admission, $1 coupons, payment, pets, alcohol, hours, weather and accessibility."],
   "/contact": [`Contact | ${SITE}`, "Contact Taste of BC: email, phone, office address, socials and a general contact form."],
