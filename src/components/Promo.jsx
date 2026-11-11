@@ -13,7 +13,7 @@ export const PROMO_BENEFITS = [
 
 const JOIN = [
   { to: "/vendors#apply", icon: "utensils", title: "Restaurants & food trucks", text: "Serve your signature dishes" },
-  { to: "/vendors#apply-beverage", icon: "wine", title: "Wineries, breweries & distilleries", text: "Pour in the BC Wine Garden" },
+  { to: "/vendors#apply-beverage", icon: "wine", title: "Wineries, breweries & distilleries", text: "Pour in the Beverage Garden" },
   { to: "/perform", icon: "music", title: "Entertainers", text: "Singers, dancers, musicians & more" }
 ];
 

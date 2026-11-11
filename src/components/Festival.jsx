@@ -97,7 +97,7 @@ export function SiteMap({ interactive = false, active, onSelect }) {
   const byBooth = Object.fromEntries(restaurants.map((r) => [r.booth, r]));
   const key = (id) => (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelect?.(id); } };
   return (
-    <svg className="map-svg" viewBox="0 0 1000 620" role="img" aria-label="Festival site map showing entrance arches, coupon booths, food booths, two stages, BC Wine Garden, live art zone, family zone and facilities">
+    <svg className="map-svg" viewBox="0 0 1000 620" role="img" aria-label="Festival site map showing entrance arches, coupon booths, food booths, two stages, Beverage Garden, live art zone, family discovery area and facilities">
       <rect width="1000" height="620" fill="#F4EDE4" rx="16" />
       <text x="500" y="30" textAnchor="middle" fontSize="12" fontWeight="800" fill="#5E5953" letterSpacing=".14em">PARKING · RIDESHARE · TRANSIT ↑</text>
       <rect x="60" y="70" width="880" height="490" rx="28" fill="#FCF8F3" stroke="#D6CEC5" strokeWidth="2" />
@@ -105,12 +105,12 @@ export function SiteMap({ interactive = false, active, onSelect }) {
       <text x="500" y="595" textAnchor="middle" fontSize="11" fontWeight="700" fill="#C8102E" letterSpacing=".12em">· · · SPONSOR BANNERS AROUND THE FIELD PERIMETER · · ·</text>
       <path d="M500 84V560M74 315H926" stroke="#EDE5DA" strokeWidth="34" strokeLinecap="round" />
       <Zone x={420} y={196} w={160} h={96} title="Shaded Dining" sub="Seating · water station" />
-      <Zone x={400} y={440} w={200} h={90} title="MAIN STAGE" sub="Live music · headliners" fill="#1A1A1A" stroke="#1A1A1A" tc="#fff" />
-      <Zone x={110} y={350} w={170} h={70} title="Community Stage" sub="Dance · comedy · demos" />
-      <Zone x={110} y={448} w={190} h={86} title="Family Zone" sub="Games · face painting" />
+      <Zone x={400} y={440} w={200} h={90} title="LIVE MUSIC STAGE" sub="Live music · headliners" fill="#1A1A1A" stroke="#1A1A1A" tc="#fff" />
+      <Zone x={110} y={350} w={170} h={70} title="Community Stage" sub="Dance · comedy · Chef’s Theatre" />
+      <Zone x={110} y={448} w={190} h={86} title="Family Discovery Area" sub="Games · face painting" />
       <Zone x={760} y={196} w={150} h={96} title="Live Art Zone" sub="Local artists" />
       <g><rect x="630" y="345" width="250" height="185" rx="14" fill="#FBEAEC" stroke="#C8102E" strokeWidth="2" strokeDasharray="7 5" />
-        <text x="755" y="370" textAnchor="middle" fontSize="13" fontWeight="800" fill="#7A0410">BC Wine Garden · 19+</text>
+        <text x="755" y="370" textAnchor="middle" fontSize="13" fontWeight="800" fill="#7A0410">Beverage Garden · 19+</text>
         <text x="755" y="470" textAnchor="middle" fontSize="10.5" fontWeight="600" fill="#7A0410">Licensed seating · ID checked at entry</text></g>
       <RowLabel x={268} y={116} t="ROW A" /><RowLabel x={742} y={116} t="ROW B" /><RowLabel x={268} y={300} t="ROW C" /><RowLabel x={689} y={300} t="ROW D" />
       {Object.entries(BOOTHS).map(([id, [x, y]]) => {

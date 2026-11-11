@@ -11,7 +11,7 @@ export default function About() {
         <div className="container trio">
           <div className="t"><Icon name="users" /><h3>Community first</h3><p className="muted">A not-for-profit event with free entry, so every neighbour can join in.</p></div>
           <div className="t"><Icon name="store" /><h3>Local makers</h3><p className="muted">BC restaurants, bakers, brewers, winemakers and artists, from big names to first-timers.</p></div>
-          <div className="t"><Icon name="music" /><h3>Entertainment for all</h3><p className="muted">Two stages of local talent, chef demos, live art and a Family Zone.</p></div>
+          <div className="t"><Icon name="music" /><h3>Entertainment for all</h3><p className="muted">Two stages of local talent, chef demos, live art and a Family Discovery Area.</p></div>
         </div>
       </section>
 

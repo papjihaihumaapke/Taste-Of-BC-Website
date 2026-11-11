@@ -23,11 +23,11 @@ const AUDIENCE = [
 ];
 
 const ZONES = [
-  ["utensils", "Restaurant Village", "Sample-size signature dishes from local restaurants and food trucks."],
-  ["wine", "BC Wine Garden (19+)", "BC wine, craft beer, cider, spirits and non-alcoholic drinks, with responsible-service controls."],
-  ["flag", "Demo Kitchen", "Chef demonstrations, chef interviews, local ingredient showcases and culinary competitions."],
+  ["utensils", "BC Restaurant Village", "Sample-size signature dishes from local restaurants and food trucks."],
+  ["wine", "Beverage Garden (19+)", "BC wine, craft beer, cider, spirits and non-alcoholic drinks, with responsible-service controls."],
+  ["flag", "Chef’s Theatre", "Chef demonstrations, chef interviews, local ingredient showcases and culinary competitions."],
   ["music", "Main & Community Stages", "BC musicians, bands, DJs, cultural performers and fashion shows."],
-  ["heart", "Family Zone", "Interactive activities, food education, crafts and games for kids."],
+  ["heart", "Family Discovery Area", "Interactive activities, food education, crafts and games for kids."],
   ["sparkle", "Live Art Zone", "Local painters and artists creating work on the field."]
 ];
 
@@ -74,14 +74,14 @@ const Ticks = ({ items }) => <ul className="ticks">{items.map((t) => <li key={t}
 const ContactCard = () => (
   <ul className="contact-list">
     <li><Icon name="mail" /><div><strong>Email</strong><a href={"mailto:" + E.email}>{E.email}</a></div></li>
-    <li><Icon name="phone" /><div><strong>Phone</strong>{E.phone ? <a href={"tel:" + E.phone.replace(/[^\d+]/g, "")}>{E.phone}</a> : <OrTbc value={null} label="Phone" />}</div></li>
+    <li><Icon name="phone" /><div><strong>Phone</strong>{E.phone ? <a href={"tel:+1" + E.phone.replace(/\D/g, "")}>{E.phone}</a> : <OrTbc value={null} label="Phone" />}</div></li>
   </ul>
 );
 
 /* ---------- /partners — media kit hub ---------- */
 const PATHS = [
   { k: "Restaurants", title: "Restaurants & food trucks", text: "Serve your signature dishes to festival crowds.", to: "/partners/restaurants", img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon with vegetables", cta: "Restaurant media kit" },
-  { k: "Beverage", title: "Wineries, breweries & distillers", text: "Pour in the 19+ BC Wine Garden.", to: "/partners/beverage", img: "/assets/img/stock/wine-tasting.jpg", alt: "Wine glasses at a tasting bar", cta: "Beverage media kit" },
+  { k: "Beverage", title: "Wineries, breweries & distillers", text: "Pour in the 19+ Beverage Garden.", to: "/partners/beverage", img: "/assets/img/stock/wine-tasting.jpg", alt: "Wine glasses at a tasting bar", cta: "Beverage media kit" },
   { k: "Sponsors", title: "Sponsors & media partners", text: "Put your brand at the heart of the festival.", to: "/sponsorship", img: "/assets/img/stock/concert.jpg", alt: "Crowd enjoying a live concert", cta: "Sponsorship packages" },
   { k: "Donors", title: "Donors & supporters", text: "Help keep the gates free for every family.", to: "/donate", img: "/assets/img/stock/crowd-lawn.jpg", alt: "Families on a sunny festival lawn", cta: "Ways to give" }
 ];
@@ -167,7 +167,7 @@ export function PartnersHub() {
 
 /* ---------- /partners/restaurants ---------- */
 const R_BENEFITS = [
-  ["store", "Your own booth", "Dedicated space in the Restaurant Village with a Taste of BC banner showing your name and menu."],
+  ["store", "Your own booth", "Dedicated space in the BC Restaurant Village with a Taste of BC banner showing your name and menu."],
   ["star", "Listed everywhere", "Official website, online menu, vendor directory, info booklet and festival map."],
   ["instagram", "Social features", "Your restaurant in our vendor features and weekly countdown posts."],
   ["utensils", "Signature moment", "Offer a signature dish, limited-edition item or festival-exclusive tasting."],
@@ -224,6 +224,7 @@ export function RestaurantKit() {
           </div>
           <ul className="kbd-list">
             <li><Icon name="utensils" /><div><strong>Showcase menu</strong><span>One to three showcase items, sample portions only, not your full menu.</span></div></li>
+            <li><Icon name="store" /><div><strong>Tent fees</strong><span>{E.boothFees.map(([s, p]) => `${s}: $${p.toLocaleString("en-CA")}`).join(" · ")}, covering all {E.days} days.</span></div></li>
             <li><Icon name="ticket" /><div><strong>Coupon pricing</strong><span>Items are priced in $1 coupons, {E.couponRange} per dish <Tbc />. No cash at booths.</span></div></li>
             <li><Icon name="nocash" /><div><strong>Settlement</strong><span>Hand in your coupons at close each day. We settle them with you after the festival at the rate in your vendor agreement <Tbc />.</span></div></li>
             <li><Icon name="heart" /><div><strong>Every diet welcome</strong><span>Vegetarian, vegan, halal, gluten-aware and allergen-labelled options help more visitors choose you.</span></div></li>
@@ -266,9 +267,9 @@ export function RestaurantKit() {
 
 /* ---------- /partners/beverage ---------- */
 const B_BENEFITS = [
-  ["wine", "Pour in the Wine Garden", "A station in the 19+ BC Wine Garden, the festival’s social hub."],
+  ["wine", "Pour in the Beverage Garden", "A station in the 19+ Beverage Garden, the festival’s social hub."],
   ["users", "Guided tastings", "Host a guided tasting or a food and drink pairing session."],
-  ["star", "Listed everywhere", "Website, online menu, info booklet, map and Wine Garden signage."],
+  ["star", "Listed everywhere", "Website, online menu, info booklet, map and Beverage Garden signage."],
   ["instagram", "Producer features", "Social posts and countdown features introducing your label."],
   ["sparkle", "People’s Choice awards", "Eligible for the beverage People’s Choice award."],
   ["tag", "Sell after the festival", "Hand out tasting-room offers, club sign-ups or QR codes to visitors."],
@@ -279,7 +280,7 @@ const B_BENEFITS = [
 const B_REQUIREMENTS = [
   "Licensed producers need a special event liquor permit. We’ll guide you through it.",
   "All pouring staff hold valid Serving It Right certification.",
-  "Age is verified at the Wine Garden entrance. Pours are served only inside the 19+ area.",
+  "Age is verified at the Beverage Garden entrance. Pours are served only inside the 19+ area.",
   "Serve set pour sizes and flights priced in $1 coupons.",
   "Non-alcoholic options are encouraged so every guest can join in.",
   "Attend vendor orientation and your scheduled load-in and load-out."
@@ -289,7 +290,7 @@ export function BeverageKit() {
   return (
     <>
       <PageHero img="/assets/img/stock/wine-tasting.jpg" crumb="Beverage Media Kit" eyebrow="Wineries · breweries · cideries · distilleries" title="Pour for BC’s biggest food crowd."
-        lead="Introduce your wine, beer, cider, spirits or craft non-alcoholic drinks to thousands of guests in the 19+ BC Wine Garden.">
+        lead="Introduce your wine, beer, cider, spirits or craft non-alcoholic drinks to thousands of guests in the 19+ Beverage Garden.">
         <div className="row mt-6"><a className="btn btn-light btn-lg" href="#profile">Join as a producer</a><PrintButton /></div>
       </PageHero>
 
@@ -317,7 +318,7 @@ export function BeverageKit() {
         <div className="container">
           <div className="section-head"><span className="eyebrow">Next steps</span><h2>Three steps to your station.</h2></div>
           <Steps who="producer" />
-          <p className="small muted mt-6 mb-0">Want to brand the whole garden? See the <Link to="/sponsorship#packages">BC Wine Garden partnership</Link>.</p>
+          <p className="small muted mt-6 mb-0">Want to brand the whole garden? See the <Link to="/sponsorship#packages">Beverage Garden partnership</Link>.</p>
         </div>
       </section>
 
@@ -339,7 +340,7 @@ export function BeverageKit() {
 /* ---------- /donate ---------- */
 const FUNDS = [
   ["access", "Accessible visitor services", "Accessible entrances, seating, viewing areas and washrooms."],
-  ["heart", "Family & community programming", "Family Zone activities, food education and cultural programming."],
+  ["heart", "Family & community programming", "Family Discovery Area activities, food education and cultural programming."],
   ["music", "Local performers", "Fair pay for BC musicians, dancers and artists on our free stages."],
   ["shield", "Safety & first aid", "First aid, security and emergency-response planning."],
   ["map", "Wayfinding & information", "Maps, signs and the info booths that help everyone find their way."],

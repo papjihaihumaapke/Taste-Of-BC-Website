@@ -53,7 +53,7 @@ function Hero() {
 }
 
 /* 5. Infinite marquee (duplicated group for a seamless loop; the copy is hidden from screen readers) */
-const MARQUEE = ["Local Restaurants", "BC Wine Garden", "Live Music", "Chef Demos", "Food Trucks", "Local Artists", "Family Zone"];
+const MARQUEE = ["Local Restaurants", "Beverage Garden", "Live Music", "Chef Demos", "Food Trucks", "Local Artists", "Family Discovery Area"];
 function Marquee() {
   const group = (hidden) => (
     <div className="marquee-group" aria-hidden={hidden || undefined}>
@@ -71,7 +71,7 @@ function Marquee() {
 export const VISIT_CARDS = [
   { to: "/getting-there", title: "Getting There", text: "SkyTrain and transit, biking and walking, parking and rideshare drop-off.", more: "Directions", img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends arriving at an outdoor festival" },
   { to: "/accessibility", title: "Accessibility", text: "Accessible entrances, washrooms, seating, service animals and a quiet area.", more: "Access information", img: "/assets/img/stock/crowd-lawn.jpg", alt: "Families relaxing on a sunny festival lawn" },
-  { to: "/map", title: "Festival Map", text: "Find restaurants, food trucks, stages, the Wine Garden, first aid and washrooms.", more: "Open the map", img: "/assets/img/stock/picnic-pizza.jpg", alt: "Food shared on the grass at a festival" }
+  { to: "/map", title: "Festival Map", text: "Find restaurants, food trucks, stages, the Beverage Garden, first aid and washrooms.", more: "Open the map", img: "/assets/img/stock/picnic-pizza.jpg", alt: "Food shared on the grass at a festival" }
 ];
 
 /* Photo-topped link cards (same style as What's On) */
@@ -89,7 +89,7 @@ export const PhotoCards = ({ items, cols = "three-up" }) => (
 const PARTNERS = [
   { tier: "Presenting Partner", lead: true },
   { tier: "Stage Partner" },
-  { tier: "Wine Garden Partner" },
+  { tier: "Beverage Garden Partner" },
   { tier: "Sponsor" }, { tier: "Sponsor" }, { tier: "Sponsor" }, { tier: "Sponsor" }
 ];
 
@@ -102,7 +102,7 @@ export default function Home() {
       <section className="info" aria-label="Festival key facts">
         <div className="container">
           <div className="info-grid">
-            <div><Icon name="calendar" /><div><strong>{E.datesShort}</strong><span>Thu–Sun · {E.hours}</span></div></div>
+            <div><Icon name="calendar" /><div><strong>{E.datesShort}</strong><span>Thu–Sun · {E.hoursShort}</span></div></div>
             <div><Icon name="pin" /><div><strong>{E.city}</strong><span>{E.venue || <>Venue <Tbc /></>}</span></div></div>
             <div><Icon name="arch" /><div><strong>Free admission</strong><span>All ages, subject to capacity</span></div></div>
             <div><Icon name="heart" /><div><strong>Not-for-profit</strong><span>A community event</span></div></div>
@@ -277,7 +277,7 @@ export default function Home() {
             <div><Icon name="arch" /><div><strong>Free admission</strong><span>All ages, subject to capacity</span></div></div>
             <div><Icon name="heart" /><div><strong>Leashed pets welcome</strong><span>Keep pets on a leash</span></div></div>
             <div><Icon name="card" /><div><strong>Tap to pay <Tbc /></strong><span>For coupons onsite</span></div></div>
-            <div><Icon name="wine" /><div><strong>All ages</strong><span>19+ in the BC Wine Garden</span></div></div>
+            <div><Icon name="wine" /><div><strong>All ages</strong><span>19+ in the Beverage Garden</span></div></div>
           </div>
         </div>
       </section>

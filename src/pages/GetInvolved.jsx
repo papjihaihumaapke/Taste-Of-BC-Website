@@ -118,6 +118,7 @@ export function Vendors() {
             <h2>Apply for a booth.</h2>
             <p className="lead">Choose the form that fits your business. We review every application and reply by email. New to the festival? Read the <Link to="/partners/restaurants">restaurant</Link> or <Link to="/partners/beverage">beverage</Link> media kit first.</p>
             <ul className="kbd-list mt-6">
+              <li><Icon name="check" /><div><strong>Tent fees</strong><span>{E.boothFees.map(([s, p]) => `${s}: $${p.toLocaleString("en-CA")}`).join(" · ")}, covering all {E.days} days.</span></div></li>
               <li><Icon name="check" /><div><strong>How payment works</strong><span>Visitors pay you in $1 coupons. Hand in your coupons at close each day and we settle them with you after the festival, at the rate in your vendor agreement <Tbc />.</span></div></li>
               <li><Icon name="check" /><div><strong>Menu pricing</strong><span>Prices are set in whole coupons, {E.couponRange} per sample-size dish <Tbc />.</span></div></li>
               <li><Icon name="check" /><div><strong>Permits</strong><span>Food vendors need a valid temporary food permit. Licensed vendors need a special event liquor permit.</span></div></li>
@@ -138,7 +139,7 @@ export function Vendors() {
           <div>
             <span className="eyebrow">Vendor questions?</span>
             <h2>Ask the vendor team.</h2>
-            <p className="lead">Booth sizes, power or permits: send us a note and we’ll get back to you.</p>
+            <p className="lead">Power, permits or a custom booth size: send us a note and we’ll get back to you.</p>
           </div>
           <div className="card" style={{ padding: "clamp(24px,3vw,40px)" }}><QuickContactForm id="vq" name="vendor-questions" /></div>
         </div>
@@ -160,7 +161,7 @@ export function Perform() {
             <span className="eyebrow">Why perform</span>
             <h2>A big, friendly crowd for local talent.</h2>
             <ul className="kbd-list mt-6">
-              <li><Icon name="music" /><div><strong>Live stages</strong><span>Main Stage and Community Stage with sound and crew <Tbc />.</span></div></li>
+              <li><Icon name="music" /><div><strong>Live stages</strong><span>Live Music Stage and Community Stage with sound and crew <Tbc />.</span></div></li>
               <li><Icon name="users" /><div><strong>Free-admission crowds</strong><span>Free entry brings families, foodies and music fans from across BC.</span></div></li>
               <li><Icon name="megaphone" /><div><strong>Promotion</strong><span>Your act on the schedule and on our socials.</span></div></li>
               <li><Icon name="ticket" /><div><strong>Performer perks</strong><span>Details shared when booking <Tbc />.</span></div></li>
@@ -187,7 +188,7 @@ const ROLES = [
   ["ticket", "Coupon Booth", "Help guests buy and pick up coupons."],
   ["info", "Info Booth", "Answer questions and look after lost and found."],
   ["music", "Stage crew", "Support performers and keep the stages on schedule."],
-  ["heart", "Family Zone", "Run games and activities for kids."],
+  ["heart", "Family Discovery Area", "Run games and activities for kids."],
   ["flag", "Setup & teardown", "Build the festival before the gates open, and pack it away after."]
 ];
 

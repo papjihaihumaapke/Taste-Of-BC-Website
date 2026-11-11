@@ -35,7 +35,7 @@ export default function Visit() {
             <div><Icon name="arch" /><div><strong>Free admission</strong><span>All ages, every day</span></div></div>
             <div><Icon name="heart" /><div><strong>Leashed pets welcome</strong><span>Keep pets on a leash</span></div></div>
             <div><Icon name="card" /><div><strong>Tap to pay <Tbc /></strong><span>For coupons onsite</span></div></div>
-            <div><Icon name="wine" /><div><strong>All ages</strong><span>19+ in the BC Wine Garden</span></div></div>
+            <div><Icon name="wine" /><div><strong>All ages</strong><span>19+ in the Beverage Garden</span></div></div>
           </div>
           <p className="small muted mt-8 mb-0">More questions? See the <Link to="/faq">FAQ</Link>.</p>
         </div>
@@ -58,11 +58,10 @@ export function GettingThere() {
             <h2><OrTbc value={E.venue} label="Venue name" /></h2>
             <ul className="contact-list mt-6">
               <li><Icon name="pin" /><div><strong>Address</strong><OrTbc value={E.address} label="Address" /><br />{E.city}</div></li>
-              <li><Icon name="clock" /><div><strong>Hours</strong>{E.hours}<br />{E.datesLong}</div></li>
+              <li><Icon name="clock" /><div><strong>Hours</strong>{E.hoursByDay.map(([d, h]) => <span key={d} style={{ display: "block" }}>{d}: {h}</span>)}{E.datesLong}</div></li>
             </ul>
           </div>
-          {/* TBC: update event.mapQuery in data.js to the venue address once confirmed */}
-          <iframe className="map-embed" title={`Map of ${E.venue || E.city}`} loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+                    <iframe className="map-embed" title={`Map of ${E.venue || E.city}`} loading="lazy" referrerPolicy="no-referrer-when-downgrade"
             src={`https://www.google.com/maps?q=${encodeURIComponent(E.mapQuery)}&output=embed`} />
         </div>
       </section>

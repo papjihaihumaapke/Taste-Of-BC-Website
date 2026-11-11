@@ -30,7 +30,7 @@ export default function WhatsOn() {
             <img className="split-img mb-6" src="/assets/img/stock/wine-cheese.jpg" alt="Red wine with cheese and charcuterie" loading="lazy" />
             <span className="eyebrow">Sip</span>
             <h2>BC wines, craft beer and cider.</h2>
-            <p className="lead">The 19+ BC Wine Garden pours from wineries, breweries and cideries across the province, with guided tastings each day.</p>
+            <p className="lead">The 19+ Beverage Garden pours from wineries, breweries and cideries across the province, with guided tastings each day.</p>
             <Link className="btn btn-secondary mt-4" to="/entertainment">See tasting times</Link>
           </div>
         </div>
@@ -44,11 +44,11 @@ export default function WhatsOn() {
             <p>Headline bands every evening, plus dance, comedy, youth talent and acoustic sets throughout the day.</p>
           </div>
           <nav className="icon-links" aria-label="Entertainment">
-            <Link to="/entertainment"><Icon name="music" />Main Stage headliners</Link>
+            <Link to="/entertainment"><Icon name="music" />Live Music Stage headliners</Link>
             <Link to="/entertainment"><Icon name="users" />Community Stage</Link>
             <Link to="/entertainment"><Icon name="flag" />Chef demos</Link>
             <Link to="/entertainment"><Icon name="sparkle" />Live art</Link>
-            <Link to="/entertainment"><Icon name="heart" />Family Zone</Link>
+            <Link to="/entertainment"><Icon name="heart" />Family Discovery Area</Link>
             <Link to="/perform"><Icon name="star" />Perform with us</Link>
           </nav>
         </div>

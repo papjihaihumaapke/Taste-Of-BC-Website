@@ -146,7 +146,7 @@ export function BeverageVendorForm() {
         <input className="input" id="bv-licence" name="licence_number" />
       </Field>
       <Checks label="Days you can attend" name="days_available" options={DAYS} />
-      <Checks label="Also interested in" name="interests" options={["Hosting a guided tasting", "Food & drink pairing session", "Sponsoring the BC Wine Garden"]} />
+      <Checks label="Also interested in" name="interests" options={["Hosting a guided tasting", "Food & drink pairing session", "Sponsoring the Beverage Garden"]} />
       <Field id="bv-notes" label="Anything else we should know?"><textarea className="textarea" id="bv-notes" name="notes" style={{ minHeight: 90 }} /></Field>
       <PromoConsent />
       <Confirm name="serving_it_right">Our pouring staff hold valid Serving It Right certification, and I’ve read the <Link to="/legal#vendor-terms">Vendor Terms & Conditions</Link>.</Confirm>

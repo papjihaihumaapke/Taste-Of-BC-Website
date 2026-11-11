@@ -75,7 +75,7 @@ export default function Entertainers() {
             <span className="eyebrow">Why perform</span>
             <h2>A big, friendly crowd for local talent.</h2>
             <ul className="kbd-list mt-6">
-              <li><Icon name="music" /><div><strong>Professional stages</strong><span>Main Stage and Community Stage with sound, lighting and crew.</span></div></li>
+              <li><Icon name="music" /><div><strong>Professional stages</strong><span>Live Music Stage and Community Stage with sound, lighting and crew.</span></div></li>
               <li><Icon name="users" /><div><strong>Free-admission crowds</strong><span>Free entry brings families, foodies and music fans from across BC.</span></div></li>
               <li><Icon name="megaphone" /><div><strong>Promotion</strong><span>Your act on the schedule, in the info booklet and on our socials.</span></div></li>
               <li><Icon name="ticket" /><div><strong>Performer perks</strong><span>Details shared when booking <Tbc />.</span></div></li>

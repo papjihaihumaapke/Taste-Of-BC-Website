@@ -55,7 +55,7 @@ export default function Media() {
           <ul className="contact-list">
             <li><Icon name="users" /><div><strong>Media contact</strong><Tbc>Name</Tbc></div></li>
             <li><Icon name="mail" /><div><strong>Email</strong><a href={"mailto:" + E.email}>{E.email}</a> <Tbc>Press email</Tbc></div></li>
-            <li><Icon name="phone" /><div><strong>Phone</strong><OrTbc value={E.phone} label="Phone" /></div></li>
+            <li><Icon name="phone" /><div><strong>Phone</strong>{E.phone ? <a href={"tel:+1" + E.phone.replace(/\D/g, "")}>{E.phone}</a> : <OrTbc value={null} label="Phone" />}</div></li>
           </ul>
         </div>
       </section>

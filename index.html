@@ -25,24 +25,20 @@
 <link rel="preload" as="image" href="/assets/img/stock/skewers.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<!-- Event structured data. Keep dates/venue in sync with src/data.js (dates are tentative). TBC: add venue name + streetAddress, and "sameAs" social URLs, once confirmed. -->
+<!-- Event structured data. Keep dates/hours/venue in sync with src/data.js (dates are tentative). TBC: add "sameAs" social URLs once confirmed. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Festival",
   "name": "Taste of BC 2027",
   "description": "A four-day, not-for-profit outdoor food, beverage and entertainment festival in Surrey, BC. Free admission for all ages (subject to capacity); sample-size dishes paid with $1 festival coupons, BC wines, live music and live art by local artists.",
-  "startDate": "2027-08-19T11:00:00-07:00",
-  "endDate": "2027-08-22T22:00:00-07:00",
-  "eventSchedule": {
-    "@type": "Schedule",
-    "startDate": "2027-08-19",
-    "endDate": "2027-08-22",
-    "repeatFrequency": "P1D",
-    "startTime": "11:00:00",
-    "endTime": "22:00:00",
-    "scheduleTimezone": "America/Vancouver"
-  },
+  "startDate": "2027-08-19T12:00:00-07:00",
+  "endDate": "2027-08-22T20:00:00-07:00",
+  "eventSchedule": [
+    { "@type": "Schedule", "startDate": "2027-08-19", "endDate": "2027-08-19", "startTime": "12:00:00", "endTime": "22:00:00", "scheduleTimezone": "America/Vancouver" },
+    { "@type": "Schedule", "startDate": "2027-08-20", "endDate": "2027-08-21", "repeatFrequency": "P1D", "startTime": "12:00:00", "endTime": "23:00:00", "scheduleTimezone": "America/Vancouver" },
+    { "@type": "Schedule", "startDate": "2027-08-22", "endDate": "2027-08-22", "startTime": "12:00:00", "endTime": "20:00:00", "scheduleTimezone": "America/Vancouver" }
+  ],
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "isAccessibleForFree": true,
@@ -51,8 +47,8 @@
   "url": "https://tasteofbc.ca/",
   "location": {
     "@type": "Place",
-    "name": "Surrey, BC (venue TBC)",
-    "address": { "@type": "PostalAddress", "addressLocality": "Surrey", "addressRegion": "BC", "addressCountry": "CA" }
+    "name": "Bill Reid Millennium Amphitheatre Park",
+    "address": { "@type": "PostalAddress", "streetAddress": "17728 64 Avenue", "addressLocality": "Surrey", "addressRegion": "BC", "addressCountry": "CA" }
   },
   "offers": {
     "@type": "Offer",
@@ -63,7 +59,7 @@
     "availability": "https://schema.org/InStock",
     "url": "https://tasteofbc.ca/"
   },
-  "organizer": { "@type": "Organization", "name": "Taste of BC", "url": "https://tasteofbc.ca/", "email": "hello@tasteofbc.ca" }
+  "organizer": { "@type": "Organization", "name": "Taste of BC", "url": "https://tasteofbc.ca/", "email": "jassie@tasteofbc.ca", "telephone": "+1-604-861-8711" }
 }
 </script>
 </head>

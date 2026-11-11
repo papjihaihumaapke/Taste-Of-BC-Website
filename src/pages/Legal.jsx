@@ -34,7 +34,7 @@ export function Legal() {
 
             <h2 id="terms">Terms of use</h2>
             <p>By using this website or attending the festival, you agree to these terms.</p>
-            <ul><li>Entry is free and subject to capacity and site rules.</li><li>The BC Wine Garden is restricted to guests 19+ with valid government ID.</li><li>Dates, lineup, schedule and layout may change without notice.</li><li>Photography and filming may take place on site for promotional use.</li></ul>
+            <ul><li>Entry is free and subject to capacity and site rules.</li><li>The Beverage Garden is restricted to guests 19+ with valid government ID.</li><li>Dates, lineup, schedule and layout may change without notice.</li><li>Photography and filming may take place on site for promotional use.</li></ul>
 
             <h2 id="refunds">Refund policy</h2>
             <h3>Coupon sheets</h3>
@@ -45,7 +45,7 @@ export function Legal() {
             {/* TBC: full vendor terms & conditions to be supplied by the festival team / legal counsel */}
             <h2 id="vendor-terms">Vendor terms & conditions <Tbc /></h2>
             <p>The full vendor terms will be published here before applications close. They will cover:</p>
-            <ul><li>Booth fees, payment schedule and cancellations <Tbc /></li><li>Coupon redemption and payout after the festival</li><li>Food safety, permits and special event liquor licensing</li><li>Power, equipment and booth setup requirements <Tbc /></li><li>Insurance requirements <Tbc /></li></ul>
+            <ul><li>Tent fees for all {E.days} days: {E.boothFees.map(([s, p]) => `${s} $${p.toLocaleString("en-CA")}`).join(", ")}. Payment schedule and cancellations <Tbc /></li><li>Coupon redemption and payout after the festival</li><li>Food safety, permits and special event liquor licensing</li><li>Power, equipment and booth setup requirements <Tbc /></li><li>Insurance requirements <Tbc /></li></ul>
             <p>Questions? Contact the vendor team via <Link to="/vendors#questions">Vendor Opportunities</Link>.</p>
           </div>
         </div>

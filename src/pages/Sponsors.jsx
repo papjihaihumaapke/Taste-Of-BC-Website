@@ -7,15 +7,15 @@ import { GLANCE } from "./Partners.jsx";
 const OPPS = [
   ["Most visible", "Entrance arches", "Naming rights for a festival entrance. Every visitor walks through one."],
   ["In every hand", "Back of the coupon sheet", "Your logo on the reverse of every coupon sheet, held and shared all day."],
-  ["On stage", "Main Stage or Community Stage", "Naming rights, MC mentions and on-screen branding during performances."],
-  ["Wine Garden", "BC Wine Garden partner", "Brand the 19+ garden and its guided tastings."],
+  ["On stage", "Live Music Stage or Community Stage", "Naming rights, MC mentions and on-screen branding during performances."],
+  ["Beverage Garden", "Beverage Garden partner", "Brand the 19+ garden and its guided tastings."],
   ["Kept all day", "Info booklet ads", "Cover, full, half and quarter pages next to the map and menus."],
   ["All around", "Perimeter banners", "Branded banners around the field, visible from every booth and seat."]
 ];
 
 /* TBC: confirm benefits and pricing for each tier */
 const TIERS = [
-  ["Presenting Partner", "Exclusive · custom investment", ["“Taste of BC presented by…” naming", "Largest logo on coupon sheet back", "Back cover of booklet", "Main Stage recognition", "Executive hospitality", "First right of renewal"], true],
+  ["Presenting Partner", "Exclusive · custom investment", ["“Taste of BC presented by…” naming", "Largest logo on coupon sheet back", "Back cover of booklet", "Live Music Stage recognition", "Executive hospitality", "First right of renewal"], true],
   ["Platinum Partner", "Major investment", ["Branding across the site", "Dedicated activation space", "Coupon sheet back logo", "PA and stage recognition", "Hospitality passes", "Media announcements"]],
   ["Gold Partner", "Mid-level investment", ["Branding in one festival zone", "Selected signage", "Full or half-page booklet ad", "Social media recognition", "Hospitality passes"]],
   ["Community Partner", "Entry-level or in-kind", ["Website and partner signage listing", "Selected social media mentions", "Community-focused activation", "Booklet listing"]]
@@ -24,9 +24,9 @@ const TIERS = [
 /* Zones and experiences a sponsor can own */
 const ZONES = [
   ["music", "Stage sponsor", "Musicians, DJs, cultural performers and headliners."],
-  ["wine", "BC Wine Garden partner", "Brand the 19+ garden and its guided tastings."],
-  ["flag", "Demo Kitchen sponsor", "Chef demos, interviews and culinary competitions."],
-  ["heart", "Family Zone sponsor", "Kids’ activities, crafts, games and food education."],
+  ["wine", "Beverage Garden partner", "Brand the 19+ garden and its guided tastings."],
+  ["flag", "Chef’s Theatre sponsor", "Chef demos, interviews and culinary competitions."],
+  ["heart", "Family Discovery Area sponsor", "Kids’ activities, crafts, games and food education."],
   ["reset", "Hydration sponsor", "Free water refill stations around the field."],
   ["shield", "Sustainability sponsor", "Composting, recycling and reusable serviceware."],
   ["access", "Accessibility partner", "Accessible entrances, viewing areas and visitor services."],
@@ -46,7 +46,7 @@ const BENEFITS = [
   "Post-event summary of attendance, engagement and reach"
 ];
 
-const ZONE_OPTIONS = ["Entrance arches", "Coupon sheet back", "Stage", "BC Wine Garden", "Demo Kitchen", "Family Zone", "Hydration stations", "Sustainability", "Accessibility", "Transportation", "People’s Choice awards", "Info booklet ads", "Perimeter banners"];
+const ZONE_OPTIONS = ["Entrance arches", "Coupon sheet back", "Stage", "Beverage Garden", "Chef’s Theatre", "Family Discovery Area", "Hydration stations", "Sustainability", "Accessibility", "Transportation", "People’s Choice awards", "Info booklet ads", "Perimeter banners"];
 const GOALS = ["Brand awareness", "Product sampling", "Client hospitality", "Community impact", "Employee engagement", "Lead generation", "Media exposure"];
 
 export default function Sponsors() {
@@ -119,7 +119,7 @@ export default function Sponsors() {
             <p className="lead">Tell us a little about your brand and goals, and we’ll put together a customized sponsorship package.</p>
             <ul className="kbd-list mt-6">
               <li><Icon name="mail" /><div><strong>Partnerships</strong><span><a href={"mailto:" + E.email}>{E.email}</a></span></div></li>
-              <li><Icon name="phone" /><div><strong>Phone</strong><span><OrTbc value={E.phone} label="Phone" /></span></div></li>
+              <li><Icon name="phone" /><div><strong>Phone</strong><span>{E.phone ? <a href={"tel:+1" + E.phone.replace(/\D/g, "")}>{E.phone}</a> : <OrTbc value={null} label="Phone" />}</span></div></li>
             </ul>
           </div>
           <div className="card" style={{ padding: "clamp(24px,3vw,40px)" }}>

@@ -8,25 +8,37 @@ export const event = {
   year: 2027,
   // TENTATIVE dates — to be confirmed. Countdown + all date text read from here.
   datesConfirmed: false,
-  start: "2027-08-19T11:00:00-07:00",
+  start: "2027-08-19T12:00:00-07:00",
   datesShort: "Aug 19–22, 2027",
   datesLong: "Thursday to Sunday, August 19–22, 2027",
   days: 4,
-  hours: "11 AM – 10 PM daily",
-  // TBC: fill these in when confirmed. `null` renders a subtle [TBC] tag on the site.
-  venue: null,            // TBC: venue name
-  address: null,          // TBC: venue street address, Surrey, BC
-  mapQuery: "Surrey, BC", // TBC: switch to the venue address so the embedded map points at the site
+  hours: "Thu 12–10 PM · Fri–Sat 12–11 PM · Sun 12–8 PM",
+  hoursShort: "Gates open at noon",
+  hoursByDay: [
+    ["Thursday", "12 PM – 10 PM"],
+    ["Friday", "12 PM – 11 PM"],
+    ["Saturday", "12 PM – 11 PM"],
+    ["Sunday", "12 PM – 8 PM"]
+  ],
+  // `null` renders a subtle [TBC] tag on the site.
+  venue: "Bill Reid Millennium Amphitheatre Park",
+  address: "17728 64 Avenue",
+  mapQuery: "Bill Reid Millennium Amphitheatre Park, 17728 64 Avenue, Surrey, BC",
   city: "Surrey, BC",
   email: "jassie@tasteofbc.ca", // main contact; switch to info@ / partners@ aliases once they exist
-  phone: null,            // TBC: phone number
+  phone: "604-861-8711",
   office: null,           // TBC: office address
   admission: "Free, all ages, subject to capacity",
   pets: "Welcome on a leash",
   couponValue: 1,
   couponRange: "2 to 8",  // TBC: coupons per sample-size dish
   couponsPerSheet: 20,
-  sheetPrice: 20
+  sheetPrice: 20,
+  // Vendor tent fees, covering all 4 days
+  boothFees: [
+    ["10 × 10 ft tent", 1250],
+    ["10 × 20 ft tent", 2150]
+  ]
 };
 
 /* Social links — TBC: paste the real profile URLs. Empty string = placeholder link. */
@@ -47,7 +59,7 @@ export const menuCategories = [
     img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon with vegetables", vendors: [] },
   { slug: "food-trucks", title: "Food Trucks", text: "BC food trucks serving festival favourites straight off the grill.",
     img: "/assets/img/stock/skewers.jpg", alt: "Skewers sizzling on a grill", vendors: [] },
-  { slug: "drinks", title: "Breweries, Wineries & Distilleries", text: "BC craft beer, wine, cider and spirits in the 19+ BC Wine Garden.",
+  { slug: "drinks", title: "Breweries, Wineries & Distilleries", text: "BC craft beer, wine, cider and spirits in the 19+ Beverage Garden.",
     img: "/assets/img/stock/beer-pour.jpg", alt: "Craft beer being poured from a tap", vendors: [] }
 ];
 export const DIET_LABELS = { V: "Vegetarian", VG: "Vegan", GF: "Gluten-free", Halal: "Halal", Nuts: "Contains nuts" };
@@ -76,15 +88,15 @@ export const gallery = [
 export const highlights = [
   { icon: "utensils", title: "Local Restaurants", text: "Signature dishes in tasting-size portions, from street food to fine dining.", to: "/menu/restaurants",
     img: "/assets/img/stock/picnic-pizza.jpg", alt: "Pizza and dumplings shared on the grass" },
-  { icon: "wine", title: "BC Wine Garden", tag: "19+", text: "Pours from Okanagan, Fraser Valley and Island wineries, plus craft beer and cider. 19+.", to: "/whats-on",
+  { icon: "wine", title: "Beverage Garden", tag: "19+", text: "Pours from Okanagan, Fraser Valley and Island wineries, plus craft beer and cider. 19+.", to: "/whats-on",
     img: "/assets/img/stock/wine-cheese.jpg", alt: "Red wine with cheese and charcuterie" },
   { icon: "music", title: "Live Entertainment", text: "Two stages of music, dance and comedy from noon until close, all four days.", to: "/entertainment",
     img: "/assets/img/stock/concert.jpg", alt: "Crowd enjoying a live concert" },
   { icon: "sparkle", title: "Local Artists", text: "BC painters and artists creating live art around the field.", to: "/entertainment",
     img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends enjoying an outdoor festival" },
-  { icon: "flag", title: "Chef Demos", text: "Cooking demos and tastings with local chefs in the Demo Kitchen.", to: "/entertainment",
+  { icon: "flag", title: "Chef Demos", text: "Cooking demos and tastings with local chefs in the Chef’s Theatre.", to: "/entertainment",
     img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon with vegetables" },
-  { icon: "heart", title: "Family Zone", text: "Face painting, games and kid-sized portions. Everyone is welcome.", to: "/whats-on",
+  { icon: "heart", title: "Family Discovery Area", text: "Face painting, games and kid-sized portions. Everyone is welcome.", to: "/whats-on",
     img: "/assets/img/stock/crowd-lawn.jpg", alt: "Families relaxing on a sunny festival lawn" }
 ];
 
@@ -137,39 +149,22 @@ export const products = [
   { id: "tee-r",  name: "Logo tee — Red", price: 30, img: "/assets/img/p-tee-red.jpg", kind: "merch", note: "Unisex · S–XXL" }
 ];
 
-/* Entertainment schedule — placeholder programming, acts announced later.
+/* Entertainment schedule — daily run-of-show from the festival plan. Acts announced later.
    [time, title, description, stage] */
+const day = (featured, close) => [
+  ["12:00 PM", "Festival opening", "Gates open and a welcome performance", "Live Music Stage"],
+  ["12:30 PM", "Chef demonstration", "Seasonal British Columbia ingredients", "Chef’s Theatre"],
+  ["1:30 PM", "Acoustic music & restaurant tastings", "Live acoustic sets while you graze the booths", "Community Stage"],
+  ["2:30 PM", "Family entertainment", "Interactive food activity for kids and families", "Family Discovery Area"],
+  ["3:30 PM", "Chef challenge", "Culinary competition between local chefs", "Chef’s Theatre"],
+  ["4:30 PM", featured, "Act to be announced", "Live Music Stage"],
+  ["5:30 PM", "Beverage pairing & vendor spotlight", "Pairing session with BC producers and a featured vendor", "Beverage Garden"],
+  ["7:00 PM", "Headline entertainment", "Headliner, then DJ until close", "Live Music Stage"],
+  [close, "Gates close", "", "All gates"]
+];
 export const schedule = {
-  Thursday: [
-    ["11:00 AM", "Gates open", "Free entry at every arch", "All gates"],
-    ["12:00 PM", "Opening ceremony", "Welcome from the festival team and community", "Main Stage"],
-    ["2:00 PM", "Chef demo", "Summer on the grill with BC produce", "Demo Kitchen"],
-    ["4:00 PM", "Acoustic sessions", "Local singer-songwriters", "Community Stage"],
-    ["7:00 PM", "Evening headliner", "Act to be announced", "Main Stage"],
-    ["10:00 PM", "Gates close", "", "All gates"]
-  ],
-  Friday: [
-    ["11:00 AM", "Gates open", "Free entry at every arch", "All gates"],
-    ["1:00 PM", "BC wine tasting", "Guided tasting with local winemakers", "Wine Garden"],
-    ["3:00 PM", "Cultural dance showcase", "Bhangra, folk and more", "Community Stage"],
-    ["5:00 PM", "Live art", "Local painters at work on the field", "Live Art Zone"],
-    ["8:00 PM", "Friday night party", "Live band, act to be announced", "Main Stage"],
-    ["10:00 PM", "Gates close", "", "All gates"]
-  ],
-  Saturday: [
-    ["11:00 AM", "Gates open", "Free entry at every arch", "All gates"],
-    ["12:00 PM", "Family fun hour", "Games, face painting and a kids’ cooking class", "Family Zone"],
-    ["2:00 PM", "Chef demo", "Street food of the Fraser Valley", "Demo Kitchen"],
-    ["4:00 PM", "Comedy on the field", "Local stand-up", "Community Stage"],
-    ["8:00 PM", "Saturday headliner", "Act to be announced", "Main Stage"],
-    ["10:00 PM", "Gates close", "", "All gates"]
-  ],
-  Sunday: [
-    ["11:00 AM", "Gates open", "Free entry at every arch", "All gates"],
-    ["12:00 PM", "Sunday brunch set", "Jazz and soul", "Community Stage"],
-    ["2:00 PM", "BC wine & food pairing", "Pairing session with local chefs", "Wine Garden"],
-    ["4:00 PM", "Youth talent showcase", "Young performers from across BC", "Main Stage"],
-    ["7:00 PM", "Closing celebration", "Festival finale", "Main Stage"],
-    ["10:00 PM", "Gates close", "", "All gates"]
-  ]
+  Thursday: day("Featured band", "10:00 PM"),
+  Friday: day("Cultural performance", "11:00 PM"),
+  Saturday: day("Fashion show", "11:00 PM"),
+  Sunday: day("Featured band or cultural performance", "8:00 PM")
 };

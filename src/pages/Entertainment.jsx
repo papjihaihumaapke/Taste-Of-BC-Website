@@ -5,12 +5,12 @@ import { Gallery, ScheduleList, Tabs } from "../components/Festival.jsx";
 import { PhotoCards } from "./Home.jsx";
 
 const STAGES = [
-  { to: "#schedule", title: "Main Stage", text: "Evening headliners, local bands and the opening and closing celebrations.", img: "/assets/img/stock/stage-lights.jpg", alt: "Band on an illuminated stage at night", more: "See the schedule" },
+  { to: "#schedule", title: "Live Music Stage", text: "Evening headliners, local bands and the opening and closing celebrations.", img: "/assets/img/stock/stage-lights.jpg", alt: "Band on an illuminated stage at night", more: "See the schedule" },
   { to: "#schedule", title: "Community Stage", text: "Cultural dance, comedy, acoustic sets and youth talent all afternoon.", img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends watching an afternoon set", more: "See the schedule" },
-  { to: "/menu/drinks", title: "BC Wine Garden", tag: "19+", text: "Guided tastings and food-and-wine pairings with local winemakers. 19+.", img: "/assets/img/stock/wine-tasting.jpg", alt: "Wine glasses lined up at a tasting bar", more: "Wine & drinks" },
-  { to: "#schedule", title: "Demo Kitchen", text: "Local chefs cooking live, with samples for the front rows.", img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon plated by a chef", more: "See the schedule" },
+  { to: "/menu/drinks", title: "Beverage Garden", tag: "19+", text: "Guided tastings and food-and-wine pairings with local winemakers. 19+.", img: "/assets/img/stock/wine-tasting.jpg", alt: "Wine glasses lined up at a tasting bar", more: "Wine & drinks" },
+  { to: "#schedule", title: "Chef’s Theatre", text: "Local chefs cooking live, with samples for the front rows.", img: "/assets/img/stock/grilled-salmon.jpg", alt: "Grilled salmon plated by a chef", more: "See the schedule" },
   { to: "#schedule", title: "Live Art Zone", text: "Local BC painters and artists creating work live on the field.", img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends enjoying an outdoor festival", more: "See the schedule" },
-  { to: "#schedule", title: "Family Zone", text: "Face painting, games and kids’ cooking classes.", img: "/assets/img/stock/crowd-lawn.jpg", alt: "Families relaxing on a festival lawn", more: "See the schedule" }
+  { to: "#schedule", title: "Family Discovery Area", text: "Face painting, games and kids’ cooking classes.", img: "/assets/img/stock/crowd-lawn.jpg", alt: "Families relaxing on a festival lawn", more: "See the schedule" }
 ];
 
 export default function Entertainment() {
@@ -28,7 +28,7 @@ export default function Entertainment() {
       <section className="section tight" style={{ paddingTop: 0 }}>
         <div className="container">
           <Gallery items={[
-            { img: "/assets/img/stock/concert.jpg", alt: "Crowd at a live concert", label: "Main Stage nights" },
+            { img: "/assets/img/stock/concert.jpg", alt: "Crowd at a live concert", label: "Live Music Stage nights" },
             { img: "/assets/img/stock/festival-crowd.jpg", alt: "Friends at an outdoor music festival", label: "Afternoon sets" },
             { img: "/assets/img/stock/wine-tasting.jpg", alt: "Wine glasses at a tasting bar", label: "Guided wine tastings" },
             { img: "/assets/img/stock/stage-lights.jpg", alt: "Band on an illuminated stage", label: "Local bands" },

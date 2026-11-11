@@ -97,7 +97,7 @@ export function MenuCategory() {
             <DietLegend />
           </div>
           {cat.vendors.length ? <div className="vendor-grid">{cat.vendors.map((v) => <VendorCard v={v} key={v.name} />)}</div> : <ComingSoon />}
-          {slug === "drinks" && <p className="small muted mt-6 mb-0">Alcohol is served in the BC Wine Garden to guests 19+ with valid ID.</p>}
+          {slug === "drinks" && <p className="small muted mt-6 mb-0">Alcohol is served in the Beverage Garden to guests 19+ with valid ID.</p>}
         </div>
       </section>
       <CouponBanner />
