@@ -57,7 +57,7 @@ export default function GetInvolved() {
 /* TBC: replace "#" with links to the real documents (PDF or online forms) */
 const RESOURCES = [
   ["store", "Vendor Applications", "Restaurants & food trucks, wine/beer/spirits", "#apply"],
-  ["utensils", "Vendor Menu Form", "Submit your sample-size menu and coupon prices", "#"],
+  ["utensils", "Vendor Menu Form", "Submit your sample-size menu and Tasty Bucks prices", "#"],
   ["flag", "Power Requirements Form", "Tell us what power your booth needs", "#"],
   ["shield", "Vendor Terms & Conditions", "Read before you apply", "/legal#vendor-terms"]
 ];
@@ -90,7 +90,7 @@ export function Vendors() {
           <div className="info-card">
             <div className="icon-tile"><Icon name="utensils" /></div>
             <h3>Restaurants, Food Trucks & Liquor Vendors</h3>
-            <p>Serve sample-size dishes and drinks priced in $1 coupons ({E.couponRange} coupons per dish <Tbc />). Apply using the vendor application form below.</p>
+            <p>Serve sample-size dishes and drinks priced in $1 Tasty Bucks ({E.couponRange} Tasty Bucks per dish <Tbc />). Apply using the vendor application form below.</p>
             <span className="spacer" />
             <div className="row"><a className="btn" href="#apply">Food vendor application</a><a className="btn btn-secondary" href="#apply-beverage">Wine, beer & spirits</a></div>
           </div>
@@ -118,9 +118,9 @@ export function Vendors() {
             <h2>Apply for a booth.</h2>
             <p className="lead">Choose the form that fits your business. We review every application and reply by email. New to the festival? Read the <Link to="/partners/restaurants">restaurant</Link> or <Link to="/partners/beverage">beverage</Link> media kit first.</p>
             <ul className="kbd-list mt-6">
-              <li><Icon name="check" /><div><strong>Tent fees</strong><span>{E.boothFees.map(([s, p]) => `${s}: $${p.toLocaleString("en-CA")}`).join(" · ")}, covering all {E.days} days.</span></div></li>
-              <li><Icon name="check" /><div><strong>How payment works</strong><span>Visitors pay you in $1 coupons. Hand in your coupons at close each day and we settle them with you after the festival, at the rate in your vendor agreement <Tbc />.</span></div></li>
-              <li><Icon name="check" /><div><strong>Menu pricing</strong><span>Prices are set in whole coupons, {E.couponRange} per sample-size dish <Tbc />.</span></div></li>
+              <li><Icon name="check" /><div><strong>Tent sizes</strong><span>{E.tentSizes.join(" or ")}, covering all {E.days} days. One table is provided per booth.</span></div></li>
+              <li><Icon name="check" /><div><strong>How payment works</strong><span>Visitors pay you in $1 Tasty Bucks. Hand in your Tasty Bucks at close each day and we settle them with you after the festival, at the rate in your vendor agreement <Tbc />.</span></div></li>
+              <li><Icon name="check" /><div><strong>Menu pricing</strong><span>Prices are set in whole Tasty Bucks, {E.couponRange} per sample-size dish <Tbc />.</span></div></li>
               <li><Icon name="check" /><div><strong>Permits</strong><span>Food vendors need a valid temporary food permit. Licensed vendors need a special event liquor permit.</span></div></li>
             </ul>
           </div>
@@ -185,7 +185,7 @@ const signupHref = SIGNUP_URL || `mailto:${E.email}?subject=Volunteer%20sign-up`
 /* TBC: confirm volunteer roles */
 const ROLES = [
   ["arch", "Gate welcome", "Greet guests and hand out maps at the entrances."],
-  ["ticket", "Coupon Booth", "Help guests buy and pick up coupons."],
+  ["ticket", "Tasty Bucks Booth", "Help guests buy and pick up Tasty Bucks."],
   ["info", "Info Booth", "Answer questions and look after lost and found."],
   ["music", "Stage crew", "Support performers and keep the stages on schedule."],
   ["heart", "Family Discovery Area", "Run games and activities for kids."],
@@ -196,7 +196,7 @@ export function Volunteer() {
   return (
     <>
       <PageHero img="/assets/img/stock/crowd-lawn.jpg" crumb="Volunteer" eyebrow="Volunteers" title="Volunteer registration is open."
-        lead="Join the crew that makes Taste of BC happen. Welcome guests, help at Coupon Booths, support the stages and keep the field running smoothly.">
+        lead="Join the crew that makes Taste of BC happen. Welcome guests, help at Tasty Bucks Booths, support the stages and keep the field running smoothly.">
         <div className="row mt-6">
           <a className="btn btn-light" href={signupHref} {...(SIGNUP_URL ? { target: "_blank", rel: "noopener noreferrer" } : {})}>Sign up to volunteer</a>
           {!SIGNUP_URL && <span className="pill-note"><Icon name="info" />Sign-up link <Tbc /></span>}
@@ -210,7 +210,7 @@ export function Volunteer() {
             <h2>Be part of the festival.</h2>
             <p className="lead">Taste of BC is a not-for-profit community event, and volunteers keep the gates free. Meet new people, see the festival from the inside and give back to your community.</p>
             <ul className="ticks">
-              <li><Icon name="check" />Festival tee and lanyard <Tbc /></li><li><Icon name="check" />Meal coupons for every shift <Tbc /></li>
+              <li><Icon name="check" />Festival tee and lanyard <Tbc /></li><li><Icon name="check" />Tasty Bucks for every shift <Tbc /></li>
               <li><Icon name="check" />Volunteer-hours letter on request</li><li><Icon name="check" />Age requirements <Tbc /></li>
             </ul>
           </div>

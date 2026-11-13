@@ -19,7 +19,7 @@ export default function About() {
         <div className="container">
           <div className="section-head"><span className="eyebrow">More about us</span><h2>Questions, press & contact.</h2></div>
           <div className="visit-grid">
-            <Link className="v-card" to="/faq"><div className="icon-tile"><Icon name="info" /></div><h3>FAQ</h3><p>Admission, coupons, pets, hours and more.</p><span className="more">Read the FAQ</span></Link>
+            <Link className="v-card" to="/faq"><div className="icon-tile"><Icon name="info" /></div><h3>FAQ</h3><p>Admission, Tasty Bucks, pets, hours and more.</p><span className="more">Read the FAQ</span></Link>
             <Link className="v-card" to="/media"><div className="icon-tile"><Icon name="download" /></div><h3>Media</h3><p>Logos, festival photos and press contacts.</p><span className="more">Media resources</span></Link>
             <Link className="v-card" to="/contact"><div className="icon-tile"><Icon name="mail" /></div><h3>Contact</h3><p>Email, phone and a general contact form.</p><span className="more">Get in touch</span></Link>
           </div>

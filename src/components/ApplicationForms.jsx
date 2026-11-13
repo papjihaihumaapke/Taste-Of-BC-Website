@@ -97,8 +97,8 @@ export function FoodVendorForm() {
       <ProfileFields p="fv" kind="food" />
       <Group>Festival menu & booth</Group>
       <Field id="fv-menu" label="Proposed sample-size menu" required error="Please share your proposed menu."
-        hint={`3–5 items with your suggested price in $1 coupons (dishes range from ${E.couponRange} coupons).`}>
-        <textarea className="textarea" id="fv-menu" name="menu" required placeholder="Dish name – coupons" />
+        hint={`3–5 items with your suggested price in $1 Tasty Bucks (dishes range from ${E.couponRange} Tasty Bucks).`}>
+        <textarea className="textarea" id="fv-menu" name="menu" required placeholder="Dish name – Tasty Bucks" />
       </Field>
       <Checks label="Dietary options you’ll offer" name="dietary_options" options={["Vegetarian", "Vegan", "Gluten-free", "Halal", "Contains nuts"]} />
       <Checks label="Days you can attend" name="days_available" options={DAYS} />
@@ -139,7 +139,7 @@ export function BeverageVendorForm() {
       <ProfileFields p="bv" kind="beverage" />
       <Group>Festival pours</Group>
       <Field id="bv-products" label="Products you’d like to pour" required error="Please list the products you’d pour."
-        hint="Name, style and suggested price in $1 coupons per pour or flight.">
+        hint="Name, style and suggested price in $1 Tasty Bucks per pour or flight.">
         <textarea className="textarea" id="bv-products" name="products" required />
       </Field>
       <Field id="bv-licence" label="BC manufacturer licence number" hint="If you have one. Licensed vendors need a special event liquor permit.">

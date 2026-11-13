@@ -2,15 +2,15 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { DIET_LABELS, event as E, menuAnnounce, menuCategories } from "../data.js";
 import { Icon, PageHero, Tbc } from "../lib/ui.jsx";
 
-/* "Buy your coupons in advance" banner, shared by the menu pages */
+/* "Buy your Tasty Bucks in advance" banner, shared by the menu pages */
 function CouponBanner({ flush = true }) {
   return (
     <section className="section" style={flush ? { paddingTop: 0 } : undefined}>
       <div className="container">
         <div className="cta-band">
-          <div><h2>Buy your coupons in advance and skip the line.</h2>
-            <p>$1 festival coupons, redeemable at every vendor booth. Dishes range from {E.couponRange} coupons.</p></div>
-          <div className="actions"><Link className="btn btn-light btn-lg" to="/coupons"><Icon name="ticket" />Buy Food Coupons</Link></div>
+          <div><h2>Buy your Tasty Bucks in advance and skip the line.</h2>
+            <p>$1 Tasty Bucks, redeemable at every vendor booth. Dishes range from {E.couponRange} Tasty Bucks.</p></div>
+          <div className="actions"><Link className="btn btn-light btn-lg" to="/tasty-bucks"><Icon name="ticket" />Buy Tasty Bucks</Link></div>
         </div>
       </div>
     </section>
@@ -47,7 +47,7 @@ function VendorCard({ v }) {
         {v.dishes.map((d) => (
           <li key={d.name}>
             <span className="dish">{d.name}</span>
-            <span className="cost">{d.coupons} <small className="muted" style={{ fontWeight: 600 }}>coupons</small></span>
+            <span className="cost">{d.coupons} <small className="muted" style={{ fontWeight: 600 }}>Tasty Bucks</small></span>
             {d.diet?.length > 0 && <span className="tags">{d.diet.map((t) => <span className="diet" title={DIET_LABELS[t]} key={t}>{t === "Nuts" ? "N" : t}</span>)}</span>}
           </li>
         ))}
@@ -71,7 +71,7 @@ export function MenuLanding() {
   return (
     <>
       <PageHero img="/assets/img/stock/grilled-salmon.jpg" crumb="Menu" eyebrow="The menu" title="Menus are coming soon."
-        lead="Sample-size dishes from local restaurants, food trucks and BC beverage producers, all paid with $1 festival coupons." />
+        lead="Sample-size dishes from local restaurants, food trucks and BC beverage producers, all paid with $1 Tasty Bucks." />
       <CouponBanner flush={false} />
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">

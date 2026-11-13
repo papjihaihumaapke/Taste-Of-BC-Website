@@ -165,6 +165,51 @@ export function PartnersHub() {
   );
 }
 
+/* Vendor guide: collapsible sections built from the organizer's vendor participation documents */
+const VendorGuide = ({ items }) => (
+  <div className="accordion">
+    {items.map(([q, body], n) => (
+      <details key={q} open={n === 0}><summary>{q}<span className="pm"><Icon name="plus" /></span></summary><div className="a-body">{body}</div></details>
+    ))}
+  </div>
+);
+
+const GuideSection = ({ items, who, alt }) => (
+  <section className={"section" + (alt ? " alt" : "")} id="guide">
+    <div className="container faq-layout">
+      <div className="section-head">
+        <span className="eyebrow">Vendor guide</span>
+        <h2>Everything you need to plan your booth.</h2>
+        <p>What we ask of every {who}, from menu submission to teardown. Questions? We’re happy to help.</p>
+        <ContactCard />
+      </div>
+      <VendorGuide items={items} />
+    </div>
+  </section>
+);
+
+const SCHEDULE = [
+  ["Vendor check-in", "Report to the vendor check-in point."],
+  ["Load-in and setup", "Follow the instructions provided by event staff."],
+  ["Final booth inspection", "Confirm your booth is ready before guests arrive."],
+  ["Event service", "Remain open for the full service period."],
+  ["Teardown", "Do not dismantle your booth before the approved teardown time."]
+];
+
+const Schedule = () => (
+  <>
+    <ul className="kbd-list">{SCHEDULE.map(([t, d], i) => <li key={t}><Icon name="clock" /><div><strong>{i + 1}. {t}</strong><span>{d}</span></div></li>)}</ul>
+    <p className="small muted mt-4">Exact times and the check-in location are sent with your booth confirmation.</p>
+  </>
+);
+
+const NoCash = () => (
+  <div className="callout mt-6"><Icon name="nocash" />
+    <div><strong>Tasty Bucks only. No cash, ever.</strong>
+      <p>Guests buy Tasty Bucks only at designated Taste of BC booths. Vendors must not accept cash or process cash transactions. A vendor found taking cash is shut down immediately and permanently banned from future Taste of BC events.</p></div>
+  </div>
+);
+
 /* ---------- /partners/restaurants ---------- */
 const R_BENEFITS = [
   ["store", "Your own booth", "Dedicated space in the BC Restaurant Village with a Taste of BC banner showing your name and menu."],
@@ -178,17 +223,35 @@ const R_BENEFITS = [
 ];
 
 const R_REQUIREMENTS = [
-  "Submit your menu, coupon prices, dietary information and service needs by the deadline.",
-  "Provide accurate allergen and ingredient information for every item.",
-  "Hold a valid temporary food permit and meet food-safety, insurance and waste requirements.",
-  "Bring trained staff and enough product for your service hours.",
-  "Use reusable or compostable serviceware where practical.",
-  "Attend vendor orientation and your scheduled load-in and load-out."
+  "Submit all required registration and business information by the stated deadline.",
+  "Provide a proposed menu and identify all major allergens.",
+  "Bring enough food, ingredients, serving supplies, utensils and packaging for the expected attendance. Sample portions only.",
+  "Provide trained staff to prepare and serve food safely and professionally.",
+  "Supply any equipment not specifically provided by the event organizer.",
+  "Keep your vendor area clean, organized and free of waste throughout the event.",
+  "Follow the organizer’s arrival, setup, service, teardown and departure procedures.",
+  "Maintain appropriate insurance and permits, as required by the venue or relevant authorities."
+];
+
+const R_GUIDE = [
+  ["Menu submission", <><p>Offer one to six signature items that can be prepared and served efficiently, in tasting portions only. Send us:</p>
+    <Ticks items={["Restaurant name and logo, if applicable", "Menu item names and descriptions", "Ingredient and allergen information", "Tasty Bucks redemption details for each item"]} /></>],
+  ["Booth and equipment", <><p>Choose and book the tent size that fits your operation: {E.tentSizes.join(" or ")}. Confirm your space and equipment needs with us before the event. Unless we confirm otherwise in writing, bring everything you need to run your station:</p>
+    <Ticks items={["Table covering (we provide one table per booth)", "Menu signage and price displays", "Food-preparation and serving equipment", "Approved food-storage and transportation containers", "Serving dishes, cups, cutlery and napkins. All service ware must be biodegradable", "Handwashing or sanitizing supplies, as required", "Garbage, recycling and compost-collection supplies", "Extension cords or other equipment, only where approved by the venue", "Personal protective equipment and cleaning supplies, where appropriate"]} /></>],
+  ["Setup and teardown", <Schedule />],
+  ["Food safety and allergens", <><p>All food must be prepared, transported, stored and served in line with food-safety requirements. Keep food at safe temperatures, prevent cross-contamination and make sure every staff member follows safe food-handling practices.</p>
+    <p>Allergen information must be accurate and available to guests on request. Be ready to explain ingredients and identify cross-contact risks. If an item can’t be guaranteed allergen-free, tell guests clearly.</p></>],
+  ["Staffing", <><p>Bring enough staff to handle food preparation, service, Tasty Bucks redemption, guest questions, restocking and cleanup. Staff should wear clean, suitable attire and represent your restaurant courteously and professionally.</p>
+    <p>Your staff list should name an on-site lead, a food-service lead and any additional staff, with contact details for each.</p></>],
+  ["Marketing information", <><p>Send us the following so we can promote you:</p>
+    <Ticks items={["Restaurant name and location", "A short description of about 50–75 words", "Logo and approved photographs", "Website and social media links", "Your featured menu item for the event", "Any dietary, regional or culinary highlights"]} /></>],
+  ["Vendor checklist", <Ticks items={["Registration form completed", "Menu submitted and approved", "Allergen information provided", "Insurance and permits confirmed", "Staff list submitted", "Equipment and power requirements confirmed", "Food quantities planned", "Signage and promotional materials prepared", "Transportation and loading arrangements confirmed", "Tasty Bucks redemption process confirmed"]} />],
+  ["Vendor confirmation", <p>By taking part in Taste of BC, your restaurant confirms that it has reviewed the event information, understands its responsibilities and will follow the organizer’s instructions, venue requirements and food-safety standards. An authorized representative signs the confirmation when your booth is booked.</p>]
 ];
 
 const STEPS = (who) => [
   ["Apply", `Fill in the ${who} profile below. It goes straight into our partner database.`],
-  ["Confirm", "We review, then confirm your booth, menu, coupon prices and power needs."],
+  ["Confirm", "We review, then confirm your booth, menu, Tasty Bucks prices and power needs."],
   ["Get promoted", "Your listing goes live and we start featuring you in the countdown."]
 ];
 
@@ -202,7 +265,7 @@ export function RestaurantKit() {
   return (
     <>
       <PageHero img="/assets/img/stock/grilled-salmon.jpg" crumb="Restaurant Media Kit" eyebrow={`Restaurant media kit · ${RESTAURANT_GOAL} restaurants wanted`} title="Bring your best dish to BC’s biggest table."
-        lead={`Restaurants are at the centre of Taste of BC. Serve one to three showcase items, meet ${VISITOR_GOAL} hungry visitors and turn them into regulars.`}>
+        lead={`Restaurants are at the centre of Taste of BC. Serve one to six signature items, meet ${VISITOR_GOAL} hungry visitors and turn them into regulars.`}>
         <div className="row mt-6"><a className="btn btn-light btn-lg" href="#profile">Join as a restaurant</a><PrintButton /></div>
       </PageHero>
 
@@ -223,10 +286,10 @@ export function RestaurantKit() {
             <p className="lead">Visitors taste a little from a lot of booths, so a sample-size menu keeps lines short and puts your food in more hands.</p>
           </div>
           <ul className="kbd-list">
-            <li><Icon name="utensils" /><div><strong>Showcase menu</strong><span>One to three showcase items, sample portions only, not your full menu.</span></div></li>
-            <li><Icon name="store" /><div><strong>Tent fees</strong><span>{E.boothFees.map(([s, p]) => `${s}: $${p.toLocaleString("en-CA")}`).join(" · ")}, covering all {E.days} days.</span></div></li>
-            <li><Icon name="ticket" /><div><strong>Coupon pricing</strong><span>Items are priced in $1 coupons, {E.couponRange} per dish <Tbc />. No cash at booths.</span></div></li>
-            <li><Icon name="nocash" /><div><strong>Settlement</strong><span>Hand in your coupons at close each day. We settle them with you after the festival at the rate in your vendor agreement <Tbc />.</span></div></li>
+            <li><Icon name="utensils" /><div><strong>Signature menu</strong><span>One to six signature items, sample portions only, not your full menu.</span></div></li>
+            <li><Icon name="store" /><div><strong>Tent sizes</strong><span>{E.tentSizes.join(" or ")}, covering all {E.days} days. One table provided per booth.</span></div></li>
+            <li><Icon name="ticket" /><div><strong>Tasty Bucks only</strong><span>Every sample is redeemed with Tasty Bucks, which guests buy at Taste of BC booths. No cash at booths.</span></div></li>
+            <li><Icon name="nocash" /><div><strong>Settlement</strong><span>Hand in your Tasty Bucks at close each day. We settle them with you after the festival at the rate in your vendor agreement <Tbc />.</span></div></li>
             <li><Icon name="heart" /><div><strong>Every diet welcome</strong><span>Vegetarian, vegan, halal, gluten-aware and allergen-labelled options help more visitors choose you.</span></div></li>
           </ul>
         </div>
@@ -236,21 +299,24 @@ export function RestaurantKit() {
         <div className="container split" style={{ alignItems: "start" }}>
           <div>
             <span className="eyebrow">What we ask</span>
-            <h2>Partner requirements.</h2>
-            <p className="lead">The full list is in the <Link to="/legal#vendor-terms">Vendor Terms & Conditions</Link>.</p>
+            <h2>Vendor responsibilities.</h2>
+            <p className="lead">Each vendor plans and delivers its menu, staffs its booth, brings its equipment and serves food safely.</p>
+            <NoCash />
           </div>
           <Ticks items={R_REQUIREMENTS} />
         </div>
       </section>
 
-      <section className="section">
+      <GuideSection items={R_GUIDE} who="restaurant" />
+
+      <section className="section alt">
         <div className="container">
           <div className="section-head"><span className="eyebrow">Next steps</span><h2>Three steps to your booth.</h2></div>
           <Steps who="restaurant" />
         </div>
       </section>
 
-      <section className="section alt" id="profile">
+      <section className="section" id="profile">
         <div className="container split" style={{ alignItems: "start" }}>
           <div>
             <span className="eyebrow">Restaurant profile</span>
@@ -258,7 +324,7 @@ export function RestaurantKit() {
             <p className="lead">This becomes your partner record. We use it to plan your booth and write your website listing and social features.</p>
             <ContactCard />
           </div>
-          <div className="card" style={{ padding: "clamp(24px,3vw,40px)" }}><FoodVendorForm /></div>
+          <div className="card" style={{ padding: "clamp(24px,3vw,40px)", background: "var(--cream)", border: 0 }}><FoodVendorForm /></div>
         </div>
       </section>
     </>
@@ -278,12 +344,34 @@ const B_BENEFITS = [
 ];
 
 const B_REQUIREMENTS = [
-  "Licensed producers need a special event liquor permit. We’ll guide you through it.",
-  "All pouring staff hold valid Serving It Right certification.",
-  "Age is verified at the Beverage Garden entrance. Pours are served only inside the 19+ area.",
-  "Serve set pour sizes and flights priced in $1 coupons.",
-  "Non-alcoholic options are encouraged so every guest can join in.",
-  "Attend vendor orientation and your scheduled load-in and load-out."
+  "Submit all required registration, business, licensing and product information by the stated deadline.",
+  "Provide a proposed beverage menu with product names, descriptions, serving sizes, alcohol content where applicable, and allergen information.",
+  "Bring enough beverages, ingredients, ice, cups, serving supplies, equipment and packaging for the expected attendance.",
+  "Offer tasting portions only, unless larger servings are approved by the organizer and permitted by applicable requirements.",
+  "Provide trained staff to serve beverages safely, responsibly and professionally.",
+  "Supply any equipment not specifically provided by the event organizer.",
+  "Keep your vendor area clean, organized and free of waste throughout the event.",
+  "Follow the organizer’s arrival, setup, service, teardown and departure procedures.",
+  "Maintain all required insurance, licences, permits, registrations and certifications.",
+  "Serve alcohol only in line with liquor laws, responsible-service requirements and venue rules."
+];
+
+const B_GUIDE = [
+  ["Beverage submission", <><p>Offer one to six featured beverages that can be prepared, poured and served efficiently, in tasting sizes that meet applicable requirements. Clearly distinguish alcoholic and non-alcoholic products. Send us:</p>
+    <Ticks items={["Business or vendor name and logo, if applicable", "Beverage names, descriptions and product categories", "Ingredients and allergen information", "Serving size and Tasty Bucks redemption details", "Alcohol-by-volume percentage for each alcoholic beverage", "Liquor licences, permits, registrations and responsible-service certifications, where applicable", "Any preparation, refrigeration, dispensing, mixing, carbonation or storage equipment you need", "Confirmation that each product is approved for service at the event"]} /></>],
+  ["Booth and equipment", <><p>Choose and book the tent size that fits your operation: {E.tentSizes.join(" or ")}. Confirm your space and equipment needs with us before the event. Unless we confirm otherwise in writing, bring everything you need to run your station:</p>
+    <Ticks items={["Table covering (we provide one table per booth)", "Menu signage, product information and price displays", "Approved dispensing, pouring, mixing, blending or serving equipment", "Approved food-grade storage and transportation containers", "Cups, tasting glasses, stirrers, straws, napkins and other service ware. Biodegradable where required by the event", "Ice, coolers, refrigeration or other temperature-control equipment", "Water and handwashing or sanitizing supplies, as required", "Garbage, recycling and compost-collection supplies", "Spill-control materials and cleaning supplies", "Extension cords or other electrical equipment, only where approved by the venue", "Personal protective equipment and other safety supplies, where appropriate", "For alcohol vendors: any age-verification, service-control and product-identification materials required"]} /></>],
+  ["Setup and teardown", <Schedule />],
+  ["Safety and allergens", <><p>All beverages must be prepared, transported, stored and served in line with health, safety, liquor and venue requirements. Maintain temperature control and protect products from contamination, tampering and cross-contact throughout the event.</p>
+    <p>Allergen information must be accurate and available on request, including ingredients in mixers, syrups, garnishes, flavourings, juices, concentrates and ready-to-serve drinks. If a beverage can’t be guaranteed allergen-free, tell guests clearly.</p></>],
+  ["Responsible service", <><p>Vendors serving alcohol must follow every event procedure for age verification, responsible service, refusal of service, portion control and preventing service to intoxicated guests. Never serve anyone who is underage, appears intoxicated or can’t show acceptable proof of age when asked.</p>
+    <p>All pouring staff hold valid Serving It Right certification, and licensed producers need a special event liquor permit. We’ll guide you through it.</p></>],
+  ["Staffing", <><p>Bring enough staff to handle preparation, pouring, dispensing, Tasty Bucks redemption, age verification where applicable, guest questions, restocking, spill response and cleanup. Staff should wear clean, suitable attire and represent your business courteously and professionally.</p>
+    <p>Your staff list should name an on-site lead, a beverage-service lead, a responsible-service lead if you serve alcohol, and any additional staff, with contact details for each.</p></>],
+  ["Marketing information", <><p>Send us the following so we can promote you:</p>
+    <Ticks items={["Vendor name and location", "A short description of about 50–75 words", "Logo and approved photographs", "Website and social media links", "Your featured beverage or product for the event", "Product category: wine, beer, spirits, cider, cocktails, mocktails, juice, coffee, tea, kombucha, soda or another non-alcoholic drink", "Any dietary, regional, production, sustainability or culinary highlights"]} /></>],
+  ["Vendor checklist", <Ticks items={["Registration form completed", "Beverage menu submitted and approved", "Ingredient, allergen and alcohol-content information provided", "Licences, permits, registrations, insurance and responsible-service credentials confirmed", "Staff list submitted", "Equipment, refrigeration, ice, water and power requirements confirmed", "Beverage quantities planned", "Age-verification and responsible-service procedures confirmed, where applicable", "Signage and promotional materials prepared", "Transportation and loading arrangements confirmed", "Tasty Bucks redemption process confirmed", "Spill response, waste management and cleanup procedures prepared"]} />],
+  ["Vendor confirmation", <p>By taking part in Taste of BC, your business confirms that it has reviewed the event information, understands its responsibilities and will comply with the organizer’s instructions, venue requirements, health and safety standards, liquor laws, responsible-service requirements and all licensing and permit conditions. An authorized representative signs the confirmation when your booth is booked.</p>]
 ];
 
 export function BeverageKit() {
@@ -306,15 +394,18 @@ export function BeverageKit() {
       <section className="section">
         <div className="container split" style={{ alignItems: "start" }}>
           <div>
-            <span className="eyebrow">Responsible service</span>
-            <h2>Partner requirements.</h2>
-            <p className="lead">Responsible beverage service is a core festival value. The full list is in the <Link to="/legal#vendor-terms">Vendor Terms & Conditions</Link>.</p>
+            <span className="eyebrow">What we ask</span>
+            <h2>Vendor responsibilities.</h2>
+            <p className="lead">Wineries, breweries, distilleries, cideries, distributors, specialty drink makers and non-alcoholic beverage companies are all welcome. Responsible service is a core festival value.</p>
+            <NoCash />
           </div>
           <Ticks items={B_REQUIREMENTS} />
         </div>
       </section>
 
-      <section className="section alt">
+      <GuideSection items={B_GUIDE} who="beverage vendor" alt />
+
+      <section className="section">
         <div className="container">
           <div className="section-head"><span className="eyebrow">Next steps</span><h2>Three steps to your station.</h2></div>
           <Steps who="producer" />
@@ -322,7 +413,7 @@ export function BeverageKit() {
         </div>
       </section>
 
-      <section className="section" id="profile">
+      <section className="section alt" id="profile">
         <div className="container split" style={{ alignItems: "start" }}>
           <div>
             <span className="eyebrow">Producer profile</span>
@@ -330,7 +421,7 @@ export function BeverageKit() {
             <p className="lead">This becomes your partner record. We use it to plan your station and write your listing and features.</p>
             <ContactCard />
           </div>
-          <div className="card" style={{ padding: "clamp(24px,3vw,40px)", background: "var(--cream)", border: 0 }}><BeverageVendorForm /></div>
+          <div className="card" style={{ padding: "clamp(24px,3vw,40px)" }}><BeverageVendorForm /></div>
         </div>
       </section>
     </>

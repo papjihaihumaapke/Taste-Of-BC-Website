@@ -6,19 +6,56 @@ import { GLANCE } from "./Partners.jsx";
 
 const OPPS = [
   ["Most visible", "Entrance arches", "Naming rights for a festival entrance. Every visitor walks through one."],
-  ["In every hand", "Back of the coupon sheet", "Your logo on the reverse of every coupon sheet, held and shared all day."],
+  ["In every hand", "Back of the Tasty Bucks sheet", "Your logo on the reverse of every Tasty Bucks sheet, held and shared all day."],
   ["On stage", "Live Music Stage or Community Stage", "Naming rights, MC mentions and on-screen branding during performances."],
   ["Beverage Garden", "Beverage Garden partner", "Brand the 19+ garden and its guided tastings."],
   ["Kept all day", "Info booklet ads", "Cover, full, half and quarter pages next to the map and menus."],
   ["All around", "Perimeter banners", "Branded banners around the field, visible from every booth and seat."]
 ];
 
-/* TBC: confirm benefits and pricing for each tier */
+/* Tiers from the sponsorship letter. Pricing is discussed directly with sponsors, not shown on the site. */
 const TIERS = [
-  ["Presenting Partner", "Exclusive · custom investment", ["“Taste of BC presented by…” naming", "Largest logo on coupon sheet back", "Back cover of booklet", "Live Music Stage recognition", "Executive hospitality", "First right of renewal"], true],
-  ["Platinum Partner", "Major investment", ["Branding across the site", "Dedicated activation space", "Coupon sheet back logo", "PA and stage recognition", "Hospitality passes", "Media announcements"]],
-  ["Gold Partner", "Mid-level investment", ["Branding in one festival zone", "Selected signage", "Full or half-page booklet ad", "Social media recognition", "Hospitality passes"]],
-  ["Community Partner", "Entry-level or in-kind", ["Website and partner signage listing", "Selected social media mentions", "Community-focused activation", "Booklet listing"]]
+  ["Signature Sponsor", "Presenting partnership", [
+    "Naming association: “Taste of BC presented by” your company",
+    "Category exclusivity, subject to a mutually agreed definition of the category",
+    "Premier logo placement on major promotional materials, event signage, programme materials, website and welcome arches",
+    "A named or prominently branded signature programme area",
+    "Your name and branding alongside participating booths, where applicable",
+    "A large activation footprint with an agreed guest-engagement concept",
+    "Prominent stage recognition and an opportunity to deliver welcome remarks",
+    "Several dedicated social media and email mentions",
+    "Post-event report with agreed attendance, engagement and visibility metrics",
+    "Complimentary 20 × 20 ft booth space",
+    "First right of renewal for the following festival"
+  ], true],
+  ["Platinum Sponsor", "Premier partnership", [
+    "Prominent logo placement on the website, programme, event signage and promotional arches",
+    "Stage or programme recognition",
+    "Complimentary 10 × 20 ft booth space",
+    "Two to three social media acknowledgements",
+    "Inclusion in selected promotional communications",
+    "Post-event summary of attendance, engagement and delivered benefits"
+  ]],
+  ["Gold Sponsor", "Featured partnership", [
+    "Logo placement on the website, programme, sponsor signage and promotional arches",
+    "Shared or modest activation space, subject to availability",
+    "Complimentary 10 × 10 ft booth space",
+    "Social media recognition",
+    "Stage recognition during the event",
+    "Inclusion in a sponsor thank-you message"
+  ]],
+  ["Silver Sponsor", "Supporting partnership", [
+    "Business name or logo on the sponsor webpage and sponsor signage",
+    "Recognition on promotional arches and shared sponsor materials",
+    "Inclusion in a sponsor thank-you message"
+  ]],
+  ["Community Sponsor", "Any amount", [
+    "Inclusion on shared sponsor signage",
+    "Stage recognition during the event, where applicable",
+    "One acknowledgement on social media or in a digital thank-you message",
+    "Business name or logo on the sponsor webpage, where applicable",
+    "Recognition and a thank-you message from Taste of BC"
+  ]]
 ];
 
 /* Zones and experiences a sponsor can own */
@@ -46,14 +83,14 @@ const BENEFITS = [
   "Post-event summary of attendance, engagement and reach"
 ];
 
-const ZONE_OPTIONS = ["Entrance arches", "Coupon sheet back", "Stage", "Beverage Garden", "Chef’s Theatre", "Family Discovery Area", "Hydration stations", "Sustainability", "Accessibility", "Transportation", "People’s Choice awards", "Info booklet ads", "Perimeter banners"];
+const ZONE_OPTIONS = ["Entrance arches", "Tasty Bucks sheet back", "Stage", "Beverage Garden", "Chef’s Theatre", "Family Discovery Area", "Hydration stations", "Sustainability", "Accessibility", "Transportation", "People’s Choice awards", "Info booklet ads", "Perimeter banners"];
 const GOALS = ["Brand awareness", "Product sampling", "Client hospitality", "Community impact", "Employee engagement", "Lead generation", "Media exposure"];
 
 export default function Sponsors() {
   return (
     <>
       <PageHero img="/assets/img/stock/stage-lights.jpg" crumb="Sponsorship" eyebrow={`${E.datesShort} · ${E.city}`} title="Sponsorship Opportunities"
-        lead="BC’s Best Outdoor Food & Beverage Festival. We have many ways to participate in Taste of BC. Tell us about yourself and we’ll build a customized package to fit your needs.">
+        lead={`Four days celebrating BC’s producers, chefs, restaurants and beverage makers at ${E.venue}. 50,000+ expected guests, 100+ restaurants and 40–50 beverage companies, plus dance, live music, DJs and activities for all ages. Let’s build a partnership that fits your goals.`}>
         <div className="row mt-6"><a className="btn btn-light btn-lg" href="#inquire">Start a conversation</a><a className="btn btn-lg btn-outline-light" href="#packages">See packages</a></div>
       </PageHero>
 
@@ -68,12 +105,12 @@ export default function Sponsors() {
       <section className="section alt" id="packages">
         <div className="container">
           <div className="section-head"><span className="eyebrow">Sponsorship tiers</span><h2>Find the right fit.</h2>
-            <p className="lead">Every package can be tailored. Benefits and pricing below are being finalised <Tbc />.</p></div>
-          <div className="grid grid-4" style={{ alignItems: "stretch" }}>
+            <p className="lead">Whether you’re a large corporation, an emerging business, a community organization or a local enterprise, every partnership can be tailored for meaningful visibility and engagement. Contact us for package details.</p></div>
+          <div className="grid grid-3" style={{ alignItems: "stretch" }}>
             {TIERS.map(([n, sub, perks, feat]) => (
               <article className={"card tier" + (feat ? " featured" : "")} key={n}>
-                {feat && <span className="ribbon badge solid">{sub}</span>}
-                <h3>{n}</h3><div className="t-price">$<Tbc /></div><p className="small muted">{sub}</p>
+                {feat && <span className="ribbon badge solid">Top tier</span>}
+                <h3>{n}</h3><p className="small muted">{sub}</p>
                 <ul className="ticks">{perks.map((p) => <li key={p}><Icon name="check" />{p}</li>)}</ul>
                 <a className={"btn btn-block" + (feat ? "" : " btn-secondary")} href="#inquire">Enquire</a>
               </article>
@@ -149,11 +186,6 @@ export default function Sponsors() {
                   </select>
                 </Field>
               </div>
-              <Field id="s-budget" label="Budget range">
-                <select className="select" id="s-budget" name="budget_range" defaultValue="Prefer to discuss">
-                  <option>Under $2,500</option><option>$2,500 – $10,000</option><option>$10,000 – $25,000</option><option>$25,000 – $50,000</option><option>$50,000+</option><option>In-kind only</option><option>Prefer to discuss</option>
-                </select>
-              </Field>
               <Checks label="Placements or zones you’re interested in" name="zones_of_interest" options={ZONE_OPTIONS} />
               <Checks label="Your goals" name="goals" options={GOALS} />
               <Field id="s-msg" label="Tell us more" required error="Please write a message."><textarea className="textarea" id="s-msg" name="message" required placeholder="Your audience, activation ideas and timing…" /></Field>

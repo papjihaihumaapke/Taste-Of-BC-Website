@@ -23,7 +23,7 @@ export default function WhatsOn() {
             <img className="split-img mb-6" src="/assets/img/stock/grilled-salmon.jpg" alt="Grilled salmon with vegetables" loading="lazy" />
             <span className="eyebrow">Eat</span>
             <h2>Local restaurants in tasting-size portions.</h2>
-            <p className="lead">Try a little of everything. Every booth serves a short menu priced in $1 coupons, so you can graze from BBQ to dumplings to dessert.</p>
+            <p className="lead">Try a little of everything. Every booth serves a short menu priced in $1 Tasty Bucks, so you can graze from BBQ to dumplings to dessert.</p>
             <Link className="btn mt-4" to="/menu">Browse the menu</Link>
           </div>
           <div>

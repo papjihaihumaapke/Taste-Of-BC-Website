@@ -12,11 +12,11 @@ export function CouponSheet({ interactive = false, torn = new Set(), onTear, fli
     <div className={"sheet" + (flipped ? " flipped" : "")} style={style}>
       <div className="sheet-face front" aria-hidden={flipped}>
         <div className="sheet-top"><img src="/assets/img/logo-red.png" alt="Taste of BC" />
-          <div className="meta"><b>20 × $1 COUPONS</b>{E.datesShort}<br />{E.city}</div></div>
+          <div className="meta"><b>20 × $1 TASTY BUCKS</b>{E.datesShort}<br />{E.city}</div></div>
         <div className="coupons">
           {Array.from({ length: E.couponsPerSheet }, (_, i) => (
             <button type="button" key={i} className={"coupon" + (torn.has(i) ? " torn" : "")} disabled={!interactive}
-              tabIndex={interactive ? 0 : -1} aria-label={`Tear off $1 coupon ${i + 1}`} onClick={() => onTear?.(i)}>
+              tabIndex={interactive ? 0 : -1} aria-label={`Tear off $1 Tasty Buck ${i + 1}`} onClick={() => onTear?.(i)}>
               <img className="mk" src="/assets/img/mark-circle.png" alt="" />
               <span className="val">${E.couponValue}</span><span className="lbl">Taste of BC</span>
               <span className="no">No. {String(i + 1).padStart(2, "0")}</span>
@@ -28,7 +28,7 @@ export function CouponSheet({ interactive = false, torn = new Set(), onTear, fli
       <div className="sheet-face back" aria-hidden={!flipped}>
         <div className="sheet-back-head"><span className="tagline">Food<span>•</span>Beverage<span>•</span>Entertainment</span><h4>Thank you to our partners</h4></div>
         <div className="sponsor-slots">
-          <div className="sponsor-slot big">Presenting partner</div>
+          <div className="sponsor-slot big">Signature sponsor</div>
           <div className="sponsor-slot med">Gate partner</div><div className="sponsor-slot med">Stage partner</div>
           {Array.from({ length: 8 }, (_, i) => <div className="sponsor-slot" key={i}>Sponsor logo</div>)}
         </div>
@@ -52,14 +52,14 @@ export function RestaurantCard({ r, full = false, footLink }) {
       <div className="r-body">
         <ul className="r-menu" aria-label="Menu">
           {(full ? r.menu : r.menu.slice(0, 3)).map(([n, p]) => (
-            <li key={n}><span>{n}</span><span className="dots" /><span className="pr">{p} <small>coupons</small></span></li>
+            <li key={n}><span>{n}</span><span className="dots" /><span className="pr">{p} <small>Tasty Bucks</small></span></li>
           ))}
         </ul>
         <div className="r-tags">
           {r.group === "licensed" && <span className="badge dark">19+</span>}
           {r.diet.map((d) => <span className="diet" title={DIET[d]} key={d}>{d}</span>)}
         </div>
-        <div className="r-foot"><span>1 coupon = $1</span>
+        <div className="r-foot"><span>1 Tasty Buck = $1</span>
           {footLink || <Link to={`/map?booth=${r.booth}`}><Icon name="pin" />Find on map</Link>}
         </div>
       </div>
@@ -97,7 +97,7 @@ export function SiteMap({ interactive = false, active, onSelect }) {
   const byBooth = Object.fromEntries(restaurants.map((r) => [r.booth, r]));
   const key = (id) => (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelect?.(id); } };
   return (
-    <svg className="map-svg" viewBox="0 0 1000 620" role="img" aria-label="Festival site map showing entrance arches, coupon booths, food booths, two stages, Beverage Garden, live art zone, family discovery area and facilities">
+    <svg className="map-svg" viewBox="0 0 1000 620" role="img" aria-label="Festival site map showing entrance arches, Tasty Bucks booths, food booths, two stages, Beverage Garden, live art zone, family discovery area and facilities">
       <rect width="1000" height="620" fill="#F4EDE4" rx="16" />
       <text x="500" y="30" textAnchor="middle" fontSize="12" fontWeight="800" fill="#5E5953" letterSpacing=".14em">PARKING · RIDESHARE · TRANSIT ↑</text>
       <rect x="60" y="70" width="880" height="490" rx="28" fill="#FCF8F3" stroke="#D6CEC5" strokeWidth="2" />
@@ -124,7 +124,7 @@ export function SiteMap({ interactive = false, active, onSelect }) {
         );
       })}
       <Poi x={560} y={110} ch="i" fill="#1A1A1A" lbl="Info" />
-      <Poi x={440} y={110} ch="C" fill="#C8102E" lbl="Coupons" />
+      <Poi x={440} y={110} ch="C" fill="#C8102E" lbl="Tasty Bucks" />
       <Poi x={110} y={290} ch="C" fill="#C8102E" />
       <Poi x={890} y={290} ch="C" fill="#C8102E" />
       <Poi x={620} y={470} ch="+" fill="#1E7A46" lbl="First aid" />

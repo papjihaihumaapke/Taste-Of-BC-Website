@@ -8,7 +8,7 @@ import { product, useStore } from "../lib/store.jsx";
   Replace the demo redirect below with a call to your server, e.g.
     const res = await fetch("/api/create-checkout-session", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items }) });
     const { url } = await res.json(); location.href = url;   // Stripe-hosted Checkout
-  Set success_url to /thank-you?session_id={CHECKOUT_SESSION_ID} and cancel_url to /coupons.
+  Set success_url to /thank-you?session_id={CHECKOUT_SESSION_ID} and cancel_url to /tasty-bucks.
   Never trust prices from the browser: look them up on the server by product id.
 */
 export function Checkout() {
@@ -31,7 +31,7 @@ export function Checkout() {
     <section className="center-screen" style={{ background: "var(--sand)" }}>
       <div className="redirect-card">
         {!items.length && !total ? (
-          <><span className="eyebrow">Checkout</span><h1 style={{ fontSize: "2rem" }}>Your cart is empty</h1><p className="muted">Add a coupon sheet or some merch to continue.</p><Link className="btn mt-4" to="/coupons">Buy coupons</Link></>
+          <><span className="eyebrow">Checkout</span><h1 style={{ fontSize: "2rem" }}>Your cart is empty</h1><p className="muted">Add a Tasty Bucks sheet or some merch to continue.</p><Link className="btn mt-4" to="/tasty-bucks">Buy Tasty Bucks</Link></>
         ) : (
           <>
             <div className="loader" aria-hidden="true" />
@@ -50,7 +50,7 @@ export function Checkout() {
 
 export function ThankYou() {
   let o = null; try { o = JSON.parse(sessionStorage.getItem("tobc-last-order")); } catch { /* ignore */ }
-  if (!o) o = { no: "TOBC-SAMPLE", date: new Date().toISOString(), items: [{ name: "Coupon sheet (20 × $1)", qty: 2, price: 20 }, { name: "Logo tee — Red", opt: "Size M", qty: 1, price: 30 }], total: 70 };
+  if (!o) o = { no: "TOBC-SAMPLE", date: new Date().toISOString(), items: [{ name: "Tasty Bucks sheet (20 × $1)", qty: 2, price: 20 }, { name: "Logo tee — Red", opt: "Size M", qty: 1, price: 30 }], total: 70 };
   return (
     <>
       <PageHero img="/assets/img/stock/picnic-pizza.jpg" eyebrow="Order confirmed" title="Thank you — see you in August!" lead="A receipt and your pickup QR code are on the way to your inbox." />
@@ -70,7 +70,7 @@ export function ThankYou() {
             <h2>Picking up your order</h2>
             <ul className="kbd-list mt-6">
               <li><Icon name="mail" /><div><strong>Check your email</strong><span>Your receipt includes a QR code for pickup.</span></div></li>
-              <li><Icon name="arch" /><div><strong>Coupon sheets</strong><span>Show your QR at any Coupon Booth — North, East or West Gate.</span></div></li>
+              <li><Icon name="arch" /><div><strong>Tasty Bucks sheets</strong><span>Show your QR at any Tasty Bucks Booth — North, East or West Gate.</span></div></li>
               <li><Icon name="store" /><div><strong>Merch</strong><span>Collect from the Info Booth by the North Gate.</span></div></li>
             </ul>
             <div className="row mt-6"><Link className="btn" to="/menu">Plan what to eat</Link><Link className="btn btn-secondary" to="/entertainment">See the schedule</Link></div>

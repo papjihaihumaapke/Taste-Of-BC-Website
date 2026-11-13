@@ -33,7 +33,7 @@ export default function Contact() {
                 <Field id="c-email" label="Email" required error="Enter a valid email address."><input className="input" id="c-email" name="email" type="email" required autoComplete="email" /></Field>
               </div>
               <Field id="c-topic" label="Topic">
-                <select className="select" id="c-topic" name="topic"><option>General question</option><option>Coupons & orders</option><option>Accessibility</option><option>Media</option><option>Vendors</option><option>Entertainers</option><option>Volunteering</option><option>Sponsorship</option></select>
+                <select className="select" id="c-topic" name="topic"><option>General question</option><option>Tasty Bucks & orders</option><option>Accessibility</option><option>Media</option><option>Vendors</option><option>Entertainers</option><option>Volunteering</option><option>Sponsorship</option></select>
               </Field>
               <Field id="c-msg" label="Message" required error="Please write a message."><textarea className="textarea" id="c-msg" name="message" required /></Field>
             </ValidatedForm>

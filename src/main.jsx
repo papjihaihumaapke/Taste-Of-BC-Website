@@ -39,7 +39,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="restaurants" element={<Navigate to="/menu/restaurants" replace />} />
             <Route path="entertainment" element={<Entertainment />} />
             <Route path="entertainers" element={<Entertainers />} />
-            <Route path="coupons" element={<Coupons />} />
+            <Route path="tasty-bucks" element={<Coupons />} />
+            <Route path="coupons" element={<Navigate to="/tasty-bucks" replace />} />
             <Route path="map" element={<MapPage />} />
             <Route path="visit" element={<Visit />} />
             <Route path="getting-there" element={<GettingThere />} />

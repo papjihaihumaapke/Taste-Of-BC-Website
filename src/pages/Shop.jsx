@@ -19,7 +19,7 @@ export default function Shop() {
   return (
     <>
       <PageHero img="/assets/img/stock/../merch-tote-mug.jpg" crumb="Shop" eyebrow="Official shop" title="Take a taste home."
-        lead="Festival totes, mugs and tees, plus coupon sheets and e-gifts. Merch ordered online is picked up at the Info Booth by the North Gate." />
+        lead="Festival totes, mugs and tees, plus Tasty Bucks sheets and e-gifts. Merch ordered online is picked up at the Info Booth by the North Gate." />
 
       <section className="section">
         <div className="container pd">
@@ -61,9 +61,9 @@ export default function Shop() {
 
       <section className="section white">
         <div className="container">
-          <div className="section-head split"><div><span className="eyebrow">All products</span><h2>Merch & coupons.</h2></div>
+          <div className="section-head split"><div><span className="eyebrow">All products</span><h2>Merch & Tasty Bucks.</h2></div>
             <div className="chips row" role="group" aria-label="Filter products">
-              {[["all", "All"], ["merch", "Merch"], ["coupon", "Coupons & gifts"]].map(([k, l]) => <button key={k} className="chip" aria-pressed={kind === k} onClick={() => setKind(k)}>{l}</button>)}
+              {[["all", "All"], ["merch", "Merch"], ["coupon", "Tasty Bucks & gifts"]].map(([k, l]) => <button key={k} className="chip" aria-pressed={kind === k} onClick={() => setKind(k)}>{l}</button>)}
             </div></div>
           <div className="grid grid-4">
             {shown.map((p) => (

@@ -8,7 +8,7 @@ export const PROMO_BENEFITS = [
   ["megaphone", "Promote your restaurant", "Four days in front of hungry festival crowds. Free admission brings everyone through the gates."],
   ["heart", "Win new regulars", "Sample-size dishes let guests taste your best food, then come find you after the festival."],
   ["star", "Featured online", "Your restaurant on our Menu page and festival social media."],
-  ["ticket", "Simple payment", "Guests pay in $1 coupons. Hand them in each night and we settle them with you after the festival."]
+  ["ticket", "Simple payment", "Guests pay in $1 Tasty Bucks. Hand them in each night and we settle them with you after the festival."]
 ];
 
 const JOIN = [

@@ -17,7 +17,7 @@ export default function Visit() {
           <div className="card"><div className="icon-tile"><Icon name="calendar" /></div><h4>When</h4><p className="mb-0">{E.datesLong}<br /><span className="muted">{E.hours}</span></p></div>
           <div className="card"><div className="icon-tile"><Icon name="pin" /></div><h4>Where</h4><p className="mb-0"><OrTbc value={E.venue} label="Venue" /><br /><span className="muted">{E.city}</span></p></div>
           <div className="card"><div className="icon-tile"><Icon name="arch" /></div><h4>Admission</h4><p className="mb-0">Free, all ages.<br /><span className="muted">Subject to capacity.</span></p></div>
-          <div className="card"><div className="icon-tile"><Icon name="ticket" /></div><h4>Food & drink</h4><p className="mb-0">$1 festival coupons.<br /><span className="muted">{E.couponRange} coupons per dish <Tbc /></span></p></div>
+          <div className="card"><div className="icon-tile"><Icon name="ticket" /></div><h4>Food & drink</h4><p className="mb-0">$1 Tasty Bucks.<br /><span className="muted">{E.couponRange} Tasty Bucks per dish <Tbc /></span></p></div>
         </div>
       </section>
 
@@ -34,7 +34,7 @@ export default function Visit() {
           <div className="info-grid">
             <div><Icon name="arch" /><div><strong>Free admission</strong><span>All ages, every day</span></div></div>
             <div><Icon name="heart" /><div><strong>Leashed pets welcome</strong><span>Keep pets on a leash</span></div></div>
-            <div><Icon name="card" /><div><strong>Tap to pay <Tbc /></strong><span>For coupons onsite</span></div></div>
+            <div><Icon name="card" /><div><strong>Tap to pay <Tbc /></strong><span>For Tasty Bucks onsite</span></div></div>
             <div><Icon name="wine" /><div><strong>All ages</strong><span>19+ in the Beverage Garden</span></div></div>
           </div>
           <p className="small muted mt-8 mb-0">More questions? See the <Link to="/faq">FAQ</Link>.</p>

@@ -14,7 +14,7 @@ export default function Faq() {
   return (
     <>
       <PageHero img="/assets/img/stock/crowd-lawn.jpg" crumb="FAQ" eyebrow="FAQ" title="Frequently asked questions."
-        lead="Admission, coupons, pets, hours and more. Can’t find your answer? We’re happy to help." />
+        lead="Admission, Tasty Bucks, pets, hours and more. Can’t find your answer? We’re happy to help." />
       <section className="section">
         <div className="container faq-layout">
           <div className="section-head">

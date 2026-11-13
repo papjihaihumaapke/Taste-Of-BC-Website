@@ -31,10 +31,12 @@ export const event = {
   admission: "Free, all ages, subject to capacity",
   pets: "Welcome on a leash",
   couponValue: 1,
-  couponRange: "2 to 8",  // TBC: coupons per sample-size dish
+  couponRange: "2 to 8",  // TBC: Tasty Bucks per sample-size dish
   couponsPerSheet: 20,
   sheetPrice: 20,
-  // Vendor tent fees, covering all 4 days
+  // Vendor tent sizes shown on the site. Prices are not published (user request, 2026-11-13).
+  tentSizes: ["10 × 10 ft", "10 × 20 ft"],
+  // Vendor tent fees, covering all 4 days. Kept for reference; not shown on the site.
   boothFees: [
     ["10 × 10 ft tent", 1250],
     ["10 × 20 ft tent", 2150]
@@ -101,7 +103,7 @@ export const highlights = [
 ];
 
 /* Food & drink lineup — generic placeholders until vendors are confirmed.
-   name = descriptive booth title (no business names), price = number of $1 coupons */
+   name = descriptive booth title (no business names), price = number of $1 Tasty Bucks */
 export const restaurants = [
   { id: 1,  name: "Smokehouse BBQ", cuisine: "BBQ & Grill", group: "food", booth: "A1", diet: ["GF"],
     menu: [["Brisket sandwich", 12], ["Pulled pork sliders (2)", 9], ["Smoked corn cup", 5]] },
@@ -139,8 +141,8 @@ export const restaurants = [
 
 /* Shop */
 export const products = [
-  { id: "sheet",  name: "Coupon sheet (20 × $1)", price: 20, img: null, kind: "coupon", note: "Pick up at any Coupon Booth" },
-  { id: "egift",  name: "Gift coupon sheet (e-gift)", price: 20, img: null, kind: "gift", note: "Emailed to the recipient" },
+  { id: "sheet",  name: "Tasty Bucks sheet (20 × $1)", price: 20, img: null, kind: "coupon", note: "Pick up at any Tasty Bucks Booth" },
+  { id: "egift",  name: "Gift Tasty Bucks sheet (e-gift)", price: 20, img: null, kind: "gift", note: "Emailed to the recipient" },
   { id: "tote-n", name: "Canvas tote — Natural", price: 25, img: "/assets/img/p-tote-natural.jpg", kind: "merch", note: "Heavy cotton canvas" },
   { id: "tote-r", name: "Canvas tote — Festival Red", price: 25, img: "/assets/img/p-tote-red.jpg", kind: "merch", note: "Heavy cotton canvas" },
   { id: "mug-w",  name: "Ceramic mug — White", price: 18, img: "/assets/img/p-mug-white.jpg", kind: "merch", note: "12 oz · dishwasher safe" },

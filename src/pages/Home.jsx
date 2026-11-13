@@ -33,7 +33,7 @@ function Hero() {
           <h1 id="hero-title">BC’s biggest food, beverage &amp; entertainment festival.</h1>
           <p className="sub">Four days of local restaurants, BC wines, live music and local artists — a not-for-profit celebration for the whole community.</p>
           <div className="hero-actions">
-            <Link className="btn btn-lg" to="/coupons"><Icon name="ticket" />Buy Food Coupons</Link>
+            <Link className="btn btn-lg" to="/tasty-bucks"><Icon name="ticket" />Buy Tasty Bucks</Link>
             <Link className="btn btn-lg btn-outline-light" to="/whats-on">See What’s On</Link>
           </div>
           <p className="hero-join">Restaurant, winery or beverage maker? <Link to="/vendors">Join the festival →</Link></p>
@@ -87,7 +87,7 @@ export const PhotoCards = ({ items, cols = "three-up" }) => (
 );
 
 const PARTNERS = [
-  { tier: "Presenting Partner", lead: true },
+  { tier: "Signature Sponsor", lead: true },
   { tier: "Stage Partner" },
   { tier: "Beverage Garden Partner" },
   { tier: "Sponsor" }, { tier: "Sponsor" }, { tier: "Sponsor" }, { tier: "Sponsor" }
@@ -159,17 +159,17 @@ export default function Home() {
             <div>
               <span className="eyebrow">How it works</span>
               <h2>Skip the line, eat more.</h2>
-              <p className="lead">Admission is free. Food and drinks are paid with $1 festival coupons.</p>
+              <p className="lead">Admission is free. Food and drinks are paid with $1 Tasty Bucks.</p>
             </div>
-            <Link className="link-arrow" to="/coupons">How coupons work</Link>
+            <Link className="link-arrow" to="/tasty-bucks">How Tasty Bucks work</Link>
           </div>
           <ol className="steps-row">
             <li><span className="n" aria-hidden="true">01</span><h3>Walk in free</h3><p>General admission is free for all ages on all {E.days} days, subject to capacity.</p></li>
-            <li><span className="n" aria-hidden="true">02</span><h3>Grab $1 coupons online or onsite</h3><p>Buy ahead online to skip the line, or pick some up at the festival <Tbc />.</p></li>
-            <li><span className="n" aria-hidden="true">03</span><h3>Trade {E.couponRange} coupons per dish</h3><p>Every vendor booth lists its sample-size dishes in coupons <Tbc />. Tear off what you need and hand them over.</p></li>
+            <li><span className="n" aria-hidden="true">02</span><h3>Grab $1 Tasty Bucks online or onsite</h3><p>Buy ahead online to skip the line, or pick some up at the festival <Tbc />.</p></li>
+            <li><span className="n" aria-hidden="true">03</span><h3>Trade {E.couponRange} Tasty Bucks per dish</h3><p>Every vendor booth lists its sample-size dishes in Tasty Bucks <Tbc />. Tear off what you need and hand them over.</p></li>
           </ol>
           <div className="coupon-cta">
-            <Link className="btn btn-lg" to="/coupons"><Icon name="ticket" />Buy Food Coupons</Link>
+            <Link className="btn btn-lg" to="/tasty-bucks"><Icon name="ticket" />Buy Tasty Bucks</Link>
             <span className="stripe-line"><Icon name="lock" />Payments secured by Stripe</span>
           </div>
         </div>
@@ -211,12 +211,12 @@ export default function Home() {
           <div>
             <span className="eyebrow">Countdown</span>
             <h2 id="cd-title">The gates open in…</h2>
-            <p>Walk in free and pay for food and drinks with $1 festival coupons. Buy online to skip the line.</p>
+            <p>Walk in free and pay for food and drinks with $1 Tasty Bucks. Buy online to skip the line.</p>
             <div className="mt-8"><Countdown /></div>
           </div>
           <nav className="icon-links" aria-label="Festival information">
             <Link to="/entertainment"><Icon name="music" />Entertainment schedule</Link>
-            <Link to="/coupons"><Icon name="ticket" />How coupons work</Link>
+            <Link to="/tasty-bucks"><Icon name="ticket" />How Tasty Bucks work</Link>
             <Link to="/map"><Icon name="map" />Festival map</Link>
             <Link to="/getting-there"><Icon name="train" />Getting there</Link>
             <Link to="/perform"><Icon name="star" />Perform at the festival</Link>
@@ -276,7 +276,7 @@ export default function Home() {
           <div className="info-grid mt-4">
             <div><Icon name="arch" /><div><strong>Free admission</strong><span>All ages, subject to capacity</span></div></div>
             <div><Icon name="heart" /><div><strong>Leashed pets welcome</strong><span>Keep pets on a leash</span></div></div>
-            <div><Icon name="card" /><div><strong>Tap to pay <Tbc /></strong><span>For coupons onsite</span></div></div>
+            <div><Icon name="card" /><div><strong>Tap to pay <Tbc /></strong><span>For Tasty Bucks onsite</span></div></div>
             <div><Icon name="wine" /><div><strong>All ages</strong><span>19+ in the Beverage Garden</span></div></div>
           </div>
         </div>

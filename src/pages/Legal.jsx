@@ -24,7 +24,7 @@ export function Legal() {
             <h2 id="privacy" style={{ marginTop: 0 }}>Privacy policy</h2>
             <p>Taste of BC (“we”, “us”) respects your privacy. This policy explains what personal information we collect, why, and how we protect it, in line with British Columbia’s Personal Information Protection Act (PIPA).</p>
             <h3>Information we collect</h3>
-            <ul><li>Contact details you provide (name, email, phone) via forms, applications or purchases.</li><li>Order details for coupon sheets and merchandise.</li><li>Basic, anonymised website analytics.</li></ul>
+            <ul><li>Contact details you provide (name, email, phone) via forms, applications or purchases.</li><li>Order details for Tasty Bucks sheets and merchandise.</li><li>Basic, anonymised website analytics.</li></ul>
             <h3>Payments</h3>
             <p>Payments are processed by Stripe. We never see or store your full card number.</p>
             <h3>How we use information</h3>
@@ -37,15 +37,15 @@ export function Legal() {
             <ul><li>Entry is free and subject to capacity and site rules.</li><li>The Beverage Garden is restricted to guests 19+ with valid government ID.</li><li>Dates, lineup, schedule and layout may change without notice.</li><li>Photography and filming may take place on site for promotional use.</li></ul>
 
             <h2 id="refunds">Refund policy</h2>
-            <h3>Coupon sheets</h3>
-            <ul><li>Unused coupon sheets bought online may be refunded up to [X] days before the festival.</li><li>Coupons are valid on all four festival days and have no cash value.</li><li>Torn, lost or stolen coupons cannot be replaced or refunded.</li><li>If the festival is cancelled, all online coupon orders are refunded in full.</li></ul>
+            <h3>Tasty Bucks sheets</h3>
+            <ul><li>Unused Tasty Bucks sheets bought online may be refunded up to [X] days before the festival.</li><li>Tasty Bucks are valid on all four festival days and have no cash value.</li><li>Torn, lost or stolen Tasty Bucks cannot be replaced or refunded.</li><li>If the festival is cancelled, all online Tasty Bucks orders are refunded in full.</li></ul>
             <h3>Merchandise</h3>
             <p>Unworn merchandise in original condition may be exchanged at the Info Booth during the festival, or returned within [X] days by contacting <a href={"mailto:" + E.email}>{E.email}</a>.</p>
 
             {/* TBC: full vendor terms & conditions to be supplied by the festival team / legal counsel */}
             <h2 id="vendor-terms">Vendor terms & conditions <Tbc /></h2>
             <p>The full vendor terms will be published here before applications close. They will cover:</p>
-            <ul><li>Tent fees for all {E.days} days: {E.boothFees.map(([s, p]) => `${s} $${p.toLocaleString("en-CA")}`).join(", ")}. Payment schedule and cancellations <Tbc /></li><li>Coupon redemption and payout after the festival</li><li>Food safety, permits and special event liquor licensing</li><li>Power, equipment and booth setup requirements <Tbc /></li><li>Insurance requirements <Tbc /></li></ul>
+            <ul><li>Tent bookings for all {E.days} days ({E.tentSizes.join(" or ")}), payment schedule and cancellations <Tbc /></li><li>Tasty Bucks redemption and payout after the festival</li><li>Food safety, permits and special event liquor licensing</li><li>Power, equipment and booth setup requirements <Tbc /></li><li>Insurance requirements <Tbc /></li></ul>
             <p>Questions? Contact the vendor team via <Link to="/vendors#questions">Vendor Opportunities</Link>.</p>
           </div>
         </div>

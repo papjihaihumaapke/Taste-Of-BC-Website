@@ -9,7 +9,7 @@ const NAV = [
   ["/whats-on", "What’s On"],
   ["/menu", "Food & Drink"],
   ["/entertainment", "Entertainment"],
-  ["/coupons", "Coupons"],
+  ["/tasty-bucks", "Tasty Bucks"],
   ["/visit", "Plan Your Visit"],
   ["/get-involved", "Get Involved"],
   ["/sponsorship", "Sponsors"]
@@ -44,7 +44,7 @@ function Header() {
           <button className="icon-btn" aria-label={`Open cart${count ? ` (${count} items)` : ""}`} onClick={() => setCartOpen(true)}>
             <Icon name="cart" /><span className="cart-count" data-n={count}>{count}</span>
           </button>
-          <Link className="btn btn-sm" to="/coupons"><Icon name="ticket" />Buy Coupons</Link>
+          <Link className="btn btn-sm" to="/tasty-bucks"><Icon name="ticket" />Buy Tasty Bucks</Link>
           <button className="icon-btn menu-toggle" aria-label="Open menu" aria-expanded={menu} aria-controls="mobileNav" onClick={() => setMenu(true)}><Icon name="menu" /></button>
         </div>
       </div></header>
@@ -59,7 +59,7 @@ function Header() {
             ))}
           </nav>
           <div className="panel-foot">
-            <Link className="btn btn-block" to="/coupons"><Icon name="ticket" />Buy coupons</Link>
+            <Link className="btn btn-block" to="/tasty-bucks"><Icon name="ticket" />Buy Tasty Bucks</Link>
             <p className="small muted mb-0 center">Free entry · {E.datesShort} · {E.city}</p>
           </div>
         </div>
@@ -100,7 +100,7 @@ function Footer() {
           </div>
           <nav aria-label="Festival"><h4>Festival</h4><ul>
             <li><Link to="/whats-on">What’s on</Link></li><li><Link to="/menu">Menu</Link></li>
-            <li><Link to="/entertainment">Entertainment & schedule</Link></li><li><Link to="/coupons">Food coupons</Link></li><li><Link to="/booklet">Info booklet</Link></li></ul></nav>
+            <li><Link to="/entertainment">Entertainment & schedule</Link></li><li><Link to="/tasty-bucks">Tasty Bucks</Link></li><li><Link to="/booklet">Info booklet</Link></li></ul></nav>
           <nav aria-label="Visit"><h4>Visit</h4><ul>
             <li><Link to="/getting-there">Getting there</Link></li><li><Link to="/map">Festival map</Link></li>
             <li><Link to="/accessibility">Accessibility</Link></li><li><Link to="/faq">FAQ</Link></li><li><Link to="/shop">Shop merch</Link></li></ul></nav>
@@ -146,7 +146,7 @@ function CartDrawer() {
         <div className="drawer-head"><h2 id="cartTitle">Your cart</h2><button className="icon-btn" aria-label="Close cart" ref={closeRef} onClick={() => setCartOpen(false)}><Icon name="x" /></button></div>
         <div className="drawer-body">
           {!items.length ? (
-            <div className="drawer-empty"><div className="icon-tile"><Icon name="cart" /></div><h3>Your cart is empty</h3><p className="muted">Entry is free. Grab a coupon sheet to start tasting.</p><Link className="btn" to="/coupons" onClick={() => setCartOpen(false)}>Buy coupons</Link></div>
+            <div className="drawer-empty"><div className="icon-tile"><Icon name="cart" /></div><h3>Your cart is empty</h3><p className="muted">Entry is free. Grab a Tasty Bucks sheet to start tasting.</p><Link className="btn" to="/tasty-bucks" onClick={() => setCartOpen(false)}>Buy Tasty Bucks</Link></div>
           ) : items.map((i) => {
             const p = product(i.id);
             return (
@@ -170,7 +170,7 @@ function CartDrawer() {
               <button className="btn btn-secondary btn-sm" type="submit">Apply</button></form>
             <div className="promo-msg err" aria-live="polite">{promo.msg}</div>
             <div className="sum-row"><span>Subtotal</span><span>{money(subtotal)}</span></div>
-            {coupons > 0 && <div className="sum-row"><span>Coupons included</span><span>{coupons} × $1</span></div>}
+            {coupons > 0 && <div className="sum-row"><span>Tasty Bucks included</span><span>{coupons} × $1</span></div>}
             <div className="sum-row"><span>Taxes & fees</span><span>Calculated at checkout</span></div>
             <div className="sum-row total"><span>Total</span><span>{money(subtotal)}</span></div>
             <Link className="btn btn-block btn-lg" to="/checkout" onClick={() => setCartOpen(false)}><Icon name="lock" />Secure checkout</Link>
@@ -185,14 +185,14 @@ function CartDrawer() {
 /* Unique <title> + meta description per page */
 const SITE = "Taste of BC 2027";
 const META = {
-  "/": [`${SITE} — BC’s Biggest Food, Beverage & Entertainment Festival`, `Free-admission food, beverage and entertainment festival in ${E.city}, ${E.datesShort}. Sample-size dishes for $1 coupons, BC wines, live music and local artists.`],
+  "/": [`${SITE} — BC’s Biggest Food, Beverage & Entertainment Festival`, `Free-admission food, beverage and entertainment festival in ${E.city}, ${E.datesShort}. Sample-size dishes for $1 Tasty Bucks, BC wines, live music and local artists.`],
   "/whats-on": [`What’s On | ${SITE}`, "Local restaurants, the Beverage Garden, live entertainment, local artists, chef demos and a Family Discovery Area — four days, free admission."],
-  "/menu": [`Menu | ${SITE}`, "Restaurants, food trucks and BC breweries, wineries and distilleries serving sample-size dishes for $1 coupons. Menus coming soon."],
-  "/menu/restaurants": [`Restaurants Menu | ${SITE}`, "Sample-size dishes from local BC restaurants, paid with $1 festival coupons."],
-  "/menu/food-trucks": [`Food Trucks Menu | ${SITE}`, "BC food trucks serving festival favourites, paid with $1 festival coupons."],
+  "/menu": [`Menu | ${SITE}`, "Restaurants, food trucks and BC breweries, wineries and distilleries serving sample-size dishes for $1 Tasty Bucks. Menus coming soon."],
+  "/menu/restaurants": [`Restaurants Menu | ${SITE}`, "Sample-size dishes from local BC restaurants, paid with $1 Tasty Bucks."],
+  "/menu/food-trucks": [`Food Trucks Menu | ${SITE}`, "BC food trucks serving festival favourites, paid with $1 Tasty Bucks."],
   "/menu/drinks": [`Breweries, Wineries & Distilleries | ${SITE}`, "BC craft beer, wine, cider and spirits in the 19+ Beverage Garden."],
   "/entertainment": [`Entertainment & Schedule | ${SITE}`, "Live music, dance, comedy, chef demos and family fun across four days. Lineup announced soon."],
-  "/coupons": [`Food & Drink Coupons | ${SITE}`, `How $1 festival coupons work, where to buy them and coupon bundles. Dishes range from ${E.couponRange} coupons.`],
+  "/tasty-bucks": [`Tasty Bucks | ${SITE}`, `How $1 Tasty Bucks work, where to buy them and Tasty Bucks bundles. Dishes range from ${E.couponRange} Tasty Bucks.`],
   "/visit": [`Plan Your Visit | ${SITE}`, `Dates, hours, admission and tips for Taste of BC in ${E.city}, ${E.datesShort}.`],
   "/getting-there": [`Getting There | ${SITE}`, `Directions to Taste of BC in ${E.city}: transit, bike, walking, parking and rideshare drop-off.`],
   "/accessibility": [`Accessibility | ${SITE}`, "Accessible entrances, washrooms, seating, service animals, quiet area and accommodation requests."],
@@ -203,18 +203,18 @@ const META = {
   "/volunteer": [`Volunteer | ${SITE}`, "Volunteer registration is open. Join the crew that makes Taste of BC happen."],
   "/sponsorship": [`Sponsorship Opportunities | ${SITE}`, "BC’s best outdoor food & beverage festival. Build a customized sponsorship package with Taste of BC."],
   "/partners": [`Partner Media Kit | ${SITE}`, "Media kit for restaurants, beverage producers, sponsors and donors: audience, festival zones, promotion and how to partner with Taste of BC."],
-  "/partners/restaurants": [`Restaurant Media Kit | ${SITE}`, "Why BC restaurants and food trucks should join Taste of BC: a big free-entry audience, promotion, chef stage time and simple coupon payments."],
+  "/partners/restaurants": [`Restaurant Media Kit | ${SITE}`, "Why BC restaurants and food trucks should join Taste of BC: a big free-entry audience, promotion, chef stage time and simple Tasty Bucks payments."],
   "/partners/beverage": [`Beverage Media Kit | ${SITE}`, "Media kit for BC wineries, breweries, cideries, distilleries and non-alcoholic beverage makers: pour in the 19+ Beverage Garden."],
   "/donate": [`Donate & Support | ${SITE}`, "Support Taste of BC, a not-for-profit, free-entry community festival. Donate, give in kind, donate a prize or fund a festival item."],
   "/media": [`Media | ${SITE}`, "Download Taste of BC logos and festival photos, and find press contacts."],
-  "/faq": [`FAQ | ${SITE}`, "Answers about free admission, $1 coupons, payment, pets, alcohol, hours, weather and accessibility."],
+  "/faq": [`FAQ | ${SITE}`, "Answers about free admission, $1 Tasty Bucks, payment, pets, alcohol, hours, weather and accessibility."],
   "/contact": [`Contact | ${SITE}`, "Contact Taste of BC: email, phone, office address, socials and a general contact form."],
   "/about": [`About | ${SITE}`, "Taste of BC is a not-for-profit, free-admission festival celebrating BC’s food community."],
   "/entertainers": [`Entertainer Portal | ${SITE}`, "Apply to perform or sign in to manage your Taste of BC booking."],
-  "/shop": [`Shop | ${SITE}`, "Taste of BC coupon sheets, gift coupons and festival merchandise."],
+  "/shop": [`Shop | ${SITE}`, "Taste of BC Tasty Bucks sheets, gift Tasty Bucks and festival merchandise."],
   "/booklet": [`Info Booklet | ${SITE}`, "The Taste of BC info booklet: schedule, map and partners."],
   "/legal": [`Privacy, Terms & Policies | ${SITE}`, "Taste of BC privacy policy, terms of use, refund policy and vendor terms."],
-  "/checkout": [`Checkout | ${SITE}`, "Secure checkout for Taste of BC coupons and merchandise."]
+  "/checkout": [`Checkout | ${SITE}`, "Secure checkout for Taste of BC Tasty Bucks and merchandise."]
 };
 function MetaManager() {
   const { pathname } = useLocation();
